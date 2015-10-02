@@ -1,5 +1,7 @@
 package com.chrisdufort.persistence;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,7 +11,7 @@ import com.chrisdufort.mailbean.MailBean;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.1-SNAPSHOT , Phase 2 - last modified 09/30/15
+ * @version 0.2.2-SNAPSHOT , Phase 2 - last modified 10/30/15
  * @since 0.2.0-SNAPSHOT
  */
 public class MailDAOImpl implements MailDAO{
@@ -28,7 +30,11 @@ public class MailDAOImpl implements MailDAO{
 
 	@Override
 	public ArrayList<MailBean> findAll() throws SQLException {
-		// TODO Auto-generated method stub
+		ArrayList<MailBean> mails = new ArrayList<>();
+		
+		String selectQuery = "MAIL_ID,FROM_FIELD,SUBJECT,TEXT,HTML,SENT_DATE,RECEIVE_DATE, MAIL_STATUS FROM MAILMESSAGE";
+		try(Connection connection = DriverManager.getConnection(url, user, password))
+		
 		return null;
 	}
 
