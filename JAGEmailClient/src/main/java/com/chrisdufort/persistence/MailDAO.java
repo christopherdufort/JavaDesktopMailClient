@@ -14,11 +14,15 @@ import java.util.ArrayList;
  * @author 1040570
  */
 import com.chrisdufort.mailbean.MailBean;
-
+/**
+ * @author Christopher Dufort
+ * @version 0.2.1-SNAPSHOT , Phase 2 - last modified 09/30/15
+ * @since 0.2.1-SNAPSHOT
+ */
 public interface MailDAO {
 	//Create (Insert)
-	public int create(MailBean mailBean) throws SQLException;
-	public int create(String folderName) throws SQLException;
+	public int createEmail(MailBean mailBean) throws SQLException;
+	public int createFolder(String folderName) throws SQLException;
 	
 	//Read (Select)
 	public ArrayList<MailBean> findAll() throws SQLException;

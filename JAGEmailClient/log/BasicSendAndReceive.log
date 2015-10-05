@@ -4,4 +4,39 @@
  * @since 0.0.1-SNAPSHOT
  */
 Emptied LOG
-2015-09-30
+2015-09-30[INFO ] 2015-10-04 22:18:47.063 [main] MailActionTest - Starting test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:19:17.464 [main] MailActionTest - MessageId is <752316209.2.1444011531665.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-04 22:19:33.266 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-04 22:19:33.267 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-04 22:19:33.366 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-04 22:19:33.367 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-04 22:19:33.368 [main] MailActionTest - Succeeded test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:19:33.369 [main] MailActionTest - Finished test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:19:33.370 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-04 22:20:52.371 [main] MailActionTest - Starting test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:21:22.167 [main] MailActionTest - MessageId is <1229161065.2.1444011656288.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-04 22:21:38.677 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-04 22:21:38.678 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-04 22:21:38.679 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-04 22:21:38.680 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-04 22:21:38.680 [main] MailActionTest - Succeeded test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:21:38.681 [main] MailActionTest - Finished test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:21:38.681 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-04 22:22:32.921 [main] MailActionTest - Starting test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:23:00.481 [main] MailActionTest - MessageId is <914356853.2.1444011758018.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-04 22:23:17.315 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-04 22:23:17.315 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-04 22:23:17.318 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-04 22:23:17.318 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-04 22:23:17.319 [main] MailActionTest - Succeeded test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:23:17.320 [main] MailActionTest - Finished test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:23:17.320 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-04 22:24:18.456 [main] MailActionTest - Starting test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:24:37.601 [main] MailActionTest - MessageId is <1073763441.2.1444011861997.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-04 22:24:56.892 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-04 22:24:56.892 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-04 22:24:56.893 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-04 22:24:56.894 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-04 22:24:56.894 [main] MailActionTest - Succeeded test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:24:56.895 [main] MailActionTest - Finished test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-04 22:24:56.895 [main] MailActionTest - ***********************************************************************************************

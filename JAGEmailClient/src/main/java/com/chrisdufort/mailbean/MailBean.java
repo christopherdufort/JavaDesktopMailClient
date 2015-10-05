@@ -1,5 +1,6 @@
 package com.chrisdufort.mailbean;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,13 +17,13 @@ import jodd.mail.EmailAttachment;
  * Custom Dawson Email MailBean, filled with many common mail fields including:
  * to, cc, bcc, from , subject, text message, html message, sent date, receive date, attachments
  * and some custom ones including folder and mailstatus.
- * This class adheards to the standard set by Java Beans including :
- * No param constructor, private fields, accessors and mutators (currently not serializable)
+ * This class adheres to the standard set by Java Beans including :
+ * No parameter constructor, private fields, accessors and mutators (currently not serializable)
  * 
  * This class maintains three constructors offering creation in various forms:
- * No paramater constructor: create emails with all fields initalized to default values(set manually)
- * Basic email constructor: create plain text emails with some fields inititalized to default others set.
- * Complex email constructor: Multipart emails with HTML and Attachments all fields neccisary. 
+ * No parameter constructor: create emails with all fields initialized to default values(set manually)
+ * Basic email constructor: create plain text emails with some fields initialized to default others set.
+ * Complex email constructor: Multipart emails with HTML and Attachments all fields necessary. 
  * 
  * When passing a reference to a setter it is best practice to declare it
  * final so that the setter cannot change the reference, there for all setters in this bean are final.
@@ -30,7 +31,7 @@ import jodd.mail.EmailAttachment;
  * ArrayLists do not require a setter instead using .add for the ArrayList api is sufficient.
  * 
  * @author Christopher Dufort
- * @version 0.2.1-SNAPSHOT , Phase 2 - last modified 09/30/15
+ * @version 0.2.4-SNAPSHOT , Phase 2 - last modified 10/04/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailBean {
@@ -288,12 +289,33 @@ public class MailBean {
 	public LocalDateTime getDateSent() {
 		return dateSent;
 	}
+	/**
+	 * Alternative getDateSent method that returns a Timestamp(for ease of use with DB)
+	 * Added in version 0.2.3
+	 * 
+	 * @return the dateSent
+	 * 				the send date of the email as a Timestamp
+	 */
+	public Timestamp getDateSentAsTimestamp() {
+		return Timestamp.valueOf(dateSent);
+	}
 
 	/**
-	 * @param dateSent the dateSent to set
+	 * @param dateSent 
+	 * 				the send date of the email as a LocalDateTime
 	 */
 	public void setDateSent(final LocalDateTime dateSent) {
 		this.dateSent = dateSent;
+	}
+	/**
+	 * Overloaded setDateSent that takes a TimeStamp (for use with DB methods)
+	 * Added in version 0.2.3
+	 * 
+	 * @param dateSent 
+	 * 				the send date of the email
+	 */
+	public void setDateSent(final Timestamp dateSent){
+		this.dateSent = dateSent.toLocalDateTime();
 	}
 	/**
 	 * @return the dateReceived
@@ -302,10 +324,30 @@ public class MailBean {
 		return dateReceived;
 	}
 	/**
-	 * @param dateReceived the dateReceived to set
+	 * Alternative getDateReceived method that returns a Timestamp(for ease of use with DB)
+	 * Added in version 0.2.3
+	 * 
+	 * @return the dateReceived
+	 */
+	public Timestamp getDateReceivedAsTimestamp() {
+		return Timestamp.valueOf(dateReceived);
+	}
+	/**
+	 * @param dateReceived 
+	 * 				the date the email was received, that will be set into bean.
 	 */
 	public void setDateReceived(final LocalDateTime dateReceived) {
 		this.dateReceived = dateReceived;
+	}
+	/**
+	 * Overload of dateReceived that takes a TimeStamp (for use with DB methods)
+	 * Added in version 0.2.3
+	 * 
+	 * @param dateReceived 
+	 * 				the date the email was received, that will be set into bean.
+	 */
+	public void setDateReceived(final Timestamp dateReceived) {
+		this.dateReceived = dateReceived.toLocalDateTime();
 	}
 	/**
 	 * There is no set when working with collections. When you get the ArrayList
