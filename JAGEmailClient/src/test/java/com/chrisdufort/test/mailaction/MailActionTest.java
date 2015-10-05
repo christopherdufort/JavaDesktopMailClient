@@ -30,7 +30,7 @@ import jodd.mail.EmailAttachmentBuilder;
  * FILLED.
  * 
  * @author Christopher Dufort
- * @version 0.2.1-SNAPSHOT , Phase 2 - last modified 09/24/15
+ * @version 0.2.5-SNAPSHOT , Phase 2 - last modified 10/05/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailActionTest {
@@ -60,7 +60,8 @@ public class MailActionTest {
 	// Blind(bcc) account
 	private MailConfigBean blindConfigBean = new MailConfigBean("imap.gmail.com", "jafg.blind@gmail.com",
 			"jafgblind514");
-	// Instantiation of test class
+	
+	// Instantiation of sendAndReceive class used to call instance methods.
 	private BasicSendAndReceive basicSendAndReceive = new BasicSendAndReceive();
 
 	/**

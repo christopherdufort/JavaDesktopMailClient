@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import com.chrisdufort.mailbean.MailBean;
 /**
  * @author Christopher Dufort
- * @version 0.2.1-SNAPSHOT , Phase 2 - last modified 09/30/15
+ * @version 0.2.5-SNAPSHOT , Phase 2 - last modified 10/05/15
  * @since 0.2.1-SNAPSHOT
  */
 public interface MailDAO {
@@ -26,6 +26,7 @@ public interface MailDAO {
 	
 	//Read (Select)
 	public ArrayList<MailBean> findAll() throws SQLException;
+	public ArrayList<String> findAllFolderNames() throws SQLException;
 	public ArrayList<MailBean> findByTo(String toField) throws SQLException;
 	public ArrayList<MailBean> findByFrom(String fromField) throws SQLException;
 	public ArrayList<MailBean> findByCc(String ccField) throws SQLException;
@@ -41,7 +42,7 @@ public interface MailDAO {
 	 public int updateFolderName(int idOfFolder, String newFolderName) throws SQLException;
 	
 	//Delete
-	 public int deleteMail(int MailId) throws SQLException; 
-	 public int deleteFolder(int folderId) throws SQLException;
+	 public int deleteMail(int MailId) throws SQLException;  //TODO ALSO BY OTHER?
+	 public int deleteFolder(String folderName) throws SQLException; //TODO ALSO by ID?
 		
 }

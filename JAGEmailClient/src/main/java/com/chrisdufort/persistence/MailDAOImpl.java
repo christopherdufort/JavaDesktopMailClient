@@ -22,14 +22,14 @@ import jodd.mail.att.FileAttachment;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.4-SNAPSHOT , Phase 2 - last modified 10/04/15
+ * @version 0.2.5-SNAPSHOT , Phase 2 - last modified 10/05/15
  * @since 0.2.0-SNAPSHOT
  */
 public class MailDAOImpl implements MailDAO{
 	private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
-	private final String url = "jdbc:mysql://localhost:3306/MAILDB";
-	private final String user = "chris";
-	private final String password= "dufort";
+	private final String url = "jdbc:mysql://localhost:3306/maildb";
+	private final String user = "root";
+	private final String password= ""; //FIXME create cutom user and give permissions
 	
 	public MailDAOImpl(){
 		super();
@@ -37,15 +37,17 @@ public class MailDAOImpl implements MailDAO{
 			
 	@Override
 	public int createEmail(MailBean mailBean) throws SQLException {
-		int insertedRows = 0;
+		int insertedRows = -1;
 		String createEmailInsert = "INSERT INTO email(from_field, subject,text,html,sent_date,receive_date, folder_id, mail_status)"
 								+ "VALUES(?,?,?,?,?,?,?,?)";
+		String lastIdQuery = "SELECT LAST_INSERT_ID();";
 		String createRecipientInsert = "INSERT INTO recipient(address, address_type, email_id)"
 									+ "VALUES (?,?,?)";
 		String createAttachmentInsert = "INSERT INTO attachment(content_id, attach_name, attach_size, content, email_id)"
 										+ "VALUES (?,?,?,?,?)";
 		try (Connection connection = DriverManager.getConnection(url,user,password);
 				PreparedStatement ps1 = connection.prepareStatement(createEmailInsert);
+				PreparedStatement ps= connection.prepareStatement(lastIdQuery); //TODO does this need to be prepared?
 				PreparedStatement ps2 = connection.prepareStatement(createRecipientInsert);
 				PreparedStatement ps3 = connection.prepareStatement(createAttachmentInsert);
 				) 
@@ -56,8 +58,8 @@ public class MailDAOImpl implements MailDAO{
 			ps1.setString(3, mailBean.getTextMessageField());
 			ps1.setString(4, mailBean.getHtmlMessageField());
 			ps1.setTimestamp(5, mailBean.getDateSentAsTimestamp());
-			//TODO how do do i handle folder id?
-			ps1.setTimestamp(6, mailBean.getDateReceivedAsTimestamp());
+			//ps1.setInt(6, x); TODO fix this
+			ps1.setTimestamp(7, mailBean.getDateReceivedAsTimestamp());
 			ps1.setInt(8, mailBean.getMailStatus());
 			
 			for(String address : mailBean.getToField())
@@ -97,6 +99,7 @@ public class MailDAOImpl implements MailDAO{
 			}
 			
 			insertedRows += ps1.executeUpdate();
+
 			insertedRows += ps2.executeUpdate();
 			insertedRows += ps3.executeUpdate();	
 			connection.commit();
@@ -105,6 +108,25 @@ public class MailDAOImpl implements MailDAO{
 		return insertedRows;
 	}
 
+	private int retrieveFolderID(String folderName) throws SQLException{
+		int idOfFolder = -1;
+		String selectFolderIdQuery = "SELECT folder_id"
+									+ "FROM folder"
+									+ "WHERE folder_name =?";
+		try(Connection connection = DriverManager.getConnection(url, user, password);
+				PreparedStatement prepStmt = connection.prepareStatement(selectFolderIdQuery);)
+		{	
+			prepStmt.setString(1, folderName);
+			try(ResultSet resultSet = prepStmt.executeQuery();)
+			{
+				while(resultSet.next())
+				{
+					idOfFolder = resultSet.getInt("folder_name");
+				}
+			}
+		}	
+		return idOfFolder;
+	}
 	@Override
 	public int createFolder(String folderName) throws SQLException {
 		int insertedRows = 0;
@@ -138,7 +160,29 @@ public class MailDAOImpl implements MailDAO{
 		log.info("finDAll() returned " + foundEmails.size() + " emails");
 		return foundEmails;
 	}
-
+	
+	@Override
+	public ArrayList<String> findAllFolderNames() throws SQLException{
+		ArrayList<String> folderNames = new ArrayList<>();
+		//ORDER BY included because folder_name is UNIQUE and becomes incorrectly ordered because of InnoDB
+		String findFolderQuery = "SELECT folder_name "
+								+ "FROM folder "
+								+ "ORDER BY folder_id";
+		try(Connection connection = DriverManager.getConnection(url, user, password);
+				PreparedStatement prepStmt = connection.prepareStatement(findFolderQuery);) //TODO does not need to be a prepared statement
+		{	
+			try(ResultSet resultSet = prepStmt.executeQuery();)
+			{
+				while(resultSet.next())
+				{	
+					folderNames.add(resultSet.getString("folder_name"));
+				}
+			}
+		}			
+		return folderNames;
+		
+	}
+	
 	private ArrayList<MailBean> createMailBeans(ResultSet resultSet) throws SQLException {
 		ArrayList<MailBean> createdEmails = new ArrayList<>();
 		
@@ -415,7 +459,7 @@ public class MailDAOImpl implements MailDAO{
 
 	@Override
 	public int updateFolderInBean(int idOfMailBean, String folderName) throws SQLException {
-		int rowsUpdated =0;
+		int rowsUpdated = -1;
 		String folderInBeanUpdate = "UPDATE email SET email.folder_id = folder.folder_id "
 				+ "WHERE email.email_id = ? "
 				+ "AND folder.folder_name = ?";
@@ -434,7 +478,7 @@ public class MailDAOImpl implements MailDAO{
 
 	@Override
 	public int updateFolderName(int idOfFolder, String newFolderName) throws SQLException {
-		int rowsUpdated =0;
+		int rowsUpdated = -1;
 		String folderNameUpdate = "UPDATE folder SET folder_name = ? "
 				+ "WHERE folder.folder_id = ?";
 		
@@ -452,7 +496,7 @@ public class MailDAOImpl implements MailDAO{
 
 	@Override
 	public int deleteMail(int MailId) throws SQLException {
-		int rowsDeleted = 0;
+		int rowsDeleted = -1;
 		String deleteMailQuery = "DELETE FROM email "
 							+ "WHERE email_id = ?";
 
@@ -467,15 +511,15 @@ public class MailDAOImpl implements MailDAO{
 	}
 
 	@Override
-	public int deleteFolder(int folderId) throws SQLException {
-		int rowsDeleted = 0;
+	public int deleteFolder(String folderName) throws SQLException {
+		int rowsDeleted = -1;
 		String deleteFolderQuery = "DELETE FROM folder "
-									+ "WHERE folder_id = ?";
+									+ "WHERE folder_name = ?";
 
 		try (Connection connection = DriverManager.getConnection(url, user, password);
 				PreparedStatement prepStmt = connection.prepareStatement(deleteFolderQuery);) 
 		{
-			prepStmt.setInt(1, folderId);
+			prepStmt.setString(1, folderName);
 			rowsDeleted = prepStmt.executeUpdate();
 		}
 		log.info("deleteFolder() deleted " + rowsDeleted + " # of records");

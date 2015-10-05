@@ -40,3 +40,107 @@ Emptied LOG
 [INFO ] 2015-10-04 22:24:56.894 [main] MailActionTest - Succeeded test [testComplexSendWithMultipleFieldsEmail]
 [INFO ] 2015-10-04 22:24:56.895 [main] MailActionTest - Finished test [testComplexSendWithMultipleFieldsEmail]
 [INFO ] 2015-10-04 22:24:56.895 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-05 13:26:09.923 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:26:10.700 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:26:10.700 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, drafts]> but was:<[]>
+[INFO ] 2015-10-05 13:26:10.700 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:26:10.700 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:27:42.411 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:27:43.449 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:27:43.453 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, drafts]> but was:<[]>
+[INFO ] 2015-10-05 13:27:43.453 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:27:43.453 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:29:24.037 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:29:24.908 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:29:24.924 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, drafts]> but was:<[]>
+[INFO ] 2015-10-05 13:29:24.924 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:29:24.924 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:30:31.784 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[WARN ] 2015-10-05 13:30:32.528 [main] DemoTestCase - 0
+[ERROR] 2015-10-05 13:30:32.531 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:30:32.532 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, drafts]> but was:<[]>
+[INFO ] 2015-10-05 13:30:32.533 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:30:32.534 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:32:47.924 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:32:48.754 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:32:48.754 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, drafts]> but was:<[]>
+[INFO ] 2015-10-05 13:32:48.754 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:32:48.754 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:33:57.935 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:33:58.661 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:33:58.665 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, drafts]> but was:<[inbox, sent, draft]>
+[INFO ] 2015-10-05 13:33:58.667 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:33:58.668 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:34:54.120 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:34:54.954 [main] DemoTestCase - Succeeded test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:34:54.954 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:34:54.954 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:40:22.107 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:40:22.946 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:40:22.946 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, draft]> but was:<[draft, inbox, sent]>
+[INFO ] 2015-10-05 13:40:22.946 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:40:22.946 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:43:30.357 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:43:30.955 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:43:30.955 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, draft]> but was:<[]>
+[INFO ] 2015-10-05 13:43:30.955 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:43:30.955 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:56:39.237 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:56:40.065 [main] DemoTestCase - SQLException occured in testFindAllFolderNames()
+com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'BY folder_id' at line 1
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:1.8.0_51]
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62) ~[?:1.8.0_51]
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:1.8.0_51]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422) ~[?:1.8.0_51]
+	at com.mysql.jdbc.Util.handleNewInstance(Util.java:400) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.Util.getInstance(Util.java:383) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.SQLError.createSQLException(SQLError.java:980) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3847) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.MysqlIO.checkErrorPacket(MysqlIO.java:3783) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.MysqlIO.sendCommand(MysqlIO.java:2447) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.MysqlIO.sqlQueryDirect(MysqlIO.java:2594) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.ConnectionImpl.execSQL(ConnectionImpl.java:2545) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.PreparedStatement.executeInternal(PreparedStatement.java:1901) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.mysql.jdbc.PreparedStatement.executeQuery(PreparedStatement.java:2002) ~[mysql-connector-java-5.1.36.jar:5.1.36]
+	at com.chrisdufort.persistence.MailDAOImpl.findAllFolderNames(MailDAOImpl.java:174) ~[classes/:?]
+	at com.chrisdufort.testcases.DemoTestCase.testFindAllFolderNames(DemoTestCase.java:72) [test-classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at org.junit.runners.model.FrameworkMethod$1.runReflectiveCall(FrameworkMethod.java:50) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.12.jar:4.12]
+	at org.junit.runners.model.FrameworkMethod.invokeExplosively(FrameworkMethod.java:47) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.InvokeMethod.evaluate(InvokeMethod.java:17) [junit-4.12.jar:4.12]
+	at org.junit.internal.runners.statements.RunBefores.evaluate(RunBefores.java:26) [junit-4.12.jar:4.12]
+	at org.junit.rules.TestWatcher$1.evaluate(TestWatcher.java:55) [junit-4.12.jar:4.12]
+	at org.junit.rules.RunRules.evaluate(RunRules.java:20) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runLeaf(ParentRunner.java:325) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:78) [junit-4.12.jar:4.12]
+	at org.junit.runners.BlockJUnit4ClassRunner.runChild(BlockJUnit4ClassRunner.java:57) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:290) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:71) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:288) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:58) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:268) [junit-4.12.jar:4.12]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:363) [junit-4.12.jar:4.12]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.execute(JUnit4Provider.java:283) [surefire-junit4-2.18.1.jar:2.18.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeWithRerun(JUnit4Provider.java:173) [surefire-junit4-2.18.1.jar:2.18.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.executeTestSet(JUnit4Provider.java:153) [surefire-junit4-2.18.1.jar:2.18.1]
+	at org.apache.maven.surefire.junit4.JUnit4Provider.invoke(JUnit4Provider.java:128) [surefire-junit4-2.18.1.jar:2.18.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:203) [surefire-booter-2.18.1.jar:2.18.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:155) [surefire-booter-2.18.1.jar:2.18.1]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.18.1.jar:2.18.1]
+[ERROR] 2015-10-05 13:56:40.081 [main] DemoTestCase - Failed test [testFindAllFolderNames]
+[ERROR] 2015-10-05 13:56:40.081 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindAllFolderNames() failed due to unequal folder name lists expected:<[inbox, sent, draft]> but was:<null>
+[INFO ] 2015-10-05 13:56:40.081 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:56:40.081 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 13:57:37.414 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:57:38.103 [main] DemoTestCase - Succeeded test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:57:38.103 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-05 13:57:38.103 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-05 14:12:32.275 [main] DemoTestCase - Starting test [testDeleteFolder]
+[INFO ] 2015-10-05 14:12:33.020 [main] MailDAOImpl - deleteFolder() deleted 1 # of records
+[INFO ] 2015-10-05 14:12:33.020 [main] DemoTestCase - Succeeded test [testDeleteFolder]
+[INFO ] 2015-10-05 14:12:33.020 [main] DemoTestCase - Finished test [testDeleteFolder]
+[INFO ] 2015-10-05 14:12:33.020 [main] DemoTestCase - ***********************************************************************************************
