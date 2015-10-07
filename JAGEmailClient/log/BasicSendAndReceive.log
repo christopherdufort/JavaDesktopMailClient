@@ -144,3 +144,48 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in 
 [INFO ] 2015-10-05 14:12:33.020 [main] DemoTestCase - Succeeded test [testDeleteFolder]
 [INFO ] 2015-10-05 14:12:33.020 [main] DemoTestCase - Finished test [testDeleteFolder]
 [INFO ] 2015-10-05 14:12:33.020 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:06:35.774 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:06:36.356 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:06:36.356 [main] DemoTestCase - Failure reason : com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'folder_name ='Drafts'' at line 1
+[INFO ] 2015-10-07 15:06:36.356 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:06:36.356 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:18:41.405 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:18:42.033 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:18:42.033 [main] DemoTestCase - Failure reason : com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'folder_name ='draft'' at line 1
+[INFO ] 2015-10-07 15:18:42.033 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:18:42.033 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:30:44.734 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:30:45.366 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:30:45.366 [main] DemoTestCase - Failure reason : java.sql.SQLException: No database selected
+[INFO ] 2015-10-07 15:30:45.366 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:30:45.366 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:31:48.007 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:31:48.638 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:31:48.638 [main] DemoTestCase - Failure reason : java.sql.SQLException: Column 'folder_name' not found.
+[INFO ] 2015-10-07 15:31:48.638 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:31:48.638 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:32:37.808 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:32:38.398 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:32:38.398 [main] DemoTestCase - Failure reason : com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect datetime value: '3' for column 'receive_date' at row 1
+[INFO ] 2015-10-07 15:32:38.398 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:32:38.398 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:35:58.417 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:35:59.017 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:35:59.017 [main] DemoTestCase - Failure reason : java.sql.SQLException: No value specified for parameter 1
+[INFO ] 2015-10-07 15:35:59.017 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:35:59.017 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:36:48.318 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:36:48.979 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:36:48.979 [main] DemoTestCase - Failure reason : java.sql.SQLException: No value specified for parameter 1
+[INFO ] 2015-10-07 15:36:48.979 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:36:48.979 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:39:13.261 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:39:14.195 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-07 15:39:14.195 [main] DemoTestCase - Failure reason : java.sql.SQLException: No value specified for parameter 1
+[INFO ] 2015-10-07 15:39:14.195 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:39:14.195 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-07 15:52:36.447 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:52:37.108 [main] MailDAOImpl - createEmail() inserted 1 emails
+[INFO ] 2015-10-07 15:52:37.108 [main] DemoTestCase - Succeeded test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:52:37.108 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-07 15:52:37.108 [main] DemoTestCase - ***********************************************************************************************

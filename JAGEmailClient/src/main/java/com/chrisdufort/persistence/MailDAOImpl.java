@@ -22,7 +22,7 @@ import jodd.mail.att.FileAttachment;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.5-SNAPSHOT , Phase 2 - last modified 10/05/15
+ * @version 0.2.6-SNAPSHOT , Phase 2 - last modified 10/07/15
  * @since 0.2.0-SNAPSHOT
  */
 public class MailDAOImpl implements MailDAO{
@@ -38,16 +38,15 @@ public class MailDAOImpl implements MailDAO{
 	@Override
 	public int createEmail(MailBean mailBean) throws SQLException {
 		int insertedRows = -1;
+		int emailId= 0;
 		String createEmailInsert = "INSERT INTO email(from_field, subject,text,html,sent_date,receive_date, folder_id, mail_status)"
 								+ "VALUES(?,?,?,?,?,?,?,?)";
-		String lastIdQuery = "SELECT LAST_INSERT_ID();";
 		String createRecipientInsert = "INSERT INTO recipient(address, address_type, email_id)"
 									+ "VALUES (?,?,?)";
 		String createAttachmentInsert = "INSERT INTO attachment(content_id, attach_name, attach_size, content, email_id)"
 										+ "VALUES (?,?,?,?,?)";
 		try (Connection connection = DriverManager.getConnection(url,user,password);
-				PreparedStatement ps1 = connection.prepareStatement(createEmailInsert);
-				PreparedStatement ps= connection.prepareStatement(lastIdQuery); //TODO does this need to be prepared?
+				PreparedStatement ps1 = connection.prepareStatement(createEmailInsert,PreparedStatement.RETURN_GENERATED_KEYS);
 				PreparedStatement ps2 = connection.prepareStatement(createRecipientInsert);
 				PreparedStatement ps3 = connection.prepareStatement(createAttachmentInsert);
 				) 
@@ -58,27 +57,33 @@ public class MailDAOImpl implements MailDAO{
 			ps1.setString(3, mailBean.getTextMessageField());
 			ps1.setString(4, mailBean.getHtmlMessageField());
 			ps1.setTimestamp(5, mailBean.getDateSentAsTimestamp());
-			//ps1.setInt(6, x); TODO fix this
-			ps1.setTimestamp(7, mailBean.getDateReceivedAsTimestamp());
+			ps1.setTimestamp(6, mailBean.getDateReceivedAsTimestamp());
+			ps1.setInt(7, retrieveFolderID(mailBean.getFolder()));
 			ps1.setInt(8, mailBean.getMailStatus());
+			
+			insertedRows += ps1.executeUpdate();
+			
+			ResultSet results =ps1.getGeneratedKeys();
+			if (results != null && results.next())
+				emailId = results.getInt(1);
 			
 			for(String address : mailBean.getToField())
 			{
 				ps2.setString(1, address);
 				ps2.setInt(2, 0);
-				//TODO how do do i handle email id?
+				ps2.setInt(3, emailId);
 			}
 			for(String address : mailBean.getCcField())
 			{
 				ps2.setString(1, address);
 				ps2.setInt(2, 1);
-				//TODO how do do i handle email id?
+				ps2.setInt(3, emailId);
 			}
 			for(String address : mailBean.getBccField())
 			{
 				ps2.setString(1, address);
 				ps2.setInt(2, 2);
-				//TODO how do do i handle email id?
+				ps2.setInt(3, emailId);
 			}
 			
 			for(EmailAttachment embed  : mailBean.getEmbedAttachments())
@@ -87,7 +92,7 @@ public class MailDAOImpl implements MailDAO{
 				ps3.setString(2, embed.getName());
 				ps3.setInt(3, embed.getSize());
 				ps3.setBytes(4, embed.toByteArray());
-				//TODO how do do i handle email id?
+				ps3.setInt(5, emailId);
 			}
 			for(EmailAttachment attach  : mailBean.getFileAttachments())
 			{
@@ -95,13 +100,12 @@ public class MailDAOImpl implements MailDAO{
 				ps3.setString(2, attach.getName());
 				ps3.setInt(3, attach.getSize());
 				ps3.setBytes(4, attach.toByteArray());
-				//TODO how do do i handle email id?
+				ps3.setInt(5, emailId);
 			}
-			
-			insertedRows += ps1.executeUpdate();
-
+					
 			insertedRows += ps2.executeUpdate();
-			insertedRows += ps3.executeUpdate();	
+			if (mailBean.getFileAttachments().size() > 0|| mailBean.getEmbedAttachments().size() > 0)
+				insertedRows += ps3.executeUpdate();	
 			connection.commit();
 		}
 		log.info("createEmail() inserted " + insertedRows + " emails");
@@ -110,9 +114,9 @@ public class MailDAOImpl implements MailDAO{
 
 	private int retrieveFolderID(String folderName) throws SQLException{
 		int idOfFolder = -1;
-		String selectFolderIdQuery = "SELECT folder_id"
-									+ "FROM folder"
-									+ "WHERE folder_name =?";
+		String selectFolderIdQuery = "SELECT folder_id "
+									+ "FROM folder "
+									+ "WHERE folder_name = ? ";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 				PreparedStatement prepStmt = connection.prepareStatement(selectFolderIdQuery);)
 		{	
@@ -121,7 +125,7 @@ public class MailDAOImpl implements MailDAO{
 			{
 				while(resultSet.next())
 				{
-					idOfFolder = resultSet.getInt("folder_name");
+					idOfFolder = resultSet.getInt("folder_id");
 				}
 			}
 		}	

@@ -30,7 +30,7 @@ import com.chrisdufort.test.MethodLogger;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.5-SNAPSHOT , Phase 2 - last modified 10/05/15
+ * @version 0.2.6-SNAPSHOT , Phase 2 - last modified 10/07/15
  * @since 0.2.4-SNAPSHOT
  */
 public class DemoTestCase {

@@ -31,7 +31,7 @@ import jodd.mail.EmailAttachment;
  * ArrayLists do not require a setter instead using .add for the ArrayList api is sufficient.
  * 
  * @author Christopher Dufort
- * @version 0.2.4-SNAPSHOT , Phase 2 - last modified 10/04/15
+ * @version 0.2.6-SNAPSHOT , Phase 2 - last modified 10/07/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailBean {
@@ -99,7 +99,7 @@ public class MailBean {
 		this.subjectField = "";
 		this.textMessageField = "";
 		this.htmlMessageField = ""; //Will override text message field making this a multipart message.
-		this.folder = "Drafts"; //Hold in draft(to be sent folder)
+		this.folder = "draft"; //Hold in draft(to be sent folder)
 		this.mailStatus = 0; //Manually set to ready to be sent status.
 		this.setDateSent(LocalDateTime.now()); //set to current time, will be overwritten when email is sent.
 		this.setDateReceived(LocalDateTime.now()); //set to current time, will be overwritten when email is received.
@@ -128,7 +128,7 @@ public class MailBean {
 		this.bccField = bccField;	
 		this.subjectField = subjectField;
 		this.textMessageField = textMessageField;
-		this.folder = "Drafts"; //Hold in draft(to be sent folder)
+		this.folder = "draft"; //Hold in draft(to be sent folder)
 		this.mailStatus = 0; //Manually set to ready to be sent status.
 		this.fileAttachments = new ArrayList<>(); //Prevent null pointer
 		this.embedAttachments = new ArrayList<>(); // Prevent null pointer
@@ -170,7 +170,7 @@ public class MailBean {
 		this.fileAttachments = fileAttachments;
 		this.embedAttachments = embedAttachments;
 	}
-	/**
+	/** 
 	 * @return the fromField
 	 * 
 	 */
