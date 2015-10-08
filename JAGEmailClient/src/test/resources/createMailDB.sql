@@ -45,10 +45,17 @@ CREATE TABLE recipient(
 	CONSTRAINT recipient_fk1 FOREIGN KEY (email_id) REFERENCES email(email_id) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
+--Following are mock data used to seed the database
 INSERT INTO folder(folder_name) 
 VALUES("inbox"),
 ("sent"),
 ("draft");
+
+INSERT INTO email (from_field, subject, text, folder_id, mail_status)
+VALUES ("first.from@email","First mock subject", "First mock email text content", 3,0);
+
+INSERT INTO email (from_field, subject, text, html, folder_id, mail_status)
+VALUES ("second.from@email","second mock subject", "second mock email text content", "<html> here is some html </html>", 3, 0);
 
 
 

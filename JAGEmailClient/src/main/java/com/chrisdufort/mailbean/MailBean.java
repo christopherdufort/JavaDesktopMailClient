@@ -297,7 +297,10 @@ public class MailBean {
 	 * 				the send date of the email as a Timestamp
 	 */
 	public Timestamp getDateSentAsTimestamp() {
-		return Timestamp.valueOf(dateSent);
+		if (dateSent == null) //Avoid valueOf throwing nullPointerException
+			return null;
+		else
+			return Timestamp.valueOf(dateSent);
 	}
 
 	/**
@@ -330,7 +333,10 @@ public class MailBean {
 	 * @return the dateReceived
 	 */
 	public Timestamp getDateReceivedAsTimestamp() {
-		return Timestamp.valueOf(dateReceived);
+		if (dateReceived == null)
+			return null;
+		else
+			return Timestamp.valueOf(dateReceived);
 	}
 	/**
 	 * @param dateReceived 

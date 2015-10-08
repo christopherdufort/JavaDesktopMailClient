@@ -22,7 +22,7 @@ import jodd.mail.att.FileAttachment;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.6-SNAPSHOT , Phase 2 - last modified 10/07/15
+ * @version 0.2.7-SNAPSHOT , Phase 2 - last modified 10/08/15
  * @since 0.2.0-SNAPSHOT
  */
 public class MailDAOImpl implements MailDAO{
@@ -37,13 +37,12 @@ public class MailDAOImpl implements MailDAO{
 			
 	@Override
 	public int createEmail(MailBean mailBean) throws SQLException {
-		int insertedRows = -1;
-		int emailId= 0;
-		String createEmailInsert = "INSERT INTO email(from_field, subject,text,html,sent_date,receive_date, folder_id, mail_status)"
+		int emailId = -1;
+		String createEmailInsert = "INSERT INTO email(from_field, subject,text,html,sent_date,receive_date, folder_id, mail_status) "
 								+ "VALUES(?,?,?,?,?,?,?,?)";
-		String createRecipientInsert = "INSERT INTO recipient(address, address_type, email_id)"
+		String createRecipientInsert = "INSERT INTO recipient(address, address_type, email_id) "
 									+ "VALUES (?,?,?)";
-		String createAttachmentInsert = "INSERT INTO attachment(content_id, attach_name, attach_size, content, email_id)"
+		String createAttachmentInsert = "INSERT INTO attachment(content_id, attach_name, attach_size, content, email_id) "
 										+ "VALUES (?,?,?,?,?)";
 		try (Connection connection = DriverManager.getConnection(url,user,password);
 				PreparedStatement ps1 = connection.prepareStatement(createEmailInsert,PreparedStatement.RETURN_GENERATED_KEYS);
@@ -58,12 +57,18 @@ public class MailDAOImpl implements MailDAO{
 			ps1.setString(4, mailBean.getHtmlMessageField());
 			ps1.setTimestamp(5, mailBean.getDateSentAsTimestamp());
 			ps1.setTimestamp(6, mailBean.getDateReceivedAsTimestamp());
-			ps1.setInt(7, retrieveFolderID(mailBean.getFolder()));
+			
+			int folderId = retrieveFolderID(mailBean.getFolder());
+			if (folderId == -1)
+				folderId = 1; //Default to inbox
+			ps1.setInt(7, folderId);
+			
 			ps1.setInt(8, mailBean.getMailStatus());
 			
-			insertedRows += ps1.executeUpdate();
+			ps1.executeUpdate();
 			
-			ResultSet results =ps1.getGeneratedKeys();
+			ResultSet results = ps1.getGeneratedKeys(); //Returns a result set of primary keys inserted.
+			
 			if (results != null && results.next())
 				emailId = results.getInt(1);
 			
@@ -72,18 +77,21 @@ public class MailDAOImpl implements MailDAO{
 				ps2.setString(1, address);
 				ps2.setInt(2, 0);
 				ps2.setInt(3, emailId);
+				ps2.executeUpdate();
 			}
 			for(String address : mailBean.getCcField())
 			{
 				ps2.setString(1, address);
 				ps2.setInt(2, 1);
 				ps2.setInt(3, emailId);
+				ps2.executeUpdate();
 			}
 			for(String address : mailBean.getBccField())
 			{
 				ps2.setString(1, address);
 				ps2.setInt(2, 2);
 				ps2.setInt(3, emailId);
+				ps2.executeUpdate();
 			}
 			
 			for(EmailAttachment embed  : mailBean.getEmbedAttachments())
@@ -93,6 +101,7 @@ public class MailDAOImpl implements MailDAO{
 				ps3.setInt(3, embed.getSize());
 				ps3.setBytes(4, embed.toByteArray());
 				ps3.setInt(5, emailId);
+				ps3.executeUpdate();
 			}
 			for(EmailAttachment attach  : mailBean.getFileAttachments())
 			{
@@ -101,15 +110,14 @@ public class MailDAOImpl implements MailDAO{
 				ps3.setInt(3, attach.getSize());
 				ps3.setBytes(4, attach.toByteArray());
 				ps3.setInt(5, emailId);
+				ps3.executeUpdate();
 			}
 					
-			insertedRows += ps2.executeUpdate();
-			if (mailBean.getFileAttachments().size() > 0|| mailBean.getEmbedAttachments().size() > 0)
-				insertedRows += ps3.executeUpdate();	
+			//if (mailBean.getFileAttachments().size() > 0|| mailBean.getEmbedAttachments().size() > 0) FIXME delete this line	
 			connection.commit();
 		}
-		log.info("createEmail() inserted " + insertedRows + " emails");
-		return insertedRows;
+		log.info("createEmail() inserted an email with the id of " + emailId);
+		return emailId;
 	}
 
 	private int retrieveFolderID(String folderName) throws SQLException{
@@ -134,7 +142,7 @@ public class MailDAOImpl implements MailDAO{
 	@Override
 	public int createFolder(String folderName) throws SQLException {
 		int insertedRows = 0;
-		String createFolderInsert = "INSERT INTO folder(folder_name)"
+		String createFolderInsert = "INSERT INTO folder(folder_name) "
 							+ "VALUES(?)";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(createFolderInsert);)
@@ -151,8 +159,8 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findAll() throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findAllQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id";
+		String findAllQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(findAllQuery);)
 		{
@@ -161,7 +169,7 @@ public class MailDAOImpl implements MailDAO{
 				foundEmails = createMailBeans(resultSet);
 			}
 		}
-		log.info("finDAll() returned " + foundEmails.size() + " emails");
+		log.info("findAll() returned " + foundEmails.size() + " emails");
 		return foundEmails;
 	}
 	
@@ -193,13 +201,17 @@ public class MailDAOImpl implements MailDAO{
 		try{
 			while(resultSet.next()){
 				MailBean mail = new MailBean();
-				mail.setId(resultSet.getInt("mail_id"));
+				mail.setId(resultSet.getInt("email_id"));
 				mail.setFromField(resultSet.getString("from_field"));
 				mail.setSubjectField(resultSet.getString("subject"));
-				mail.setTextMessageField(resultSet.getString("text"));
-				mail.setHtmlMessageField(resultSet.getString("html"));
-				mail.setDateSent(resultSet.getTimestamp("sent_date"));
-				mail.setDateReceived(resultSet.getTimestamp("receive_date"));
+				if (resultSet.getString("text") != null)
+					mail.setTextMessageField(resultSet.getString("text"));
+				if (resultSet.getString("html") != null)
+					mail.setHtmlMessageField(resultSet.getString("html"));
+				if (resultSet.getTimestamp("sent_date") != null)
+					mail.setDateSent(resultSet.getTimestamp("sent_date"));
+				if (resultSet.getTimestamp("receive_date") != null)
+					mail.setDateReceived(resultSet.getTimestamp("receive_date"));
 				mail.setFolder(resultSet.getString("folder_name"));
 				mail.setMailStatus(resultSet.getInt("mail_status"));
 				findAssociatedRecipient(mail);
@@ -214,8 +226,8 @@ public class MailDAOImpl implements MailDAO{
 	}
 	
 	private void findAssociatedRecipient(MailBean mail) throws SQLException{
-		String recipientQuery = "SELECT address, address_type"
-								+ "FROM email JOIN recipient ON email.id = recipient.email_id";
+		String recipientQuery = "SELECT address, address_type "
+								+ "FROM email JOIN recipient ON email.email_id = recipient.email_id";
 		
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 				PreparedStatement prepStmt = connection.prepareStatement(recipientQuery);)
@@ -243,8 +255,8 @@ public class MailDAOImpl implements MailDAO{
 	}
 	
 	private void findAssociatedAttachments(MailBean mail) throws SQLException{
-		String attachmentQuery = "SELECT conted_id, attach_name, attach_size, content"
-				+ "FROM email JOIN attachment ON email.id = attachment.email_id";
+		String attachmentQuery = "SELECT content_id, attach_name, attach_size, content "
+				+ "FROM email JOIN attachment ON email.email_id = attachment.email_id";
 
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(attachmentQuery);)
@@ -277,9 +289,9 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findByTo(String toField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
-						   + "JOIN recipient ON mail.email_id = recipient.email_id"
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
+						   + "JOIN recipient ON email.email_id = recipient.email_id "
 						   + "WHERE recipient.adress_type = 0 "
 						   + "AND recipient.address = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
@@ -299,9 +311,9 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findByFrom(String fromField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
-						   + "WHERE mail.from_field = ?";
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
+						   + "WHERE email.from_field = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
 		{
@@ -319,9 +331,9 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findByCc(String ccField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
-						   + "JOIN recipient ON mail.email_id = recipient.email_id"
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
+						   + "JOIN recipient ON email.email_id = recipient.email_id "
 						   + "WHERE recipient.adress_type = 1 "
 						   + "AND recipient.address = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
@@ -341,9 +353,9 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findByBcc(String bccField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
-						   + "JOIN recipient ON mail.email_id = recipient.email_id"
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
+						   + "JOIN recipient ON email.email_id = recipient.email_id "
 						   + "WHERE recipient.adress_type = 1 "
 						   + "AND recipient.address = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
@@ -363,9 +375,9 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findBySubject(String subject) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
-						   + "WHERE mail.subject = ?";
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
+						   + "WHERE email.subject = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
 		{
@@ -384,9 +396,9 @@ public class MailDAOImpl implements MailDAO{
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		Timestamp timeStamp = Timestamp.valueOf(sentDate);
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
-						   + "WHERE mail.sent_date = ?";
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
+						   + "WHERE email.sent_date = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
 		{
@@ -405,9 +417,9 @@ public class MailDAOImpl implements MailDAO{
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		Timestamp timeStamp = Timestamp.valueOf(receivedDate);
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
-						   + "WHERE mail.receive_date = ?";
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
+						   + "WHERE email.receive_date = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
 		{
@@ -425,8 +437,8 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findByFolder(String folderName) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
 						   + "WHERE folder.folder_name = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
@@ -445,9 +457,9 @@ public class MailDAOImpl implements MailDAO{
 	public MailBean findByID(int mailId) throws SQLException {
 		MailBean foundEmail = new MailBean();
 		
-		String findByDateQuery = "SELECT mail_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM mail JOIN folder ON mail.folder_id = folder.folder_id"
-						   + "WHERE mail.email_id = ?";
+		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
+						   + "WHERE email.email_id = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
 			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
 		{
@@ -463,38 +475,43 @@ public class MailDAOImpl implements MailDAO{
 
 	@Override
 	public int updateFolderInBean(int idOfMailBean, String folderName) throws SQLException {
-		int rowsUpdated = -1;
-		String folderInBeanUpdate = "UPDATE email SET email.folder_id = folder.folder_id "
-				+ "WHERE email.email_id = ? "
-				+ "AND folder.folder_name = ?";
+		int numberOfFoldersChanged = -1;
+		int folderId = retrieveFolderID(folderName);
+		
+		String folderInBeanUpdate = "UPDATE email SET email.folder_id = ? "
+				+ "WHERE email.email_id = ?";
 		
 		try (Connection connection = DriverManager.getConnection(url,user,password);
 				PreparedStatement prepStmt = connection.prepareStatement(folderInBeanUpdate);)
 		{
-			prepStmt.setInt(1, idOfMailBean);
-			prepStmt.setString(2, folderName);
+			prepStmt.setInt(1, folderId);
+			prepStmt.setInt(2, idOfMailBean);
 			
-			rowsUpdated = prepStmt.executeUpdate();
+			numberOfFoldersChanged = prepStmt.executeUpdate();
 		}
-		log.info("updateFolderInBean() updated " + rowsUpdated + " rows");
-		return rowsUpdated;
+		log.info("updateFolderInBean() if it existed modified the folder in email with email_id of " + idOfMailBean + " to have a folder id of " + folderId);
+		return numberOfFoldersChanged;
 	}
 
 	@Override
 	public int updateFolderName(int idOfFolder, String newFolderName) throws SQLException {
 		int rowsUpdated = -1;
-		String folderNameUpdate = "UPDATE folder SET folder_name = ? "
-				+ "WHERE folder.folder_id = ?";
-		
-		try (Connection connection = DriverManager.getConnection(url,user,password);
-				PreparedStatement prepStmt = connection.prepareStatement(folderNameUpdate);)
+		if ( idOfFolder > 1) //Prevents request of negative id or overwriting of inbox[0] or sent[1] folder names.
 		{
-			prepStmt.setString(1, newFolderName);
-			prepStmt.setInt(2, idOfFolder);
+			String folderNameUpdate = "UPDATE folder SET folder_name = ? "
+					+ "WHERE folder.folder_id = ?";
 			
-			rowsUpdated = prepStmt.executeUpdate();
+			try (Connection connection = DriverManager.getConnection(url,user,password);
+					PreparedStatement prepStmt = connection.prepareStatement(folderNameUpdate);)
+			{
+				prepStmt.setString(1, newFolderName);
+				prepStmt.setInt(2, idOfFolder);
+				
+				rowsUpdated = prepStmt.executeUpdate();
+			}
 		}
 		log.info("updateFolderName() updated " + rowsUpdated + " rows");
+		
 		return rowsUpdated;
 	}
 

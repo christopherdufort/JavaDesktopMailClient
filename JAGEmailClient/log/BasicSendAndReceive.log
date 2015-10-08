@@ -189,3 +189,221 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in 
 [INFO ] 2015-10-07 15:52:37.108 [main] DemoTestCase - Succeeded test [testInsertOfMailBean]
 [INFO ] 2015-10-07 15:52:37.108 [main] DemoTestCase - Finished test [testInsertOfMailBean]
 [INFO ] 2015-10-07 15:52:37.108 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 13:49:08.861 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 13:49:11.649 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[ERROR] 2015-10-08 13:49:11.658 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-08 13:49:11.658 [main] DemoTestCase - Failure reason : com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'mail.email_id = 1' at line 1
+[INFO ] 2015-10-08 13:49:11.658 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 13:49:11.658 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 13:57:36.834 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 13:57:39.645 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[ERROR] 2015-10-08 13:57:39.649 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-08 13:57:39.649 [main] DemoTestCase - Failure reason : com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'email.email_id = 1' at line 1
+[INFO ] 2015-10-08 13:57:39.649 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 13:57:39.649 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:03:46.895 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:03:49.700 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[ERROR] 2015-10-08 14:03:49.703 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-08 14:03:49.703 [main] DemoTestCase - Failure reason : java.sql.SQLException: Column 'mail_id' not found.
+[INFO ] 2015-10-08 14:03:49.703 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:03:49.703 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:05:52.135 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:05:54.926 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[ERROR] 2015-10-08 14:05:54.946 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-08 14:05:54.946 [main] DemoTestCase - Failure reason : com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'email.id' in 'on clause'
+[INFO ] 2015-10-08 14:05:54.946 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:05:54.946 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:09:52.326 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:09:55.436 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[ERROR] 2015-10-08 14:09:55.951 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-08 14:09:55.951 [main] DemoTestCase - Failure reason : com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'conted_id' in 'field list'
+[INFO ] 2015-10-08 14:09:55.951 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:09:55.951 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:11:38.942 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:11:41.752 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[INFO ] 2015-10-08 14:11:41.756 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 14:11:41.756 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[ERROR] 2015-10-08 14:11:41.756 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-08 14:11:41.756 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testInsertOfMailBean() - failed due to Unequal mailBeans  expected same:<com.chrisdufort.mailbean.MailBean@ba91cf65> was not:<com.chrisdufort.mailbean.MailBean@ba91cf65>
+[INFO ] 2015-10-08 14:11:41.756 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:11:41.756 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:14:59.338 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:15:02.397 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[INFO ] 2015-10-08 14:15:02.403 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 14:15:02.403 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[ERROR] 2015-10-08 14:15:02.403 [main] DemoTestCase - Failed test [testInsertOfMailBean]
+[ERROR] 2015-10-08 14:15:02.403 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testInsertOfMailBean() - failed due to Unequal mailBeans  expected same:<com.chrisdufort.mailbean.MailBean@ba91cf65> was not:<com.chrisdufort.mailbean.MailBean@ba91cf65>
+[INFO ] 2015-10-08 14:15:02.403 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:15:02.403 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:16:13.037 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:16:16.120 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[INFO ] 2015-10-08 14:16:16.137 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 14:16:16.137 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[DEBUG] 2015-10-08 14:16:16.137 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-08 14:16:16.137 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-08 14:16:16.137 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-08 14:16:16.137 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-08 14:16:16.137 [main] DemoTestCase - Succeeded test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:16:16.137 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:16:16.137 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:31:42.349 [main] DemoTestCase - Starting test [testFullInsertOfMailBean]
+[INFO ] 2015-10-08 14:31:46.993 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[INFO ] 2015-10-08 14:31:47.016 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 14:31:47.016 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[DEBUG] 2015-10-08 14:31:47.016 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-08 14:31:47.016 [main] MailBean - ----------------------------------------------------------------------------------------------
+[ERROR] 2015-10-08 14:31:47.016 [main] DemoTestCase - Failed test [testFullInsertOfMailBean]
+[ERROR] 2015-10-08 14:31:47.016 [main] DemoTestCase - Failure reason : java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+[INFO ] 2015-10-08 14:31:47.016 [main] DemoTestCase - Finished test [testFullInsertOfMailBean]
+[INFO ] 2015-10-08 14:31:47.016 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:37:26.969 [main] DemoTestCase - Starting test [testFullInsertOfMailBean]
+[INFO ] 2015-10-08 14:37:30.593 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[INFO ] 2015-10-08 14:37:30.607 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 14:37:30.607 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[DEBUG] 2015-10-08 14:37:30.622 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-08 14:37:30.622 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-08 14:37:30.622 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-08 14:37:30.622 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-08 14:37:30.622 [main] DemoTestCase - Succeeded test [testFullInsertOfMailBean]
+[INFO ] 2015-10-08 14:37:30.622 [main] DemoTestCase - Finished test [testFullInsertOfMailBean]
+[INFO ] 2015-10-08 14:37:30.622 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:37:30.622 [main] DemoTestCase - Starting test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:37:30.841 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[INFO ] 2015-10-08 14:37:30.857 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 14:37:30.857 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[DEBUG] 2015-10-08 14:37:30.857 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-08 14:37:30.857 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-08 14:37:30.857 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-08 14:37:30.857 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-08 14:37:30.857 [main] DemoTestCase - Succeeded test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:37:30.857 [main] DemoTestCase - Finished test [testInsertOfMailBean]
+[INFO ] 2015-10-08 14:37:30.857 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 14:40:39.104 [main] DemoTestCase - Starting test [testFullInsertOfMailBean]
+[INFO ] 2015-10-08 14:40:41.983 [main] MailDAOImpl - createEmail() inserted an email with the id of 1
+[INFO ] 2015-10-08 14:40:41.985 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 14:40:42.110 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[DEBUG] 2015-10-08 14:40:42.110 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-08 14:40:42.110 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-08 14:40:42.142 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-08 14:40:42.142 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-08 14:40:42.142 [main] DemoTestCase - Succeeded test [testFullInsertOfMailBean]
+[INFO ] 2015-10-08 14:40:42.142 [main] DemoTestCase - Finished test [testFullInsertOfMailBean]
+[INFO ] 2015-10-08 14:40:42.142 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 15:15:06.300 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[ERROR] 2015-10-08 15:15:09.152 [main] DemoTestCase - Failed test [testUpdateFolderInBean]
+[ERROR] 2015-10-08 15:15:09.167 [main] DemoTestCase - Failure reason : com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: Unknown column 'folder.folder_name' in 'where clause'
+[INFO ] 2015-10-08 15:15:09.168 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:15:09.168 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 15:23:56.707 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:23:59.408 [main] MailDAOImpl - updateFolderInBean() modified the folder in email 1 to have an id of 2
+[ERROR] 2015-10-08 15:23:59.414 [main] DemoTestCase - Failed test [testUpdateFolderInBean]
+[ERROR] 2015-10-08 15:23:59.414 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testUpdateFolderInBean() failed due to name not changing expected:<2> but was:<1>
+[INFO ] 2015-10-08 15:23:59.414 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:23:59.415 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 15:25:28.601 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:25:32.031 [main] MailDAOImpl - updateFolderInBean() modified the folder in email 1 to have an id of 2
+[INFO ] 2015-10-08 15:25:32.031 [main] DemoTestCase - Succeeded test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:25:32.044 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:25:32.044 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 15:27:55.255 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:27:57.947 [main] MailDAOImpl - updateFolderInBean() if it existed modified the folder in email 1 to have an id of 2
+[ERROR] 2015-10-08 15:27:57.957 [main] DemoTestCase - Failed test [testUpdateFolderInBean]
+[ERROR] 2015-10-08 15:27:57.957 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testUpdateFolderInBean() failed due to name not changing expected:<0> but was:<2>
+[INFO ] 2015-10-08 15:27:57.957 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:27:57.959 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 15:34:09.394 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:34:12.785 [main] MailDAOImpl - updateFolderInBean() if it existed modified the folder in email 1 to have an id of 2
+[INFO ] 2015-10-08 15:34:12.785 [main] DemoTestCase - Succeeded test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:34:12.790 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:34:12.790 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 15:47:21.836 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:47:24.546 [main] MailDAOImpl - updateFolderInBean() if it existed modified the folder in email with email_id of 1 to have a folder id of 2
+[INFO ] 2015-10-08 15:47:24.546 [main] DemoTestCase - Succeeded test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:47:24.546 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 15:47:24.546 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 15:56:54.703 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[INFO ] 2015-10-08 15:56:57.532 [main] DemoTestCase - Succeeded test [testFindAllFolderNames]
+[INFO ] 2015-10-08 15:56:57.532 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-08 15:56:57.547 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 16:10:37.625 [main] DemoTestCase - Starting test [testFindAll]
+[ERROR] 2015-10-08 16:10:41.097 [main] DemoTestCase - Failed test [testFindAll]
+[ERROR] 2015-10-08 16:10:41.105 [main] DemoTestCase - Failure reason : java.lang.NullPointerException
+[INFO ] 2015-10-08 16:10:41.105 [main] DemoTestCase - Finished test [testFindAll]
+[INFO ] 2015-10-08 16:10:41.105 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 16:19:54.755 [main] DemoTestCase - Starting test [testFindAll]
+[INFO ] 2015-10-08 16:19:58.244 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-08 16:19:58.244 [main] MailDAOImpl - finDAll() returned 2 emails
+[INFO ] 2015-10-08 16:19:58.256 [main] DemoTestCase - Succeeded test [testFindAll]
+[INFO ] 2015-10-08 16:19:58.256 [main] DemoTestCase - Finished test [testFindAll]
+[INFO ] 2015-10-08 16:19:58.256 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 16:26:39.773 [main] DemoTestCase - Starting test [testDeleteFolder]
+[INFO ] 2015-10-08 16:26:42.611 [main] MailDAOImpl - deleteFolder() deleted 1 # of records
+[INFO ] 2015-10-08 16:26:42.611 [main] DemoTestCase - Succeeded test [testDeleteFolder]
+[INFO ] 2015-10-08 16:26:42.624 [main] DemoTestCase - Finished test [testDeleteFolder]
+[INFO ] 2015-10-08 16:26:42.624 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 16:38:41.304 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-08 16:38:44.735 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[ERROR] 2015-10-08 16:38:44.748 [main] DemoTestCase - Failed test [testDeleteMail]
+[ERROR] 2015-10-08 16:38:44.748 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testDeleteMail() failed due to name not changing expected:<1> but was:<-1>
+[INFO ] 2015-10-08 16:38:44.748 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-08 16:38:44.749 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 16:40:21.834 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-08 16:40:25.253 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[ERROR] 2015-10-08 16:40:25.269 [main] DemoTestCase - Failed test [testDeleteMail]
+[ERROR] 2015-10-08 16:40:25.269 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testDeleteMail() - failed due to query
+[INFO ] 2015-10-08 16:40:25.269 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-08 16:40:25.270 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 16:42:10.270 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-08 16:42:12.972 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[INFO ] 2015-10-08 16:42:12.972 [main] DemoTestCase - Succeeded test [testDeleteMail]
+[INFO ] 2015-10-08 16:42:12.974 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-08 16:42:12.974 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 17:02:12.256 [main] DemoTestCase - Starting test [testCreateFolder]
+[INFO ] 2015-10-08 17:02:15.697 [main] MailDAOImpl - createFolder() inserted 1 folders
+[INFO ] 2015-10-08 17:02:15.697 [main] DemoTestCase - Succeeded test [testCreateFolder]
+[INFO ] 2015-10-08 17:02:15.707 [main] DemoTestCase - Finished test [testCreateFolder]
+[INFO ] 2015-10-08 17:02:15.707 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 17:13:16.329 [main] DemoTestCase - Starting test [testCreateFolder]
+[INFO ] 2015-10-08 17:13:19.008 [main] MailDAOImpl - createFolder() inserted 1 folders
+[INFO ] 2015-10-08 17:13:19.023 [main] DemoTestCase - Succeeded test [testCreateFolder]
+[INFO ] 2015-10-08 17:13:19.024 [main] DemoTestCase - Finished test [testCreateFolder]
+[INFO ] 2015-10-08 17:13:19.024 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 17:44:05.782 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 17:44:09.028 [main] MailDAOImpl - updateFolderInBean() if it existed modified the folder in email with email_id of 1 to have a folder id of 2
+[INFO ] 2015-10-08 17:44:09.134 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 17:44:09.134 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[ERROR] 2015-10-08 17:44:09.134 [main] DemoTestCase - Failed test [testUpdateFolderInBean]
+[ERROR] 2015-10-08 17:44:09.134 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testUpdateFolderInBean() failed due to name not changing expected:<2> but was:<sent>
+[INFO ] 2015-10-08 17:44:09.134 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 17:44:09.134 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 17:44:09.134 [main] DemoTestCase - Starting test [testUpdateFolderName]
+[INFO ] 2015-10-08 17:44:10.290 [main] MailDAOImpl - updateFolderName() updated 1 rows
+[ERROR] 2015-10-08 17:44:10.302 [main] DemoTestCase - Failed test [testUpdateFolderName]
+[ERROR] 2015-10-08 17:44:10.302 [main] DemoTestCase - Failure reason : java.lang.IndexOutOfBoundsException: Index: 3, Size: 3
+[INFO ] 2015-10-08 17:44:10.302 [main] DemoTestCase - Finished test [testUpdateFolderName]
+[INFO ] 2015-10-08 17:44:10.302 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 17:45:02.863 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 17:45:06.228 [main] MailDAOImpl - updateFolderInBean() if it existed modified the folder in email with email_id of 1 to have a folder id of 2
+[INFO ] 2015-10-08 17:45:06.354 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 17:45:06.354 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[ERROR] 2015-10-08 17:45:06.354 [main] DemoTestCase - Failed test [testUpdateFolderInBean]
+[ERROR] 2015-10-08 17:45:06.354 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testUpdateFolderInBean() failed due to name not changing expected:<2> but was:<sent>
+[INFO ] 2015-10-08 17:45:06.354 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 17:45:06.354 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 17:45:06.354 [main] DemoTestCase - Starting test [testUpdateFolderName]
+[INFO ] 2015-10-08 17:45:06.588 [main] MailDAOImpl - updateFolderName() updated 1 rows
+[INFO ] 2015-10-08 17:45:06.604 [main] DemoTestCase - Succeeded test [testUpdateFolderName]
+[INFO ] 2015-10-08 17:45:06.604 [main] DemoTestCase - Finished test [testUpdateFolderName]
+[INFO ] 2015-10-08 17:45:06.604 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 17:46:26.305 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 17:46:29.728 [main] MailDAOImpl - updateFolderInBean() if it existed modified the folder in email with email_id of 1 to have a folder id of 2
+[INFO ] 2015-10-08 17:46:29.813 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-08 17:46:29.813 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[INFO ] 2015-10-08 17:46:29.813 [main] DemoTestCase - Succeeded test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 17:46:29.813 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-08 17:46:29.813 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-08 17:46:29.813 [main] DemoTestCase - Starting test [testUpdateFolderName]
+[INFO ] 2015-10-08 17:46:30.079 [main] MailDAOImpl - updateFolderName() updated 1 rows
+[INFO ] 2015-10-08 17:46:30.079 [main] DemoTestCase - Succeeded test [testUpdateFolderName]
+[INFO ] 2015-10-08 17:46:30.079 [main] DemoTestCase - Finished test [testUpdateFolderName]
+[INFO ] 2015-10-08 17:46:30.079 [main] DemoTestCase - ***********************************************************************************************
