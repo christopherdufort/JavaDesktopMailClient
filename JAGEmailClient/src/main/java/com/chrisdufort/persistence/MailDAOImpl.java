@@ -1,6 +1,5 @@
 package com.chrisdufort.persistence;
 
-import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -17,8 +16,6 @@ import com.chrisdufort.mailbean.MailBean;
 
 import jodd.mail.EmailAttachment;
 import jodd.mail.EmailAttachmentBuilder;
-import jodd.mail.att.FileAttachment;
-
 
 /**
  * @author Christopher Dufort
@@ -289,13 +286,13 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findByTo(String toField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
-						   + "JOIN recipient ON email.email_id = recipient.email_id "
-						   + "WHERE recipient.adress_type = 0 "
-						   + "AND recipient.address = ?";
+		String findByToQuery = "SELECT e.email_id, e.from_field, e.subject, e.text, e.html, e.sent_date, e.receive_date, f.folder_name, e.mail_status "
+							   + "FROM email e JOIN folder f ON e.folder_id = f.folder_id "
+							   + "JOIN recipient ON e.email_id = recipient.email_id "
+							   + "WHERE recipient.address_type = 0 "
+							   + "AND recipient.address = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
-			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
+			PreparedStatement prepStmt = connection.prepareStatement(findByToQuery);)
 		{
 			prepStmt.setString(1, toField);
 			try(ResultSet resultSet = prepStmt.executeQuery();)
@@ -303,7 +300,7 @@ public class MailDAOImpl implements MailDAO{
 				foundEmails = createMailBeans(resultSet);
 			}
 		}
-		log.info("findByFrom() returned " + foundEmails.size() + " emails");
+		log.info("findByTo() returned " + foundEmails.size() + " emails");
 		return foundEmails;
 	}
 
@@ -331,13 +328,13 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findByCc(String ccField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
-						   + "JOIN recipient ON email.email_id = recipient.email_id "
-						   + "WHERE recipient.adress_type = 1 "
-						   + "AND recipient.address = ?";
+		String findByCcQuery = "SELECT e.email_id, e.from_field, e.subject, e.text, e.html, e.sent_date, e.receive_date, f.folder_name, e.mail_status "
+							   + "FROM email e JOIN folder f ON e.folder_id = f.folder_id "
+							   + "JOIN recipient ON e.email_id = recipient.email_id "
+							   + "WHERE recipient.address_type = 1 "
+							   + "AND recipient.address = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
-			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
+			PreparedStatement prepStmt = connection.prepareStatement(findByCcQuery);)
 		{
 			prepStmt.setString(1, ccField);
 			try(ResultSet resultSet = prepStmt.executeQuery();)
@@ -353,13 +350,13 @@ public class MailDAOImpl implements MailDAO{
 	public ArrayList<MailBean> findByBcc(String bccField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 		
-		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
-						   + "FROM email JOIN folder ON email.folder_id = folder.folder_id "
-						   + "JOIN recipient ON email.email_id = recipient.email_id "
-						   + "WHERE recipient.adress_type = 1 "
-						   + "AND recipient.address = ?";
+		String findByBccQuery = "SELECT e.email_id, e.from_field, e.subject, e.text, e.html, e.sent_date, e.receive_date, f.folder_name, e.mail_status "
+								   + "FROM email e JOIN folder f ON e.folder_id = f.folder_id "
+								   + "JOIN recipient ON e.email_id = recipient.email_id "
+								   + "WHERE recipient.address_type = 2 "
+								   + "AND recipient.address = ?";
 		try(Connection connection = DriverManager.getConnection(url, user, password);
-			PreparedStatement prepStmt = connection.prepareStatement(findByDateQuery);)
+			PreparedStatement prepStmt = connection.prepareStatement(findByBccQuery);)
 		{
 			prepStmt.setString(1, bccField);
 			try(ResultSet resultSet = prepStmt.executeQuery();)

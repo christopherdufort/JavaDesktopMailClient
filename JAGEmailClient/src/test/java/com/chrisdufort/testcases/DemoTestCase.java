@@ -18,14 +18,12 @@ import java.util.List;
 import java.util.Scanner;
 
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chrisdufort.mailaction.BasicSendAndReceive;
 import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAOImpl;
 import com.chrisdufort.test.MethodLogger;
@@ -35,7 +33,7 @@ import jodd.mail.EmailAttachmentBuilder;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.7-SNAPSHOT , Phase 2 - last modified 10/08/15
+ * @version 0.2.8-SNAPSHOT , Phase 2 - last modified 10/08/15
  * @since 0.2.4-SNAPSHOT
  */
 public class DemoTestCase {
@@ -75,6 +73,88 @@ public class DemoTestCase {
 			assertEquals("testCreateEmail() - failed due to Unequal mailBeans ",myBean , dbBean);
 		
 	}
+	@Ignore //PASS
+	@Test
+	public void testFindByTo() throws SQLException{
+		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		String toField = "to@email.com";
+		String fromField = "from@gmail.com";
+		String subjectField = "Testing find by To subject";
+		
+		MailBean bean1 = new MailBean();
+		bean1.setFromField(fromField);
+		bean1.getToField().add(toField);
+		bean1.setSubjectField(subjectField);
+		
+		MailBean bean2 = new MailBean();
+		bean2.getToField().add(toField);
+		bean2.setFromField(fromField);
+		bean2.setSubjectField(subjectField);
+		
+		MailBean bean3 = new MailBean();
+		bean3.getToField().add(toField);
+		bean3.setFromField(fromField);
+		bean3.setSubjectField(subjectField);
+		
+		myDBImplementation.createEmail(bean1);
+		myDBImplementation.createEmail(bean2);
+		myDBImplementation.createEmail(bean3);
+		
+		foundBeans = myDBImplementation.findByTo(toField);
+		
+		assertEquals("testFindByTo() failed due to incorrect found # ", 3, foundBeans.size());
+	}
+	@Ignore //PASS
+	@Test
+	public void testFindByCc() throws SQLException{
+		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		String toField = "to.cc@email.com";
+		String fromField = "from.cc@gmail.com";
+		String subjectField = "Testing find by Cc subject";
+		String ccField = "cc.cc@email.com";
+		
+		MailBean bean1 = new MailBean();
+		bean1.setFromField(fromField);
+		bean1.getToField().add(toField);
+		bean1.getCcField().add(ccField);
+		bean1.setSubjectField(subjectField);
+		
+		MailBean bean2 = new MailBean();
+		bean2.getToField().add(toField);
+		bean2.setFromField(fromField);
+		bean1.getCcField().add(ccField);
+		bean2.setSubjectField(subjectField);
+			
+		myDBImplementation.createEmail(bean1);
+		myDBImplementation.createEmail(bean2);
+
+		
+		foundBeans = myDBImplementation.findByCc(ccField);
+		
+		assertEquals("testFindByCc() failed due to incorrect found # ", 2, foundBeans.size());
+	}
+	@Ignore //PASS
+	@Test
+	public void testFindByBcc() throws SQLException{
+		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		String toField = "to.bcc@email.com";
+		String fromField = "from.bcc@gmail.com";
+		String subjectField = "Testing find by Bcc subject";
+		String bccField = "bcc@email.com";
+		
+		MailBean bean1 = new MailBean();
+		bean1.setFromField(fromField);
+		bean1.getToField().add(toField);
+		bean1.setSubjectField(subjectField);
+		bean1.getBccField().add(bccField);
+			
+		myDBImplementation.createEmail(bean1);
+		
+		foundBeans = myDBImplementation.findByBcc(bccField);
+		
+		assertEquals("testFindByBcc() failed due to incorrect found # ", 1, foundBeans.size());
+	}
+	
 	@Ignore //PASS
 	@Test
 	public void testFullCreateEmail() throws SQLException{
@@ -129,13 +209,35 @@ public class DemoTestCase {
 		else
 			assertEquals("testFindAll() expected to find " + numberOfFieldsInDB + " emails, but instead found " + numberOfBeansFound , numberOfFieldsInDB, numberOfBeansFound);
 	}
+	@Ignore //PASS
+	@Test
+	public void testFindByID() throws SQLException{
+		int expectedId = 3, insertedEmailID = -1 ;
+		
+		ArrayList<String> to = new ArrayList<>();
+		to.add("third@to.com");
+		ArrayList<String> cc = new ArrayList<>();
+		cc.add("third@cc.com");	
+		ArrayList<String> bcc = new ArrayList<>();
+		bcc.add("third@bcc.com");
+		
+		MailBean myBean = new MailBean(to, "third@from.com", cc, bcc, "3rd subject", "3rd text");
+		
+		insertedEmailID = myDBImplementation.createEmail(myBean);	
+		MailBean dbBean = myDBImplementation.findByID(insertedEmailID);
+		
+		if (insertedEmailID == -1)
+			fail("testFindByID() - failed due to query failure");
+		else
+			if (expectedId == insertedEmailID)
+				assertEquals("testFindByID() - failed due improper retrieval by id ",myBean , dbBean);
+	}
 	
-	
+	@Ignore //PASS
 	@Test
 	public void testUpdateFolderInBean() throws SQLException{
 		int emailId = 1, fieldsUpdated = -1;
-		
-		int expectedFolderId = 2; // =="sent"
+
 		String folderName = "sent";
 		
 		fieldsUpdated = myDBImplementation.updateFolderInBean(emailId, folderName);
@@ -147,6 +249,7 @@ public class DemoTestCase {
 			assertEquals("testUpdateFolderInBean() failed due to name not changing", folderName, modifiedBean.getFolder() );
 			
 	}
+	@Ignore //PASS
 	@Test
 	public void testUpdateFolderName() throws SQLException{
 		int idOfFolder = 3; //draft folder
