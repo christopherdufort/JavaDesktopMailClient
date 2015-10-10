@@ -9,7 +9,7 @@ import java.util.List;
 import javax.mail.Flags;
 
 import com.chrisdufort.mailbean.MailBean;
-import com.chrisdufort.properties.MailConfigBean;
+import com.chrisdufort.properties.mailbean.MailConfigBean;
 
 import jodd.mail.Email;
 import jodd.mail.EmailAttachment;

@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 
 import com.chrisdufort.mailaction.BasicSendAndReceive;
 import com.chrisdufort.mailbean.MailBean;
-import com.chrisdufort.properties.MailConfigBean;
+import com.chrisdufort.properties.mailbean.MailConfigBean;
 import com.chrisdufort.test.MethodLogger;
 
 import jodd.mail.EmailAttachment;
@@ -60,32 +60,32 @@ public class MailActionTest {
 	// Blind(bcc) account
 	private MailConfigBean blindConfigBean = new MailConfigBean("imap.gmail.com", "jafg.blind@gmail.com",
 			"jafgblind514");
-	
+
 	// Instantiation of sendAndReceive class used to call instance methods.
 	private BasicSendAndReceive basicSendAndReceive = new BasicSendAndReceive();
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test a basic plain text email message is created using the basic
 	 * constructor, sent with simple send, received and compared. Only the
 	 * fields in the basic constructor are tested to(1) , cc(0) bcc(0)
 	 * ,subject(1) , message(1)
 	 */
-	@Ignore
+
 	@Test
 	public void testBasicSendEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
 		toList.add(receiveConfigBean.getUserEmailAddress());
-		
+
 		String fromField = sendConfigBean.getUserEmailAddress();
-		
+
 		ArrayList<String> ccList = new ArrayList<>();
-		
+
 		ArrayList<String> bccList = new ArrayList<>();
-		
+
 		String subject = "A basic Test Message - 00";
 		String message = "This is the plain text of the message - 00.";
 
@@ -121,30 +121,33 @@ public class MailActionTest {
 		// PURPOSES!
 		assertEquals("The sent basic message did not match the received message", mailBeanSend, mailBeanReceive.get(0));
 	}
+
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test a basic plain text email message is created using the basic
 	 * constructor, sent with simple send, received and compared.
 	 * 
 	 * This test uses a blank subject (empty string space)
 	 * 
-	 * Email will send but assert will fail based on null subject on receiving end vs empty spaced subject on send.
+	 * Email will send but assert will fail based on null subject on receiving
+	 * end vs empty spaced subject on send.
 	 */
-	@Ignore //FIXME current status of equals checks for nulls and trims fields causing this test to null pointer
+	// FIXME current status of equals checks for nulls and trims fields causing
+	// this test to null pointer
 	@Test
 	public void testBasicSendNoSubjectEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
 		toList.add(receiveConfigBean.getUserEmailAddress());
-		
+
 		String fromField = sendConfigBean.getUserEmailAddress();
-		
+
 		ArrayList<String> ccList = new ArrayList<>();
-		
+
 		ArrayList<String> bccList = new ArrayList<>();
-		
+
 		String subject = " ";
 		String message = "This is the plain text of the message with no subject - 01.";
 
@@ -183,14 +186,14 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 *
 	 * In this test a complex HTML/Attachment/Embed email message is created
 	 * using the default constructor, sent, received and compared. All of the
 	 * setters and getters are tested using this email.
 	 */
-	@Ignore
+
 	@Test
 	public void testHandBuiltSendEmail() {
 		// Testing no parameter default constructor.
@@ -270,7 +273,7 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 *
 	 * In this test a complex HTML/Attachment/Embed email message is created
@@ -278,7 +281,7 @@ public class MailActionTest {
 	 * test case uses each and every field availible and submits it through the
 	 * constructor.
 	 */
-	@Ignore
+
 	@Test
 	public void testComplexSendEmail() {
 		// Create mailBean
@@ -307,13 +310,17 @@ public class MailActionTest {
 
 		EmailAttachmentBuilder fBuilder = EmailAttachment.attachment().file("headshot.jpg");
 		EmailAttachment fileAttachment = fBuilder.create();
-		ArrayList<EmailAttachment> allFileAttachments = new ArrayList<>(); // FIXME maybe issue?
+		ArrayList<EmailAttachment> allFileAttachments = new ArrayList<>(); // FIXME
+																			// maybe
+																			// issue?
 		allFileAttachments.add(fileAttachment);
 
 		EmailAttachmentBuilder eBuilder = EmailAttachment.attachment().bytes(new File("code_dragon_error.jpg"));
 		eBuilder.setInline("code_dragon_error.jpg");
 		EmailAttachment embedAttachment = eBuilder.create();
-		ArrayList<EmailAttachment> allEmbedAttachments = new ArrayList<>(); //FIXME maybe issue?
+		ArrayList<EmailAttachment> allEmbedAttachments = new ArrayList<>(); // FIXME
+																			// maybe
+																			// issue?
 		allEmbedAttachments.add(embedAttachment);
 
 		// Full paramater constructor (arraylist toField, string fromField,
@@ -358,14 +365,14 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test a simple email message is created using the default
 	 * constructor, sent, received and compared. Only the minimum fields
 	 * required for sending a jodd email are tested: to,from,subject
 	 * 
 	 */
-	@Ignore
+
 	@Test
 	public void testMinimumSendEmail() {
 		// Testing no parameter default constructor.
@@ -389,7 +396,8 @@ public class MailActionTest {
 		}
 		log.info("MessageId is " + messageId + " value other than -1 = successful send.");
 
-		// Add a eight second pause to allow the Gmail server to receive what has
+		// Add a eight second pause to allow the Gmail server to receive what
+		// has
 		// been sent extra time added for complex send
 		try {
 			Thread.sleep(8000);
@@ -409,7 +417,7 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test a multiple field email message is created using the default
 	 * constructor, sent, received and compared. Each of the following fields:
@@ -422,7 +430,7 @@ public class MailActionTest {
 	 * INCORRECT COPY RETRIEVED FROM GMAILS SERVER.
 	 * 
 	 */
-	@Ignore
+
 	@Test
 	public void testMultipleFields1SendEmail() {
 		// Testing no parameter default constructor.
@@ -481,7 +489,7 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test a multiple field email message is created using the default
 	 * constructor, sent, received and compared. Each of the following fields:
@@ -492,7 +500,7 @@ public class MailActionTest {
 	 * README THIS TEST OCCASIONALY FAILS ON GMAILS END WHEN TESTING WITH OTHERS
 	 * INCORRECT COPY RETRIEVED FROM GMAILS SERVER.
 	 */
-	@Ignore
+
 	@Test
 	public void testMultipleFields2SendEmail() {
 		// Testing no parameter default constructor.
@@ -530,7 +538,8 @@ public class MailActionTest {
 		}
 		log.info("MessageId is " + messageId + " value other than -1 = successful send.");
 
-		// Add a eight second pause to allow the Gmail server to receive what has
+		// Add a eight second pause to allow the Gmail server to receive what
+		// has
 		// been sent extra time added for complex send
 		try {
 			Thread.sleep(8000);
@@ -551,7 +560,7 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test a multiple field email message is created using the default
 	 * constructor, sent, received and compared. Each of the following fields:
@@ -562,7 +571,7 @@ public class MailActionTest {
 	 * README THIS TEST OCCASIONALY FAILS ON GMAILS END WHEN TESTING WITH OTHERS
 	 * INCORRECT COPY RETRIEVED FROM GMAILS SERVER.
 	 */
-	@Ignore
+
 	@Test
 	public void testMultipleFields3SendEmail() {
 		// Testing no parameter default constructor.
@@ -621,7 +630,7 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test a multiple field email message is created using the default
 	 * constructor, sent, received and compared. Each of the following fields:
@@ -632,7 +641,7 @@ public class MailActionTest {
 	 * README THIS TEST OCCASIONALY FAILS ON GMAILS END WHEN TESTING WITH OTHERS
 	 * INCORRECT COPY RETRIEVED FROM GMAILS SERVER.
 	 */
-	@Ignore
+
 	@Test
 	public void testMultipleFields4SendEmail() {
 		// Testing no parameter default constructor.
@@ -670,7 +679,8 @@ public class MailActionTest {
 		}
 		log.info("MessageId is " + messageId + " value other than -1 = successful send.");
 
-		// Add a eight second pause to allow the Gmail server to receive what has
+		// Add a eight second pause to allow the Gmail server to receive what
+		// has
 		// been sent extra time added for complex send
 		try {
 			Thread.sleep(8000);
@@ -691,14 +701,14 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test without text field email message is created using the
 	 * default constructor, sent, received and compared. Html text included ->
 	 * No attachments and nothing embeded.
 	 * 
 	 */
-	@Ignore
+
 	@Test
 	public void testWithoutTextSendEmail() {
 		// Testing no parameter default constructor.
@@ -727,7 +737,8 @@ public class MailActionTest {
 		}
 		log.info("MessageId is " + messageId + " value other than -1 = successful send.");
 
-		// Add a eight second pause to allow the Gmail server to receive what has
+		// Add a eight second pause to allow the Gmail server to receive what
+		// has
 		// been sent extra time added for complex send
 		try {
 			Thread.sleep(8000);
@@ -749,14 +760,14 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test case, the basic constructor will be used, but with extra
 	 * will be sent with embedded and attachments(none), received, and compared
 	 * To (x2) , from (x1), subject(x1), cc(x2) , bcc (1) , no message
 	 * 
 	 */
-	@Ignore
+
 	@Test
 	public void testBasicEmptySendEmail() {
 		// Create mailBean
@@ -790,7 +801,8 @@ public class MailActionTest {
 		}
 		log.info("MessageId is " + messageId + " value other than -1 = successful send.");
 
-		// Add a eight second pause to allow the Gmail server to receive what has
+		// Add a eight second pause to allow the Gmail server to receive what
+		// has
 		// been sent extra time added for complex send
 		try {
 			Thread.sleep(8000);
@@ -811,19 +823,19 @@ public class MailActionTest {
 
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test case, the basic constructor will be used, but extra fields
 	 * will be added then sent with sendWithEmbedAndAttach, received and
 	 * compared. Includes send and receive date
 	 * 
-	 *  To (x1) , from (x1), subject(x1), cc(0) , bcc (0) , message(1),
-	 * html(1) embed (1), senddate(1) , receivedate(1)
+	 * To (x1) , from (x1), subject(x1), cc(0) , bcc (0) , message(1), html(1)
+	 * embed (1), senddate(1) , receivedate(1)
 	 * 
 	 * OCCATIONALLY RUNS INTO RECEIVE ISSUE WHEN RUN WITH OTHER TESTS
 	 * 
 	 */
-	@Ignore
+
 	@Test
 	public void testBasicSendWithExtraFieldsEmail() {
 		// Create mailBean
@@ -848,7 +860,6 @@ public class MailActionTest {
 				+ "(visible) - 46.</h1><h2>Here is an image of a code dragon which is embedded in this email.</h2><img src='cid:code_dragon_error.jpg'>"
 				+ "<h2>Rawr! My program has an Error!!</h2></body></html>";
 		mailBeanSend.setHtmlMessageField(htmlText);
-
 
 		EmailAttachmentBuilder eBuilder = EmailAttachment.attachment().bytes(new File("code_dragon_error.jpg"));
 		eBuilder.setInline("code_dragon_error.jpg");
@@ -891,21 +902,21 @@ public class MailActionTest {
 		assertEquals("The testBasicSendWithExtraFieldsEmail does not match the received email", mailBeanSend,
 				mailBeanReceive.get(0));
 	}
-	
+
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test case, the basic constructor will be used, but extra fields
 	 * will be added then sent with sendWithEmbedAndAttach, received and
 	 * compared. Included folder and mailstatus (no affect on sent email)
 	 * 
-	 * To (x1) , from (x1), subject(x1), cc(0) , bcc (0) , message(1),
-	 * html(0) embed (2), Included folder and mailstatus (no affect on sent email)
+	 * To (x1) , from (x1), subject(x1), cc(0) , bcc (0) , message(1), html(0)
+	 * embed (2), Included folder and mailstatus (no affect on sent email)
 	 * 
 	 * 
 	 */
-	@Ignore
+
 	@Test
 	public void testMultipleEmbedWithoutHtmlEmail() {
 		// Create mailBean
@@ -925,18 +936,18 @@ public class MailActionTest {
 		// bcc, string subjct, string text )
 		MailBean mailBeanSend = new MailBean(toList, fromField, ccList, bccList, subject, message);
 
-		//Add two embeded with no html (will appear as attachments)
+		// Add two embeded with no html (will appear as attachments)
 		EmailAttachmentBuilder eBuilder = EmailAttachment.attachment().bytes(new File("code_dragon_error.jpg"));
 		eBuilder.setInline("code_dragon_error.jpg");
 		EmailAttachment embedAttachment = eBuilder.create();
 		mailBeanSend.getEmbedAttachments().add(embedAttachment);
-		
+
 		EmailAttachmentBuilder eBuilder2 = EmailAttachment.attachment().bytes(new File("headshot.jpg"));
 		eBuilder2.setInline("headshot.jpg");
 		EmailAttachment embedAttachment2 = eBuilder2.create();
 		mailBeanSend.getEmbedAttachments().add(embedAttachment2);
 
-		//No affect on sent email
+		// No affect on sent email
 		mailBeanSend.setFolder("Testing");
 		mailBeanSend.setMailStatus(1);
 
@@ -971,20 +982,21 @@ public class MailActionTest {
 		assertEquals("The testMultipleEmbedWithoutHtmlEmail does not match the received email", mailBeanSend,
 				mailBeanReceive.get(0));
 	}
+
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 * In this test case, the basic constructor will be used, but extra fields
 	 * will be added then sent with sendWithEmbedAndAttach, received and
 	 * compared. empty text message, no html and 2 attacments
 	 * 
-	 * To (x1) , from (x1), subject(x1), cc(0) , bcc (0) , message(0),
-	 * html(0) embed (0) attachment(2), 
+	 * To (x1) , from (x1), subject(x1), cc(0) , bcc (0) , message(0), html(0)
+	 * embed (0) attachment(2),
 	 * 
 	 * 
 	 */
-	@Ignore
+
 	@Test
 	public void testEmptyMessWithMultAttachEmail() {
 		// Create mailBean
@@ -1004,17 +1016,14 @@ public class MailActionTest {
 		// bcc, string subjct, string text )
 		MailBean mailBeanSend = new MailBean(toList, fromField, ccList, bccList, subject, message);
 
-		
-		//Add two attachment with no html (will appear as attachments)
+		// Add two attachment with no html (will appear as attachments)
 		EmailAttachmentBuilder fBuilder = EmailAttachment.attachment().file("headshot.jpg");
 		EmailAttachment fileAttachment = fBuilder.create();
 		mailBeanSend.getFileAttachments().add(fileAttachment);
-		
-		EmailAttachmentBuilder fBuilder2 = EmailAttachment.attachment().file("code_dragon_error.jpg");
-		EmailAttachment fileAttachment2= fBuilder2.create();
-		mailBeanSend.getFileAttachments().add(fileAttachment2);
-		
 
+		EmailAttachmentBuilder fBuilder2 = EmailAttachment.attachment().file("code_dragon_error.jpg");
+		EmailAttachment fileAttachment2 = fBuilder2.create();
+		mailBeanSend.getFileAttachments().add(fileAttachment2);
 
 		String messageId = "-1"; // Signifying an error has occurred if not
 									// otherwise changed.
@@ -1045,9 +1054,10 @@ public class MailActionTest {
 		assertEquals("The testEmptyMessWithMultAttachEmail does not match the received email", mailBeanSend,
 				mailBeanReceive.get(0));
 	}
+
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 *
 	 * In this test a complex HTML/Attachment/Embed email message is created
@@ -1057,10 +1067,10 @@ public class MailActionTest {
 	 * 
 	 * Time sent in reversed order (arrived before sent.)
 	 */
-	@Ignore
+
 	@Test
 	public void testEmptyComplexSendEmail() {
-		
+
 		// Create complex empty mailBean
 		ArrayList<String> toList = new ArrayList<>();
 		toList.add(receiveConfigBean.getUserEmailAddress());
@@ -1077,14 +1087,13 @@ public class MailActionTest {
 		String htmlTEXT = "";
 		String folder = "";
 		int mailStatus = 0;
-			
-		LocalDateTime sentDate = LocalDateTime.MAX;    //reversed order
-		LocalDateTime receiveDate = LocalDateTime.MIN; //reversed order
 
-		ArrayList<EmailAttachment> allFileAttachments = new ArrayList<>(); 
+		LocalDateTime sentDate = LocalDateTime.MAX; // reversed order
+		LocalDateTime receiveDate = LocalDateTime.MIN; // reversed order
 
-		ArrayList<EmailAttachment> allEmbedAttachments = new ArrayList<>(); 
+		ArrayList<EmailAttachment> allFileAttachments = new ArrayList<>();
 
+		ArrayList<EmailAttachment> allEmbedAttachments = new ArrayList<>();
 
 		// Full paramater constructor (arraylist toField, string fromField,
 		// arraylist ccField, arraylist bccField, string subjectField, string
@@ -1108,7 +1117,8 @@ public class MailActionTest {
 		}
 		log.info("MessageId is " + messageId + " value other than -1 = successful send.");
 
-		// Add a seven second pause to allow the Gmail server to receive what has
+		// Add a seven second pause to allow the Gmail server to receive what
+		// has
 		// been sent
 		try {
 			Thread.sleep(7000);
@@ -1125,9 +1135,10 @@ public class MailActionTest {
 		// PURPOSES!
 		assertEquals("The sent complex empty email does not match the received", mailBeanSend, mailBeanReceive.get(0));
 	}
+
 	/**
 	 * Test method for:
-	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.MailConfigBean)}
+	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendWithEmbeddedAndAttachment(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
 	 * 
 	 *
 	 * In this test a complex HTML/Attachment/Embed email message is created
@@ -1137,10 +1148,10 @@ public class MailActionTest {
 	 * 
 	 * HTML has 2 CID, EMBEDED FILES ARE ORDERED DIFFERENTLY FROM HTML IMG TAG
 	 */
-	@Ignore
+
 	@Test
 	public void testComplexSendWithMultipleFieldsEmail() {
-		
+
 		// Create complex empty mailBean
 		ArrayList<String> toList = new ArrayList<>();
 		toList.add(receiveConfigBean.getUserEmailAddress());
@@ -1155,54 +1166,51 @@ public class MailActionTest {
 		ArrayList<String> bccList = new ArrayList<>();
 		bccList.add(copyConfigBean.getUserEmailAddress());
 		bccList.add(blindConfigBean.getUserEmailAddress());
-		
 
 		String subject = "A Complex Test Message with multiple of each field- 70";
 		String plainText = "A Complex Test Message with multiple of each fields (invisible)- 70";
 
-		//HTML ORDER -> DRAGON THEN HEADSHOT
+		// HTML ORDER -> DRAGON THEN HEADSHOT
 		String htmlText = "<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">"
 				+ "<body><h1>This is the HTML text of the message (visible) - 70.</h1><h2>Here is an image of a code dragon, and my face which is embedded in this email.</h2>"
 				+ "<img src='cid:code_dragon_error.jpg'><img src='cid:headshot.jpg'><h2>Rawr! My program has an Error!!</h2></body></html>";
-		
+
 		String folder = "TESTINGFINAL";
 		int mailStatus = 99;
 
 		LocalDateTime sentDate = LocalDateTime.now();
 		LocalDateTime receiveDate = LocalDateTime.now();
 
-		
-	 
-		//TWO OF EACH ATTACHMENT AND EMBED IN MIXED ORDER FROM HTML
-		ArrayList<EmailAttachment> allEmbedAttachments = new ArrayList<>(); 
+		// TWO OF EACH ATTACHMENT AND EMBED IN MIXED ORDER FROM HTML
+		ArrayList<EmailAttachment> allEmbedAttachments = new ArrayList<>();
 		ArrayList<EmailAttachment> allFileAttachments = new ArrayList<>();
-		
-		//EMBED ORDER -> HEADSHOT THEN DRAGON
+
+		// EMBED ORDER -> HEADSHOT THEN DRAGON
 		EmailAttachmentBuilder eBuilder = EmailAttachment.attachment().bytes(new File("headshot.jpg"));
 		eBuilder.setInline("headshot.jpg");
 		EmailAttachment embedAttachment = eBuilder.create();
-		
+
 		allEmbedAttachments.add(embedAttachment);
-		
+
 		EmailAttachmentBuilder eBuilder2 = EmailAttachment.attachment().bytes(new File("code_dragon_error.jpg"));
 		eBuilder2.setInline("code_dragon_error.jpg");
 		EmailAttachment embedAttachment2 = eBuilder2.create();
-		
+
 		allEmbedAttachments.add(embedAttachment2);
-		
-		//MIXED ORDER SEEMS TO RESULT IN HTML ORDER TAKING PRESIDENCE. 
-		//-------------------------------
-		
+
+		// MIXED ORDER SEEMS TO RESULT IN HTML ORDER TAKING PRESIDENCE.
+		// -------------------------------
+
 		EmailAttachmentBuilder fBuilder = EmailAttachment.attachment().file("headshot.jpg");
 		EmailAttachment fileAttachment = fBuilder.create();
-		
+
 		allFileAttachments.add(fileAttachment);
-		
+
 		EmailAttachmentBuilder fBuilder2 = EmailAttachment.attachment().file("code_dragon_error.jpg");
 		EmailAttachment fileAttachment2 = fBuilder2.create();
-		
+
 		allFileAttachments.add(fileAttachment2);
-		
+
 		// Full paramater constructor (arraylist toField, string fromField,
 		// arraylist ccField, arraylist bccField, string subjectField, string
 		// textMessage
@@ -1225,7 +1233,8 @@ public class MailActionTest {
 		}
 		log.info("MessageId is " + messageId + " value other than -1 = successful send.");
 
-		// Add a seven second pause to allow the Gmail server to receive what has
+		// Add a seven second pause to allow the Gmail server to receive what
+		// has
 		// been sent
 		try {
 			Thread.sleep(7000);

@@ -4,6 +4,9 @@ CREATE DATABASE MAILDB;
 
 USE MAILDB;
 
+GRANT ALL PRIVILEGES ON MAILDB.* TO christopher@"%" IDENTIFIED BY "password";
+GRANT ALL PRIVILEGES ON MAILDB.* TO christopher@"localhost" IDENTIFIED BY "password";
+
 DROP TABLE IF EXISTS RECIPIENT;
 DROP TABLE IF EXISTS ATTACHMENT;
 DROP TABLE IF EXISTS MAILMESSAGE;
@@ -45,7 +48,7 @@ CREATE TABLE recipient(
 	CONSTRAINT recipient_fk1 FOREIGN KEY (email_id) REFERENCES email(email_id) ON DELETE CASCADE
 )ENGINE=InnoDB;
 
---Following are mock data used to seed the database
+--Following are mock data used to seed the database outside of test scripts
 INSERT INTO folder(folder_name) 
 VALUES("inbox"),
 ("sent"),

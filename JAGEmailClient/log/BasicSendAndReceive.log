@@ -517,3 +517,677 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in 
 [INFO ] 2015-10-09 00:33:22.356 [main] DemoTestCase - Succeeded test [testFindByBcc]
 [INFO ] 2015-10-09 00:33:22.356 [main] DemoTestCase - Finished test [testFindByBcc]
 [INFO ] 2015-10-09 00:33:22.357 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 17:23:46.684 [main] DemoTestCase - Starting test [testFindByFrom]
+[INFO ] 2015-10-09 17:23:48.081 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 17:23:48.137 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 17:23:48.139 [main] MailDAOImpl - findByFrom() returned 1 emails
+[INFO ] 2015-10-09 17:23:48.140 [main] DemoTestCase - Succeeded test [testFindByFrom]
+[INFO ] 2015-10-09 17:23:48.141 [main] DemoTestCase - Finished test [testFindByFrom]
+[INFO ] 2015-10-09 17:23:48.142 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 17:57:42.208 [main] DemoTestCase - Starting test [testFindByFrom]
+[INFO ] 2015-10-09 17:57:43.659 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 17:57:43.710 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 17:57:43.711 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[INFO ] 2015-10-09 17:57:43.736 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 17:57:43.737 [main] MailDAOImpl - findByFrom() returned 1 emails
+[DEBUG] 2015-10-09 17:57:43.737 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 17:57:43.737 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 17:57:43.744 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 17:57:43.744 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 17:57:43.745 [main] DemoTestCase - Succeeded test [testFindByFrom]
+[INFO ] 2015-10-09 17:57:43.745 [main] DemoTestCase - Finished test [testFindByFrom]
+[INFO ] 2015-10-09 17:57:43.745 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 18:28:35.836 [main] DemoTestCase - Starting test [testFindBySubject]
+[INFO ] 2015-10-09 18:28:38.021 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 18:28:38.076 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 18:28:38.077 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[INFO ] 2015-10-09 18:28:38.117 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 18:28:38.118 [main] MailDAOImpl - findBySubject() returned 1 emails
+[DEBUG] 2015-10-09 18:28:38.118 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 18:28:38.118 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 18:28:38.126 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 18:28:38.126 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 18:28:38.127 [main] DemoTestCase - Succeeded test [testFindBySubject]
+[INFO ] 2015-10-09 18:28:38.128 [main] DemoTestCase - Finished test [testFindBySubject]
+[INFO ] 2015-10-09 18:28:38.129 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 18:49:59.863 [main] DemoTestCase - Starting test [testFindByFolder]
+[INFO ] 2015-10-09 18:50:01.105 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 18:50:01.106 [main] MailDAOImpl - findByFolder() returned 2 emails
+[INFO ] 2015-10-09 18:50:01.107 [main] DemoTestCase - Succeeded test [testFindByFolder]
+[INFO ] 2015-10-09 18:50:01.107 [main] DemoTestCase - Finished test [testFindByFolder]
+[INFO ] 2015-10-09 18:50:01.108 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 19:19:22.658 [main] DemoTestCase - Starting test [testFindByDateSent]
+[INFO ] 2015-10-09 19:19:23.857 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 19:19:23.876 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[ERROR] 2015-10-09 19:19:23.915 [main] DemoTestCase - Failed test [testFindByDateSent]
+[ERROR] 2015-10-09 19:19:23.915 [main] DemoTestCase - Failure reason : com.mysql.jdbc.MysqlDataTruncation: Data truncation: Incorrect datetime value: '169104628-12-10 19:08:16.999999' for column 'sent_date' at row 1
+[INFO ] 2015-10-09 19:19:23.915 [main] DemoTestCase - Finished test [testFindByDateSent]
+[INFO ] 2015-10-09 19:19:23.916 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 19:22:15.311 [main] DemoTestCase - Starting test [testFindByDateSent]
+[INFO ] 2015-10-09 19:22:16.459 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 19:22:16.567 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 19:22:16.595 [main] MailDAOImpl - createEmail() inserted an email with the id of 5
+[INFO ] 2015-10-09 19:22:16.607 [main] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-10-09 19:22:16.609 [main] MailDAOImpl - findByDateSent() returned 0 emails
+[ERROR] 2015-10-09 19:22:16.609 [main] DemoTestCase - Failed test [testFindByDateSent]
+[ERROR] 2015-10-09 19:22:16.609 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByDateSent() failed due to different # of retrieval  expected:<2> but was:<0>
+[INFO ] 2015-10-09 19:22:16.609 [main] DemoTestCase - Finished test [testFindByDateSent]
+[INFO ] 2015-10-09 19:22:16.610 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 19:31:58.888 [main] DemoTestCase - Starting test [testFindByDateSent]
+[INFO ] 2015-10-09 19:32:01.981 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 19:32:02.067 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 19:32:02.130 [main] MailDAOImpl - createEmail() inserted an email with the id of 5
+[INFO ] 2015-10-09 19:32:02.145 [main] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-10-09 19:32:02.146 [main] MailDAOImpl - findByDateSent() returned 0 emails
+[ERROR] 2015-10-09 19:32:02.147 [main] DemoTestCase - Failed test [testFindByDateSent]
+[ERROR] 2015-10-09 19:32:02.147 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByDateSent() failed due to different # of retrieval  expected:<2> but was:<0>
+[INFO ] 2015-10-09 19:32:02.147 [main] DemoTestCase - Finished test [testFindByDateSent]
+[INFO ] 2015-10-09 19:32:02.148 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 19:50:38.541 [main] DemoTestCase - Starting test [testFindByDateSent]
+[INFO ] 2015-10-09 19:50:39.694 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 19:50:39.713 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 19:50:39.732 [main] MailDAOImpl - createEmail() inserted an email with the id of 5
+[INFO ] 2015-10-09 19:50:39.780 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 19:50:39.781 [main] MailDAOImpl - findByDateSent() returned 2 emails
+[INFO ] 2015-10-09 19:50:39.782 [main] DemoTestCase - Succeeded test [testFindByDateSent]
+[INFO ] 2015-10-09 19:50:39.782 [main] DemoTestCase - Finished test [testFindByDateSent]
+[INFO ] 2015-10-09 19:50:39.782 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 19:54:46.579 [main] DemoTestCase - Starting test [testFindByDateReceived]
+[INFO ] 2015-10-09 19:54:47.757 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 19:54:47.776 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 19:54:47.820 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 19:54:47.821 [main] MailDAOImpl - findByDateSent() returned 2 emails
+[ERROR] 2015-10-09 19:54:47.822 [main] DemoTestCase - Failed test [testFindByDateReceived]
+[ERROR] 2015-10-09 19:54:47.822 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByDateReceived() failed due to different # of retrieval  expected:<1> but was:<2>
+[INFO ] 2015-10-09 19:54:47.823 [main] DemoTestCase - Finished test [testFindByDateReceived]
+[INFO ] 2015-10-09 19:54:47.823 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 19:55:47.331 [main] DemoTestCase - Starting test [testFindByDateReceived]
+[INFO ] 2015-10-09 19:55:48.655 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 19:55:48.679 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 19:55:48.741 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 19:55:48.742 [main] MailDAOImpl - findByDateSent() returned 2 emails
+[ERROR] 2015-10-09 19:55:48.743 [main] DemoTestCase - Failed test [testFindByDateReceived]
+[ERROR] 2015-10-09 19:55:48.744 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByDateReceived() failed due to different # of retrieval  expected:<1> but was:<2>
+[INFO ] 2015-10-09 19:55:48.744 [main] DemoTestCase - Finished test [testFindByDateReceived]
+[INFO ] 2015-10-09 19:55:48.744 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 19:56:15.789 [main] DemoTestCase - Starting test [testFindByDateReceived]
+[INFO ] 2015-10-09 19:56:16.872 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 19:56:16.895 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 19:56:16.932 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 19:56:16.933 [main] MailDAOImpl - findByDateReceive() returned 1 emails
+[INFO ] 2015-10-09 19:56:16.934 [main] DemoTestCase - Succeeded test [testFindByDateReceived]
+[INFO ] 2015-10-09 19:56:16.934 [main] DemoTestCase - Finished test [testFindByDateReceived]
+[INFO ] 2015-10-09 19:56:16.934 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 20:42:59.178 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-09 20:43:00.125 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[ERROR] 2015-10-09 20:43:00.149 [main] DemoTestCase - Failed test [testDeleteMail]
+[ERROR] 2015-10-09 20:43:00.150 [main] DemoTestCase - Failure reason : java.sql.SQLException: No value specified for parameter 1
+[INFO ] 2015-10-09 20:43:00.150 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-09 20:43:00.151 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 20:43:00.174 [main] DemoTestCase - Starting test [testFindByDateReceived]
+[INFO ] 2015-10-09 20:43:00.647 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 20:43:00.666 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 20:43:00.692 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 20:43:00.693 [main] MailDAOImpl - findByDateReceive() returned 1 emails
+[INFO ] 2015-10-09 20:43:00.694 [main] DemoTestCase - Succeeded test [testFindByDateReceived]
+[INFO ] 2015-10-09 20:43:00.694 [main] DemoTestCase - Finished test [testFindByDateReceived]
+[INFO ] 2015-10-09 20:43:00.695 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 20:43:59.312 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-09 20:44:00.151 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[ERROR] 2015-10-09 20:44:00.176 [main] DemoTestCase - Failed test [testDeleteMail]
+[ERROR] 2015-10-09 20:44:00.177 [main] DemoTestCase - Failure reason : java.sql.SQLException: No value specified for parameter 1
+[INFO ] 2015-10-09 20:44:00.177 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-09 20:44:00.177 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 20:45:49.445 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-09 20:45:50.291 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[ERROR] 2015-10-09 20:45:50.316 [main] DemoTestCase - Failed test [testDeleteMail]
+[ERROR] 2015-10-09 20:45:50.317 [main] DemoTestCase - Failure reason : java.sql.SQLException: No database selected
+[INFO ] 2015-10-09 20:45:50.317 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-09 20:45:50.317 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 20:47:26.612 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-09 20:47:27.414 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[INFO ] 2015-10-09 20:47:27.431 [main] DemoTestCase - Succeeded test [testDeleteMail]
+[INFO ] 2015-10-09 20:47:27.432 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-09 20:47:27.432 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:24:44.670 [main] DemoTestCase - Starting test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:24:45.191 [main] DemoTestCase - Failed creating database Access denied for user 'christopher'@'localhost' (using password: YES)
+[INFO ] 2015-10-09 22:24:45.502 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 22:24:45.540 [main] MailDAOImpl - findByAttachmentID() returned the attachment with the name ofheadshot.jpg
+[ERROR] 2015-10-09 22:24:45.541 [main] DemoTestCase - Failed test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:24:45.541 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByAttachmentID() failed due un equals attachments expected:<jodd.mail.att.FileAttachment@327b636c> but was:<jodd.mail.att.ByteArrayAttachment@45dd4eda>
+[INFO ] 2015-10-09 22:24:45.542 [main] DemoTestCase - Finished test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:24:45.542 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:38:16.483 [main] DemoTestCase - Starting test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:38:17.010 [main] DemoTestCase - Failed creating database Access denied for user 'christopher'@'localhost' (using password: YES)
+[INFO ] 2015-10-09 22:38:17.486 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 22:38:17.524 [main] MailDAOImpl - findByAttachmentID() returned the attachment with the name ofheadshot.jpg
+[ERROR] 2015-10-09 22:38:17.525 [main] DemoTestCase - Failed test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:38:17.525 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByAttachmentID() failed due un equals attachments expected:<jodd.mail.att.FileAttachment@327b636c> but was:<jodd.mail.att.ByteArrayAttachment@45dd4eda>
+[INFO ] 2015-10-09 22:38:17.526 [main] DemoTestCase - Finished test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:38:17.526 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:38:17.540 [main] DemoTestCase - Starting test [testFindRecipientByID]
+[ERROR] 2015-10-09 22:38:17.560 [main] DemoTestCase - Failed creating database Access denied for user 'christopher'@'localhost' (using password: YES)
+[INFO ] 2015-10-09 22:38:17.588 [main] MailDAOImpl - createEmail() inserted an email with the id of 5
+[INFO ] 2015-10-09 22:38:17.600 [main] MailDAOImpl - findRecipientByID() returned the receipient address attachment.to@email.com
+[ERROR] 2015-10-09 22:38:17.601 [main] DemoTestCase - Failed test [testFindRecipientByID]
+[ERROR] 2015-10-09 22:38:17.605 [main] DemoTestCase - Failure reason : org.junit.ComparisonFailure: testFindRecipientByID() failed due un equals recipients expected:<[recipient.id].to@email.com> but was:<[attachment].to@email.com>
+[INFO ] 2015-10-09 22:38:17.606 [main] DemoTestCase - Finished test [testFindRecipientByID]
+[INFO ] 2015-10-09 22:38:17.606 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:38:17.608 [main] DemoTestCase - Starting test [testFindByFolderNameById]
+[ERROR] 2015-10-09 22:38:17.623 [main] DemoTestCase - Failed creating database Access denied for user 'christopher'@'localhost' (using password: YES)
+[INFO ] 2015-10-09 22:38:17.632 [main] MailDAOImpl - findByFolderNameById() returned the folderName inbox
+[INFO ] 2015-10-09 22:38:17.632 [main] DemoTestCase - Succeeded test [testFindByFolderNameById]
+[INFO ] 2015-10-09 22:38:17.633 [main] DemoTestCase - Finished test [testFindByFolderNameById]
+[INFO ] 2015-10-09 22:38:17.633 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:40:58.011 [main] DemoTestCase - Starting test [testFindByFolderNameById]
+[ERROR] 2015-10-09 22:40:58.666 [main] DemoTestCase - Failed creating database Access denied for user 'christopher'@'localhost' (using password: YES)
+[INFO ] 2015-10-09 22:40:58.769 [main] MailDAOImpl - findByFolderNameById() returned the folderName inbox
+[INFO ] 2015-10-09 22:40:58.770 [main] DemoTestCase - Succeeded test [testFindByFolderNameById]
+[INFO ] 2015-10-09 22:40:58.770 [main] DemoTestCase - Finished test [testFindByFolderNameById]
+[INFO ] 2015-10-09 22:40:58.771 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:41:56.562 [main] DemoTestCase - Starting test [testFindFolderNameById]
+[ERROR] 2015-10-09 22:41:57.069 [main] DemoTestCase - Failed creating database Access denied for user 'christopher'@'localhost' (using password: YES)
+[INFO ] 2015-10-09 22:41:57.161 [main] MailDAOImpl - findByFolderNameById() returned the folderName inbox
+[INFO ] 2015-10-09 22:41:57.161 [main] DemoTestCase - Succeeded test [testFindFolderNameById]
+[INFO ] 2015-10-09 22:41:57.162 [main] DemoTestCase - Finished test [testFindFolderNameById]
+[INFO ] 2015-10-09 22:41:57.162 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:44:10.435 [main] DemoTestCase - Starting test [testFindFolderNameById]
+[INFO ] 2015-10-09 22:44:11.601 [main] MailDAOImpl - findByFolderNameById() returned the folderName inbox
+[INFO ] 2015-10-09 22:44:11.602 [main] DemoTestCase - Succeeded test [testFindFolderNameById]
+[INFO ] 2015-10-09 22:44:11.602 [main] DemoTestCase - Finished test [testFindFolderNameById]
+[INFO ] 2015-10-09 22:44:11.602 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:45:05.370 [main] DemoTestCase - Starting test [testFindRecipientByID]
+[INFO ] 2015-10-09 22:45:06.392 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 22:45:06.401 [main] MailDAOImpl - findRecipientByID() returned the receipient address recipient.id.to@email.com
+[INFO ] 2015-10-09 22:45:06.401 [main] DemoTestCase - Succeeded test [testFindRecipientByID]
+[INFO ] 2015-10-09 22:45:06.401 [main] DemoTestCase - Finished test [testFindRecipientByID]
+[INFO ] 2015-10-09 22:45:06.402 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:47:37.231 [main] DemoTestCase - Starting test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:47:38.407 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 22:47:38.444 [main] MailDAOImpl - findByAttachmentID() returned the attachment with the name ofheadshot.jpg
+[ERROR] 2015-10-09 22:47:38.445 [main] DemoTestCase - !!!!!!!!!!!!! false
+[ERROR] 2015-10-09 22:47:38.446 [main] DemoTestCase - Failed test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:47:38.446 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByAttachmentID() failed due un equals attachments expected:<jodd.mail.att.FileAttachment@6293abcc> but was:<jodd.mail.att.ByteArrayAttachment@7995092a>
+[INFO ] 2015-10-09 22:47:38.446 [main] DemoTestCase - Finished test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:47:38.447 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:53:59.553 [main] DemoTestCase - Starting test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:54:00.686 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 22:54:00.723 [main] MailDAOImpl - findByAttachmentID() returned the attachment with the name ofheadshot.jpg
+[ERROR] 2015-10-09 22:54:00.724 [main] DemoTestCase - Failed test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:54:00.725 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByAttachmentID() failed due un equals attachments expected:<true> but was:<false>
+[INFO ] 2015-10-09 22:54:00.725 [main] DemoTestCase - Finished test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:54:00.726 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:56:43.371 [main] DemoTestCase - Starting test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:56:44.514 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 22:56:44.549 [main] MailDAOImpl - findByAttachmentID() returned the attachment with the name ofheadshot.jpg
+[DEBUG] 2015-10-09 22:56:44.549 [main] DemoTestCase - classfalse
+[DEBUG] 2015-10-09 22:56:44.549 [main] DemoTestCase - sizetrue
+[DEBUG] 2015-10-09 22:56:44.550 [main] DemoTestCase - contedIDfalse
+[DEBUG] 2015-10-09 22:56:44.555 [main] DemoTestCase - bytesfalse
+[ERROR] 2015-10-09 22:56:44.556 [main] DemoTestCase - Failed test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:56:44.556 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByAttachmentID() failed due un equals attachments expected:<true> but was:<false>
+[INFO ] 2015-10-09 22:56:44.557 [main] DemoTestCase - Finished test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:56:44.557 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:58:10.852 [main] DemoTestCase - Starting test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:58:11.930 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 22:58:11.966 [main] MailDAOImpl - findByAttachmentID() returned the attachment with the name ofheadshot.jpg
+[DEBUG] 2015-10-09 22:58:11.967 [main] DemoTestCase - classclass jodd.mail.att.FileAttachment
+[DEBUG] 2015-10-09 22:58:11.968 [main] DemoTestCase - sizetrue
+[DEBUG] 2015-10-09 22:58:11.968 [main] DemoTestCase - contedIDheadshot.jpg
+[DEBUG] 2015-10-09 22:58:12.002 [main] DemoTestCase - bytesfalse
+[ERROR] 2015-10-09 22:58:12.004 [main] DemoTestCase - Failed test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:58:12.004 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByAttachmentID() failed due un equals attachments expected:<true> but was:<false>
+[INFO ] 2015-10-09 22:58:12.004 [main] DemoTestCase - Finished test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:58:12.005 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 22:59:35.228 [main] DemoTestCase - Starting test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:59:36.275 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 22:59:36.310 [main] MailDAOImpl - findByAttachmentID() returned the attachment with the name ofheadshot.jpg
+[DEBUG] 2015-10-09 22:59:36.310 [main] DemoTestCase - classclass jodd.mail.att.FileAttachment class jodd.mail.att.ByteArrayAttachment
+[DEBUG] 2015-10-09 22:59:36.310 [main] DemoTestCase - sizetrue
+[DEBUG] 2015-10-09 22:59:36.311 [main] DemoTestCase - contedIDheadshot.jpg null
+[DEBUG] 2015-10-09 22:59:36.316 [main] DemoTestCase - bytesfalse
+[ERROR] 2015-10-09 22:59:36.317 [main] DemoTestCase - Failed test [testFindByAttachmentID]
+[ERROR] 2015-10-09 22:59:36.317 [main] DemoTestCase - Failure reason : java.lang.AssertionError: testFindByAttachmentID() failed due un equals attachments expected:<true> but was:<false>
+[INFO ] 2015-10-09 22:59:36.318 [main] DemoTestCase - Finished test [testFindByAttachmentID]
+[INFO ] 2015-10-09 22:59:36.318 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:34.271 [main] DemoTestCase - Starting test [testCreateFolder]
+[INFO ] 2015-10-09 23:51:35.239 [main] MailDAOImpl - createFolder() inserted 1 folders
+[INFO ] 2015-10-09 23:51:35.240 [main] DemoTestCase - Succeeded test [testCreateFolder]
+[INFO ] 2015-10-09 23:51:35.241 [main] DemoTestCase - Finished test [testCreateFolder]
+[INFO ] 2015-10-09 23:51:35.241 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:35.248 [main] DemoTestCase - Starting test [testFindByFolder]
+[INFO ] 2015-10-09 23:51:35.806 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 23:51:35.807 [main] MailDAOImpl - findByFolder() returned 2 emails
+[INFO ] 2015-10-09 23:51:35.808 [main] DemoTestCase - Succeeded test [testFindByFolder]
+[INFO ] 2015-10-09 23:51:35.808 [main] DemoTestCase - Finished test [testFindByFolder]
+[INFO ] 2015-10-09 23:51:35.808 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:35.809 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[INFO ] 2015-10-09 23:51:36.178 [main] DemoTestCase - Succeeded test [testFindAllFolderNames]
+[INFO ] 2015-10-09 23:51:36.179 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-09 23:51:36.180 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:36.185 [main] DemoTestCase - Starting test [testFindAll]
+[INFO ] 2015-10-09 23:51:36.571 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 23:51:36.572 [main] MailDAOImpl - findAll() returned 2 emails
+[INFO ] 2015-10-09 23:51:36.573 [main] DemoTestCase - Succeeded test [testFindAll]
+[INFO ] 2015-10-09 23:51:36.573 [main] DemoTestCase - Finished test [testFindAll]
+[INFO ] 2015-10-09 23:51:36.573 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:36.574 [main] DemoTestCase - Starting test [testCreateEmail]
+[INFO ] 2015-10-09 23:51:37.041 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:37.071 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:37.072 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-10-09 23:51:37.073 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:51:37.073 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:51:37.074 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:51:37.074 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:51:37.074 [main] DemoTestCase - Succeeded test [testCreateEmail]
+[INFO ] 2015-10-09 23:51:37.075 [main] DemoTestCase - Finished test [testCreateEmail]
+[INFO ] 2015-10-09 23:51:37.075 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:37.076 [main] DemoTestCase - Starting test [testFindByFrom]
+[INFO ] 2015-10-09 23:51:37.594 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:37.676 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:37.677 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[INFO ] 2015-10-09 23:51:37.705 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:37.707 [main] MailDAOImpl - findByFrom() returned 1 emails
+[DEBUG] 2015-10-09 23:51:37.707 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:51:37.707 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:51:37.715 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:51:37.715 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:51:37.715 [main] DemoTestCase - Succeeded test [testFindByFrom]
+[INFO ] 2015-10-09 23:51:37.715 [main] DemoTestCase - Finished test [testFindByFrom]
+[INFO ] 2015-10-09 23:51:37.716 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:37.717 [main] DemoTestCase - Starting test [testfindEmailByID]
+[ERROR] 2015-10-09 23:51:38.199 [main] DemoTestCase - Failed test [testfindEmailByID]
+[ERROR] 2015-10-09 23:51:38.200 [main] DemoTestCase - Failure reason : java.lang.NullPointerException
+[INFO ] 2015-10-09 23:51:38.200 [main] DemoTestCase - Finished test [testfindEmailByID]
+[INFO ] 2015-10-09 23:51:38.200 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:38.216 [main] DemoTestCase - Starting test [testDeleteFolder]
+[INFO ] 2015-10-09 23:51:38.630 [main] MailDAOImpl - deleteFolder() deleted 1 # of records
+[INFO ] 2015-10-09 23:51:38.630 [main] DemoTestCase - Succeeded test [testDeleteFolder]
+[INFO ] 2015-10-09 23:51:38.630 [main] DemoTestCase - Finished test [testDeleteFolder]
+[INFO ] 2015-10-09 23:51:38.631 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:38.632 [main] DemoTestCase - Starting test [testFindByCc]
+[INFO ] 2015-10-09 23:51:39.058 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:39.075 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 23:51:39.113 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 23:51:39.113 [main] MailDAOImpl - findByCc() returned 2 emails
+[INFO ] 2015-10-09 23:51:39.113 [main] DemoTestCase - Succeeded test [testFindByCc]
+[INFO ] 2015-10-09 23:51:39.114 [main] DemoTestCase - Finished test [testFindByCc]
+[INFO ] 2015-10-09 23:51:39.114 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:39.115 [main] DemoTestCase - Starting test [testFindByTo]
+[INFO ] 2015-10-09 23:51:39.500 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:39.518 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 23:51:39.535 [main] MailDAOImpl - createEmail() inserted an email with the id of 5
+[INFO ] 2015-10-09 23:51:39.580 [main] MailDAOImpl - createMailBeans() created 3 complete email beans.
+[INFO ] 2015-10-09 23:51:39.581 [main] MailDAOImpl - findByTo() returned 3 emails
+[INFO ] 2015-10-09 23:51:39.582 [main] DemoTestCase - Succeeded test [testFindByTo]
+[INFO ] 2015-10-09 23:51:39.582 [main] DemoTestCase - Finished test [testFindByTo]
+[INFO ] 2015-10-09 23:51:39.582 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:39.583 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-09 23:51:40.053 [main] MailDAOImpl - updateFolderInBean() if it existed modified the folder in email with email_id of 1 to have a folder id of 2
+[INFO ] 2015-10-09 23:51:40.116 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:40.116 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[INFO ] 2015-10-09 23:51:40.117 [main] DemoTestCase - Succeeded test [testUpdateFolderInBean]
+[INFO ] 2015-10-09 23:51:40.117 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-09 23:51:40.118 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:40.119 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-10-09 23:51:40.661 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:40.681 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:40.682 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-10-09 23:51:40.682 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:51:40.682 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:51:40.688 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:51:40.689 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:51:40.690 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-10-09 23:51:40.690 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-10-09 23:51:40.690 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:40.691 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-09 23:51:41.152 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[INFO ] 2015-10-09 23:51:41.169 [main] DemoTestCase - Succeeded test [testDeleteMail]
+[INFO ] 2015-10-09 23:51:41.170 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-09 23:51:41.170 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:41.171 [main] DemoTestCase - Starting test [testFindByBcc]
+[INFO ] 2015-10-09 23:51:41.534 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:41.553 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:41.554 [main] MailDAOImpl - findByBcc() returned 1 emails
+[INFO ] 2015-10-09 23:51:41.554 [main] DemoTestCase - Succeeded test [testFindByBcc]
+[INFO ] 2015-10-09 23:51:41.554 [main] DemoTestCase - Finished test [testFindByBcc]
+[INFO ] 2015-10-09 23:51:41.554 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:41.555 [main] DemoTestCase - Starting test [testUpdateFolderName]
+[INFO ] 2015-10-09 23:51:41.933 [main] MailDAOImpl - updateFolderName() updated 1 rows
+[INFO ] 2015-10-09 23:51:41.939 [main] DemoTestCase - Succeeded test [testUpdateFolderName]
+[INFO ] 2015-10-09 23:51:41.940 [main] DemoTestCase - Finished test [testUpdateFolderName]
+[INFO ] 2015-10-09 23:51:41.940 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:41.941 [main] DemoTestCase - Starting test [testFindRecipientByID]
+[INFO ] 2015-10-09 23:51:42.280 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:42.286 [main] MailDAOImpl - findRecipientByID() returned the receipient address recipient.id.to@email.com
+[INFO ] 2015-10-09 23:51:42.287 [main] DemoTestCase - Succeeded test [testFindRecipientByID]
+[INFO ] 2015-10-09 23:51:42.288 [main] DemoTestCase - Finished test [testFindRecipientByID]
+[INFO ] 2015-10-09 23:51:42.289 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:42.290 [main] DemoTestCase - Starting test [testFindBySubject]
+[INFO ] 2015-10-09 23:51:42.688 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:42.713 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:42.714 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[INFO ] 2015-10-09 23:51:42.735 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:42.736 [main] MailDAOImpl - findBySubject() returned 1 emails
+[DEBUG] 2015-10-09 23:51:42.737 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:51:42.737 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:51:42.739 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:51:42.739 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:51:42.740 [main] DemoTestCase - Succeeded test [testFindBySubject]
+[INFO ] 2015-10-09 23:51:42.740 [main] DemoTestCase - Finished test [testFindBySubject]
+[INFO ] 2015-10-09 23:51:42.740 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:42.741 [main] DemoTestCase - Starting test [testFindFolderNameById]
+[INFO ] 2015-10-09 23:51:43.109 [main] MailDAOImpl - findByFolderNameById() returned the folderName inbox
+[INFO ] 2015-10-09 23:51:43.110 [main] DemoTestCase - Succeeded test [testFindFolderNameById]
+[INFO ] 2015-10-09 23:51:43.110 [main] DemoTestCase - Finished test [testFindFolderNameById]
+[INFO ] 2015-10-09 23:51:43.111 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:43.111 [main] DemoTestCase - Starting test [testFindByDateReceived]
+[INFO ] 2015-10-09 23:51:43.451 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:43.468 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 23:51:43.485 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:51:43.486 [main] MailDAOImpl - findByDateReceive() returned 1 emails
+[INFO ] 2015-10-09 23:51:43.486 [main] DemoTestCase - Succeeded test [testFindByDateReceived]
+[INFO ] 2015-10-09 23:51:43.486 [main] DemoTestCase - Finished test [testFindByDateReceived]
+[INFO ] 2015-10-09 23:51:43.487 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:43.487 [main] DemoTestCase - Starting test [testFindByDateSent]
+[INFO ] 2015-10-09 23:51:43.873 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:51:43.887 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 23:51:43.902 [main] MailDAOImpl - createEmail() inserted an email with the id of 5
+[INFO ] 2015-10-09 23:51:43.930 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 23:51:43.931 [main] MailDAOImpl - findByDateSent() returned 2 emails
+[INFO ] 2015-10-09 23:51:43.931 [main] DemoTestCase - Succeeded test [testFindByDateSent]
+[INFO ] 2015-10-09 23:51:43.931 [main] DemoTestCase - Finished test [testFindByDateSent]
+[INFO ] 2015-10-09 23:51:43.931 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:43.943 [main] MailActionTest - Starting test [testBasicEmptySendEmail]
+[INFO ] 2015-10-09 23:51:46.883 [main] MailActionTest - MessageId is <1635378213.0.1444449106099.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:51:56.372 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:51:56.372 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:51:56.372 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:51:56.373 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:51:56.373 [main] MailActionTest - Succeeded test [testBasicEmptySendEmail]
+[INFO ] 2015-10-09 23:51:56.374 [main] MailActionTest - Finished test [testBasicEmptySendEmail]
+[INFO ] 2015-10-09 23:51:56.374 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:51:56.377 [main] MailActionTest - Starting test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-09 23:52:06.688 [main] MailActionTest - MessageId is <1795225096.3.1444449117438.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:52:17.050 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:52:17.051 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:52:17.057 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:52:17.058 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:52:17.060 [main] MailActionTest - Succeeded test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-09 23:52:17.061 [main] MailActionTest - Finished test [testComplexSendWithMultipleFieldsEmail]
+[INFO ] 2015-10-09 23:52:17.061 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:52:17.069 [main] MailActionTest - Starting test [testMultipleFields4SendEmail]
+[INFO ] 2015-10-09 23:52:18.795 [main] MailActionTest - MessageId is <599782425.4.1444449138327.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[ERROR] 2015-10-09 23:52:27.709 [main] MailActionTest - Failed test [testMultipleFields4SendEmail]
+[ERROR] 2015-10-09 23:52:27.713 [main] MailActionTest - Failure reason : jodd.mail.MailException: Open session error; <--- javax.mail.AuthenticationFailedException: [ALERT] Please log in via your web browser: https://support.google.com/mail/accounts/answer/78754 (Failure)
+[INFO ] 2015-10-09 23:52:27.714 [main] MailActionTest - Finished test [testMultipleFields4SendEmail]
+[INFO ] 2015-10-09 23:52:27.714 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:52:27.716 [main] MailActionTest - Starting test [testBasicSendWithExtraFieldsEmail]
+[INFO ] 2015-10-09 23:52:32.595 [main] MailActionTest - MessageId is <264978436.8.1444449148463.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:52:45.250 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:52:45.251 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:52:45.251 [main] MailBean - Inequality caused by: !subjectField.trim().equals(other.subjectField.trim()
+[TRACE] 2015-10-09 23:52:45.252 [main] MailBean -     Subject: A Basic message with extra fields - 46 : A new simple test message - 34
+[ERROR] 2015-10-09 23:52:45.253 [main] MailActionTest - Failed test [testBasicSendWithExtraFieldsEmail]
+[ERROR] 2015-10-09 23:52:45.265 [main] MailActionTest - Failure reason : java.lang.AssertionError: The testBasicSendWithExtraFieldsEmail does not match the received email expected:<com.chrisdufort.mailbean.MailBean@96e4ae0f> but was:<com.chrisdufort.mailbean.MailBean@5757fdf1>
+[INFO ] 2015-10-09 23:52:45.265 [main] MailActionTest - Finished test [testBasicSendWithExtraFieldsEmail]
+[INFO ] 2015-10-09 23:52:45.265 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:52:45.268 [main] MailActionTest - Starting test [testMultipleFields3SendEmail]
+[INFO ] 2015-10-09 23:52:47.068 [main] MailActionTest - MessageId is <146874094.9.1444449166517.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[INFO ] 2015-10-09 23:53:22.741 [main] DemoTestCase - Starting test [testCreateFolder]
+[INFO ] 2015-10-09 23:53:23.669 [main] MailDAOImpl - createFolder() inserted 1 folders
+[INFO ] 2015-10-09 23:53:23.670 [main] DemoTestCase - Succeeded test [testCreateFolder]
+[INFO ] 2015-10-09 23:53:23.671 [main] DemoTestCase - Finished test [testCreateFolder]
+[INFO ] 2015-10-09 23:53:23.671 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:23.675 [main] DemoTestCase - Starting test [testFindByFolder]
+[INFO ] 2015-10-09 23:53:24.177 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 23:53:24.178 [main] MailDAOImpl - findByFolder() returned 2 emails
+[INFO ] 2015-10-09 23:53:24.178 [main] DemoTestCase - Succeeded test [testFindByFolder]
+[INFO ] 2015-10-09 23:53:24.179 [main] DemoTestCase - Finished test [testFindByFolder]
+[INFO ] 2015-10-09 23:53:24.179 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:24.180 [main] DemoTestCase - Starting test [testFindAllFolderNames]
+[INFO ] 2015-10-09 23:53:24.547 [main] DemoTestCase - Succeeded test [testFindAllFolderNames]
+[INFO ] 2015-10-09 23:53:24.548 [main] DemoTestCase - Finished test [testFindAllFolderNames]
+[INFO ] 2015-10-09 23:53:24.548 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:24.557 [main] DemoTestCase - Starting test [testFindAll]
+[INFO ] 2015-10-09 23:53:24.949 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 23:53:24.949 [main] MailDAOImpl - findAll() returned 2 emails
+[INFO ] 2015-10-09 23:53:24.949 [main] DemoTestCase - Succeeded test [testFindAll]
+[INFO ] 2015-10-09 23:53:24.950 [main] DemoTestCase - Finished test [testFindAll]
+[INFO ] 2015-10-09 23:53:24.950 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:24.951 [main] DemoTestCase - Starting test [testCreateEmail]
+[INFO ] 2015-10-09 23:53:25.336 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:25.369 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:25.370 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-10-09 23:53:25.370 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:53:25.370 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:53:25.370 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:53:25.371 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:53:25.371 [main] DemoTestCase - Succeeded test [testCreateEmail]
+[INFO ] 2015-10-09 23:53:25.371 [main] DemoTestCase - Finished test [testCreateEmail]
+[INFO ] 2015-10-09 23:53:25.371 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:25.372 [main] DemoTestCase - Starting test [testFindByFrom]
+[INFO ] 2015-10-09 23:53:25.835 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:25.892 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:25.893 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[INFO ] 2015-10-09 23:53:25.910 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:25.911 [main] MailDAOImpl - findByFrom() returned 1 emails
+[DEBUG] 2015-10-09 23:53:25.911 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:53:25.911 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:53:25.917 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:53:25.918 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:53:25.918 [main] DemoTestCase - Succeeded test [testFindByFrom]
+[INFO ] 2015-10-09 23:53:25.918 [main] DemoTestCase - Finished test [testFindByFrom]
+[INFO ] 2015-10-09 23:53:25.918 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:25.919 [main] DemoTestCase - Starting test [testfindEmailByID]
+[ERROR] 2015-10-09 23:53:26.360 [main] DemoTestCase - Failed test [testfindEmailByID]
+[ERROR] 2015-10-09 23:53:26.360 [main] DemoTestCase - Failure reason : java.lang.NullPointerException
+[INFO ] 2015-10-09 23:53:26.361 [main] DemoTestCase - Finished test [testfindEmailByID]
+[INFO ] 2015-10-09 23:53:26.361 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:26.386 [main] DemoTestCase - Starting test [testDeleteFolder]
+[INFO ] 2015-10-09 23:53:26.755 [main] MailDAOImpl - deleteFolder() deleted 1 # of records
+[INFO ] 2015-10-09 23:53:26.756 [main] DemoTestCase - Succeeded test [testDeleteFolder]
+[INFO ] 2015-10-09 23:53:26.756 [main] DemoTestCase - Finished test [testDeleteFolder]
+[INFO ] 2015-10-09 23:53:26.756 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:26.758 [main] DemoTestCase - Starting test [testFindByCc]
+[INFO ] 2015-10-09 23:53:27.189 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:27.203 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 23:53:27.236 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 23:53:27.237 [main] MailDAOImpl - findByCc() returned 2 emails
+[INFO ] 2015-10-09 23:53:27.237 [main] DemoTestCase - Succeeded test [testFindByCc]
+[INFO ] 2015-10-09 23:53:27.238 [main] DemoTestCase - Finished test [testFindByCc]
+[INFO ] 2015-10-09 23:53:27.238 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:27.239 [main] DemoTestCase - Starting test [testFindByTo]
+[INFO ] 2015-10-09 23:53:27.683 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:27.700 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 23:53:27.718 [main] MailDAOImpl - createEmail() inserted an email with the id of 5
+[INFO ] 2015-10-09 23:53:27.756 [main] MailDAOImpl - createMailBeans() created 3 complete email beans.
+[INFO ] 2015-10-09 23:53:27.757 [main] MailDAOImpl - findByTo() returned 3 emails
+[INFO ] 2015-10-09 23:53:27.757 [main] DemoTestCase - Succeeded test [testFindByTo]
+[INFO ] 2015-10-09 23:53:27.757 [main] DemoTestCase - Finished test [testFindByTo]
+[INFO ] 2015-10-09 23:53:27.757 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:27.758 [main] DemoTestCase - Starting test [testUpdateFolderInBean]
+[INFO ] 2015-10-09 23:53:28.129 [main] MailDAOImpl - updateFolderInBean() if it existed modified the folder in email with email_id of 1 to have a folder id of 2
+[INFO ] 2015-10-09 23:53:28.148 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:28.149 [main] MailDAOImpl - findByID() returned the email with an id of 1
+[INFO ] 2015-10-09 23:53:28.150 [main] DemoTestCase - Succeeded test [testUpdateFolderInBean]
+[INFO ] 2015-10-09 23:53:28.150 [main] DemoTestCase - Finished test [testUpdateFolderInBean]
+[INFO ] 2015-10-09 23:53:28.150 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:28.151 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-10-09 23:53:28.796 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:28.817 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:28.818 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-10-09 23:53:28.818 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:53:28.818 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:53:28.824 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:53:28.825 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:53:28.825 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-10-09 23:53:28.825 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-10-09 23:53:28.825 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:28.826 [main] DemoTestCase - Starting test [testDeleteMail]
+[INFO ] 2015-10-09 23:53:29.252 [main] MailDAOImpl - deleteMail() deleted 1 # of records
+[INFO ] 2015-10-09 23:53:29.264 [main] DemoTestCase - Succeeded test [testDeleteMail]
+[INFO ] 2015-10-09 23:53:29.264 [main] DemoTestCase - Finished test [testDeleteMail]
+[INFO ] 2015-10-09 23:53:29.264 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:29.265 [main] DemoTestCase - Starting test [testFindByBcc]
+[INFO ] 2015-10-09 23:53:29.639 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:29.660 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:29.660 [main] MailDAOImpl - findByBcc() returned 1 emails
+[INFO ] 2015-10-09 23:53:29.661 [main] DemoTestCase - Succeeded test [testFindByBcc]
+[INFO ] 2015-10-09 23:53:29.661 [main] DemoTestCase - Finished test [testFindByBcc]
+[INFO ] 2015-10-09 23:53:29.661 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:29.662 [main] DemoTestCase - Starting test [testUpdateFolderName]
+[INFO ] 2015-10-09 23:53:30.021 [main] MailDAOImpl - updateFolderName() updated 1 rows
+[INFO ] 2015-10-09 23:53:30.028 [main] DemoTestCase - Succeeded test [testUpdateFolderName]
+[INFO ] 2015-10-09 23:53:30.029 [main] DemoTestCase - Finished test [testUpdateFolderName]
+[INFO ] 2015-10-09 23:53:30.029 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:30.030 [main] DemoTestCase - Starting test [testFindRecipientByID]
+[INFO ] 2015-10-09 23:53:30.493 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:30.500 [main] MailDAOImpl - findRecipientByID() returned the receipient address recipient.id.to@email.com
+[INFO ] 2015-10-09 23:53:30.501 [main] DemoTestCase - Succeeded test [testFindRecipientByID]
+[INFO ] 2015-10-09 23:53:30.502 [main] DemoTestCase - Finished test [testFindRecipientByID]
+[INFO ] 2015-10-09 23:53:30.503 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:30.504 [main] DemoTestCase - Starting test [testFindBySubject]
+[INFO ] 2015-10-09 23:53:30.910 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:30.927 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:30.928 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[INFO ] 2015-10-09 23:53:30.945 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:30.946 [main] MailDAOImpl - findBySubject() returned 1 emails
+[DEBUG] 2015-10-09 23:53:30.946 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:53:30.946 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:53:30.948 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:53:30.949 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:53:30.949 [main] DemoTestCase - Succeeded test [testFindBySubject]
+[INFO ] 2015-10-09 23:53:30.949 [main] DemoTestCase - Finished test [testFindBySubject]
+[INFO ] 2015-10-09 23:53:30.949 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:30.950 [main] DemoTestCase - Starting test [testFindFolderNameById]
+[INFO ] 2015-10-09 23:53:31.364 [main] MailDAOImpl - findByFolderNameById() returned the folderName inbox
+[INFO ] 2015-10-09 23:53:31.365 [main] DemoTestCase - Succeeded test [testFindFolderNameById]
+[INFO ] 2015-10-09 23:53:31.365 [main] DemoTestCase - Finished test [testFindFolderNameById]
+[INFO ] 2015-10-09 23:53:31.365 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:31.365 [main] DemoTestCase - Starting test [testFindByDateReceived]
+[INFO ] 2015-10-09 23:53:31.731 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:31.746 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 23:53:31.761 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-10-09 23:53:31.762 [main] MailDAOImpl - findByDateReceive() returned 1 emails
+[INFO ] 2015-10-09 23:53:31.762 [main] DemoTestCase - Succeeded test [testFindByDateReceived]
+[INFO ] 2015-10-09 23:53:31.762 [main] DemoTestCase - Finished test [testFindByDateReceived]
+[INFO ] 2015-10-09 23:53:31.762 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:31.763 [main] DemoTestCase - Starting test [testFindByDateSent]
+[INFO ] 2015-10-09 23:53:32.181 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-10-09 23:53:32.198 [main] MailDAOImpl - createEmail() inserted an email with the id of 4
+[INFO ] 2015-10-09 23:53:32.216 [main] MailDAOImpl - createEmail() inserted an email with the id of 5
+[INFO ] 2015-10-09 23:53:32.249 [main] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-10-09 23:53:32.250 [main] MailDAOImpl - findByDateSent() returned 2 emails
+[INFO ] 2015-10-09 23:53:32.250 [main] DemoTestCase - Succeeded test [testFindByDateSent]
+[INFO ] 2015-10-09 23:53:32.250 [main] DemoTestCase - Finished test [testFindByDateSent]
+[INFO ] 2015-10-09 23:53:32.251 [main] DemoTestCase - ***********************************************************************************************
+[DEBUG] 2015-10-09 23:53:33.199 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:53:33.200 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:53:33.200 [main] MailBean - Inequality caused by: !subjectField.trim().equals(other.subjectField.trim()
+[TRACE] 2015-10-09 23:53:33.201 [main] MailBean -     Subject: A new simple test message - 33 : A new simple test message - 32
+[ERROR] 2015-10-09 23:53:33.201 [main] MailActionTest - Failed test [testMultipleFields3SendEmail]
+[ERROR] 2015-10-09 23:53:33.201 [main] MailActionTest - Failure reason : java.lang.AssertionError: The multiField 3 sent email does not match the received email expected:<com.chrisdufort.mailbean.MailBean@3905b12c> but was:<com.chrisdufort.mailbean.MailBean@ed6f586d>
+[INFO ] 2015-10-09 23:53:33.201 [main] MailActionTest - Finished test [testMultipleFields3SendEmail]
+[INFO ] 2015-10-09 23:53:33.201 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:53:33.203 [main] MailActionTest - Starting test [testMultipleFields2SendEmail]
+[INFO ] 2015-10-09 23:53:35.010 [main] MailActionTest - MessageId is <473666452.10.1444449214554.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:54:02.764 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:54:02.765 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:54:02.765 [main] MailBean - Inequality caused by: !subjectField.trim().equals(other.subjectField.trim()
+[TRACE] 2015-10-09 23:54:02.766 [main] MailBean -     Subject: A new simple test message - 32 : A new simple test message - 31
+[ERROR] 2015-10-09 23:54:02.766 [main] MailActionTest - Failed test [testMultipleFields2SendEmail]
+[ERROR] 2015-10-09 23:54:02.766 [main] MailActionTest - Failure reason : java.lang.AssertionError: The multiField 2 sent email does not match the received email expected:<com.chrisdufort.mailbean.MailBean@38e9822a> but was:<com.chrisdufort.mailbean.MailBean@b87b05ab>
+[INFO ] 2015-10-09 23:54:02.766 [main] MailActionTest - Finished test [testMultipleFields2SendEmail]
+[INFO ] 2015-10-09 23:54:02.767 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:54:02.769 [main] MailActionTest - Starting test [testMultipleFields1SendEmail]
+[INFO ] 2015-10-09 23:54:04.477 [main] MailActionTest - MessageId is <1700721442.11.1444449244054.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:54:17.592 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:54:17.593 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:54:17.593 [main] MailBean - Inequality caused by: !subjectField.trim().equals(other.subjectField.trim()
+[TRACE] 2015-10-09 23:54:17.593 [main] MailBean -     Subject: A new simple test message - 31 : A new simple test message - 33
+[ERROR] 2015-10-09 23:54:17.593 [main] MailActionTest - Failed test [testMultipleFields1SendEmail]
+[ERROR] 2015-10-09 23:54:17.594 [main] MailActionTest - Failure reason : java.lang.AssertionError: The multiField 1 sent email does not match the received email expected:<com.chrisdufort.mailbean.MailBean@38cd5328> but was:<com.chrisdufort.mailbean.MailBean@2263ab2f>
+[INFO ] 2015-10-09 23:54:17.594 [main] MailActionTest - Finished test [testMultipleFields1SendEmail]
+[INFO ] 2015-10-09 23:54:17.594 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:54:17.595 [main] MailActionTest - Starting test [testWithoutTextSendEmail]
+[INFO ] 2015-10-09 23:54:18.691 [main] MailActionTest - MessageId is <778162712.14.1444449258303.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[WARN ] 2015-10-09 23:54:28.027 [main] MailActionTest - mailbeanSend is com.chrisdufort.mailbean.MailBean@4ff3da70 and com.chrisdufort.mailbean.MailBean@4ff3da70
+[DEBUG] 2015-10-09 23:54:28.027 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:54:28.027 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:54:28.027 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:54:28.027 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:54:28.028 [main] MailActionTest - Succeeded test [testWithoutTextSendEmail]
+[INFO ] 2015-10-09 23:54:28.028 [main] MailActionTest - Finished test [testWithoutTextSendEmail]
+[INFO ] 2015-10-09 23:54:28.028 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:54:28.029 [main] MailActionTest - Starting test [testBasicSendEmail]
+[INFO ] 2015-10-09 23:54:29.154 [main] MailActionTest - MessageId is <1492875057.15.1444449268728.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:54:35.575 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:54:35.576 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:54:35.576 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:54:35.576 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:54:35.576 [main] MailActionTest - Succeeded test [testBasicSendEmail]
+[INFO ] 2015-10-09 23:54:35.576 [main] MailActionTest - Finished test [testBasicSendEmail]
+[INFO ] 2015-10-09 23:54:35.576 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:54:35.577 [main] MailActionTest - Starting test [testBasicSendNoSubjectEmail]
+[INFO ] 2015-10-09 23:54:36.671 [main] MailActionTest - MessageId is <975033189.16.1444449276288.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:54:43.177 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:54:43.178 [main] MailBean - ----------------------------------------------------------------------------------------------
+[ERROR] 2015-10-09 23:54:43.178 [main] MailActionTest - Failed test [testBasicSendNoSubjectEmail]
+[ERROR] 2015-10-09 23:54:43.179 [main] MailActionTest - Failure reason : java.lang.NullPointerException
+[INFO ] 2015-10-09 23:54:43.179 [main] MailActionTest - Finished test [testBasicSendNoSubjectEmail]
+[INFO ] 2015-10-09 23:54:43.179 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:54:43.180 [main] MailActionTest - Starting test [testEmptyComplexSendEmail]
+[INFO ] 2015-10-09 23:54:44.276 [main] MailActionTest - MessageId is <1390301622.17.1444449283907.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:54:52.556 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:54:52.557 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:54:52.557 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:54:52.557 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:54:52.557 [main] MailActionTest - Succeeded test [testEmptyComplexSendEmail]
+[INFO ] 2015-10-09 23:54:52.557 [main] MailActionTest - Finished test [testEmptyComplexSendEmail]
+[INFO ] 2015-10-09 23:54:52.557 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:54:52.558 [main] MailActionTest - Starting test [testMinimumSendEmail]
+[INFO ] 2015-10-09 23:54:53.633 [main] MailActionTest - MessageId is <452364286.18.1444449293263.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:55:03.081 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:55:03.081 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:55:03.081 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:55:03.081 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:55:03.082 [main] MailActionTest - Succeeded test [testMinimumSendEmail]
+[INFO ] 2015-10-09 23:55:03.082 [main] MailActionTest - Finished test [testMinimumSendEmail]
+[INFO ] 2015-10-09 23:55:03.082 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:55:03.083 [main] MailActionTest - Starting test [testHandBuiltSendEmail]
+[INFO ] 2015-10-09 23:55:09.284 [main] MailActionTest - MessageId is <1242688388.22.1444449303943.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:55:16.650 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:55:16.650 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:55:16.654 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:55:16.654 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:55:16.654 [main] MailActionTest - Succeeded test [testHandBuiltSendEmail]
+[INFO ] 2015-10-09 23:55:16.654 [main] MailActionTest - Finished test [testHandBuiltSendEmail]
+[INFO ] 2015-10-09 23:55:16.655 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:55:16.656 [main] MailActionTest - Starting test [testComplexSendEmail]
+[INFO ] 2015-10-09 23:55:21.245 [main] MailActionTest - MessageId is <1943855334.25.1444449317482.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:55:28.488 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:55:28.488 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:55:28.524 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:55:28.530 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:55:28.531 [main] MailActionTest - Succeeded test [testComplexSendEmail]
+[INFO ] 2015-10-09 23:55:28.531 [main] MailActionTest - Finished test [testComplexSendEmail]
+[INFO ] 2015-10-09 23:55:28.531 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:55:28.532 [main] MailActionTest - Starting test [testMultipleEmbedWithoutHtmlEmail]
+[INFO ] 2015-10-09 23:55:33.942 [main] MailActionTest - MessageId is <2018220300.28.1444449329262.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:55:41.131 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:55:41.131 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:55:41.132 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:55:41.132 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:55:41.132 [main] MailActionTest - Succeeded test [testMultipleEmbedWithoutHtmlEmail]
+[INFO ] 2015-10-09 23:55:41.133 [main] MailActionTest - Finished test [testMultipleEmbedWithoutHtmlEmail]
+[INFO ] 2015-10-09 23:55:41.133 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-09 23:55:41.134 [main] MailActionTest - Starting test [testEmptyMessWithMultAttachEmail]
+[INFO ] 2015-10-09 23:55:46.436 [main] MailActionTest - MessageId is <1985938863.30.1444449341844.JavaMail.Christopher@smtp.gmail.com> value other than -1 = successful send.
+[DEBUG] 2015-10-09 23:55:53.497 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-10-09 23:55:53.497 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-10-09 23:55:53.500 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-10-09 23:55:53.501 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-10-09 23:55:53.501 [main] MailActionTest - Succeeded test [testEmptyMessWithMultAttachEmail]
+[INFO ] 2015-10-09 23:55:53.501 [main] MailActionTest - Finished test [testEmptyMessWithMultAttachEmail]
+[INFO ] 2015-10-09 23:55:53.501 [main] MailActionTest - ***********************************************************************************************

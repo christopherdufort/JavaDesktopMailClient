@@ -70,7 +70,8 @@ public class MethodLogger extends TestWatcher {
 	protected void failed(Throwable e, Description description) {
 		log.error("Failed test [{}]", description.getMethodName());
 		log.error("Failure reason : " + e);
-		//log.error("SEE STACKTRACE: ", e); //uncomment for full stack trace logged.
+		// log.error("SEE STACKTRACE: ", e); //uncomment for full stack trace
+		// logged.
 	}
 
 	/**
