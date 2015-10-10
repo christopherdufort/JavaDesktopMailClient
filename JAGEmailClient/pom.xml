@@ -17,7 +17,7 @@
 	<!-- The version of the build. Any value is valid though a number and a 
 		string are common. SNAPSHOT means a project under development. FINAL is commonly 
 		used to refer to stable production version -->
-	<version>0.2.1-SNAPSHOT</version>
+	<version>0.2.9-SNAPSHOT</version>
 
 	<!-- Default value is jar but may be war or ear -->
 	<packaging>jar</packaging>
@@ -90,8 +90,11 @@
 		</dependency>
 
 		<!-- MySQL dependency -->
-		<!-- <dependency> <groupId>mysql</groupId> <artifactId>mysql-connector-java</artifactId> 
-			<version>5.1.36</version> </dependency> -->
+		<dependency> 
+			<groupId>mysql</groupId>
+			 <artifactId>mysql-connector-java</artifactId> 
+			<version>5.1.36</version> 
+		</dependency>
 
 		<!-- Jodd Mail Dependency -->
 		<dependency>
@@ -106,7 +109,7 @@
 		<!-- Goals may be set in the IDE or the pom IDE or CLI goals override the 
 			defaultGoal -->
 		<!-- <defaultGoal>clean compile package exec:java</defaultGoal> -->
-		<defaultGoal>clean compile test</defaultGoal> <!-- FIXME PACKAGE, EXEC are left out for these phases. -->
+		<defaultGoal>clean compile test</defaultGoal> <!-- FIXME package & exec:java are left out for these phases. -->
 
 		<!-- Plugins define components that perform actions -->
 		<plugins>
