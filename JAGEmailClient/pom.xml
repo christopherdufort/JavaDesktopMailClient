@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-	<!--@author Christopher Dufort @version 0.1.0-SNAPSHOT , Phase 2 - last 
-		modified 09/23/15 @since 0.0.1-SNAPSHOT , Phase 1 -->
+	<!--
+	@author Christopher Dufort 
+	@version 0.3.0-SNAPSHOT , Phase 3 - last modified 10/14/15 
+	@since 0.0.1-SNAPSHOT , Phase 1
+	-->
 
 	<!-- Maven version of the xml document currently only 4.0.0 is valid -->
 	<modelVersion>4.0.0</modelVersion>
@@ -17,14 +20,14 @@
 	<!-- The version of the build. Any value is valid though a number and a 
 		string are common. SNAPSHOT means a project under development. FINAL is commonly 
 		used to refer to stable production version -->
-	<version>0.2.9-SNAPSHOT</version>
+	<version>0.3.0-SNAPSHOT</version>
 
 	<!-- Default value is jar but may be war or ear -->
 	<packaging>jar</packaging>
 
 	<!-- The name given to the project. Unlike groupId and artifactId a name 
 		may have spaces -->
-	<name>${artifactId}</name>
+	<name>JAGEmailClient</name>
 
 	<!-- A description of the program -->
 	<description>3rd year java project, JAG Email Client.</description>
@@ -50,7 +53,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
 		<!-- class that has the main method -->
-		<mainClass>${groupId}.${artifactId}.App</mainClass> <!-- FIXME this main app is currently missing from the project -->
+		<mainClass>com.chrisdufort.JAGEmailClient.MainAppFX</mainClass>
 	</properties>
 
 	<dependencies>
@@ -109,7 +112,7 @@
 		<!-- Goals may be set in the IDE or the pom IDE or CLI goals override the 
 			defaultGoal -->
 		<!-- <defaultGoal>clean compile package exec:java</defaultGoal> -->
-		<defaultGoal>clean compile test</defaultGoal> <!-- FIXME package & exec:java are left out for these phases. -->
+		<defaultGoal>clean compile package exec:java</defaultGoal>
 
 		<!-- Plugins define components that perform actions -->
 		<plugins>

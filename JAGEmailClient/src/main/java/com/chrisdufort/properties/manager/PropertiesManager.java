@@ -16,7 +16,7 @@ import com.chrisdufort.properties.mailbean.MailConfigBean;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.9-SNAPSHOT , Phase 2 - last modified 10/09/15
+ * @version 0.3.0-SNAPSHOT , Phase 2 - last modified 10/14/15
  * @since 0.2.9-SNAPSHOT
  */
 public class PropertiesManager {
@@ -49,13 +49,15 @@ public class PropertiesManager {
 			try (InputStream propFileStream = newInputStream(txtFile);) {
 				prop.load(propFileStream);
 			}
-			mailConfig.setHost(prop.getProperty("host"));
+			mailConfig.setUsername(prop.getProperty("username"));
+			mailConfig.setEmailAddress(prop.getProperty("emailAddress"));
+			mailConfig.setName(prop.getProperty("name"));
 			mailConfig.setPassword(prop.getProperty("password"));
-			mailConfig.setUserEmailAddress(prop.getProperty("userEmailAddress"));
 			mailConfig.setImapUrl(prop.getProperty("imapUrl"));
 			mailConfig.setSmtpUrl(prop.getProperty("smtpUrl"));
-			// TODO add ports
+			mailConfig.setSmtpPort(Integer.getInteger(prop.getProperty("smtpPort"))); //This cast ok?
 			mailConfig.setMysqlUrl(prop.getProperty("mysqlUrl"));
+			mailConfig.setMysqlUrl(prop.getProperty("mysqlDatabase"));
 			mailConfig.setMysqlUsername(prop.getProperty("mysqlUsername"));
 			mailConfig.setMysqlPassword(prop.getProperty("mysqlPassword"));
 		}
@@ -83,7 +85,7 @@ public class PropertiesManager {
 
 		prop.setProperty("imapUrl", mailConfig.getImapUrl());
 		prop.setProperty("smtpUrl", mailConfig.getSmtpUrl());
-		// TODO add ports
+		prop.setProperty("smtpPort", String.valueOf(mailConfig.getSmtpPort())); //OK?
 		prop.setProperty("mysqlUrl", mailConfig.getMysqlUrl());
 		prop.setProperty("mysqlUsername", mailConfig.getMysqlUsername());
 		prop.setProperty("mysqlPassword", mailConfig.getMysqlPassword());

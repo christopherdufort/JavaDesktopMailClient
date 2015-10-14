@@ -1,5 +1,8 @@
 package com.chrisdufort.properties.mailbean;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.StringProperty;
+
 /**
  * This Mail Configuration Bean class contains all the relevant information
  * needed for authentication and connection to an email server with an email
@@ -8,24 +11,28 @@ package com.chrisdufort.properties.mailbean;
  * 
  * User information including Username/Email and passwords are NOT encrypted,
  * passwords are stored in simple text.
+ * 
+ * Modified class to be in the form of JavaFX Beans (property)
  *
  * @author Christopher Dufort
- * @version 0.2.9-SNAPSHOT , last modified 10/09/15
+ * @version 0.3.0-SNAPSHOT , Phase 3 last modified 10/14/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailConfigBean {
 
-	private String host; // TODO remove this in favor of new properties?
-	private String userEmailAddress;
-	private String password;
-	private String imapUrl;
-	private String smtpUrl;
-	private int imapPort;
-	private int smtpPort;
-	private int mysqlPort;
-	private String mysqlUrl;
-	private String mysqlUsername;
-	private String mysqlPassword;
+	private StringProperty username;
+	private StringProperty emailAddress;
+	private StringProperty name;
+	private StringProperty password;
+	private StringProperty imapUrl;
+	private StringProperty smtpUrl;
+	private IntegerProperty imapPort;
+	private IntegerProperty smtpPort;
+	private IntegerProperty mysqlPort;
+	private StringProperty mysqlUrl;
+	private StringProperty mysqlDatabase;
+	private StringProperty mysqlUsername;
+	private StringProperty mysqlPassword;
 
 	/**
 	 * Default no parameter constructor. Calls constructor of super
@@ -33,9 +40,10 @@ public class MailConfigBean {
 	 */
 	public MailConfigBean() {
 		super();
-		this.host = "";
-		this.userEmailAddress = "";
-		this.password = "";
+		this.setUsername("");
+		this.setEmailAddress("");
+		this.setName("");
+		this.setPassword("");
 		this.setImapUrl("");
 		this.setSmtpUrl("");
 		this.setImapPort(0);
@@ -46,69 +54,13 @@ public class MailConfigBean {
 		this.setMysqlPassword("");
 	}
 
-	/**
-	 * @param host
-	 *            String representing host server information (SMTP/IMAP/POP3)
-	 *            designed for gmail.
-	 * @param userName
-	 *            String representing user name / email of connection
-	 *            type(send/receive).
-	 * @param password
-	 *            String stored currently in plain text - authorization password
-	 *            for userName.
-	 */
-	public MailConfigBean(final String host, final String userEmailAddress, final String password) {
+	public MailConfigBean(final String username, final String emailAddress, final String name, final String password,
+			final String imapUrl, final String smtpUrl, final int imapPort, final int smtpPort, final String mysqlUrl,
+			final String mysqlDatabase, final String mysqlUsername, final String mysqlPassword)
+	{
 		super();
-		this.host = host;
-		this.userEmailAddress = userEmailAddress;
-		this.password = password;
-		// TODO support other fields here or make another constructor
 	}
 
-	/**
-	 * @return host - string host which was set
-	 */
-	public final String getHost() {
-		return host;
-	}
-
-	/**
-	 * @param host
-	 *            the host to set server type and domain
-	 */
-	public final void setHost(final String host) {
-		this.host = host;
-	}
-
-	/**
-	 * @return userName string email/username for authentication
-	 */
-	public final String getUserEmailAddress() {
-		return userEmailAddress;
-	}
-
-	/**
-	 * @param userName
-	 *            the userName to set for authentication with host
-	 */
-	public final void setUserEmailAddress(final String userEmailAddress) {
-		this.userEmailAddress = userEmailAddress;
-	}
-
-	/**
-	 * @return the password string un-encrypted password for authentication
-	 */
-	public final String getPassword() {
-		return password;
-	}
-
-	/**
-	 * @param password
-	 *            the password to set for authentication with host
-	 */
-	public final void setPassword(final String password) {
-		this.password = password;
-	}
 
 	/**
 	 * @return the imapUrl
@@ -228,6 +180,78 @@ public class MailConfigBean {
 	 */
 	public void setMysqlPassword(String mysqlPassword) {
 		this.mysqlPassword = mysqlPassword;
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public String getUsername() {
+		return username;
+	}
+	
+	/**
+	 * 
+	 * @param userName
+	 */
+	public void setUsername(String username) {
+		this.username = username;
+	}
+
+	/**
+	 * @return the emailAddress
+	 */
+	public String getEmailAddress() {
+		return emailAddress;
+	}
+
+	/**
+	 * @param emailAddress the emailAddress to set
+	 */
+	public void setEmailAddress(String emailAddress) {
+		this.emailAddress = emailAddress;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	/**
+	 * @return the mysqlDatabase
+	 */
+	public String getMysqlDatabase() {
+		return mysqlDatabase;
+	}
+
+	/**
+	 * @param mysqlDatabase the mysqlDatabase to set
+	 */
+	public void setMysqlDatabase(String mysqlDatabase) {
+		this.mysqlDatabase = mysqlDatabase;
+	}
+
+	/**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 
 }
