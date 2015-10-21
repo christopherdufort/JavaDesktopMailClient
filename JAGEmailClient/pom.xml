@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<!--
 	@author Christopher Dufort 
-	@version 0.3.0-SNAPSHOT , Phase 3 - last modified 10/14/15 
+	@version 0.3.1-SNAPSHOT , Phase 3 - last modified 10/20/15 
 	@since 0.0.1-SNAPSHOT , Phase 1
 	-->
 
@@ -20,7 +20,7 @@
 	<!-- The version of the build. Any value is valid though a number and a 
 		string are common. SNAPSHOT means a project under development. FINAL is commonly 
 		used to refer to stable production version -->
-	<version>0.3.0-SNAPSHOT</version>
+	<version>0.3.1-SNAPSHOT</version>
 
 	<!-- Default value is jar but may be war or ear -->
 	<packaging>jar</packaging>
@@ -111,7 +111,6 @@
 	<build>
 		<!-- Goals may be set in the IDE or the pom IDE or CLI goals override the 
 			defaultGoal -->
-		<!-- <defaultGoal>clean compile package exec:java</defaultGoal> -->
 		<defaultGoal>clean compile package exec:java</defaultGoal>
 
 		<!-- Plugins define components that perform actions -->

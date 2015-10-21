@@ -17,7 +17,9 @@ import java.util.ResourceBundle;
  *
  * #KFCStandard and JavaFX8
  *
- * @author Ken Fogel
+ * @author Christopher Dufort
+ * @version 0.3.1-SNAPSHOT - phase 3, last modified 10/20/2015
+ * @since 0.3.0-SNAPSHOT
  */
 public class MainAppFX extends Application {
 

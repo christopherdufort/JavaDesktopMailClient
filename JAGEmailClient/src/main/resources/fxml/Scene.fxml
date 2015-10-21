@@ -1,14 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" stylesheets="@../styles/Styles.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.FXMLController">
-    <children>
-        <Button fx:id="button" alignment="CENTER" contentDisplay="CENTER" layoutX="126.0" layoutY="71.0" minWidth="69.0" onAction="#handleButtonAction" prefHeight="29.0" prefWidth="69.0" text="%click" textAlignment="CENTER" />
-        <Label fx:id="label" alignment="CENTER" contentDisplay="CENTER" layoutX="98.0" layoutY="122.0" minHeight="16.0" minWidth="125.0" />
-    </children>
-</AnchorPane>
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="280.0" minWidth="10.0" prefWidth="168.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="442.0" minWidth="10.0" prefWidth="402.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <Label text="%USERNAME" GridPane.rowIndex="1" />
+      <Label text="%EMAILADDRESS" GridPane.rowIndex="2" />
+      <Label text="%NAME" GridPane.rowIndex="3" />
+      <Label text="%PASSWORD" GridPane.rowIndex="4" />
+      <Label text="%IMAPURL" GridPane.rowIndex="5" />
+      <Label text="%SMTPURL" GridPane.rowIndex="6" />
+      <Label text="%IMAPPORT" GridPane.rowIndex="7" />
+      <Label text="%SMTPPORT" GridPane.rowIndex="8" />
+      <Label text="%MYSQLPORT" GridPane.rowIndex="9" />
+      <Label text="%MYSQLURL" GridPane.rowIndex="10" />
+      <Label text="%MYSQLDATABASE" GridPane.rowIndex="11" />
+      <Label text="%MYSQLUSERNAME" GridPane.rowIndex="12" />
+      <Label text="%MYSQLPASSWORD" GridPane.rowIndex="13" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2">
+         <children>
+            <Label text="%TITLE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnSpan="2" GridPane.rowIndex="14">
+         <children>
+            <Button mnemonicParsing="false" onAction="#submitPressed" text="%SUBMIT" />
+         </children>
+      </HBox>
+      <TextField fx:id="usernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="emailTextField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="nameTextField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="imapurlTextField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <TextField fx:id="smtpurlTextField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <TextField fx:id="imapportTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <TextField fx:id="smtpportTextField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <TextField fx:id="mysqlportTextField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+      <TextField fx:id="mysqlurlTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <TextField fx:id="mysqldatabaseTextField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+      <TextField fx:id="mysqlusernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+      <PasswordField fx:id="passwordTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <PasswordField fx:id="mysqlpasswordTextField" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+   </children>
+</GridPane>

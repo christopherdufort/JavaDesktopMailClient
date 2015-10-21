@@ -30,6 +30,8 @@ import jodd.mail.EmailAttachment;
  * 
  * ArrayLists do not require a setter instead using .add for the ArrayList api is sufficient.
  * 
+ * FIXME modify this class to be a java fx bean! properties + equals and hash overide
+ * 
  * @author Christopher Dufort
  * @version 0.2.6-SNAPSHOT , Phase 2 - last modified 10/07/15
  * @since 0.0.1-SNAPSHOT , Phase 1

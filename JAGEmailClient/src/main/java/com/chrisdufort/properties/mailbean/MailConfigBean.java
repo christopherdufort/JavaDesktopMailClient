@@ -1,6 +1,8 @@
 package com.chrisdufort.properties.mailbean;
 
 import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 /**
@@ -12,10 +14,10 @@ import javafx.beans.property.StringProperty;
  * User information including Username/Email and passwords are NOT encrypted,
  * passwords are stored in simple text.
  * 
- * Modified class to be in the form of JavaFX Beans (property)
+ * Modified class to be in the form of JavaFX Beans (property) from version 0.3.1 onward.
  *
  * @author Christopher Dufort
- * @version 0.3.0-SNAPSHOT , Phase 3 last modified 10/14/15
+ * @version 0.3.1-SNAPSHOT , Phase 3 last modified 10/20/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailConfigBean {
@@ -39,26 +41,28 @@ public class MailConfigBean {
 	 * class(Object). Instantiates values to empty strings.
 	 */
 	public MailConfigBean() {
-		super();
-		this.setUsername("");
-		this.setEmailAddress("");
-		this.setName("");
-		this.setPassword("");
-		this.setImapUrl("");
-		this.setSmtpUrl("");
-		this.setImapPort(0);
-		this.setSmtpPort(0);
-		this.setMysqlPort(0);
-		this.setMysqlUrl("");
-		this.setMysqlUsername("");
-		this.setMysqlPassword("");
+		this("", "", "", "", "", "", 0, 0, 0, "", "", "", "");
+		
 	}
 
 	public MailConfigBean(final String username, final String emailAddress, final String name, final String password,
-			final String imapUrl, final String smtpUrl, final int imapPort, final int smtpPort, final String mysqlUrl,
-			final String mysqlDatabase, final String mysqlUsername, final String mysqlPassword)
+			final String imapUrl, final String smtpUrl, final int imapPort, final int smtpPort, final int mysqlPort, 
+			final String mysqlUrl, final String mysqlDatabase, final String mysqlUsername, final String mysqlPassword)
 	{
 		super();
+		this.username = new SimpleStringProperty(username);
+		this.emailAddress = new SimpleStringProperty(emailAddress);
+		this.name = new SimpleStringProperty(name);
+		this.password = new SimpleStringProperty(password);
+		this.imapUrl = new SimpleStringProperty(imapUrl);
+		this.smtpUrl = new SimpleStringProperty(smtpUrl);
+		this.imapPort = new SimpleIntegerProperty(imapPort);
+		this.smtpPort = new SimpleIntegerProperty(smtpPort);
+		this.mysqlPort = new SimpleIntegerProperty(mysqlPort);
+		this.mysqlUrl = new SimpleStringProperty(mysqlUrl);
+		this.mysqlDatabase = new SimpleStringProperty(mysqlDatabase);
+		this.mysqlUsername = new SimpleStringProperty(mysqlUsername);
+		this.mysqlPassword = new SimpleStringProperty(mysqlPassword);
 	}
 
 
@@ -66,6 +70,14 @@ public class MailConfigBean {
 	 * @return the imapUrl
 	 */
 	public String getImapUrl() {
+		return imapUrl.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty imapUrl() {
 		return imapUrl;
 	}
 
@@ -73,14 +85,22 @@ public class MailConfigBean {
 	 * @param imapUrl
 	 *            the imapUrl to set
 	 */
-	public void setImapUrl(String imapUrl) {
-		this.imapUrl = imapUrl;
+	public void setImapUrl(final String imapUrl) {
+		this.imapUrl.set(imapUrl);
 	}
 
 	/**
 	 * @return the smtpUrl
 	 */
 	public String getSmtpUrl() {
+		return smtpUrl.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty smtpUrl(){
 		return smtpUrl;
 	}
 
@@ -88,14 +108,22 @@ public class MailConfigBean {
 	 * @param smtpUrl
 	 *            the smtpUrl to set
 	 */
-	public void setSmtpUrl(String smtpUrl) {
-		this.smtpUrl = smtpUrl;
+	public void setSmtpUrl(final String smtpUrl) {
+		this.smtpUrl.set(smtpUrl);
 	}
 
 	/**
 	 * @return the imapPort
 	 */
 	public int getImapPort() {
+		return imapPort.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public IntegerProperty imapPort(){
 		return imapPort;
 	}
 
@@ -103,14 +131,22 @@ public class MailConfigBean {
 	 * @param imapPort
 	 *            the imapPort to set
 	 */
-	public void setImapPort(int imapPort) {
-		this.imapPort = imapPort;
+	public void setImapPort(final int imapPort) {
+		this.imapPort.set(imapPort);
 	}
 
 	/**
 	 * @return the smtpPort
 	 */
 	public int getSmtpPort() {
+		return smtpPort.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public IntegerProperty smtpPort(){
 		return smtpPort;
 	}
 
@@ -118,14 +154,22 @@ public class MailConfigBean {
 	 * @param smtpPort
 	 *            the smtpPort to set
 	 */
-	public void setSmtpPort(int smtpPort) {
-		this.smtpPort = smtpPort;
+	public void setSmtpPort(final int smtpPort) {
+		this.smtpPort.set(smtpPort);
 	}
 
 	/**
 	 * @return the mysqlPort
 	 */
 	public int getMysqlPort() {
+		return mysqlPort.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public IntegerProperty mysqlPort(){
 		return mysqlPort;
 	}
 
@@ -133,14 +177,22 @@ public class MailConfigBean {
 	 * @param mysqlPort
 	 *            the mysqlPort to set
 	 */
-	public void setMysqlPort(int mysqlPort) {
-		this.mysqlPort = mysqlPort;
+	public void setMysqlPort(final int mysqlPort) {
+		this.mysqlPort.set(mysqlPort);
 	}
 
 	/**
 	 * @return the mysqlUrl
 	 */
 	public String getMysqlUrl() {
+		return mysqlUrl.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty mysqlUrl(){
 		return mysqlUrl;
 	}
 
@@ -148,14 +200,22 @@ public class MailConfigBean {
 	 * @param mysqlUrl
 	 *            the mysqlUrl to set
 	 */
-	public void setMysqlUrl(String mysqlUrl) {
-		this.mysqlUrl = mysqlUrl;
+	public void setMysqlUrl(final String mysqlUrl) {
+		this.mysqlUrl.set(mysqlUrl);
 	}
 
 	/**
 	 * @return the mysqlUsername
 	 */
 	public String getMysqlUsername() {
+		return mysqlUsername.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty mysqlUsername(){
 		return mysqlUsername;
 	}
 
@@ -163,14 +223,22 @@ public class MailConfigBean {
 	 * @param mysqlUsername
 	 *            the mysqlUsername to set
 	 */
-	public void setMysqlUsername(String mysqlUsername) {
-		this.mysqlUsername = mysqlUsername;
+	public void setMysqlUsername(final String mysqlUsername) {
+		this.mysqlUsername.set(mysqlUsername);
 	}
 
 	/**
 	 * @return the mysqlPassword
 	 */
 	public String getMysqlPassword() {
+		return mysqlPassword.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty mysqlPassword(){
 		return mysqlPassword;
 	}
 
@@ -178,8 +246,8 @@ public class MailConfigBean {
 	 * @param mysqlPassword
 	 *            the mysqlPassword to set
 	 */
-	public void setMysqlPassword(String mysqlPassword) {
-		this.mysqlPassword = mysqlPassword;
+	public void setMysqlPassword(final String mysqlPassword) {
+		this.mysqlPassword.set(mysqlPassword);
 	}
 	
 	/**
@@ -187,6 +255,14 @@ public class MailConfigBean {
 	 * @return
 	 */
 	public String getUsername() {
+		return username.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty username(){
 		return username;
 	}
 	
@@ -194,64 +270,93 @@ public class MailConfigBean {
 	 * 
 	 * @param userName
 	 */
-	public void setUsername(String username) {
-		this.username = username;
+	public void setUsername(final String username) {
+		this.username.set(username);
 	}
 
 	/**
 	 * @return the emailAddress
 	 */
 	public String getEmailAddress() {
+		return emailAddress.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty emailAddress(){
 		return emailAddress;
 	}
 
 	/**
 	 * @param emailAddress the emailAddress to set
 	 */
-	public void setEmailAddress(String emailAddress) {
-		this.emailAddress = emailAddress;
+	public void setEmailAddress(final String emailAddress) {
+		this.emailAddress.set(emailAddress);
 	}
 
 	/**
 	 * @return the name
 	 */
 	public String getName() {
+		return name.get();
+	}
+	
+	public StringProperty name(){
 		return name;
 	}
 
 	/**
 	 * @param name the name to set
 	 */
-	public void setName(String name) {
-		this.name = name;
+	public void setName(final String name) {
+		this.name.set(name);
 	}
 
 	/**
 	 * @return the mysqlDatabase
 	 */
 	public String getMysqlDatabase() {
+		return mysqlDatabase.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty mysqlDatabase() {
 		return mysqlDatabase;
 	}
 
 	/**
 	 * @param mysqlDatabase the mysqlDatabase to set
 	 */
-	public void setMysqlDatabase(String mysqlDatabase) {
-		this.mysqlDatabase = mysqlDatabase;
+	public void setMysqlDatabase(final String mysqlDatabase) {
+		this.mysqlDatabase.set(mysqlDatabase);
 	}
 
 	/**
 	 * @return the password
 	 */
 	public String getPassword() {
+		return password.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty passwordProperty() {
 		return password;
 	}
-
 	/**
 	 * @param password the password to set
 	 */
-	public void setPassword(String password) {
-		this.password = password;
+	public void setPassword(final String password) {
+		this.password.set(password);
 	}
+	
+
 
 }

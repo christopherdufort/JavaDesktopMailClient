@@ -29,6 +29,7 @@ public class PropertiesManager {
 	}
 
 	/**
+	 * Returns a MailConfigBean object with the contents of the properties file
 	 * 
 	 * @param path
 	 *            Must exist, will not be created
@@ -56,8 +57,10 @@ public class PropertiesManager {
 			mailConfig.setImapUrl(prop.getProperty("imapUrl"));
 			mailConfig.setSmtpUrl(prop.getProperty("smtpUrl"));
 			mailConfig.setSmtpPort(Integer.getInteger(prop.getProperty("smtpPort"))); //This cast ok?
+			mailConfig.setImapPort(Integer.parseInt(prop.getProperty("imapPort")));   //This cast ok?
+			mailConfig.setMysqlPort(Integer.parseInt(prop.getProperty("mysqlPort"))); //This cast ok?
 			mailConfig.setMysqlUrl(prop.getProperty("mysqlUrl"));
-			mailConfig.setMysqlUrl(prop.getProperty("mysqlDatabase"));
+			mailConfig.setMysqlDatabase(prop.getProperty("mysqlDatabase"));
 			mailConfig.setMysqlUsername(prop.getProperty("mysqlUsername"));
 			mailConfig.setMysqlPassword(prop.getProperty("mysqlPassword"));
 		}
@@ -65,6 +68,7 @@ public class PropertiesManager {
 	}
 
 	/**
+	 * Creates a plain text properties file based on the parameters
 	 * 
 	 * @param path
 	 *            Must exist, will not be created
@@ -77,25 +81,33 @@ public class PropertiesManager {
 	public void writeTxtProperties(String path, String propFileName, MailConfigBean mailConfig) throws IOException {
 
 		Properties prop = new Properties();
-		Path txtFile = get(path, propFileName + ".properties");
-
-		prop.setProperty("host", mailConfig.getHost());
+	
+		prop.setProperty("username", mailConfig.getUsername());
+		prop.setProperty("emailAddress", mailConfig.getEmailAddress());
+		prop.setProperty("name", mailConfig.getName());
 		prop.setProperty("password", mailConfig.getPassword());
-		prop.setProperty("userEmailAddress", mailConfig.getUserEmailAddress());
-
 		prop.setProperty("imapUrl", mailConfig.getImapUrl());
 		prop.setProperty("smtpUrl", mailConfig.getSmtpUrl());
-		prop.setProperty("smtpPort", String.valueOf(mailConfig.getSmtpPort())); //OK?
+		prop.setProperty("imapPort", String.valueOf(mailConfig.getImapPort())); 	//OK?
+		prop.setProperty("smtpPort", String.valueOf(mailConfig.getSmtpPort())); 	//OK?
+		prop.setProperty("mysqlPort", String.valueOf(mailConfig.getMysqlPort())); 	//OK?
 		prop.setProperty("mysqlUrl", mailConfig.getMysqlUrl());
+		prop.setProperty("mysqlDatabase", mailConfig.getMysqlDatabase());
 		prop.setProperty("mysqlUsername", mailConfig.getMysqlUsername());
 		prop.setProperty("mysqlPassword", mailConfig.getMysqlPassword());
 
+		Path txtFile = get(path, propFileName + ".properties");
+		
+		// Creates the file or if file exists it is truncated to length of zero
+		// before writing
 		try (OutputStream propFileStream = newOutputStream(txtFile, StandardOpenOption.CREATE);) {
 			prop.store(propFileStream, "SMTP Properties");
 		}
 	}
 
 	/**
+	 * Returns a MailConfigBean object with the contents of the properties file
+	 * that is in an XML format
 	 * 
 	 * @param path
 	 *            Must exist, will not be created. Empty string means root of
@@ -119,13 +131,18 @@ public class PropertiesManager {
 			try (InputStream propFileStream = newInputStream(xmlFile);) {
 				prop.loadFromXML(propFileStream);
 			}
-			mailConfig.setHost(prop.getProperty("host"));
+			
+			mailConfig.setUsername(prop.getProperty("username"));
+			mailConfig.setEmailAddress(prop.getProperty("emailAddress"));
+			mailConfig.setName(prop.getProperty("name"));
 			mailConfig.setPassword(prop.getProperty("password"));
-			mailConfig.setUserEmailAddress(prop.getProperty("userEmailAddress"));
 			mailConfig.setImapUrl(prop.getProperty("imapUrl"));
 			mailConfig.setSmtpUrl(prop.getProperty("smtpUrl"));
-			// TODO add ports
+			mailConfig.setImapPort(Integer.valueOf(prop.getProperty("imapPort")));
+			mailConfig.setSmtpPort(Integer.valueOf(prop.getProperty("smtpPort")));
+			mailConfig.setMysqlPort(Integer.valueOf(prop.getProperty("mysqlPort")));
 			mailConfig.setMysqlUrl(prop.getProperty("mysqlUrl"));
+			mailConfig.setMysqlDatabase(prop.getProperty("mysqlDatabase"));
 			mailConfig.setMysqlUsername(prop.getProperty("mysqlUsername"));
 			mailConfig.setMysqlPassword(prop.getProperty("mysqlPassword"));
 		}
@@ -133,6 +150,7 @@ public class PropertiesManager {
 	}
 
 	/**
+	 * Creates an XML properties file based on the parameters
 	 * 
 	 * @param path
 	 *            Must exist, will not be created
@@ -146,19 +164,25 @@ public class PropertiesManager {
 	public void writeXmlProperties(String path, String propFileName, MailConfigBean mailConfig) throws IOException {
 
 		Properties prop = new Properties();
-		Path xmlFile = get(path, propFileName + ".xml");
-
-		prop.setProperty("host", mailConfig.getHost());
+		
+		prop.setProperty("username", mailConfig.getUsername());
+		prop.setProperty("emailAddress", mailConfig.getEmailAddress());
+		prop.setProperty("name", mailConfig.getName());
 		prop.setProperty("password", mailConfig.getPassword());
-		prop.setProperty("userEmailAddress", mailConfig.getUserEmailAddress());
-
 		prop.setProperty("imapUrl", mailConfig.getImapUrl());
 		prop.setProperty("smtpUrl", mailConfig.getSmtpUrl());
-		// TODO add ports
+		prop.setProperty("imapPort", String.valueOf(mailConfig.getImapPort())); 	//OK?
+		prop.setProperty("smtpPort", String.valueOf(mailConfig.getSmtpPort())); 	//OK?
+		prop.setProperty("mysqlPort", String.valueOf(mailConfig.getMysqlPort())); 	//OK?
 		prop.setProperty("mysqlUrl", mailConfig.getMysqlUrl());
+		prop.setProperty("mysqlDatabase", mailConfig.getMysqlDatabase());
 		prop.setProperty("mysqlUsername", mailConfig.getMysqlUsername());
 		prop.setProperty("mysqlPassword", mailConfig.getMysqlPassword());
 
+		Path xmlFile = get(path, propFileName + ".xml");
+		
+		// Creates the file or if file exists it is truncated to length of zero
+		// before writing
 		try (OutputStream propFileStream = newOutputStream(xmlFile, StandardOpenOption.CREATE);) {
 			prop.storeToXML(propFileStream, "XML SMTP Properties");
 		}
@@ -182,25 +206,30 @@ public class PropertiesManager {
 	 *             : File not found
 	 */
 	public MailConfigBean loadJarTextProperties(String propertiesFileName) throws IOException, NullPointerException {
+		
 		Properties prop = new Properties();
 		MailConfigBean mailConfig = new MailConfigBean();
-
-		// Throws NullPointerException if file is not found
-		// ClassLoader loader = Thread.currentThread().getContextClassLoader();
-
-		try (InputStream stream = getClass().getResourceAsStream("/" + propertiesFileName);) {
-			prop.load(stream);
+		// There is no exists method for files in a jar so we try to get the
+		// resource and if its not there it returns a null
+		if (this.getClass().getResource("/" + propertiesFileName) != null) 
+		{
+			try (InputStream stream = getClass().getResourceAsStream("/" + propertiesFileName);) {
+				prop.load(stream);
+			}
+			mailConfig.setUsername(prop.getProperty("username"));
+			mailConfig.setEmailAddress(prop.getProperty("emailAddress"));
+			mailConfig.setName(prop.getProperty("name"));
+			mailConfig.setPassword(prop.getProperty("password"));
+			mailConfig.setImapUrl(prop.getProperty("imapUrl"));
+			mailConfig.setSmtpUrl(prop.getProperty("smtpUrl"));
+			mailConfig.setImapPort(Integer.valueOf(prop.getProperty("imapPort")));
+			mailConfig.setSmtpPort(Integer.valueOf(prop.getProperty("smtpPort")));
+			mailConfig.setMysqlPort(Integer.valueOf(prop.getProperty("mysqlPort")));
+			mailConfig.setMysqlUrl(prop.getProperty("mysqlUrl"));
+			mailConfig.setMysqlDatabase(prop.getProperty("mysqlDatabase"));
+			mailConfig.setMysqlUsername(prop.getProperty("mysqlUsername"));
+			mailConfig.setMysqlPassword(prop.getProperty("mysqlPassword"));
 		}
-		mailConfig.setHost(prop.getProperty("host"));
-		mailConfig.setPassword(prop.getProperty("password"));
-		mailConfig.setUserEmailAddress(prop.getProperty("userEmailAddress"));
-		mailConfig.setImapUrl(prop.getProperty("imapUrl"));
-		mailConfig.setSmtpUrl(prop.getProperty("smtpUrl"));
-		// TODO add ports
-		mailConfig.setMysqlUrl(prop.getProperty("mysqlUrl"));
-		mailConfig.setMysqlUsername(prop.getProperty("mysqlUsername"));
-		mailConfig.setMysqlPassword(prop.getProperty("mysqlPassword"));
-
 		return mailConfig;
 	}
 }
