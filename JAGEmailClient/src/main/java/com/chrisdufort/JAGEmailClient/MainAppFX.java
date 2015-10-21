@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -71,22 +72,23 @@ public class MainAppFX extends Application {
             FXMLLoader loader = new FXMLLoader();
 
             // Set the location of the fxml file in the FXMLLoader
-            loader.setLocation(MainAppFX.class.getResource("/fxml/Scene.fxml"));
+            loader.setLocation(MainAppFX.class.getResource("/fxml/ConfigScene.fxml"));
 
             // Localize the loader with its bundle
             // Uses the default locale and if a matching bundle is not found
             // will then use MessagesBundle.properties
-            loader.setResources(ResourceBundle.getBundle("MessagesBundle"));
+            loader.setResources(ResourceBundle.getBundle("ConfigBundle"));
 
             // Parent is the base class for all nodes that have children in the
-            // scene graph such as AnchorPane and most other containers
-            Parent parent = (AnchorPane) loader.load();
+            // scene graph such as AnchorPane or GridPane and most other containers
+            Parent parent = (GridPane) loader.load();
 
             // Load the parent into a Scene
             Scene scene = new Scene(parent);
 
             // Put the Scene on Stage
             primaryStage.setScene(scene);
+            log.debug("finished configuration");
 
         } catch (IOException ex) { // getting resources or files could fail
             log.error(null, ex);

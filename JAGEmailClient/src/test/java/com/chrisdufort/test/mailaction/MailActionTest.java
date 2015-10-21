@@ -7,6 +7,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Rule;
 import org.junit.Test;
@@ -49,21 +50,46 @@ public class MailActionTest {
 	// Real programmers use logging, not System.out.println
 	private final Logger log = LoggerFactory.getLogger(getClass().getName());
 
-	// The following fields are shared between all of the test cases.
-	// Sending account
-	private MailConfigBean sendConfigBean = new MailConfigBean("smtp.gmail.com", "jafg.send@gmail.com", "jafgsend514");
-	// Receiving account
-	private MailConfigBean receiveConfigBean = new MailConfigBean("imap.gmail.com", "jafg.receive@gmail.com",
-			"jafgreceive514");
-	// Copy(cc) account
-	private MailConfigBean copyConfigBean = new MailConfigBean("imap.gmail.com", "jafg.copy@gmail.com", "jafgcopy514");
-	// Blind(bcc) account
-	private MailConfigBean blindConfigBean = new MailConfigBean("imap.gmail.com", "jafg.blind@gmail.com",
-			"jafgblind514");
+	//Private fields.
+	private MailConfigBean sendConfigBean;
+	private MailConfigBean receiveConfigBean;
+	private MailConfigBean copyConfigBean;
+	private MailConfigBean blindConfigBean;
+	private BasicSendAndReceive basicSendAndReceive;
 
-	// Instantiation of sendAndReceive class used to call instance methods.
-	private BasicSendAndReceive basicSendAndReceive = new BasicSendAndReceive();
+	@Before
+	public void createEmailConfigBean(){
+		// The following fields are shared between all of the test cases.
+		
+		// Sending account
+		sendConfigBean = new MailConfigBean();
+		sendConfigBean.setSmtpUrl("smtp.gmail.com");
+		sendConfigBean.setEmailAddress("jafg.send@gmail.com");
+		sendConfigBean.setPassword("jafgsend514");
 
+		// Receiving account
+		receiveConfigBean = new MailConfigBean();
+		receiveConfigBean.setImapUrl("imap.gmail.com");
+		receiveConfigBean.setEmailAddress("jafg.receive@gmail.com");
+		receiveConfigBean.setPassword("jafgreceive514");
+		
+		// Copy(cc) account
+		copyConfigBean = new MailConfigBean();
+		copyConfigBean.setImapUrl("imap.gmail.com");
+		copyConfigBean.setEmailAddress("jafg.copy@gmail.com");
+		copyConfigBean.setPassword("jafgcopy514");
+		
+
+		// Blind(bcc) account
+		blindConfigBean = new MailConfigBean();
+		copyConfigBean.setImapUrl("imap.gmail.com");
+		copyConfigBean.setEmailAddress("jafg.blind@gmail.com");
+		copyConfigBean.setPassword("jafgblind514");
+		
+		// Instantiation of sendAndReceive class used to call instance methods.
+		basicSendAndReceive = new BasicSendAndReceive();
+	}
+	
 	/**
 	 * Test method for:
 	 * {@link com.chrisdufort.mailaction.BasicSendAndReceive#sendEmail(com.chrisdufort.mailbean.MailBean, com.chrisdufort.properties.mailbean.MailConfigBean)}
@@ -73,14 +99,14 @@ public class MailActionTest {
 	 * fields in the basic constructor are tested to(1) , cc(0) bcc(0)
 	 * ,subject(1) , message(1)
 	 */
-
+	@Ignore
 	@Test
 	public void testBasicSendEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
 
@@ -136,13 +162,14 @@ public class MailActionTest {
 	 */
 	// FIXME current status of equals checks for nulls and trims fields causing
 	// this test to null pointer
+	@Ignore
 	@Test
 	public void testBasicSendNoSubjectEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
 
@@ -193,7 +220,7 @@ public class MailActionTest {
 	 * using the default constructor, sent, received and compared. All of the
 	 * setters and getters are tested using this email.
 	 */
-
+	@Ignore
 	@Test
 	public void testHandBuiltSendEmail() {
 		// Testing no parameter default constructor.
@@ -201,14 +228,14 @@ public class MailActionTest {
 		MailBean mailBeanSend = new MailBean();
 
 		// Create mailBean
-		mailBeanSend.getToField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(copyConfigBean.getUserEmailAddress());
+		mailBeanSend.getToField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(copyConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 		mailBeanSend.setFromField(fromField);
 
-		mailBeanSend.getCcField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getCcField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(blindConfigBean.getEmailAddress());
 
 		String subject = "A Complex Test Message - 25";
 		mailBeanSend.setSubjectField(subject);
@@ -281,20 +308,20 @@ public class MailActionTest {
 	 * test case uses each and every field availible and submits it through the
 	 * constructor.
 	 */
-
+	@Ignore
 	@Test
 	public void testComplexSendEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
-		ccList.add(copyConfigBean.getUserEmailAddress());
+		ccList.add(copyConfigBean.getEmailAddress());
 
 		ArrayList<String> bccList = new ArrayList<>();
-		bccList.add(blindConfigBean.getUserEmailAddress());
+		bccList.add(blindConfigBean.getEmailAddress());
 
 		String subject = "A Complex Test Message - 19";
 		String plainText = "This is the plain text of the message (hidden) - 19.";
@@ -372,16 +399,16 @@ public class MailActionTest {
 	 * required for sending a jodd email are tested: to,from,subject
 	 * 
 	 */
-
+	@Ignore
 	@Test
 	public void testMinimumSendEmail() {
 		// Testing no parameter default constructor.
 		MailBean mailBeanSend = new MailBean();
 
 		// Create mailBean
-		mailBeanSend.getToField().add(receiveConfigBean.getUserEmailAddress());
+		mailBeanSend.getToField().add(receiveConfigBean.getEmailAddress());
 
-		mailBeanSend.setFromField(sendConfigBean.getUserEmailAddress());
+		mailBeanSend.setFromField(sendConfigBean.getEmailAddress());
 
 		mailBeanSend.setSubjectField("A new simple test message - 30");
 
@@ -430,29 +457,29 @@ public class MailActionTest {
 	 * INCORRECT COPY RETRIEVED FROM GMAILS SERVER.
 	 * 
 	 */
-
+	@Ignore
 	@Test
 	public void testMultipleFields1SendEmail() {
 		// Testing no parameter default constructor.
 		MailBean mailBeanSend = new MailBean();
 
 		// Create mailBean
-		mailBeanSend.getToField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getToField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.getCcField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getCcField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.getBccField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getBccField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.setFromField(sendConfigBean.getUserEmailAddress());
+		mailBeanSend.setFromField(sendConfigBean.getEmailAddress());
 
 		mailBeanSend.setSubjectField("A new simple test message - 31");
 		mailBeanSend.setTextMessageField("This is the plain text of the message (visible) - 31.");
@@ -500,29 +527,29 @@ public class MailActionTest {
 	 * README THIS TEST OCCASIONALY FAILS ON GMAILS END WHEN TESTING WITH OTHERS
 	 * INCORRECT COPY RETRIEVED FROM GMAILS SERVER.
 	 */
-
+	@Ignore
 	@Test
 	public void testMultipleFields2SendEmail() {
 		// Testing no parameter default constructor.
 		MailBean mailBeanSend = new MailBean();
 
 		// Create mailBean
-		mailBeanSend.getToField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getToField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.getCcField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getCcField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.getBccField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getBccField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.setFromField(sendConfigBean.getUserEmailAddress());
+		mailBeanSend.setFromField(sendConfigBean.getEmailAddress());
 
 		mailBeanSend.setSubjectField("A new simple test message - 32");
 		mailBeanSend.setTextMessageField("This is the plain text of the message (visible) - 32.");
@@ -571,29 +598,29 @@ public class MailActionTest {
 	 * README THIS TEST OCCASIONALY FAILS ON GMAILS END WHEN TESTING WITH OTHERS
 	 * INCORRECT COPY RETRIEVED FROM GMAILS SERVER.
 	 */
-
+	@Ignore
 	@Test
 	public void testMultipleFields3SendEmail() {
 		// Testing no parameter default constructor.
 		MailBean mailBeanSend = new MailBean();
 
 		// Create mailBean
-		mailBeanSend.getToField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getToField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.getCcField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getCcField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.getBccField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getBccField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.setFromField(sendConfigBean.getUserEmailAddress());
+		mailBeanSend.setFromField(sendConfigBean.getEmailAddress());
 
 		mailBeanSend.setSubjectField("A new simple test message - 33");
 		mailBeanSend.setTextMessageField("This is the plain text of the message (visible) - 33.");
@@ -641,29 +668,29 @@ public class MailActionTest {
 	 * README THIS TEST OCCASIONALY FAILS ON GMAILS END WHEN TESTING WITH OTHERS
 	 * INCORRECT COPY RETRIEVED FROM GMAILS SERVER.
 	 */
-
+	@Ignore
 	@Test
 	public void testMultipleFields4SendEmail() {
 		// Testing no parameter default constructor.
 		MailBean mailBeanSend = new MailBean();
 
 		// Create mailBean
-		mailBeanSend.getToField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getToField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getToField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getToField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.getCcField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getCcField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getCcField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getCcField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.getBccField().add(receiveConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(sendConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(copyConfigBean.getUserEmailAddress());
-		mailBeanSend.getBccField().add(blindConfigBean.getUserEmailAddress());
+		mailBeanSend.getBccField().add(receiveConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(sendConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(copyConfigBean.getEmailAddress());
+		mailBeanSend.getBccField().add(blindConfigBean.getEmailAddress());
 
-		mailBeanSend.setFromField(sendConfigBean.getUserEmailAddress());
+		mailBeanSend.setFromField(sendConfigBean.getEmailAddress());
 
 		mailBeanSend.setSubjectField("A new simple test message - 34");
 		mailBeanSend.setTextMessageField("This is the plain text of the message (visible) - 34.");
@@ -708,16 +735,16 @@ public class MailActionTest {
 	 * No attachments and nothing embeded.
 	 * 
 	 */
-
+	@Ignore
 	@Test
 	public void testWithoutTextSendEmail() {
 		// Testing no parameter default constructor.
 		MailBean mailBeanSend = new MailBean();
 
 		// Create mailBean
-		mailBeanSend.getToField().add(receiveConfigBean.getUserEmailAddress());
+		mailBeanSend.getToField().add(receiveConfigBean.getEmailAddress());
 
-		mailBeanSend.setFromField(sendConfigBean.getUserEmailAddress());
+		mailBeanSend.setFromField(sendConfigBean.getEmailAddress());
 
 		mailBeanSend.setSubjectField("A new complex message without text - 40");
 
@@ -767,22 +794,22 @@ public class MailActionTest {
 	 * To (x2) , from (x1), subject(x1), cc(x2) , bcc (1) , no message
 	 * 
 	 */
-
+	@Ignore
 	@Test
 	public void testBasicEmptySendEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
-		toList.add(sendConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
+		toList.add(sendConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
-		ccList.add(copyConfigBean.getUserEmailAddress());
-		ccList.add(blindConfigBean.getUserEmailAddress());
+		ccList.add(copyConfigBean.getEmailAddress());
+		ccList.add(blindConfigBean.getEmailAddress());
 
 		ArrayList<String> bccList = new ArrayList<>();
-		bccList.add(blindConfigBean.getUserEmailAddress());
+		bccList.add(blindConfigBean.getEmailAddress());
 
 		String subject = "A basic Test Message - 45";
 		String message = "";
@@ -835,14 +862,14 @@ public class MailActionTest {
 	 * OCCATIONALLY RUNS INTO RECEIVE ISSUE WHEN RUN WITH OTHER TESTS
 	 * 
 	 */
-
+	@Ignore
 	@Test
 	public void testBasicSendWithExtraFieldsEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
 
@@ -916,14 +943,14 @@ public class MailActionTest {
 	 * 
 	 * 
 	 */
-
+	@Ignore
 	@Test
 	public void testMultipleEmbedWithoutHtmlEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
 
@@ -996,14 +1023,14 @@ public class MailActionTest {
 	 * 
 	 * 
 	 */
-
+	@Ignore
 	@Test
 	public void testEmptyMessWithMultAttachEmail() {
 		// Create mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
 
@@ -1067,15 +1094,15 @@ public class MailActionTest {
 	 * 
 	 * Time sent in reversed order (arrived before sent.)
 	 */
-
+	@Ignore
 	@Test
 	public void testEmptyComplexSendEmail() {
 
 		// Create complex empty mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
 
@@ -1148,24 +1175,24 @@ public class MailActionTest {
 	 * 
 	 * HTML has 2 CID, EMBEDED FILES ARE ORDERED DIFFERENTLY FROM HTML IMG TAG
 	 */
-
+	@Ignore
 	@Test
 	public void testComplexSendWithMultipleFieldsEmail() {
 
 		// Create complex empty mailBean
 		ArrayList<String> toList = new ArrayList<>();
-		toList.add(receiveConfigBean.getUserEmailAddress());
-		toList.add(sendConfigBean.getUserEmailAddress());
+		toList.add(receiveConfigBean.getEmailAddress());
+		toList.add(sendConfigBean.getEmailAddress());
 
-		String fromField = sendConfigBean.getUserEmailAddress();
+		String fromField = sendConfigBean.getEmailAddress();
 
 		ArrayList<String> ccList = new ArrayList<>();
-		ccList.add(copyConfigBean.getUserEmailAddress());
-		ccList.add(receiveConfigBean.getUserEmailAddress());
+		ccList.add(copyConfigBean.getEmailAddress());
+		ccList.add(receiveConfigBean.getEmailAddress());
 
 		ArrayList<String> bccList = new ArrayList<>();
-		bccList.add(copyConfigBean.getUserEmailAddress());
-		bccList.add(blindConfigBean.getUserEmailAddress());
+		bccList.add(copyConfigBean.getEmailAddress());
+		bccList.add(blindConfigBean.getEmailAddress());
 
 		String subject = "A Complex Test Message with multiple of each field- 70";
 		String plainText = "A Complex Test Message with multiple of each fields (invisible)- 70";

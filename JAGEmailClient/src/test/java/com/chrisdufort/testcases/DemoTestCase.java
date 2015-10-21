@@ -57,7 +57,7 @@ public class DemoTestCase {
 
 	// Instantiation of DAOImpl class used to call instance methods.
 	private MailDAOImpl myDBImplementation = new MailDAOImpl();
-
+	@Ignore
 	@Test
 	public void testCreateEmail() throws SQLException {
 		MailBean myBean = new MailBean();
@@ -78,7 +78,7 @@ public class DemoTestCase {
 			assertEquals("testCreateEmail() - failed due to Unequal mailBeans ", myBean, dbBean);
 
 	}
-
+	@Ignore
 	@Test
 	public void testFullCreateEmail() throws SQLException {
 		MailBean myBean = new MailBean();
@@ -117,7 +117,7 @@ public class DemoTestCase {
 			assertEquals("testFullCreateEmail() failed due to Unequal mailBeans ", myBean, dbBean);
 
 	}
-
+	@Ignore
 	@Test
 	public void testFindByTo() throws SQLException {
 		ArrayList<MailBean> foundBeans = new ArrayList<>();
@@ -148,7 +148,7 @@ public class DemoTestCase {
 
 		assertEquals("testFindByTo() failed due to incorrect found # ", 3, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindByCc() throws SQLException {
 		ArrayList<MailBean> foundBeans = new ArrayList<>();
@@ -176,7 +176,7 @@ public class DemoTestCase {
 
 		assertEquals("testFindByCc() failed due to incorrect found # ", 2, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindByBcc() throws SQLException {
 		ArrayList<MailBean> foundBeans = new ArrayList<>();
@@ -197,7 +197,7 @@ public class DemoTestCase {
 
 		assertEquals("testFindByBcc() failed due to incorrect found # ", 1, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindByFrom() throws SQLException {
 
@@ -227,7 +227,7 @@ public class DemoTestCase {
 		else
 			fail("testFindByFrom() - failed due to incorrect # found");
 	}
-
+	@Ignore
 	@Test
 	public void testFindBySubject() throws SQLException {
 
@@ -257,7 +257,7 @@ public class DemoTestCase {
 		else
 			fail("testFindBySubject() - failed due to incorrect # found");
 	}
-
+	@Ignore
 	@Test
 	public void testFindByFolder() throws SQLException {
 		String folderName = "draft";
@@ -267,7 +267,7 @@ public class DemoTestCase {
 		foundBeans = myDBImplementation.findByFolder(folderName);
 		assertEquals("testFindByFolder() failed due to difference of retrieval ", expectedFinds, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindAll() throws SQLException {
 		int numberOfFieldsInDB = 2;
@@ -282,7 +282,7 @@ public class DemoTestCase {
 			assertEquals("testFindAll() expected to find " + numberOfFieldsInDB + " emails, but instead found "
 					+ numberOfBeansFound, numberOfFieldsInDB, numberOfBeansFound);
 	}
-
+	@Ignore
 	@Test
 	public void testFindByDateSent() throws SQLException {
 		ArrayList<MailBean> foundBeans = new ArrayList<>();
@@ -313,7 +313,7 @@ public class DemoTestCase {
 
 		assertEquals("testFindByDateSent() failed due to different # of retrieval ", expectedFinds, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindByDateReceived() throws SQLException {
 		ArrayList<MailBean> foundBeans = new ArrayList<>();
@@ -339,7 +339,7 @@ public class DemoTestCase {
 		assertEquals("testFindByDateReceived() failed due to different # of retrieval ", expectedFinds,
 				foundBeans.size());
 	}
-
+	@Ignore
 	@Test //FIXME This test has shown some errors with null pointers *needs more indepth testing*
 	public void testfindEmailByID() throws SQLException {
 		int expectedId = 3, insertedEmailID = -1;
@@ -363,7 +363,7 @@ public class DemoTestCase {
 		else if (expectedId == insertedEmailID)
 			assertEquals("testfindEmailByID() - failed due improper retrieval by id ", myBean, dbBean);
 	}
-
+	@Ignore
 	@Test
 	public void testUpdateFolderInBean() throws SQLException {
 		int emailId = 1, fieldsUpdated = -1;
@@ -380,7 +380,7 @@ public class DemoTestCase {
 					modifiedBean.getFolder());
 
 	}
-
+	@Ignore
 	@Test
 	public void testUpdateFolderName() throws SQLException {
 		int idOfFolder = 3; // draft folder
@@ -403,7 +403,7 @@ public class DemoTestCase {
 		else
 			assertEquals("testUpdateFolderName() failed due to name not changing", "superDraft", actualFolderName);
 	}
-
+	@Ignore
 	@Test
 	public void testFindAllFolderNames() {
 		ArrayList<String> foundFolderNames = null;
@@ -421,7 +421,7 @@ public class DemoTestCase {
 		assertEquals("testFindAllFolderNames() failed due to unequal folder name lists", allFolderNames,
 				foundFolderNames);
 	}
-
+	@Ignore
 	@Test
 	public void testDeleteFolder() {
 		int expectedRowsDeleted = 1;
@@ -435,7 +435,7 @@ public class DemoTestCase {
 		assertEquals("testDeleteFolder() failed due to un equal deleted #", expectedRowsDeleted, actualRowsDeleted);
 
 	}
-
+	@Ignore
 	@Test
 	public void testDeleteMail() throws SQLException {
 		int expectedRowsDeleted = 1;
@@ -454,7 +454,7 @@ public class DemoTestCase {
 			assertEquals("testDeleteMail() failed due incorrect amount deleted", expectedRowsDeleted,
 					actualRowsDeleted);
 	}
-
+	@Ignore
 	@Test
 	public void testCreateFolder() throws SQLException {
 		String newFolderName = "test";
@@ -503,7 +503,7 @@ public class DemoTestCase {
 						equalAttachments = true;
 		assertEquals("testFindByAttachmentID() failed due un equals attachments", true, equalAttachments);
 	}
-
+	@Ignore
 	@Test
 	public void testFindRecipientByID() throws SQLException {
 
@@ -522,7 +522,7 @@ public class DemoTestCase {
 
 		assertEquals("testFindRecipientByID() failed due un equals recipients", expectedRecipient, actualRecipient);
 	}
-
+	@Ignore
 	@Test
 	public void testFindFolderNameById() throws SQLException {
 

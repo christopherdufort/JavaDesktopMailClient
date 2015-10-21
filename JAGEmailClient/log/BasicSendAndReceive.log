@@ -1191,3 +1191,153 @@ com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException: You have an error in 
 [INFO ] 2015-10-09 23:55:53.501 [main] MailActionTest - Succeeded test [testEmptyMessWithMultAttachEmail]
 [INFO ] 2015-10-09 23:55:53.501 [main] MailActionTest - Finished test [testEmptyMessWithMultAttachEmail]
 [INFO ] 2015-10-09 23:55:53.501 [main] MailActionTest - ***********************************************************************************************
+[INFO ] 2015-10-21 16:58:31.458 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-21 16:58:31.464 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-21 16:58:31.464 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-21 16:58:31.464 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-21 16:58:41.738 [JavaFX Application Thread] MainAppFX - Program Begins
+[ERROR] 2015-10-21 16:58:41.924 [JavaFX Application Thread] MainAppFX - null
+javafx.fxml.LoadException: No controller specified.
+/I:/git/JAG/JavaApplicationforGMail-Christopher_Dufort/JAGEmailClient/target/classes/fxml/Scene.fxml:61
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2601) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.access$100(FXMLLoader.java:104) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader$Element.getControllerMethodHandle(FXMLLoader.java:553) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader$Element.processEventHandlerAttributes(FXMLLoader.java:595) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader$ValueElement.processEndElement(FXMLLoader.java:766) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.processEndElement(FXMLLoader.java:2827) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2536) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2445) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2413) ~[jfxrt.jar:?]
+	at com.chrisdufort.JAGEmailClient.MainAppFX.configureStage(MainAppFX.java:83) [classes/:?]
+	at com.chrisdufort.JAGEmailClient.MainAppFX.start(MainAppFX.java:53) [classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$159(LauncherImpl.java:863) [jfxrt.jar:?]
+	at com.sun.javafx.application.LauncherImpl$$Lambda$54/2082113900.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$172(PlatformImpl.java:326) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$50/1014651204.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$170(PlatformImpl.java:295) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$52/766766329.run(Unknown Source) [jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_51]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$171(PlatformImpl.java:294) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$51/532344844.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) [jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$145(WinApplication.java:101) [jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication$$Lambda$40/108720514.run(Unknown Source) [jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_51]
+[INFO ] 2015-10-21 17:01:53.637 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-21 17:01:53.647 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-21 17:01:53.647 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-21 17:01:53.647 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-21 17:01:59.706 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-21 17:01:59.959 [JavaFX Application Thread] FXMLController - controlller initialize called
+[ERROR] 2015-10-21 17:01:59.979 [JavaFX Application Thread] MainAppFX - null
+javafx.fxml.LoadException: 
+/I:/git/JAG/JavaApplicationforGMail-Christopher_Dufort/JAGEmailClient/target/classes/fxml/Scene.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2605) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2575) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2445) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2413) ~[jfxrt.jar:?]
+	at com.chrisdufort.JAGEmailClient.MainAppFX.configureStage(MainAppFX.java:83) [classes/:?]
+	at com.chrisdufort.JAGEmailClient.MainAppFX.start(MainAppFX.java:53) [classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$159(LauncherImpl.java:863) [jfxrt.jar:?]
+	at com.sun.javafx.application.LauncherImpl$$Lambda$52/2031936413.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$172(PlatformImpl.java:326) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$48/1446233852.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$170(PlatformImpl.java:295) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$50/702014714.run(Unknown Source) [jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_51]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$171(PlatformImpl.java:294) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$49/180574324.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) [jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$145(WinApplication.java:101) [jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication$$Lambda$38/79102802.run(Unknown Source) [jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_51]
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71) ~[?:1.8.0_51]
+	at sun.reflect.GeneratedMethodAccessor14.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275) ~[?:1.8.0_51]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2570) ~[jfxrt.jar:?]
+	... 18 more
+Caused by: java.lang.NullPointerException: Both properties must be specified.
+	at com.sun.javafx.binding.BidirectionalBinding.checkParameters(BidirectionalBinding.java:43) ~[jfxrt.jar:?]
+	at com.sun.javafx.binding.BidirectionalBinding.bind(BidirectionalBinding.java:51) ~[jfxrt.jar:?]
+	at javafx.beans.binding.Bindings.bindBidirectional(Bindings.java:757) ~[jfxrt.jar:?]
+	at com.chrisdufort.JAGEmailClient.controllers.FXMLController.initialize(FXMLController.java:99) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71) ~[?:1.8.0_51]
+	at sun.reflect.GeneratedMethodAccessor14.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275) ~[?:1.8.0_51]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2570) ~[jfxrt.jar:?]
+	... 18 more
+[INFO ] 2015-10-21 17:09:58.637 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-21 17:09:58.652 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-21 17:09:58.652 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-21 17:09:58.652 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-21 17:10:04.546 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-21 17:10:04.747 [JavaFX Application Thread] FXMLController - controlller initialize called
+[ERROR] 2015-10-21 17:10:04.761 [JavaFX Application Thread] MainAppFX - null
+javafx.fxml.LoadException: 
+/I:/git/JAG/JavaApplicationforGMail-Christopher_Dufort/JAGEmailClient/target/classes/fxml/ConfigScene.fxml
+
+	at javafx.fxml.FXMLLoader.constructLoadException(FXMLLoader.java:2605) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2575) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2445) ~[jfxrt.jar:?]
+	at javafx.fxml.FXMLLoader.load(FXMLLoader.java:2413) ~[jfxrt.jar:?]
+	at com.chrisdufort.JAGEmailClient.MainAppFX.configureStage(MainAppFX.java:84) [classes/:?]
+	at com.chrisdufort.JAGEmailClient.MainAppFX.start(MainAppFX.java:54) [classes/:?]
+	at com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$159(LauncherImpl.java:863) [jfxrt.jar:?]
+	at com.sun.javafx.application.LauncherImpl$$Lambda$52/1456178021.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$runAndWait$172(PlatformImpl.java:326) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$48/309000892.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl.lambda$null$170(PlatformImpl.java:295) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$50/1528998671.run(Unknown Source) [jfxrt.jar:?]
+	at java.security.AccessController.doPrivileged(Native Method) ~[?:1.8.0_51]
+	at com.sun.javafx.application.PlatformImpl.lambda$runLater$171(PlatformImpl.java:294) [jfxrt.jar:?]
+	at com.sun.javafx.application.PlatformImpl$$Lambda$49/517793004.run(Unknown Source) [jfxrt.jar:?]
+	at com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) [jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication.lambda$null$145(WinApplication.java:101) [jfxrt.jar:?]
+	at com.sun.glass.ui.win.WinApplication$$Lambda$38/1623585911.run(Unknown Source) [jfxrt.jar:?]
+	at java.lang.Thread.run(Thread.java:745) [?:1.8.0_51]
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71) ~[?:1.8.0_51]
+	at sun.reflect.GeneratedMethodAccessor14.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275) ~[?:1.8.0_51]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2570) ~[jfxrt.jar:?]
+	... 18 more
+Caused by: java.lang.NullPointerException: Both properties must be specified.
+	at com.sun.javafx.binding.BidirectionalBinding.checkParameters(BidirectionalBinding.java:43) ~[jfxrt.jar:?]
+	at com.sun.javafx.binding.BidirectionalBinding.bind(BidirectionalBinding.java:51) ~[jfxrt.jar:?]
+	at javafx.beans.binding.Bindings.bindBidirectional(Bindings.java:757) ~[jfxrt.jar:?]
+	at com.chrisdufort.JAGEmailClient.controllers.FXMLController.initialize(FXMLController.java:99) ~[classes/:?]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[?:1.8.0_51]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[?:1.8.0_51]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at sun.reflect.misc.Trampoline.invoke(MethodUtil.java:71) ~[?:1.8.0_51]
+	at sun.reflect.GeneratedMethodAccessor14.invoke(Unknown Source) ~[?:?]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[?:1.8.0_51]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[?:1.8.0_51]
+	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275) ~[?:1.8.0_51]
+	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2570) ~[jfxrt.jar:?]
+	... 18 more

@@ -95,6 +95,7 @@ public class FXMLController {
     private void initialize() {
         log.info("controlller initialize called");
         
+        //FIXME BIND!!!!!!!
         Bindings.bindBidirectional(usernameTextField.textProperty() , mailConfigData.username());
         Bindings.bindBidirectional(null, null);
         Bindings.bindBidirectional(null, null);
