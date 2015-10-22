@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
  * #KFCStandard and JavaFX8
  *
  * @author Christopher Dufort
- * @version 0.3.1-SNAPSHOT - phase 3, last modified 10/20/2015
+ * @version 0.3.3-SNAPSHOT - phase 3, last modified 10/21/2015
  * @since 0.3.0-SNAPSHOT
  */
 public class MainAppFX extends Application {
@@ -54,7 +54,7 @@ public class MainAppFX extends Application {
         configureStage();
 
         // Set the window title
-        primaryStage.setTitle(ResourceBundle.getBundle("MessagesBundle").getString("title"));
+        primaryStage.setTitle(ResourceBundle.getBundle("ConfigBundle").getString("TITLE"));
         // Raise the curtain on the Stage
         primaryStage.show();
     }
@@ -76,7 +76,7 @@ public class MainAppFX extends Application {
 
             // Localize the loader with its bundle
             // Uses the default locale and if a matching bundle is not found
-            // will then use MessagesBundle.properties
+            // will then use ConfigBundle.properties
             loader.setResources(ResourceBundle.getBundle("ConfigBundle"));
 
             // Parent is the base class for all nodes that have children in the

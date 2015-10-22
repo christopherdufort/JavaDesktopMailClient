@@ -1341,3 +1341,17 @@ Caused by: java.lang.NullPointerException: Both properties must be specified.
 	at sun.reflect.misc.MethodUtil.invoke(MethodUtil.java:275) ~[?:1.8.0_51]
 	at javafx.fxml.FXMLLoader.loadImpl(FXMLLoader.java:2570) ~[jfxrt.jar:?]
 	... 18 more
+[INFO ] 2015-10-21 20:48:50.192 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-21 20:48:50.203 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-21 20:48:50.204 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-21 20:48:50.207 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-21 20:49:09.564 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-21 20:49:10.594 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-10-21 20:49:10.903 [JavaFX Application Thread] MainAppFX - finished configuration
+[INFO ] 2015-10-21 21:12:48.723 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-21 21:12:48.731 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-21 21:12:48.732 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-21 21:12:48.738 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-21 21:13:06.650 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-21 21:13:07.218 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-10-21 21:13:07.390 [JavaFX Application Thread] MainAppFX - finished configuration

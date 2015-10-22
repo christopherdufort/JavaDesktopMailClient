@@ -2,12 +2,14 @@ package com.chrisdufort.JAGEmailClient.controllers;
 
 import java.util.ResourceBundle;
 
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.util.converter.NumberStringConverter;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -20,7 +22,7 @@ import com.chrisdufort.properties.mailbean.MailConfigBean;
  * #KFCStandard and JavaFX8
  *
  * @author Christopher Dufort
- * @version 0.3.1-SNAPSHOT , last modified 10/20/2015
+ * @version 0.3.3-SNAPSHOT , last modified 10/21/2015
  * @since 0.3.1
  */
 public class FXMLController {
@@ -95,20 +97,20 @@ public class FXMLController {
     private void initialize() {
         log.info("controlller initialize called");
         
-        //FIXME BIND!!!!!!!
-        Bindings.bindBidirectional(usernameTextField.textProperty() , mailConfigData.username());
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
-        Bindings.bindBidirectional(null, null);
+    
+        Bindings.bindBidirectional(usernameTextField.textProperty() , mailConfigData.usernameProperty());
+        Bindings.bindBidirectional(emailAddressTextField.textProperty(), mailConfigData.emailAddressProperty());
+        Bindings.bindBidirectional(nameTextField.textProperty(), mailConfigData.nameProperty());
+        Bindings.bindBidirectional(passwordTextField.textProperty(), mailConfigData.passwordProperty());
+        Bindings.bindBidirectional(imapUrlTextField.textProperty(), mailConfigData.imapUrlProperty());
+        Bindings.bindBidirectional(smtpUrlTextField.textProperty(), mailConfigData.smtpUrlProperty());
+        Bindings.bindBidirectional(imapPortTextField.textProperty(), mailConfigData.imapPortProperty(),new NumberStringConverter());
+        Bindings.bindBidirectional(smtpPortTextField.textProperty(), mailConfigData.smtpPortProperty(),new NumberStringConverter());
+        Bindings.bindBidirectional(mysqlPortTextField.textProperty(), mailConfigData.mysqlPortProperty(),new NumberStringConverter());
+        Bindings.bindBidirectional(mysqlUrlTextField.textProperty(), mailConfigData.mysqlUrlProperty());
+        Bindings.bindBidirectional(mysqlDatabaseTextField.textProperty(), mailConfigData.mysqlDatabaseProperty());
+        Bindings.bindBidirectional(mysqlUsernameTextField.textProperty(), mailConfigData.mysqlUsernameProperty());
+        Bindings.bindBidirectional(mysqlPasswordTextField.textProperty(), mailConfigData.mysqlPasswordProperty());
     }
     
     /**
@@ -120,5 +122,15 @@ public class FXMLController {
     @FXML
     void submitPressed(ActionEvent event) {
 
+    }
+    /**
+     * The even handler registered in the FXML file for when the exit button is
+     * pressed - Exit event handler
+     *
+     * @param event
+     */
+    @FXML
+    void exitPressed(ActionEvent event) {
+    	Platform.exit();
     }
 }

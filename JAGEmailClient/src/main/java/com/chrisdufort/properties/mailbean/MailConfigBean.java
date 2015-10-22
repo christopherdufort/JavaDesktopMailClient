@@ -77,7 +77,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public StringProperty imapUrl() {
+	public StringProperty imapUrlProperty() {
 		return imapUrl;
 	}
 
@@ -100,7 +100,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public StringProperty smtpUrl(){
+	public StringProperty smtpUrlProperty(){
 		return smtpUrl;
 	}
 
@@ -123,7 +123,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public IntegerProperty imapPort(){
+	public IntegerProperty imapPortProperty(){
 		return imapPort;
 	}
 
@@ -146,7 +146,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public IntegerProperty smtpPort(){
+	public IntegerProperty smtpPortProperty(){
 		return smtpPort;
 	}
 
@@ -169,7 +169,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public IntegerProperty mysqlPort(){
+	public IntegerProperty mysqlPortProperty(){
 		return mysqlPort;
 	}
 
@@ -192,7 +192,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public StringProperty mysqlUrl(){
+	public StringProperty mysqlUrlProperty(){
 		return mysqlUrl;
 	}
 
@@ -215,7 +215,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public StringProperty mysqlUsername(){
+	public StringProperty mysqlUsernameProperty(){
 		return mysqlUsername;
 	}
 
@@ -238,7 +238,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public StringProperty mysqlPassword(){
+	public StringProperty mysqlPasswordProperty(){
 		return mysqlPassword;
 	}
 
@@ -262,7 +262,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public StringProperty username(){
+	public StringProperty usernameProperty(){
 		return username;
 	}
 	
@@ -285,7 +285,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public StringProperty emailAddress(){
+	public StringProperty emailAddressProperty(){
 		return emailAddress;
 	}
 
@@ -303,7 +303,7 @@ public class MailConfigBean {
 		return name.get();
 	}
 	
-	public StringProperty name(){
+	public StringProperty nameProperty(){
 		return name;
 	}
 
@@ -325,7 +325,7 @@ public class MailConfigBean {
 	 * 
 	 * @return
 	 */
-	public StringProperty mysqlDatabase() {
+	public StringProperty mysqlDatabaseProperty() {
 		return mysqlDatabase;
 	}
 
