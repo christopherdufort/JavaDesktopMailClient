@@ -15,6 +15,8 @@ import org.slf4j.LoggerFactory;
 
 import com.chrisdufort.mailbean.MailBean;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import jodd.mail.EmailAttachment;
 import jodd.mail.EmailAttachmentBuilder;
 
@@ -209,6 +211,32 @@ public class MailDAOImpl implements MailDAO {
 		}
 		log.info("findAll() returned " + foundEmails.size() + " emails");
 		return foundEmails;
+	}
+	
+	/**
+     * Retrieve all the records for the given table and returns the data as an
+     * ObservableList of MailBean objects
+     *
+     * @return The ObservableLisy of MailBean objects
+     * @throws java.sql.SQLException
+     */
+	@Override
+	public ObservableList<MailBean> findTableAll() throws SQLException {
+		ObservableList<MailBean> foundObservableEmails = FXCollections.observableArrayList();
+		
+		String findAllQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
+				+ "FROM email JOIN folder ON email.folder_id = folder.folder_id";
+		
+		try (Connection connection = DriverManager.getConnection(url, user, password);
+				// You must use PreparedStatements to guard against SQL Injection
+				PreparedStatement prepStmt = connection.prepareStatement(findAllQuery);) {
+			try (ResultSet resultSet = prepStmt.executeQuery();) {
+				for (MailBean mb : createMailBeans(resultSet))
+				foundObservableEmails.add(mb);
+			}
+		}
+		log.info("findTableAll() returned " + foundObservableEmails.size() + " emails");
+		return foundObservableEmails;
 	}
 
 	/**
@@ -741,5 +769,7 @@ public class MailDAOImpl implements MailDAO {
 		log.info("deleteFolder() deleted " + rowsDeleted + " # of records");
 		return rowsDeleted;
 	}
+
+
 
 }

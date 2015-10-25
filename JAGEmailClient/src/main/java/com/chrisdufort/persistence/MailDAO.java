@@ -17,6 +17,7 @@ import java.util.ArrayList;
  */
 import com.chrisdufort.mailbean.MailBean;
 
+import javafx.collections.ObservableList;
 import jodd.mail.EmailAttachment;
 
 /**
@@ -39,6 +40,8 @@ public interface MailDAO {
 
 	// Read (Select)
 	public ArrayList<MailBean> findAll() throws SQLException;
+	
+	public ObservableList<MailBean> findTableAll() throws SQLException;
 
 	public ArrayList<MailBean> findByTo(String toField) throws SQLException;
 

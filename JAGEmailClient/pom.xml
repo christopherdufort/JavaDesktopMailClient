@@ -20,7 +20,7 @@
 	<!-- The version of the build. Any value is valid though a number and a 
 		string are common. SNAPSHOT means a project under development. FINAL is commonly 
 		used to refer to stable production version -->
-	<version>0.3.3-SNAPSHOT</version>
+	<version>0.3.4-SNAPSHOT</version>
 
 	<!-- Default value is jar but may be war or ear -->
 	<packaging>jar</packaging>

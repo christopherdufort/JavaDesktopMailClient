@@ -1355,3 +1355,43 @@ Caused by: java.lang.NullPointerException: Both properties must be specified.
 [INFO ] 2015-10-21 21:13:06.650 [JavaFX Application Thread] MainAppFX - Program Begins
 [INFO ] 2015-10-21 21:13:07.218 [JavaFX Application Thread] FXMLController - controlller initialize called
 [DEBUG] 2015-10-21 21:13:07.390 [JavaFX Application Thread] MainAppFX - finished configuration
+[INFO ] 2015-10-25 11:46:32.844 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-25 11:46:32.850 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-25 11:46:32.851 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-25 11:46:32.854 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-25 11:46:43.789 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-25 11:46:44.584 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-10-25 11:46:44.732 [JavaFX Application Thread] MainAppFX - finished configuration
+[INFO ] 2015-10-25 11:56:14.189 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-25 11:56:14.195 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-25 11:56:14.196 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-25 11:56:14.199 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-25 11:56:22.823 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-25 11:56:23.565 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-10-25 11:56:23.704 [JavaFX Application Thread] MainAppFX - finished configuration
+[INFO ] 2015-10-25 12:04:56.383 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-25 12:04:56.389 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-25 12:04:56.390 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-25 12:04:56.393 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-25 12:05:08.492 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-25 12:05:08.964 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-10-25 12:05:09.100 [JavaFX Application Thread] MainAppFX - finished configuration
+[INFO ] 2015-10-25 12:07:55.571 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-25 12:07:55.577 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-25 12:07:55.590 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-25 12:07:55.593 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-25 12:08:10.845 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-25 12:08:11.330 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-10-25 12:08:11.491 [JavaFX Application Thread] MainAppFX - finished configuration
+[INFO ] 2015-10-25 16:04:26.081 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-25 16:04:26.088 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-25 16:04:26.089 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-25 16:04:26.091 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-25 16:04:40.547 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-25 16:04:41.144 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-10-25 16:04:41.305 [JavaFX Application Thread] MainAppFX - finished configuration
+[INFO ] 2015-10-25 16:36:06.462 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-25 16:36:06.469 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-25 16:36:06.469 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-25 16:36:06.471 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-25 16:36:22.099 [JavaFX Application Thread] MainAppFX - Program Begins

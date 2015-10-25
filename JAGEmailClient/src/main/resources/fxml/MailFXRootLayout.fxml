@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <AnchorPane fx:id="rootAnchorPane" BorderPane.alignment="CENTER">
+         <children>
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="775.0" prefWidth="900.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane fx:id="treeSplit" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" />
+                <AnchorPane>
+                     <children>
+                        <SplitPane dividerPositions="0.5" orientation="VERTICAL" prefHeight="773.0" prefWidth="627.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                          <items>
+                            <AnchorPane fx:id="tableSplit" />
+                            <AnchorPane fx:id="htmlSplit" />
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <MenuBar BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="%FILE">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="%NEWEMAIL" />
+              <MenuItem mnemonicParsing="false" text="%OPENEMAIL" />
+                  <MenuItem mnemonicParsing="false" text="%SAVEEMAIL" />
+                  <MenuItem mnemonicParsing="false" text="%SAVEATTACHMENT" />
+                  <MenuItem mnemonicParsing="false" text="%CLOSE" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%LANGUAGE">
+            <items>
+              <MenuItem mnemonicParsing="false" text="%ENGLISH" />
+                  <MenuItem mnemonicParsing="false" text="%FRENCH" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%CONFIG">
+            <items>
+              <MenuItem mnemonicParsing="false" text="%MODIFYCONFIG" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="%HELP">
+              <items>
+                <MenuItem mnemonicParsing="false" text="%HOWTOUSE" />
+                  <MenuItem mnemonicParsing="false" text="%ABOUT" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

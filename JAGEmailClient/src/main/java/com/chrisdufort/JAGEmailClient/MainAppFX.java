@@ -5,12 +5,19 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import com.chrisdufort.persistence.MailDAOImpl;
+import com.chrisdufort.properties.mailbean.MailConfigBean;
+import com.chrisdufort.properties.manager.PropertiesManager;
+
 import java.io.IOException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 /**
@@ -19,7 +26,7 @@ import java.util.ResourceBundle;
  * #KFCStandard and JavaFX8
  *
  * @author Christopher Dufort
- * @version 0.3.3-SNAPSHOT - phase 3, last modified 10/21/2015
+ * @version 0.3.4-SNAPSHOT - phase 3, last modified 10/25/2015
  * @since 0.3.0-SNAPSHOT
  */
 public class MainAppFX extends Application {
@@ -29,12 +36,18 @@ public class MainAppFX extends Application {
 
     // The primary window or frame of this application
     private Stage primaryStage;
-
+    private AnchorPane rootLayout;
+    private Locale currentLocale;
+    private MailConfigBean mailConfigBean;
+    private PropertiesManager propManager;
+    
     /**
      * Constructor
      */
     public MainAppFX() {
         super();
+        mailConfigBean = new MailConfigBean();
+        propManager = new PropertiesManager();
     }
 
     /**
@@ -50,8 +63,26 @@ public class MainAppFX extends Application {
 
         // The Stage comes from the framework so make a copy to use elsewhere
         this.primaryStage = primaryStage;
-        // Create the Scene and put it on the Stage
-        configureStage();
+        
+        // Set the application icon using getResourceAsStream.
+     		this.primaryStage.getIcons().add(
+     				new Image(MainAppFX.class
+     						.getResourceAsStream("/images/email.png")));
+     		
+     	//TODO handle this check better or move it?
+     	mailConfigBean = propManager.loadTextProperties("src/main/resources/properties", "TextConfigProperties");
+     	
+     	if (mailConfigBean.getEmailAddress().equals(""))
+     	{
+     		// Create the configuration Scene and put it on the Stage
+            configureStage();
+     	}
+     	// Create the root scene and put it on the stage.
+         initRootLayout();
+     	
+     	
+     		
+       
 
         // Set the window title
         primaryStage.setTitle(ResourceBundle.getBundle("ConfigBundle").getString("TITLE"));
@@ -59,7 +90,36 @@ public class MainAppFX extends Application {
         primaryStage.show();
     }
 
-    /**
+    public void initRootLayout() {
+    	Locale locale = Locale.getDefault();
+    	log.debug("Local = " + locale);
+    	
+		currentLocale = new Locale("en","CA");
+		//currentLocale = new Locale("fr","CA");
+		
+//		Locale currentLocale = Locale.CANADA;
+//		Locale currentLocale = Locale.CANADA_FRENCH;
+		
+		try {
+			// Load root layout from fxml file.
+			FXMLLoader loader = new FXMLLoader();
+			loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
+			
+			
+			loader.setLocation(MainAppFX.class
+					.getResource("/fxml/MailFXRootLayout.fxml"));
+			rootLayout = (AnchorPane) loader.load();
+
+			// Retrieve the controller if you must send it messages
+			//RootLayoutController rootController = loader.getController();
+
+			// Show the scene containing the root layout.
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
      * Load the FXML and bundle, create a Scene and put the Scene on Stage.
      *
      * Using this approach allows you to use loader.getController() to get a

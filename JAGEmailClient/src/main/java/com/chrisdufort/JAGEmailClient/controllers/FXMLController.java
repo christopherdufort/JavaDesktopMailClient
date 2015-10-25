@@ -1,5 +1,6 @@
 package com.chrisdufort.JAGEmailClient.controllers;
 
+import java.io.IOException;
 import java.util.ResourceBundle;
 
 import javafx.application.Platform;
@@ -15,6 +16,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chrisdufort.properties.mailbean.MailConfigBean;
+import com.chrisdufort.properties.manager.PropertiesManager;
 
 /**
  * Basic class for an FXML controller
@@ -22,7 +24,7 @@ import com.chrisdufort.properties.mailbean.MailConfigBean;
  * #KFCStandard and JavaFX8
  *
  * @author Christopher Dufort
- * @version 0.3.3-SNAPSHOT , last modified 10/21/2015
+ * @version 0.3.4-SNAPSHOT , last modified 10/25/2015
  * @since 0.3.1
  */
 public class FXMLController {
@@ -96,8 +98,7 @@ public class FXMLController {
     @FXML
     private void initialize() {
         log.info("controlller initialize called");
-        
-    
+          
         Bindings.bindBidirectional(usernameTextField.textProperty() , mailConfigData.usernameProperty());
         Bindings.bindBidirectional(emailAddressTextField.textProperty(), mailConfigData.emailAddressProperty());
         Bindings.bindBidirectional(nameTextField.textProperty(), mailConfigData.nameProperty());
@@ -118,11 +119,17 @@ public class FXMLController {
      * pressed
      *
      * @param event
+     * @throws IOException 
      */
     @FXML
-    void submitPressed(ActionEvent event) {
-
+    void submitPressed(ActionEvent event) throws IOException {
+    	PropertiesManager propManager = new PropertiesManager();
+    	propManager.writeTxtProperties("src/main/resources/properties", "TextConfigProperties", mailConfigData);
+    	propManager.writeXmlProperties("src/main/resources/properties", "XMLConfigProperties", mailConfigData);
+    	
+    	
     }
+    
     /**
      * The even handler registered in the FXML file for when the exit button is
      * pressed - Exit event handler
