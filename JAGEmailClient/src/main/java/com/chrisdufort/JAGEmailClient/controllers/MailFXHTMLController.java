@@ -19,7 +19,7 @@ import com.chrisdufort.persistence.MailDAO;
 /**
  * 
  * @author Christopher
- * @version 0.3.4-SNAPSHOT - phase 3 , last modified 10/25/2015
+ * @version 0.3.5-SNAPSHOT - phase 3 , last modified 10/28/2015
  * @since 0.3.4
  */
 public class MailFXHTMLController {
@@ -41,7 +41,7 @@ public class MailFXHTMLController {
 	 */
 	@FXML
 	private void initialize() {
-
+		// Nothing to initialize with HTML.
 	}
 
 	/**
@@ -50,6 +50,7 @@ public class MailFXHTMLController {
 	 */
 	@FXML
 	private void handleSave() {
+		//FIXME SAVE NOT SAVING
 		System.out.println(mailFXHTMLEditor.getHtmlText());
 	}
 
@@ -58,6 +59,7 @@ public class MailFXHTMLController {
 	 */
 	@FXML
 	private void handleAbout() {
+		//FIXME DO THIS IS JAVA FX DIALOG
 		// Modal dialog box
 		// JavaFX dialog coming in 8u40
 		Alert dialog = new Alert(AlertType.INFORMATION);
@@ -109,10 +111,11 @@ public class MailFXHTMLController {
 	}
 	
 	public void displayOtherHTML() {
-		String other = "<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">"
+		/*String other = "<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">"
 				+ "<body><h1>Here is my photograph embedded in this email.</h1><img src=\"" 
 				+ getClass().getResource("/FreeFall.jpg") + "\"><h2>I'm flying!</h2></body></html>";
-		
+		*/
+		String other = "impliment me";
 		mailFXHTMLEditor.setHtmlText(other);
 	}
 

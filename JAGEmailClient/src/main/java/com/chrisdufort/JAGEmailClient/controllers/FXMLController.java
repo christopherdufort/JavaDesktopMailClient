@@ -24,7 +24,7 @@ import com.chrisdufort.properties.manager.PropertiesManager;
  * #KFCStandard and JavaFX8
  *
  * @author Christopher Dufort
- * @version 0.3.4-SNAPSHOT , last modified 10/25/2015
+ * @version 0.3.5-SNAPSHOT , last modified 10/28/2015
  * @since 0.3.1
  */
 public class FXMLController {
@@ -77,7 +77,7 @@ public class FXMLController {
 
 
 	/**
-	 * Default constructor creates an instance of FishData that can be bound to
+	 * Default constructor creates an instance of MailBean that can be bound to
 	 * the form
 	 */
 	public FXMLController() {

@@ -1395,3 +1395,59 @@ Caused by: java.lang.NullPointerException: Both properties must be specified.
 [INFO ] 2015-10-25 16:36:06.469 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
 [INFO ] 2015-10-25 16:36:06.471 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
 [INFO ] 2015-10-25 16:36:22.099 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-28 14:47:47.609 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-28 15:38:01.211 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 15:38:01.236 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 15:38:01.237 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 15:38:01.240 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 15:38:05.311 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-28 15:42:31.177 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 15:42:31.187 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 15:42:31.188 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 15:42:31.191 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 15:42:35.177 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-10-28 15:42:35.201 [JavaFX Application Thread] MainAppFX - Local = en_US
+[INFO ] 2015-10-28 16:01:42.488 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 16:01:42.568 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 16:01:42.569 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 16:01:42.573 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 16:01:46.783 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-10-28 16:01:46.812 [JavaFX Application Thread] MainAppFX - Local = en_US
+[INFO ] 2015-10-28 16:03:37.175 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 16:03:37.190 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 16:03:37.191 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 16:03:37.196 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 16:03:42.185 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-10-28 16:03:42.217 [JavaFX Application Thread] MainAppFX - Local = en_US
+[INFO ] 2015-10-28 16:04:30.687 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 16:04:30.700 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 16:04:30.701 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 16:04:30.705 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 16:04:34.891 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-10-28 16:04:34.913 [JavaFX Application Thread] MainAppFX - Local = en_US
+[INFO ] 2015-10-28 16:12:33.627 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 16:12:33.639 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 16:12:33.640 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 16:12:33.643 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 16:12:38.257 [JavaFX Application Thread] MainAppFX - Program Begins
+[INFO ] 2015-10-28 16:12:38.528 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-10-28 16:12:38.591 [JavaFX Application Thread] MainAppFX - finished configuration
+[DEBUG] 2015-10-28 16:12:38.594 [JavaFX Application Thread] MainAppFX - Local = en_US
+[INFO ] 2015-10-28 16:19:28.986 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 16:19:28.998 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 16:19:29.000 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 16:19:29.003 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 16:19:33.354 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-10-28 16:19:33.387 [JavaFX Application Thread] MainAppFX - Local = en_US
+[INFO ] 2015-10-28 16:29:02.966 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 16:29:02.978 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 16:29:02.980 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 16:29:02.984 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 16:29:08.037 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-10-28 16:29:08.066 [JavaFX Application Thread] MainAppFX - Local = en_US
+[INFO ] 2015-10-28 16:35:22.310 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-10-28 16:35:22.323 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-10-28 16:35:22.325 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-10-28 16:35:22.328 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-10-28 16:35:27.500 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-10-28 16:35:27.527 [JavaFX Application Thread] MainAppFX - Local = en_US

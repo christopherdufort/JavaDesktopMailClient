@@ -17,7 +17,7 @@ import com.chrisdufort.persistence.MailDAO;
 /**
  * 
  * @author Christopher Dufort
- * @version 0.3.4-SNAPSHOT -phase 3 , last modified 10/25/2015
+ * @version 0.3.5-SNAPSHOT -phase 3 , last modified 10/28/2015
  * @since 0.3.4
  */
 public class MailFXTableController {
@@ -117,7 +117,7 @@ public class MailFXTableController {
 	 * To be able to test the selection handler for the table, this method
 	 * displays the MailBean object that corresponds to the selected row.
 	 * 
-	 * @param fishData
+	 * @param newValue
 	 */
 	private void showMailDetails(MailBean newValue) {
 		System.out.println(newValue);

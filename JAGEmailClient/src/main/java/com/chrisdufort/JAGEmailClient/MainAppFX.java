@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import org.slf4j.Logger;
@@ -26,7 +27,7 @@ import java.util.ResourceBundle;
  * #KFCStandard and JavaFX8
  *
  * @author Christopher Dufort
- * @version 0.3.4-SNAPSHOT - phase 3, last modified 10/25/2015
+ * @version 0.3.5-SNAPSHOT - phase 3, last modified 10/28/2015
  * @since 0.3.0-SNAPSHOT
  */
 public class MainAppFX extends Application {
@@ -36,7 +37,7 @@ public class MainAppFX extends Application {
 
     // The primary window or frame of this application
     private Stage primaryStage;
-    private AnchorPane rootLayout;
+    private BorderPane rootLayout;
     private Locale currentLocale;
     private MailConfigBean mailConfigBean;
     private PropertiesManager propManager;
@@ -69,9 +70,10 @@ public class MainAppFX extends Application {
      				new Image(MainAppFX.class
      						.getResourceAsStream("/images/email.png")));
      		
-     	//TODO handle this check better or move it?
+     	//TODO handle this check better or move it? 
      	mailConfigBean = propManager.loadTextProperties("src/main/resources/properties", "TextConfigProperties");
      	
+     	//FIXME how to submit and continue flow of logic
      	if (mailConfigBean.getEmailAddress().equals(""))
      	{
      		// Create the configuration Scene and put it on the Stage
@@ -79,11 +81,7 @@ public class MainAppFX extends Application {
      	}
      	// Create the root scene and put it on the stage.
          initRootLayout();
-     	
-     	
-     		
-       
-
+         
         // Set the window title
         primaryStage.setTitle(ResourceBundle.getBundle("ConfigBundle").getString("TITLE"));
         // Raise the curtain on the Stage
@@ -97,19 +95,34 @@ public class MainAppFX extends Application {
 		currentLocale = new Locale("en","CA");
 		//currentLocale = new Locale("fr","CA");
 		
-//		Locale currentLocale = Locale.CANADA;
-//		Locale currentLocale = Locale.CANADA_FRENCH;
+		//Locale currentLocale = Locale.CANADA;
+		//Locale currentLocale = Locale.CANADA_FRENCH;
 		
 		try {
-			// Load root layout from fxml file.
+			// Instantiate the FXMLLoader
 			FXMLLoader loader = new FXMLLoader();
+
+			// Set the location of the fxml file in the FXMLLoader
+			loader.setLocation(MainAppFX.class.getResource("/fxml/MailFXRootLayout.fxml"));
+			
+            // Localize the loader with its bundle
+            // Uses the default locale and if a matching bundle is not found
+            // will then use ConfigBundle.properties
 			loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
 			
+			rootLayout = (BorderPane) loader.load();
 			
-			loader.setLocation(MainAppFX.class
-					.getResource("/fxml/MailFXRootLayout.fxml"));
-			rootLayout = (AnchorPane) loader.load();
-
+			// Load the BorderPane into a Scene
+	         Scene scene = new Scene(rootLayout);
+	         
+	         // Put the Scene on Stage
+	         this.primaryStage.setScene(scene);
+	     	
+	         // Set the window title
+	         primaryStage.setTitle(ResourceBundle.getBundle("ConfigBundle").getString("TITLE"));
+	         // Raise the curtain on the Stage
+	         primaryStage.show();
+	         
 			// Retrieve the controller if you must send it messages
 			//RootLayoutController rootController = loader.getController();
 
@@ -147,7 +160,8 @@ public class MainAppFX extends Application {
             Scene scene = new Scene(parent);
 
             // Put the Scene on Stage
-            primaryStage.setScene(scene);
+            this.primaryStage.setScene(scene);
+            
             log.debug("finished configuration");
 
         } catch (IOException ex) { // getting resources or files could fail

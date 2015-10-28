@@ -56,7 +56,7 @@ public class PropertiesManager {
 			mailConfig.setPassword(prop.getProperty("password"));
 			mailConfig.setImapUrl(prop.getProperty("imapUrl"));
 			mailConfig.setSmtpUrl(prop.getProperty("smtpUrl"));
-			mailConfig.setSmtpPort(Integer.getInteger(prop.getProperty("smtpPort"))); //This cast ok?
+			mailConfig.setSmtpPort(Integer.parseInt(prop.getProperty("smtpPort"))); //This cast ok?
 			mailConfig.setImapPort(Integer.parseInt(prop.getProperty("imapPort")));   //This cast ok?
 			mailConfig.setMysqlPort(Integer.parseInt(prop.getProperty("mysqlPort"))); //This cast ok?
 			mailConfig.setMysqlUrl(prop.getProperty("mysqlUrl"));
