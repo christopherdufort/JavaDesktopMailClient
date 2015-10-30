@@ -40,7 +40,7 @@ import jodd.mail.EmailAttachment;
  * Using JavaFX (Property Beans) as of version 0.3.4 onward.
  * 
  * @author Christopher Dufort
- * @version 0.3.4-SNAPSHOT , Phase 3 - last modified 10/25/15
+ * @version 0.3.6-SNAPSHOT , Phase 3 - last modified 10/29/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailBean {
@@ -102,6 +102,7 @@ public class MailBean {
 	 */
 	public MailBean() {
 		super();
+		this.id = new SimpleIntegerProperty(-1); //Useful to know if a bean has been entered into the database yet,
 		this.toField = new ArrayList<String>(); 
 		this.ccField = new ArrayList<String>(); 
 		this.bccField = new ArrayList<String>(); 
@@ -133,6 +134,7 @@ public class MailBean {
 	public MailBean(final ArrayList<String> toField,final String fromField, final ArrayList<String> ccField, final ArrayList<String> bccField, final String subjectField,
 			final String textMessageField) {
 		super();
+		this.id = new SimpleIntegerProperty(-1); //Useful to know if a bean has been entered into the database yet,
 		this.toField = new ArrayList<String>(toField);
 		this.fromField = new SimpleStringProperty(fromField);
 		this.ccField = new ArrayList<String>(ccField);
@@ -162,10 +164,11 @@ public class MailBean {
 	 * @param embedAttachment
 	 * 
 	 */
-	public MailBean(final ArrayList<String> toField, final String fromField, final ArrayList<String> ccField, final ArrayList<String> bccField, final String subjectField,
+	public MailBean(final int id, final ArrayList<String> toField, final String fromField, final ArrayList<String> ccField, final ArrayList<String> bccField, final String subjectField,
 			final String textMessageField, final String htmlMessageField, final String folder, final int mailStatus, final LocalDateTime dateSent, final LocalDateTime dateReceived,
 			final ArrayList<EmailAttachment> fileAttachments, final ArrayList<EmailAttachment> embedAttachments) {
 		super();
+		this.id = new SimpleIntegerProperty(id);
 		this.toField = toField;
 		this.fromField = new SimpleStringProperty(fromField);
 		this.ccField = ccField;

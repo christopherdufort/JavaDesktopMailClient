@@ -10,7 +10,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="mailFXHTMLLayout" prefHeight="500.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.kenfogel.fishfxhtml.view.FishFXHTMLController">
+<BorderPane fx:id="mailFXHTMLLayout" prefHeight="400.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.MailFXHTMLController">
    <top>
       <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <items>
@@ -23,13 +23,13 @@
    <center>
       <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <center>
-             <HTMLEditor fx:id="fishFXHTMLEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="200.0" prefWidth="506.0" BorderPane.alignment="CENTER" />
+             <HTMLEditor fx:id="mailFXHTMLEditor" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="200.0" prefWidth="506.0" BorderPane.alignment="CENTER" />
          </center>
          <top>
             <GridPane prefHeight="120.0" prefWidth="814.0" BorderPane.alignment="CENTER">
               <columnConstraints>
-                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="661.0" minWidth="10.0" prefWidth="69.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="911.0" minWidth="10.0" prefWidth="911.0" />
+                <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="661.0" minWidth="10.0" prefWidth="107.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="911.0" minWidth="10.0" prefWidth="673.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
@@ -42,7 +42,7 @@
                   <Label text="%CC" GridPane.rowIndex="1" />
                   <Label text="%BCC" GridPane.rowIndex="2" />
                   <Label text="%SUBJECT" GridPane.rowIndex="3" />
-                  <TextField GridPane.columnIndex="1" />
+                  <TextField prefHeight="25.0" prefWidth="702.0" GridPane.columnIndex="1" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />

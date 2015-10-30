@@ -3,9 +3,11 @@ package com.chrisdufort.JAGEmailClient.controllers;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.TreeView;
 import javafx.scene.layout.AnchorPane;
 
 import org.slf4j.Logger;
@@ -17,7 +19,7 @@ import com.chrisdufort.persistence.MailDAO;
 /**
  * 
  * @author Christopher Dufort
- * @version 0.3.5-SNAPSHOT -phase 3 , last modified 10/28/2015
+ * @version 0.3.6-SNAPSHOT -phase 3 , last modified 10/29/2015
  * @since 0.3.4
  */
 public class MailFXTableController {
@@ -63,7 +65,7 @@ public class MailFXTableController {
 	@FXML
 	private void initialize() {
 
-		// Connects the property in the FishData object to the column in the table
+		// Connects the property in the mailData object to the column in the table
 		//FIXME make this change based on viewed folder;
 		targetColumn.setCellValueFactory(cellData -> cellData.getValue().fromFieldProperty());
 		subjectColumn.setCellValueFactory(cellData -> cellData.getValue().subjectFieldProperty());
@@ -76,25 +78,25 @@ public class MailFXTableController {
 
 		adjustColumnWidths();
 
-		// Listen for selection changes and show the fishData details when changed.
+		// Listen for selection changes and show the mailData details when changed.
 		mailDataTable.getSelectionModel().selectedItemProperty().addListener(
 						(observable, oldValue, newValue) -> showMailDetails(newValue));
 	}
 
 	/**
-	 * Sets a reference to the FishDAO object that retrieves data from the
+	 * Sets a reference to the mailDAO object that retrieves data from the
 	 * database
 	 * 
-	 * @param fishDAO
+	 * @param mailDAO
 	 * @throws SQLException
 	 */
 	public void setMailDAO(MailDAO mailDAO) throws SQLException {
 		this.mailDAO = mailDAO;
 	}
 	
-	public void displayTheTable() throws SQLException {
+	public void displayTheTable(String folderName) throws SQLException {
 		// Add observable list data to the table
-		mailDataTable.setItems(this.mailDAO.findTableAll());
+		mailDataTable.setItems(this.mailDAO.findByFolder(folderName));
 	}
  
 
@@ -121,6 +123,10 @@ public class MailFXTableController {
 	 */
 	private void showMailDetails(MailBean newValue) {
 		System.out.println(newValue);
+	}
+
+	public TableView<MailBean> getMailDataTable() {
+		return mailDataTable;
 	}
 
 }

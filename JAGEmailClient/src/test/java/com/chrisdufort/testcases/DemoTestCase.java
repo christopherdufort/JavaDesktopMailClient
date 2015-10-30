@@ -33,12 +33,14 @@ import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAOImpl;
 import com.chrisdufort.test.MethodLogger;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import jodd.mail.EmailAttachment;
 import jodd.mail.EmailAttachmentBuilder;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.9-SNAPSHOT , Phase 2 - last modified 10/09/15
+ * @version 0.3.6-SNAPSHOT , Phase 3 - last modified 10/29/15
  * @since 0.2.4-SNAPSHOT
  */
 public class DemoTestCase {
@@ -120,7 +122,7 @@ public class DemoTestCase {
 	@Ignore
 	@Test
 	public void testFindByTo() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
 		String toField = "to@email.com";
 		String fromField = "from@gmail.com";
 		String subjectField = "Testing find by To subject";
@@ -151,7 +153,8 @@ public class DemoTestCase {
 	@Ignore
 	@Test
 	public void testFindByCc() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		String toField = "to.cc@email.com";
 		String fromField = "from.cc@gmail.com";
 		String subjectField = "Testing find by Cc subject";
@@ -179,7 +182,8 @@ public class DemoTestCase {
 	@Ignore
 	@Test
 	public void testFindByBcc() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		String toField = "to.bcc@email.com";
 		String fromField = "from.bcc@gmail.com";
 		String subjectField = "Testing find by Bcc subject";
@@ -201,7 +205,8 @@ public class DemoTestCase {
 	@Test
 	public void testFindByFrom() throws SQLException {
 
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		String toField = "to.from@email.com";
 		String fromField = "from.from@gmail.com";
 		String subjectField = "Testing find by from subject";
@@ -231,7 +236,8 @@ public class DemoTestCase {
 	@Test
 	public void testFindBySubject() throws SQLException {
 
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		String toField = "to.email@gmail.com";
 		String fromField = "from.email@gmail.com";
 		String subjectField = "Testing find by SUBJECT subject";
@@ -262,7 +268,7 @@ public class DemoTestCase {
 	public void testFindByFolder() throws SQLException {
 		String folderName = "draft";
 		int expectedFinds = 2;
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
 
 		foundBeans = myDBImplementation.findByFolder(folderName);
 		assertEquals("testFindByFolder() failed due to difference of retrieval ", expectedFinds, foundBeans.size());
@@ -272,7 +278,8 @@ public class DemoTestCase {
 	public void testFindAll() throws SQLException {
 		int numberOfFieldsInDB = 2;
 		int numberOfBeansFound = -1;
-		ArrayList<MailBean> allBeans = myDBImplementation.findAll();
+		
+		ObservableList<MailBean> allBeans = myDBImplementation.findAll();;
 
 		numberOfBeansFound = allBeans.size();
 
@@ -285,7 +292,8 @@ public class DemoTestCase {
 	@Ignore
 	@Test
 	public void testFindByDateSent() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		int expectedFinds = 2;
 		MailBean bean1 = new MailBean();
 		MailBean bean2 = new MailBean();
@@ -316,7 +324,8 @@ public class DemoTestCase {
 	@Ignore
 	@Test
 	public void testFindByDateReceived() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		int expectedFinds = 1;
 		MailBean bean1 = new MailBean();
 		MailBean bean3 = new MailBean();
@@ -406,8 +415,8 @@ public class DemoTestCase {
 	@Ignore
 	@Test
 	public void testFindAllFolderNames() {
-		ArrayList<String> foundFolderNames = null;
-		ArrayList<String> allFolderNames = new ArrayList<>();
+		ObservableList<String> foundFolderNames = FXCollections.observableArrayList();
+		ObservableList<String> allFolderNames = FXCollections.observableArrayList();
 
 		allFolderNames.add("inbox");
 		allFolderNames.add("sent");

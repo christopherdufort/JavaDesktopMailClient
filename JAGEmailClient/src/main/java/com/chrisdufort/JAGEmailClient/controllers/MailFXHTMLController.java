@@ -3,6 +3,7 @@ package com.chrisdufort.JAGEmailClient.controllers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
@@ -19,7 +20,7 @@ import com.chrisdufort.persistence.MailDAO;
 /**
  * 
  * @author Christopher
- * @version 0.3.5-SNAPSHOT - phase 3 , last modified 10/28/2015
+ * @version 0.3.6-SNAPSHOT - phase 3 , last modified 10/29/2015
  * @since 0.3.4
  */
 public class MailFXHTMLController {
@@ -78,11 +79,11 @@ public class MailFXHTMLController {
 	}
 
 	/**
-	 * Sets a reference to the FishDAO object that retrieves data from the
+	 * Sets a reference to the mailDAO object that retrieves data from the
 	 * database. Convert the first three fields from the first three records
 	 * into HTML.
 	 * 
-	 * @param fishDAO
+	 * @param mailDAO
 	 * @throws SQLException
 	 */
 	public void setMailDAO(MailDAO mailDAO) {
@@ -90,7 +91,7 @@ public class MailFXHTMLController {
 	}
 
 	public void displayMailAsHTML() {
-		ArrayList<MailBean> data = null;
+		ObservableList<MailBean> data = null;
 		try {
 			data = mailDAO.findAll();
 		} catch (SQLException e) {
@@ -98,7 +99,7 @@ public class MailFXHTMLController {
 		}
 
 		StringBuilder sb = new StringBuilder();
-		sb.append("<html><body contenteditable='true'>");
+		sb.append("<html><body contenteditable='false'>");
 		for (int x = 0; x < 3; ++x) {
 			sb.append(data.get(x).getHtmlMessageField()).append("</br>");
 			//sb.append(data.get(x).getCommonName()).append("</br>");

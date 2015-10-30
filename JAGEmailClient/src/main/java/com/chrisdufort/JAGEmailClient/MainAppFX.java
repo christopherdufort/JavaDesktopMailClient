@@ -101,15 +101,15 @@ public class MainAppFX extends Application {
 		try {
 			// Instantiate the FXMLLoader
 			FXMLLoader loader = new FXMLLoader();
-
-			// Set the location of the fxml file in the FXMLLoader
-			loader.setLocation(MainAppFX.class.getResource("/fxml/MailFXRootLayout.fxml"));
 			
             // Localize the loader with its bundle
             // Uses the default locale and if a matching bundle is not found
             // will then use ConfigBundle.properties
 			loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
-			
+
+			// Set the location of the fxml file in the FXMLLoader
+			loader.setLocation(MainAppFX.class.getResource("/fxml/MailFXRootLayout.fxml"));
+		
 			rootLayout = (BorderPane) loader.load();
 			
 			// Load the BorderPane into a Scene

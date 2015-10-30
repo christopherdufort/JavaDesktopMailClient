@@ -4,6 +4,9 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.chrisdufort.JAGEmailClient.MainAppFX;
 import com.chrisdufort.persistence.MailDAO;
 import com.chrisdufort.persistence.MailDAOImpl;
@@ -12,6 +15,7 @@ import com.chrisdufort.persistence.MailDAOImpl;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 
 /**
  * This is the root layout. All of the other layouts are added in code here.
@@ -20,12 +24,13 @@ import javafx.scene.layout.AnchorPane;
  * i18n added
  * 
  * @author Christopher Dufort
- * @version 0.3.4-SNAPSHOT - phase 3, last modified 10/25/2015
+ * @version 0.3.6-SNAPSHOT - phase 3, last modified 10/29/2015
  * @since 0.3.4
  *
  */
 public class RootLayoutController {
-
+	private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
+	
 	@FXML
 	private AnchorPane treeSplit;
 
@@ -45,6 +50,7 @@ public class RootLayoutController {
 
 	public RootLayoutController() {
 		super();
+		log.debug("RootLayoutController is constructed");
 		mailDAO = new MailDAOImpl();
 	}
 
@@ -54,7 +60,9 @@ public class RootLayoutController {
 	 */
 	@FXML
 	private void initialize() {
-
+		
+		log.debug("RootLayoutController's initialize method is called");
+		
 		initTreeLayout();
 		initTableLayout();
 		initHtmlLayout();
@@ -64,7 +72,7 @@ public class RootLayoutController {
 
 		try {
 			mailFXTreeController.displayTree();
-			mailFXTableController.displayTheTable();
+			mailFXTableController.displayTheTable("inbox"); //TODO remove hard coded default choice?
 			mailFXHTMLController.displayMailAsHTML();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
@@ -88,8 +96,8 @@ public class RootLayoutController {
 			loader.setResources(resources);
 			
 			loader.setLocation(MainAppFX.class
-					.getResource("/fxml/FishFXTreeLayout.fxml"));
-			AnchorPane treeView = (AnchorPane) loader.load();
+					.getResource("/fxml/MailFXTreeLayout.fxml"));
+			AnchorPane treeView = (AnchorPane)loader.load();
 
 			// Give the controller the data object.
 			mailFXTreeController = loader.getController();
@@ -109,9 +117,8 @@ public class RootLayoutController {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setResources(resources);
 
-			loader.setLocation(MainAppFX.class
-					.getResource("/fxml/FishFXTableLayout.fxml"));
-			AnchorPane tableView = (AnchorPane) loader.load();
+			loader.setLocation(MainAppFX.class.getResource("/fxml/MailFXTableLayout.fxml"));
+			AnchorPane tableView = (AnchorPane)loader.load();
 
 			// Give the controller the data object.
 			mailFXTableController = loader.getController();
@@ -132,8 +139,8 @@ public class RootLayoutController {
 			loader.setResources(resources);
 
 			loader.setLocation(MainAppFX.class
-					.getResource("/fxml/FishFXHTMLLayout.fxml"));
-			AnchorPane htmlView = (AnchorPane) loader.load();
+					.getResource("/fxml/MailFXHTMLLayout.fxml"));
+			BorderPane htmlView = (BorderPane)loader.load();
 
 			// Give the controller the data object.
 			mailFXHTMLController = loader.getController();

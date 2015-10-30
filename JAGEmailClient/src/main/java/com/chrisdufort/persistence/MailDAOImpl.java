@@ -198,7 +198,7 @@ public class MailDAOImpl implements MailDAO {
 	 * @see com.chrisdufort.persistence.MailDAO#findAll()
 	 */
 	@Override
-	public ArrayList<MailBean> findAll() throws SQLException {
+	public ObservableList<MailBean> findAll() throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		String findAllQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
@@ -210,7 +210,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findAll() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 	
 	/**
@@ -246,21 +246,14 @@ public class MailDAOImpl implements MailDAO {
 	 * @see com.chrisdufort.persistence.MailDAO#findAllFolderNames()
 	 */
 	@Override
-	public ArrayList<String> findAllFolderNames() throws SQLException {
+	public ObservableList<String> findAllFolderNames() throws SQLException {
 		ArrayList<String> folderNames = new ArrayList<>();
 		// ORDER BY included because folder_name is UNIQUE and becomes
 		// incorrectly ordered because of InnoDB
 		String findFolderQuery = "SELECT folder_name " + "FROM folder " + "ORDER BY folder_id";
 		try (Connection connection = DriverManager.getConnection(url, user, password);
-				PreparedStatement prepStmt = connection.prepareStatement(findFolderQuery);) // TODO
-																							// does
-																							// not
-																							// need
-																							// to
-																							// be
-																							// a
-																							// prepared
-																							// statement
+				//This does not need to be a prepared statement.
+				PreparedStatement prepStmt = connection.prepareStatement(findFolderQuery);) 																						
 		{
 			try (ResultSet resultSet = prepStmt.executeQuery();) {
 				while (resultSet.next()) {
@@ -268,7 +261,7 @@ public class MailDAOImpl implements MailDAO {
 				}
 			}
 		}
-		return folderNames;
+		return FXCollections.observableArrayList(folderNames);
 
 	}
 
@@ -389,7 +382,7 @@ public class MailDAOImpl implements MailDAO {
 	 *            string toFiled address used to query the database.
 	 */
 	@Override
-	public ArrayList<MailBean> findByTo(String toField) throws SQLException {
+	public ObservableList<MailBean> findByTo(String toField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		String findByToQuery = "SELECT e.email_id, e.from_field, e.subject, e.text, e.html, e.sent_date, e.receive_date, f.folder_name, e.mail_status "
@@ -404,7 +397,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findByTo() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 
 	/**
@@ -416,7 +409,7 @@ public class MailDAOImpl implements MailDAO {
 	 *            the field used to query for results.
 	 */
 	@Override
-	public ArrayList<MailBean> findByFrom(String fromField) throws SQLException {
+	public ObservableList<MailBean> findByFrom(String fromField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		String findByFromQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
@@ -429,7 +422,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findByFrom() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 
 	/**
@@ -439,7 +432,7 @@ public class MailDAOImpl implements MailDAO {
 	 * @see com.chrisdufort.persistence.MailDAO#findByCc(java.lang.String)
 	 */
 	@Override
-	public ArrayList<MailBean> findByCc(String ccField) throws SQLException {
+	public ObservableList<MailBean> findByCc(String ccField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		String findByCcQuery = "SELECT e.email_id, e.from_field, e.subject, e.text, e.html, e.sent_date, e.receive_date, f.folder_name, e.mail_status "
@@ -454,7 +447,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findByCc() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 
 	/**
@@ -464,7 +457,7 @@ public class MailDAOImpl implements MailDAO {
 	 * @see com.chrisdufort.persistence.MailDAO#findByBcc(java.lang.String)
 	 */
 	@Override
-	public ArrayList<MailBean> findByBcc(String bccField) throws SQLException {
+	public ObservableList<MailBean> findByBcc(String bccField) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		String findByBccQuery = "SELECT e.email_id, e.from_field, e.subject, e.text, e.html, e.sent_date, e.receive_date, f.folder_name, e.mail_status "
@@ -479,7 +472,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findByBcc() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 
 	/**
@@ -489,7 +482,7 @@ public class MailDAOImpl implements MailDAO {
 	 * @see com.chrisdufort.persistence.MailDAO#findBySubject(java.lang.String)
 	 */
 	@Override
-	public ArrayList<MailBean> findBySubject(String subject) throws SQLException {
+	public ObservableList<MailBean> findBySubject(String subject) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
@@ -502,7 +495,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findBySubject() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 
 	/**
@@ -512,7 +505,7 @@ public class MailDAOImpl implements MailDAO {
 	 * @see com.chrisdufort.persistence.MailDAO#findByDateSent(java.time.LocalDateTime)
 	 */
 	@Override
-	public ArrayList<MailBean> findByDateSent(LocalDateTime sentDate) throws SQLException {
+	public ObservableList<MailBean> findByDateSent(LocalDateTime sentDate) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		sentDate = sentDate.truncatedTo(ChronoUnit.DAYS);
@@ -529,7 +522,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findByDateSent() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 
 	/**
@@ -539,7 +532,7 @@ public class MailDAOImpl implements MailDAO {
 	 * @see com.chrisdufort.persistence.MailDAO#findByDateReceive(java.time.LocalDateTime)
 	 */
 	@Override
-	public ArrayList<MailBean> findByDateReceive(LocalDateTime receivedDate) throws SQLException {
+	public ObservableList<MailBean> findByDateReceive(LocalDateTime receivedDate) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		receivedDate = receivedDate.truncatedTo(ChronoUnit.DAYS);
@@ -555,7 +548,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findByDateReceive() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 
 	/**
@@ -565,7 +558,7 @@ public class MailDAOImpl implements MailDAO {
 	 * @see com.chrisdufort.persistence.MailDAO#findByFolder(java.lang.String)
 	 */
 	@Override
-	public ArrayList<MailBean> findByFolder(String folderName) throws SQLException {
+	public ObservableList<MailBean> findByFolder(String folderName) throws SQLException {
 		ArrayList<MailBean> foundEmails = new ArrayList<>();
 
 		String findByDateQuery = "SELECT email_id, from_field, subject, text, html, sent_date, receive_date, folder_name, mail_status "
@@ -578,7 +571,7 @@ public class MailDAOImpl implements MailDAO {
 			}
 		}
 		log.info("findByFolder() returned " + foundEmails.size() + " emails");
-		return foundEmails;
+		return FXCollections.observableArrayList(foundEmails);
 	}
 
 	/**

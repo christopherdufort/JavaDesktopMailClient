@@ -22,7 +22,7 @@ import jodd.mail.EmailAttachment;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.9-SNAPSHOT , Phase 2 - last modified 10/09/15
+ * @version 0.3.6-SNAPSHOT , Phase 6 - last modified 10/29/15
  * @since 0.2.1-SNAPSHOT
  * 
  *        This is the Mail Data Access Object Interface, its an interface
@@ -31,6 +31,8 @@ import jodd.mail.EmailAttachment;
  * 
  *        Any DAO implementing classes that should overload all of these
  *        methods.
+ *        
+ *        Read Methods changed to Observable Lists with Gui Implementation as of version 0.3.6
  */
 public interface MailDAO {
 	// Create (Insert)
@@ -39,27 +41,27 @@ public interface MailDAO {
 	public int createFolder(String folderName) throws SQLException;
 
 	// Read (Select)
-	public ArrayList<MailBean> findAll() throws SQLException;
+	public ObservableList<MailBean> findAll() throws SQLException;
 	
 	public ObservableList<MailBean> findTableAll() throws SQLException;
 
-	public ArrayList<MailBean> findByTo(String toField) throws SQLException;
+	public ObservableList<MailBean> findByTo(String toField) throws SQLException;
 
-	public ArrayList<MailBean> findByFrom(String fromField) throws SQLException;
+	public ObservableList<MailBean> findByFrom(String fromField) throws SQLException;
 
-	public ArrayList<MailBean> findByCc(String ccField) throws SQLException;
+	public ObservableList<MailBean> findByCc(String ccField) throws SQLException;
 
-	public ArrayList<MailBean> findByBcc(String bccField) throws SQLException;
+	public ObservableList<MailBean> findByBcc(String bccField) throws SQLException;
 
-	public ArrayList<MailBean> findBySubject(String subject) throws SQLException;
+	public ObservableList<MailBean> findBySubject(String subject) throws SQLException;
 
-	public ArrayList<MailBean> findByDateSent(LocalDateTime sentDate) throws SQLException;
+	public ObservableList<MailBean> findByDateSent(LocalDateTime sentDate) throws SQLException;
 
-	public ArrayList<MailBean> findByDateReceive(LocalDateTime receivedDate) throws SQLException;
+	public ObservableList<MailBean> findByDateReceive(LocalDateTime receivedDate) throws SQLException;
 
-	public ArrayList<MailBean> findByFolder(String folderName) throws SQLException;
+	public ObservableList<MailBean> findByFolder(String folderName) throws SQLException;
 
-	public ArrayList<String> findAllFolderNames() throws SQLException;
+	public ObservableList<String> findAllFolderNames() throws SQLException;
 
 	public MailBean findEmailByID(int mailId) throws SQLException;
 

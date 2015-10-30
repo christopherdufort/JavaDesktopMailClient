@@ -19,7 +19,7 @@ import com.chrisdufort.test.MethodLogger;
  * @version 0.3.1 - last modified 10/20/2015
  * @since 0.3.1
  * 
- * TODO NEED TO TEST
+ * FIXME NEED TO TEST this implementation
  *
  */
 public class TestProperties {

@@ -31,7 +31,7 @@ import jodd.mail.EmailAttachmentBuilder;
  * FILLED.
  * 
  * @author Christopher Dufort
- * @version 0.2.5-SNAPSHOT , Phase 2 - last modified 10/05/15
+ * @version 0.3.6-SNAPSHOT , Phase 2 - last modified 10/29/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailActionTest {
@@ -312,6 +312,7 @@ public class MailActionTest {
 	@Test
 	public void testComplexSendEmail() {
 		// Create mailBean
+		int id = -1;
 		ArrayList<String> toList = new ArrayList<>();
 		toList.add(receiveConfigBean.getEmailAddress());
 
@@ -358,7 +359,7 @@ public class MailActionTest {
 		// arraylist<emailattach> embed )
 		// This constructor makes most sense when pulling all fields from a
 		// database.
-		MailBean mailBeanSend = new MailBean(toList, fromField, ccList, bccList, subject, plainText, htmlText, folder,
+		MailBean mailBeanSend = new MailBean(id, toList, fromField, ccList, bccList, subject, plainText, htmlText, folder,
 				mailStatus, sentDate, receiveDate, allFileAttachments, allEmbedAttachments);
 
 		String messageId = "-1"; // Signifying an error has occurred if not
@@ -1097,7 +1098,7 @@ public class MailActionTest {
 	@Ignore
 	@Test
 	public void testEmptyComplexSendEmail() {
-
+		int id = -1;
 		// Create complex empty mailBean
 		ArrayList<String> toList = new ArrayList<>();
 		toList.add(receiveConfigBean.getEmailAddress());
@@ -1130,7 +1131,7 @@ public class MailActionTest {
 		// arraylist<emailattach> embed )
 		// This constructor makes most sense when pulling all fields from a
 		// database.
-		MailBean mailBeanSend = new MailBean(toList, fromField, ccList, bccList, subject, plainText, htmlTEXT, folder,
+		MailBean mailBeanSend = new MailBean(id, toList, fromField, ccList, bccList, subject, plainText, htmlTEXT, folder,
 				mailStatus, sentDate, receiveDate, allFileAttachments, allEmbedAttachments);
 
 		String messageId = "-1"; // Signifying an error has occurred if not
@@ -1179,6 +1180,7 @@ public class MailActionTest {
 	@Test
 	public void testComplexSendWithMultipleFieldsEmail() {
 
+		int id = -1;
 		// Create complex empty mailBean
 		ArrayList<String> toList = new ArrayList<>();
 		toList.add(receiveConfigBean.getEmailAddress());
@@ -1246,7 +1248,7 @@ public class MailActionTest {
 		// arraylist<emailattach> embed )
 		// This constructor makes most sense when pulling all fields from a
 		// database.
-		MailBean mailBeanSend = new MailBean(toList, fromField, ccList, bccList, subject, plainText, htmlText, folder,
+		MailBean mailBeanSend = new MailBean(id, toList, fromField, ccList, bccList, subject, plainText, htmlText, folder,
 				mailStatus, sentDate, receiveDate, allFileAttachments, allEmbedAttachments);
 
 		String messageId = "-1"; // Signifying an error has occurred if not
