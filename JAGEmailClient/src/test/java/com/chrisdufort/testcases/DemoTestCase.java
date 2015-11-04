@@ -59,7 +59,7 @@ public class DemoTestCase {
 
 	// Instantiation of DAOImpl class used to call instance methods.
 	private MailDAOImpl myDBImplementation = new MailDAOImpl();
-	@Ignore
+	
 	@Test
 	public void testCreateEmail() throws SQLException {
 		MailBean myBean = new MailBean();

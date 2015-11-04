@@ -50,6 +50,9 @@ public class MailFXTableController {
 	private TableColumn<MailBean, LocalDateTime> dateColumn;
 
 
+	private MailFXHTMLController mailFXHTMLController;
+
+
 	/**
 	 * The constructor. The constructor is called before the initialize()
 	 * method.
@@ -69,7 +72,7 @@ public class MailFXTableController {
 		//FIXME make this change based on viewed folder;
 		targetColumn.setCellValueFactory(cellData -> cellData.getValue().fromFieldProperty());
 		subjectColumn.setCellValueFactory(cellData -> cellData.getValue().subjectFieldProperty());
-		messageColumn.setCellValueFactory(cellData -> cellData.getValue().textMessageFieldProperty());
+		messageColumn.setCellValueFactory(cellData -> cellData.getValue().htmlMessageFieldProperty());
 		//FIXME do i even bother?
 		//attachColumn.setCellValueFactory(cellData -> cellData.getValue());
 		//FIXME make this change based on viewed folder;
@@ -97,6 +100,7 @@ public class MailFXTableController {
 	public void displayTheTable(String folderName) throws SQLException {
 		// Add observable list data to the table
 		mailDataTable.setItems(this.mailDAO.findByFolder(folderName));
+		
 	}
  
 
@@ -106,14 +110,21 @@ public class MailFXTableController {
 	private void adjustColumnWidths() {
 		// Get the current width of the table
 		double width = mailFXTable.getPrefWidth();
+		/*
 		// Set width of each column
 		targetColumn.setPrefWidth(width * .05);
 		subjectColumn.setPrefWidth(width * .15);
 		messageColumn.setPrefWidth(width * .15);
 		attachColumn.setPrefWidth(width * .05);
 		dateColumn.setPrefWidth(width * .05);
+		*/
 	}
 
+
+	
+	public void setHTMLController(MailFXHTMLController mailFXHTMLController) {
+		this.mailFXHTMLController = mailFXHTMLController;
+	}
 
 	/**
 	 * To be able to test the selection handler for the table, this method
@@ -121,8 +132,10 @@ public class MailFXTableController {
 	 * 
 	 * @param newValue
 	 */
-	private void showMailDetails(MailBean newValue) {
-		System.out.println(newValue);
+	private void showMailDetails(MailBean mailBean) {
+		
+		mailFXHTMLController.displayMailAsHTML(mailBean);
+
 	}
 
 	public TableView<MailBean> getMailDataTable() {

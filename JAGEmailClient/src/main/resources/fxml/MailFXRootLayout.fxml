@@ -35,7 +35,7 @@
               <MenuItem mnemonicParsing="false" text="%OPENEMAIL" />
                   <MenuItem mnemonicParsing="false" text="%SAVEEMAIL" />
                   <MenuItem mnemonicParsing="false" text="%SAVEATTACHMENT" />
-                  <MenuItem mnemonicParsing="false" text="%CLOSE" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="%CLOSE" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%LANGUAGE">
@@ -52,7 +52,7 @@
             <Menu mnemonicParsing="false" text="%HELP">
               <items>
                 <MenuItem mnemonicParsing="false" text="%HOWTOUSE" />
-                  <MenuItem mnemonicParsing="false" text="%ABOUT" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%ABOUT" />
               </items>
             </Menu>
         </menus>

@@ -11,9 +11,11 @@ import com.chrisdufort.JAGEmailClient.MainAppFX;
 import com.chrisdufort.persistence.MailDAO;
 import com.chrisdufort.persistence.MailDAOImpl;
 
-
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -53,6 +55,27 @@ public class RootLayoutController {
 		log.debug("RootLayoutController is constructed");
 		mailDAO = new MailDAOImpl();
 	}
+	
+	/**
+	 * Opens an about dialog.
+	 */
+	@FXML
+	private void handleAbout() {	
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Java Application for Java Project");
+		alert.setHeaderText("About");
+		alert.setContentText("Created By Christopher Dufort");
+
+		alert.showAndWait();
+	}
+
+	/**
+	 * Closes the application.
+	 */
+	@FXML
+	private void handleExit() {
+		Platform.exit();
+	}
 
 	/**
 	 * Here we call upon the methods that load the other containers and then
@@ -69,11 +92,14 @@ public class RootLayoutController {
 
 		// Tell the tree about the table
 		setTableControllerToTree();
+		
+		// Tell the table about the html
+		setHTMLControllerToTable();
 
 		try {
 			mailFXTreeController.displayTree();
 			mailFXTableController.displayTheTable("inbox"); //TODO remove hard coded default choice?
-			mailFXHTMLController.displayMailAsHTML();
+			//mailFXHTMLController.displayMailAsHTML();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -85,6 +111,13 @@ public class RootLayoutController {
 	 */
 	private void setTableControllerToTree() {
 		mailFXTreeController.setTableController(mailFXTableController);
+	}
+	
+	/**
+	 * Send the reference to the MailFXHTMLController to the MailFXTableController
+	 */
+	private void setHTMLControllerToTable() {
+		mailFXTableController.setHTMLController(mailFXHTMLController);
 	}
 
 	/**

@@ -3,12 +3,15 @@ package com.chrisdufort.JAGEmailClient.controllers;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javafx.beans.Observable;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.HTMLEditor;
+import javafx.scene.web.WebView;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,8 +36,22 @@ public class MailFXHTMLController {
 	@FXML
 	private BorderPane mailFXHTMLLayout;
 
-	@FXML
-	private HTMLEditor mailFXHTMLEditor;
+    @FXML
+    private WebView mailFXWebView;
+    
+    @FXML
+    private TextField toTextField;
+
+    @FXML
+    private TextField ccTextField;
+
+    @FXML
+    private TextField bccTextField;
+
+    @FXML
+    private TextField subjectTextField;
+
+    
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -52,31 +69,11 @@ public class MailFXHTMLController {
 	@FXML
 	private void handleSave() {
 		//FIXME SAVE NOT SAVING
-		System.out.println(mailFXHTMLEditor.getHtmlText());
+		
+
+		System.out.println("FIXME!");
 	}
 
-	/**
-	 * Opens an about dialog.
-	 */
-	@FXML
-	private void handleAbout() {
-		//FIXME DO THIS IS JAVA FX DIALOG
-		// Modal dialog box
-		// JavaFX dialog coming in 8u40
-		Alert dialog = new Alert(AlertType.INFORMATION);
-		dialog.setTitle("Java Application for Java Project");
-		dialog.setHeaderText("About");
-		dialog.setContentText("Created By Christopher Dufort");
-		dialog.show();
-	}
-
-	/**
-	 * Closes the application.
-	 */
-	@FXML
-	private void handleExit() {
-		System.exit(0);
-	}
 
 	/**
 	 * Sets a reference to the mailDAO object that retrieves data from the
@@ -90,24 +87,42 @@ public class MailFXHTMLController {
 		this.mailDAO = mailDAO;
 	}
 
-	public void displayMailAsHTML() {
-		ObservableList<MailBean> data = null;
-		try {
-			data = mailDAO.findAll();
-		} catch (SQLException e) {
-			log.error("Error retrieving records: ", e.getCause());
+	public void displayMailAsHTML(MailBean mailBean) {
+		
+		
+		//TODOput the normal text in html if it does not exist in html?
+		StringBuilder toField = new StringBuilder(), ccField = new StringBuilder(), bccField = new StringBuilder();
+		String subject, htmlText;
+
+		for(String to : mailBean.getToField())
+		{
+			toField.append(to);
+			toField.append("; ");
+		}
+		for(String cc : mailBean.getCcField())
+		{
+			ccField.append(cc);
+			ccField.append("; ");
+		}
+		for(String bcc : mailBean.getBccField())
+		{
+			bccField.append(bcc);
+			bccField.append("; ");
 		}
 
-		StringBuilder sb = new StringBuilder();
-		sb.append("<html><body contenteditable='false'>");
-		for (int x = 0; x < 3; ++x) {
-			sb.append(data.get(x).getHtmlMessageField()).append("</br>");
-			//sb.append(data.get(x).getCommonName()).append("</br>");
-			//sb.append(data.get(x).getLatin()).append("</br></br>");
-		}
-		sb.append("</body></html>");
+		
+	    toTextField.setText(toField.toString());
+	    ccTextField.setText(ccField.toString());
+	    bccTextField.setText(bccField.toString());
+	    
+	    subject = mailBean.getSubjectField();
+	    subjectTextField.setText(subject);
+	    
+	    htmlText = mailBean.getHtmlMessageField();
+	
+		//mailFXHTMLEditor.setHtmlText(htmlText);
 
-		mailFXHTMLEditor.setHtmlText(sb.toString());
+		mailFXWebView.getEngine().loadContent(htmlText);
 
 	}
 	
@@ -116,8 +131,8 @@ public class MailFXHTMLController {
 				+ "<body><h1>Here is my photograph embedded in this email.</h1><img src=\"" 
 				+ getClass().getResource("/FreeFall.jpg") + "\"><h2>I'm flying!</h2></body></html>";
 		*/
-		String other = "impliment me";
-		mailFXHTMLEditor.setHtmlText(other);
+		//String other = "impliment me";
+		//mailFXHTMLEditor.setHtmlText(other);
 	}
 
 }
