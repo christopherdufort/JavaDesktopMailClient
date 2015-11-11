@@ -12,11 +12,14 @@
 
 <BorderPane fx:id="mailFXHTMLLayout" prefHeight="400.0" prefWidth="800.0" styleClass="background" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.MailFXHTMLController">
    <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
+      <ToolBar prefHeight="40.0" prefWidth="822.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
         <items>
-          <Button mnemonicParsing="false" onAction="#handleSave" stylesheets="@../styles/DarkTheme.css" text="%SEND" />
-            <Button mnemonicParsing="false" text="%ATTACHFILE" />
-            <Button mnemonicParsing="false" text="%EMBEDFILE" />
+          <Button mnemonicParsing="false" onAction="#handleSave" stylesheets="@../styles/DarkTheme.css" text="%REPLY" />
+            <Button mnemonicParsing="false" text="%REPLYALL" />
+            <Button mnemonicParsing="false" text="%SAVEEMAIL" />
+            <Button mnemonicParsing="false" text="%FORWARD" />
+            <Button mnemonicParsing="false" text="%DELETE" />
+            <Button mnemonicParsing="false" text="%SAVEATTACHMENT" />
         </items>
       </ToolBar>
    </top>
