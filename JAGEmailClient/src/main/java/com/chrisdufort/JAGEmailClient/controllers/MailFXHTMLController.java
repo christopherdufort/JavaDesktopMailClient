@@ -23,7 +23,7 @@ import com.chrisdufort.persistence.MailDAO;
 /**
  * 
  * @author Christopher
- * @version 0.3.6-SNAPSHOT - phase 3 , last modified 10/29/2015
+ * @version 0.3.8-SNAPSHOT - phase 3 , last modified 11/10/2015
  * @since 0.3.4
  */
 public class MailFXHTMLController {

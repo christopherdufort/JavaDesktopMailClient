@@ -59,7 +59,7 @@ public class DemoTestCase {
 
 	// Instantiation of DAOImpl class used to call instance methods.
 	private MailDAOImpl myDBImplementation = new MailDAOImpl();
-	
+	@Ignore
 	@Test
 	public void testCreateEmail() throws SQLException {
 		MailBean myBean = new MailBean();
@@ -80,7 +80,7 @@ public class DemoTestCase {
 			assertEquals("testCreateEmail() - failed due to Unequal mailBeans ", myBean, dbBean);
 
 	}
-	@Ignore
+	
 	@Test
 	public void testFullCreateEmail() throws SQLException {
 		MailBean myBean = new MailBean();
@@ -94,7 +94,9 @@ public class DemoTestCase {
 		myBean.getBccField().add("bcc@email.com");
 		myBean.setSubjectField("Full Insert Subject");
 		myBean.setTextMessageField("This is text");
-		myBean.setHtmlMessageField("<html>This is html</html>");
+		myBean.setHtmlMessageField("<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">"
+				+ "<body><h1>This is the HTML of testFullCreateEmail</h1><h2>Here is an image of a code dragon which is embedded in this email.</h2>"
+				+ "<img src='cid:code_dragon_error.jpg'><h2>Rawr! My program has an Error!!</h2></body></html>");
 
 		EmailAttachmentBuilder fBuilder = EmailAttachment.attachment().file("headshot.jpg");
 		EmailAttachment fileAttachment = fBuilder.create();

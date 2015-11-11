@@ -10,11 +10,11 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane fx:id="mailFXHTMLLayout" prefHeight="400.0" prefWidth="800.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.MailFXHTMLController">
+<BorderPane fx:id="mailFXHTMLLayout" prefHeight="400.0" prefWidth="800.0" styleClass="background" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.MailFXHTMLController">
    <top>
-      <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+      <ToolBar prefHeight="40.0" prefWidth="200.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
         <items>
-          <Button mnemonicParsing="false" onAction="#handleSave" text="%SEND" />
+          <Button mnemonicParsing="false" onAction="#handleSave" stylesheets="@../styles/DarkTheme.css" text="%SEND" />
             <Button mnemonicParsing="false" text="%ATTACHFILE" />
             <Button mnemonicParsing="false" text="%EMBEDFILE" />
         </items>
@@ -35,14 +35,14 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Label text="%TO" />
-                  <Label text="%CC" GridPane.rowIndex="1" />
-                  <Label text="%BCC" GridPane.rowIndex="2" />
-                  <Label text="%SUBJECT" GridPane.rowIndex="3" />
-                  <TextField fx:id="toField" editable="false" prefHeight="25.0" prefWidth="702.0" GridPane.columnIndex="1" />
-                  <TextField fx:id="ccTextField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                  <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                  <Label styleClass="label-bright" stylesheets="@../styles/DarkTheme.css" text="%TO" />
+                  <Label styleClass="label-bright" stylesheets="@../styles/DarkTheme.css" text="%CC" GridPane.rowIndex="1" />
+                  <Label styleClass="label-bright" text="%BCC" GridPane.rowIndex="2" />
+                  <Label styleClass="label-bright" text="%SUBJECT" GridPane.rowIndex="3" />
+                  <TextField fx:id="toTextField" editable="false" prefHeight="25.0" prefWidth="702.0" styleClass="text-field" GridPane.columnIndex="1" />
+                  <TextField fx:id="ccTextField" editable="false" styleClass="text-field" stylesheets="@../styles/DarkTheme.css" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="bccTextField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <TextField fx:id="subjectTextField" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                </children>
                <BorderPane.margin>
                   <Insets bottom="10.0" right="20.0" top="10.0" />
@@ -50,7 +50,7 @@
             </GridPane>
          </top>
          <center>
-            <WebView fx:id="mailFXWebView" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+            <WebView fx:id="mailFXWebView" prefHeight="200.0" prefWidth="200.0" stylesheets="@../styles/DarkTheme.css" BorderPane.alignment="CENTER" />
          </center>
       </BorderPane>
    </center>
