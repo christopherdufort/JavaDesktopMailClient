@@ -364,6 +364,7 @@ public class DemoTestCase {
 
 		MailBean myBean = new MailBean(to, "third@from.com", cc, bcc, "3rd subject", "3rd text");
 		
+		
 		myBean.setDateSent(LocalDateTime.now());
 		myBean.setDateReceived(LocalDateTime.now());
 		insertedEmailID = myDBImplementation.createEmail(myBean);
@@ -480,9 +481,9 @@ public class DemoTestCase {
 			assertEquals("testCreateFolder() failed due to incorrect amount created", expectedRowsCreated,
 					actualRowsCreated);
 	}
-
-	@Ignore // THIS TEST CURRENTLY FAILS ADDITIONAL TESTING AND INPUT INTO HOW
-			// JODD EMAILATTACHMENTS WORK NEEDED
+	 // THIS TEST CURRENTLY FAILS ADDITIONAL TESTING AND INPUT INTO HOW
+	// JODD EMAILATTACHMENTS WORK NEEDED
+	@Ignore
 	@Test
 	public void testFindByAttachmentID() throws SQLException {
 
@@ -512,7 +513,7 @@ public class DemoTestCase {
 				if (fileAttachment.getContentId() == returnedAttachment.getContentId())
 					if (fileAttachment.toByteArray() == returnedAttachment.toByteArray())
 						equalAttachments = true;
-		assertEquals("testFindByAttachmentID() failed due un equals attachments", true, equalAttachments);
+		assertEquals("testFindByAttachmentID() failed due un equals attachments", true, equalAttachments); //size may not be the same?
 	}
 	@Ignore
 	@Test
@@ -547,7 +548,7 @@ public class DemoTestCase {
 		assertEquals("testFindByFolderNameById() failed due un equals attachments", expectedFolderName,
 				actualFolderName);
 	}
-
+	
 	// ---------------------------------FOLLOWING ARE NOT TEST
 	// CASES-----------------------------------------------------------------
 	@Before

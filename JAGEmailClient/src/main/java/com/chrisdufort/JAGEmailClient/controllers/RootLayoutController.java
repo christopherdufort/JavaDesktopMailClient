@@ -2,6 +2,7 @@ package com.chrisdufort.JAGEmailClient.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Locale;
 import java.util.ResourceBundle;
 
 import org.slf4j.Logger;
@@ -12,10 +13,12 @@ import com.chrisdufort.persistence.MailDAO;
 import com.chrisdufort.persistence.MailDAOImpl;
 
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.MenuItem;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -26,7 +29,7 @@ import javafx.scene.layout.BorderPane;
  * i18n added
  * 
  * @author Christopher Dufort
- * @version 0.3.6-SNAPSHOT - phase 3, last modified 10/29/2015
+ * @version 0.3.9-SNAPSHOT - phase 3, last modified 11/11/2015
  * @since 0.3.4
  *
  */
@@ -44,11 +47,21 @@ public class RootLayoutController {
 
     @FXML 
     private ResourceBundle resources;
+    
+    @FXML
+    private MenuItem englishItem;
+
+    @FXML
+    private MenuItem frenchItem;
+
 
 	private MailDAO mailDAO;
 	private MailFXTreeController mailFXTreeController;
 	private MailFXTableController mailFXTableController;
 	private MailFXHTMLController mailFXHTMLController;
+
+	private Locale currentLocale;
+	private FXMLLoader loader;
 
 	public RootLayoutController() {
 		super();
@@ -125,7 +138,7 @@ public class RootLayoutController {
 	 */
 	private void initTreeLayout() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
+			loader = new FXMLLoader();
 			loader.setResources(resources);
 			
 			loader.setLocation(MainAppFX.class
@@ -147,7 +160,7 @@ public class RootLayoutController {
 	 */
 	private void initTableLayout() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
+			loader = new FXMLLoader();
 			loader.setResources(resources);
 
 			loader.setLocation(MainAppFX.class.getResource("/fxml/MailFXTableLayout.fxml"));
@@ -168,7 +181,7 @@ public class RootLayoutController {
 	 */
 	private void initHtmlLayout() {
 		try {
-			FXMLLoader loader = new FXMLLoader();
+			loader = new FXMLLoader();
 			loader.setResources(resources);
 
 			loader.setLocation(MainAppFX.class
@@ -184,4 +197,20 @@ public class RootLayoutController {
 			e.printStackTrace();
 		}
 	}
+	
+
+    @FXML
+    void englishClicked(ActionEvent event) {
+    	
+		currentLocale = new Locale("en","CA");
+		loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
+		
+    }
+
+    @FXML
+    void frenchClicked(ActionEvent event) {
+    	
+    	currentLocale = new Locale("fr","CA");
+		loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
+    }
 }
