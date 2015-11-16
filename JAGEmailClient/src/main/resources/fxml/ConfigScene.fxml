@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="529.0" prefWidth="608.0" styleClass="background" stylesheets="@../styles/DarkTheme.css" vgap="10.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.FXMLController">
+  <columnConstraints>
+    <ColumnConstraints halignment="RIGHT" hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="150.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="448.0" minWidth="10.0" prefWidth="420.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+   <children>
+      <Label styleClass="label-bright" text="%USERNAME" GridPane.rowIndex="1" />
+      <Label styleClass="label-bright" text="%EMAILADDRESS" GridPane.rowIndex="2" />
+      <Label styleClass="label-bright" text="%NAME" GridPane.rowIndex="3" />
+      <Label styleClass="label-bright" text="%PASSWORD" GridPane.rowIndex="4" />
+      <Label styleClass="label-bright" text="%IMAPURL" GridPane.rowIndex="5" />
+      <Label styleClass="label-bright" text="%SMTPURL" GridPane.rowIndex="6" />
+      <Label styleClass="label-bright" text="%IMAPPORT" GridPane.rowIndex="7" />
+      <Label styleClass="label-bright" text="%SMTPPORT" GridPane.rowIndex="8" />
+      <Label styleClass="label-bright" text="%MYSQLPORT" GridPane.rowIndex="9" />
+      <Label styleClass="label-bright" text="%MYSQLURL" GridPane.rowIndex="10" />
+      <Label styleClass="label-bright" text="%MYSQLDATABASE" GridPane.rowIndex="11" />
+      <Label styleClass="label-bright" text="%MYSQLUSERNAME" GridPane.rowIndex="12" />
+      <Label styleClass="label-bright" text="%MYSQLPASSWORD" GridPane.rowIndex="13" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="513.0" GridPane.columnSpan="2">
+         <children>
+            <Label styleClass="label-header" text="%TITLE">
+               <font>
+                  <Font size="14.0" />
+               </font>
+               <HBox.margin>
+                  <Insets bottom="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" focusTraversable="true" prefHeight="100.0" prefWidth="200.0" spacing="50.0" GridPane.columnSpan="2" GridPane.rowIndex="14">
+         <children>
+            <Button mnemonicParsing="false" onAction="#submitPressed" text="%SUBMIT">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="10.0" />
+               </HBox.margin></Button>
+            <Button mnemonicParsing="false" onAction="#exitPressed" text="%EXIT">
+               <HBox.margin>
+                  <Insets bottom="5.0" top="10.0" />
+               </HBox.margin></Button>
+         </children>
+      </HBox>
+      <TextField fx:id="usernameTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="emailAddressTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextField fx:id="nameTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="imapUrlTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <TextField fx:id="smtpUrlTextField" styleClass="text-field" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <TextField fx:id="imapPortTextField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+      <TextField fx:id="smtpPortTextField" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+      <TextField fx:id="mysqlPortTextField" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+      <TextField fx:id="mysqlUrlTextField" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+      <TextField fx:id="mysqlDatabaseTextField" GridPane.columnIndex="1" GridPane.rowIndex="11" />
+      <TextField fx:id="mysqlUsernameTextField" GridPane.columnIndex="1" GridPane.rowIndex="12" />
+      <PasswordField fx:id="passwordTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+      <PasswordField fx:id="mysqlPasswordTextField" GridPane.columnIndex="1" GridPane.rowIndex="13" />
+   </children>
+</GridPane>

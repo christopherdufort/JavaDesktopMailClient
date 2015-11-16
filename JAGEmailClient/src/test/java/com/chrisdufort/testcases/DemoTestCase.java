@@ -33,12 +33,14 @@ import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAOImpl;
 import com.chrisdufort.test.MethodLogger;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import jodd.mail.EmailAttachment;
 import jodd.mail.EmailAttachmentBuilder;
 
 /**
  * @author Christopher Dufort
- * @version 0.2.9-SNAPSHOT , Phase 2 - last modified 10/09/15
+ * @version 0.3.6-SNAPSHOT , Phase 3 - last modified 10/29/15
  * @since 0.2.4-SNAPSHOT
  */
 public class DemoTestCase {
@@ -57,7 +59,8 @@ public class DemoTestCase {
 
 	// Instantiation of DAOImpl class used to call instance methods.
 	private MailDAOImpl myDBImplementation = new MailDAOImpl();
-
+	
+	@Ignore
 	@Test
 	public void testCreateEmail() throws SQLException {
 		MailBean myBean = new MailBean();
@@ -78,7 +81,7 @@ public class DemoTestCase {
 			assertEquals("testCreateEmail() - failed due to Unequal mailBeans ", myBean, dbBean);
 
 	}
-
+	
 	@Test
 	public void testFullCreateEmail() throws SQLException {
 		MailBean myBean = new MailBean();
@@ -87,12 +90,19 @@ public class DemoTestCase {
 		int insertedEmailID = -1;
 
 		myBean.setFromField("from@email.com");
+		
 		myBean.getToField().add("to@email.com");
+		myBean.getToField().add("to@domain.com");
+		myBean.getToField().add("to@gmail.com");
+		myBean.getToField().add("to@outlook.com");
+		
 		myBean.getCcField().add("cc@email.com");
 		myBean.getBccField().add("bcc@email.com");
 		myBean.setSubjectField("Full Insert Subject");
 		myBean.setTextMessageField("This is text");
-		myBean.setHtmlMessageField("<html>This is html</html>");
+		myBean.setHtmlMessageField("<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">"
+				+ "<body><h1>This is the HTML of testFullCreateEmail</h1><h2>Here is an image of a code dragon which is embedded in this email.</h2>"
+				+ "<img src='cid:code_dragon_error.jpg'><h2>Rawr! My program has an Error!!</h2></body></html>");
 
 		EmailAttachmentBuilder fBuilder = EmailAttachment.attachment().file("headshot.jpg");
 		EmailAttachment fileAttachment = fBuilder.create();
@@ -117,10 +127,10 @@ public class DemoTestCase {
 			assertEquals("testFullCreateEmail() failed due to Unequal mailBeans ", myBean, dbBean);
 
 	}
-
+	@Ignore
 	@Test
 	public void testFindByTo() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
 		String toField = "to@email.com";
 		String fromField = "from@gmail.com";
 		String subjectField = "Testing find by To subject";
@@ -148,10 +158,11 @@ public class DemoTestCase {
 
 		assertEquals("testFindByTo() failed due to incorrect found # ", 3, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindByCc() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		String toField = "to.cc@email.com";
 		String fromField = "from.cc@gmail.com";
 		String subjectField = "Testing find by Cc subject";
@@ -176,10 +187,11 @@ public class DemoTestCase {
 
 		assertEquals("testFindByCc() failed due to incorrect found # ", 2, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindByBcc() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		String toField = "to.bcc@email.com";
 		String fromField = "from.bcc@gmail.com";
 		String subjectField = "Testing find by Bcc subject";
@@ -197,11 +209,12 @@ public class DemoTestCase {
 
 		assertEquals("testFindByBcc() failed due to incorrect found # ", 1, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindByFrom() throws SQLException {
 
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		String toField = "to.from@email.com";
 		String fromField = "from.from@gmail.com";
 		String subjectField = "Testing find by from subject";
@@ -227,11 +240,12 @@ public class DemoTestCase {
 		else
 			fail("testFindByFrom() - failed due to incorrect # found");
 	}
-
+	@Ignore
 	@Test
 	public void testFindBySubject() throws SQLException {
 
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		String toField = "to.email@gmail.com";
 		String fromField = "from.email@gmail.com";
 		String subjectField = "Testing find by SUBJECT subject";
@@ -257,22 +271,23 @@ public class DemoTestCase {
 		else
 			fail("testFindBySubject() - failed due to incorrect # found");
 	}
-
+	@Ignore
 	@Test
 	public void testFindByFolder() throws SQLException {
 		String folderName = "draft";
 		int expectedFinds = 2;
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
 
 		foundBeans = myDBImplementation.findByFolder(folderName);
 		assertEquals("testFindByFolder() failed due to difference of retrieval ", expectedFinds, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindAll() throws SQLException {
 		int numberOfFieldsInDB = 2;
 		int numberOfBeansFound = -1;
-		ArrayList<MailBean> allBeans = myDBImplementation.findAll();
+		
+		ObservableList<MailBean> allBeans = myDBImplementation.findAll();;
 
 		numberOfBeansFound = allBeans.size();
 
@@ -282,10 +297,11 @@ public class DemoTestCase {
 			assertEquals("testFindAll() expected to find " + numberOfFieldsInDB + " emails, but instead found "
 					+ numberOfBeansFound, numberOfFieldsInDB, numberOfBeansFound);
 	}
-
+	@Ignore
 	@Test
 	public void testFindByDateSent() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		int expectedFinds = 2;
 		MailBean bean1 = new MailBean();
 		MailBean bean2 = new MailBean();
@@ -313,10 +329,11 @@ public class DemoTestCase {
 
 		assertEquals("testFindByDateSent() failed due to different # of retrieval ", expectedFinds, foundBeans.size());
 	}
-
+	@Ignore
 	@Test
 	public void testFindByDateReceived() throws SQLException {
-		ArrayList<MailBean> foundBeans = new ArrayList<>();
+		ObservableList<MailBean> foundBeans = FXCollections.observableArrayList();
+		
 		int expectedFinds = 1;
 		MailBean bean1 = new MailBean();
 		MailBean bean3 = new MailBean();
@@ -339,7 +356,7 @@ public class DemoTestCase {
 		assertEquals("testFindByDateReceived() failed due to different # of retrieval ", expectedFinds,
 				foundBeans.size());
 	}
-
+	@Ignore
 	@Test //FIXME This test has shown some errors with null pointers *needs more indepth testing*
 	public void testfindEmailByID() throws SQLException {
 		int expectedId = 3, insertedEmailID = -1;
@@ -353,6 +370,7 @@ public class DemoTestCase {
 
 		MailBean myBean = new MailBean(to, "third@from.com", cc, bcc, "3rd subject", "3rd text");
 		
+		
 		myBean.setDateSent(LocalDateTime.now());
 		myBean.setDateReceived(LocalDateTime.now());
 		insertedEmailID = myDBImplementation.createEmail(myBean);
@@ -363,7 +381,7 @@ public class DemoTestCase {
 		else if (expectedId == insertedEmailID)
 			assertEquals("testfindEmailByID() - failed due improper retrieval by id ", myBean, dbBean);
 	}
-
+	@Ignore
 	@Test
 	public void testUpdateFolderInBean() throws SQLException {
 		int emailId = 1, fieldsUpdated = -1;
@@ -380,7 +398,7 @@ public class DemoTestCase {
 					modifiedBean.getFolder());
 
 	}
-
+	@Ignore
 	@Test
 	public void testUpdateFolderName() throws SQLException {
 		int idOfFolder = 3; // draft folder
@@ -403,11 +421,11 @@ public class DemoTestCase {
 		else
 			assertEquals("testUpdateFolderName() failed due to name not changing", "superDraft", actualFolderName);
 	}
-
+	@Ignore
 	@Test
 	public void testFindAllFolderNames() {
-		ArrayList<String> foundFolderNames = null;
-		ArrayList<String> allFolderNames = new ArrayList<>();
+		ObservableList<String> foundFolderNames = FXCollections.observableArrayList();
+		ObservableList<String> allFolderNames = FXCollections.observableArrayList();
 
 		allFolderNames.add("inbox");
 		allFolderNames.add("sent");
@@ -421,7 +439,7 @@ public class DemoTestCase {
 		assertEquals("testFindAllFolderNames() failed due to unequal folder name lists", allFolderNames,
 				foundFolderNames);
 	}
-
+	@Ignore
 	@Test
 	public void testDeleteFolder() {
 		int expectedRowsDeleted = 1;
@@ -435,7 +453,7 @@ public class DemoTestCase {
 		assertEquals("testDeleteFolder() failed due to un equal deleted #", expectedRowsDeleted, actualRowsDeleted);
 
 	}
-
+	@Ignore
 	@Test
 	public void testDeleteMail() throws SQLException {
 		int expectedRowsDeleted = 1;
@@ -454,7 +472,7 @@ public class DemoTestCase {
 			assertEquals("testDeleteMail() failed due incorrect amount deleted", expectedRowsDeleted,
 					actualRowsDeleted);
 	}
-
+	@Ignore
 	@Test
 	public void testCreateFolder() throws SQLException {
 		String newFolderName = "test";
@@ -469,9 +487,9 @@ public class DemoTestCase {
 			assertEquals("testCreateFolder() failed due to incorrect amount created", expectedRowsCreated,
 					actualRowsCreated);
 	}
-
-	@Ignore // THIS TEST CURRENTLY FAILS ADDITIONAL TESTING AND INPUT INTO HOW
-			// JODD EMAILATTACHMENTS WORK NEEDED
+	 // THIS TEST CURRENTLY FAILS ADDITIONAL TESTING AND INPUT INTO HOW
+	// JODD EMAILATTACHMENTS WORK NEEDED
+	@Ignore
 	@Test
 	public void testFindByAttachmentID() throws SQLException {
 
@@ -501,9 +519,9 @@ public class DemoTestCase {
 				if (fileAttachment.getContentId() == returnedAttachment.getContentId())
 					if (fileAttachment.toByteArray() == returnedAttachment.toByteArray())
 						equalAttachments = true;
-		assertEquals("testFindByAttachmentID() failed due un equals attachments", true, equalAttachments);
+		assertEquals("testFindByAttachmentID() failed due un equals attachments", true, equalAttachments); //size may not be the same?
 	}
-
+	@Ignore
 	@Test
 	public void testFindRecipientByID() throws SQLException {
 
@@ -522,7 +540,7 @@ public class DemoTestCase {
 
 		assertEquals("testFindRecipientByID() failed due un equals recipients", expectedRecipient, actualRecipient);
 	}
-
+	@Ignore
 	@Test
 	public void testFindFolderNameById() throws SQLException {
 
@@ -536,7 +554,7 @@ public class DemoTestCase {
 		assertEquals("testFindByFolderNameById() failed due un equals attachments", expectedFolderName,
 				actualFolderName);
 	}
-
+	
 	// ---------------------------------FOLLOWING ARE NOT TEST
 	// CASES-----------------------------------------------------------------
 	@Before

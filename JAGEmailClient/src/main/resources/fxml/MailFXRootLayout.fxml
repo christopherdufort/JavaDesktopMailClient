@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" styleClass="background" stylesheets="@../styles/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.RootLayoutController">
+   <center>
+      <AnchorPane fx:id="rootAnchorPane" stylesheets="@../styles/DarkTheme.css" BorderPane.alignment="CENTER">
+         <children>
+            <SplitPane dividerPositions="0.29797979797979796" prefHeight="775.0" prefWidth="900.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+              <items>
+                <AnchorPane fx:id="treeSplit" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../styles/DarkTheme.css" />
+                <AnchorPane stylesheets="@../styles/DarkTheme.css">
+                     <children>
+                        <SplitPane dividerPositions="0.5" layoutY="-8.0" orientation="VERTICAL" prefHeight="773.0" prefWidth="627.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-8.0">
+                          <items>
+                            <AnchorPane fx:id="tableSplit" />
+                            <AnchorPane fx:id="htmlSplit" />
+                          </items>
+                        </SplitPane>
+                     </children>
+                  </AnchorPane>
+              </items>
+            </SplitPane>
+         </children>
+      </AnchorPane>
+   </center>
+   <top>
+      <MenuBar stylesheets="@../styles/DarkTheme.css" BorderPane.alignment="CENTER">
+        <menus>
+          <Menu mnemonicParsing="false" text="%FILE">
+            <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleNewEmail" text="%NEWEMAIL" />
+                  <MenuItem mnemonicParsing="false" text="%SAVEEMAIL" />
+                  <MenuItem mnemonicParsing="false" text="%SAVEATTACHMENT" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleExit" text="%CLOSE" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%LANGUAGE">
+            <items>
+              <MenuItem fx:id="englishItem" mnemonicParsing="false" onAction="#englishClicked" text="%ENGLISH" />
+                  <MenuItem fx:id="frenchItem" mnemonicParsing="false" onAction="#frenchClicked" text="%FRENCH" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="%CONFIG">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#handleConfig" text="%MODIFYCONFIG" />
+            </items>
+          </Menu>
+            <Menu mnemonicParsing="false" text="%HELP">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handHowToUse" text="%HOWTOUSE" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%ABOUT" />
+              </items>
+            </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+</BorderPane>

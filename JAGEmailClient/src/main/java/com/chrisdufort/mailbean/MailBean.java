@@ -8,6 +8,13 @@ import java.util.Arrays;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 //Cannot import references from src/test/ that code is not visible during compilation (production code) -> always remember Run-> Run As -> Maven build.
 
 import jodd.mail.EmailAttachment;
@@ -30,8 +37,10 @@ import jodd.mail.EmailAttachment;
  * 
  * ArrayLists do not require a setter instead using .add for the ArrayList api is sufficient.
  * 
+ * Using JavaFX (Property Beans) as of version 0.3.4 onward.
+ * 
  * @author Christopher Dufort
- * @version 0.2.6-SNAPSHOT , Phase 2 - last modified 10/07/15
+ * @version 0.3.6-SNAPSHOT , Phase 3 - last modified 10/29/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailBean {
@@ -41,7 +50,7 @@ public class MailBean {
 	private final Logger log = LoggerFactory.getLogger(getClass().getName());
 	
 	// Unique primary key id obtained from DB location.
-	private int id;
+	private IntegerProperty id;
 	
 	// The address or addresses that this email is being sent to
 	private ArrayList<String> toField;
@@ -53,30 +62,30 @@ public class MailBean {
 	private ArrayList<String> bccField;
 
 	// The sender of the email
-	private String fromField;
+	private StringProperty fromField;
 
 	// The subject line of the email
-	private String subjectField;
+	private StringProperty subjectField;
 
 	// Plain text part of the email
-	private String textMessageField;
+	private StringProperty textMessageField;
 	
 	// Html text part of the email (optional)
-	private String htmlMessageField;
+	private StringProperty htmlMessageField;
 
 	// Name of the folder
-	private String folder;
+	private StringProperty folder;
 
 	// Status 0 = New Email ready for Sending.
 	// Status 1 = Mail has been Sent.
 	// Status 2 = Mail has been Received.
-	private int mailStatus;
+	private IntegerProperty mailStatus;
 	
 	//Date and Time email was sent (overwritten at send time)
-	private LocalDateTime dateSent;
+	private ObjectProperty<LocalDateTime> dateSent;
 	
 	//Date and Time email was receive (overwritten at receive time)
-	private LocalDateTime dateReceived;
+	private ObjectProperty<LocalDateTime> dateReceived;
 	
 	// File attachments added to the email (optional)
 	private ArrayList<EmailAttachment> fileAttachments;
@@ -89,27 +98,30 @@ public class MailBean {
 	 * Default constructor for a new mail message waiting to be sent.
 	 * Initializes all fields to default values.
 	 * This message is considered multipart.
+	 * All fields are initialized to default values in order to prevent null pointers
 	 */
 	public MailBean() {
 		super();
-		this.toField = new ArrayList<>(); //Prevent null pointer
-		this.ccField = new ArrayList<>(); //Prevent null pointer
-		this.bccField = new ArrayList<>(); //Prevent null pointer
-		this.fromField = "";
-		this.subjectField = "";
-		this.textMessageField = "";
-		this.htmlMessageField = ""; //Will override text message field making this a multipart message.
-		this.folder = "draft"; //Hold in draft(to be sent folder)
-		this.mailStatus = 0; //Manually set to ready to be sent status.
-		this.setDateSent(LocalDateTime.now()); //set to current time, will be overwritten when email is sent.
-		this.setDateReceived(LocalDateTime.now()); //set to current time, will be overwritten when email is received.
-		this.fileAttachments = new ArrayList<>(); //Prevent null pointer
-		this.embedAttachments = new ArrayList<>(); // Prevent null pointer
+		this.id = new SimpleIntegerProperty(-1); //Useful to know if a bean has been entered into the database yet,
+		this.toField = new ArrayList<String>(); 
+		this.ccField = new ArrayList<String>(); 
+		this.bccField = new ArrayList<String>(); 
+		this.fromField = new SimpleStringProperty("");
+		this.subjectField = new SimpleStringProperty("");
+		this.textMessageField = new SimpleStringProperty("");
+		this.htmlMessageField = new SimpleStringProperty(""); //Will override text message field making this a multipart message.
+		this.folder = new SimpleStringProperty("draft"); //Hold in draft(to be sent folder)
+		this.mailStatus = new SimpleIntegerProperty(0); //Manually set to ready to be sent status.
+		this.dateSent = new SimpleObjectProperty<LocalDateTime>(LocalDateTime.now()); //set to current time, will be overwritten when email is sent.
+		this.dateReceived = new SimpleObjectProperty<LocalDateTime>(LocalDateTime.now()); //set to current time, will be overwritten when email is received.
+		this.fileAttachments = new ArrayList<EmailAttachment>(); 
+		this.embedAttachments = new ArrayList<EmailAttachment>(); 
 	}
 
 	/**
 	 * Constructor for creating messages from either a form or a database record.
 	 * This is the constructor for a basic email (Plain text and no files/html)
+	 * This constructor exists to allows simple messages to be sent.
 	 * 
 	 * @param toField
 	 * @param fromField
@@ -122,16 +134,15 @@ public class MailBean {
 	public MailBean(final ArrayList<String> toField,final String fromField, final ArrayList<String> ccField, final ArrayList<String> bccField, final String subjectField,
 			final String textMessageField) {
 		super();
-		this.toField = toField;
-		this.fromField = fromField;
-		this.ccField = ccField;
-		this.bccField = bccField;	
-		this.subjectField = subjectField;
-		this.textMessageField = textMessageField;
-		this.folder = "draft"; //Hold in draft(to be sent folder)
-		this.mailStatus = 0; //Manually set to ready to be sent status.
-		this.fileAttachments = new ArrayList<>(); //Prevent null pointer
-		this.embedAttachments = new ArrayList<>(); // Prevent null pointer
+		this.id = new SimpleIntegerProperty(-1); //Useful to know if a bean has been entered into the database yet,
+		this.toField = new ArrayList<String>(toField);
+		this.fromField = new SimpleStringProperty(fromField);
+		this.ccField = new ArrayList<String>(ccField);
+		this.bccField = new ArrayList<String>(bccField);	
+		this.subjectField = new SimpleStringProperty(subjectField);
+		this.textMessageField = new SimpleStringProperty(textMessageField);
+		this.folder = new SimpleStringProperty("draft"); //Hold in draft(to be sent folder)
+		this.mailStatus = new SimpleIntegerProperty(0); //Manually set to ready to be sent status.
 	}
 	/**
 	 * Constructor for creating a complete message from either a form or a database record
@@ -153,42 +164,55 @@ public class MailBean {
 	 * @param embedAttachment
 	 * 
 	 */
-	public MailBean(final ArrayList<String> toField, final String fromField, final ArrayList<String> ccField, final ArrayList<String> bccField, final String subjectField,
+	public MailBean(final int id, final ArrayList<String> toField, final String fromField, final ArrayList<String> ccField, final ArrayList<String> bccField, final String subjectField,
 			final String textMessageField, final String htmlMessageField, final String folder, final int mailStatus, final LocalDateTime dateSent, final LocalDateTime dateReceived,
 			final ArrayList<EmailAttachment> fileAttachments, final ArrayList<EmailAttachment> embedAttachments) {
 		super();
+		this.id = new SimpleIntegerProperty(id);
 		this.toField = toField;
-		this.fromField = fromField;
+		this.fromField = new SimpleStringProperty(fromField);
 		this.ccField = ccField;
 		this.bccField = bccField;
-		this.subjectField = subjectField;
-		this.textMessageField = textMessageField;
-		this.folder = folder;
-		this.mailStatus = mailStatus;
-		this.dateSent = dateSent;
-		this.dateReceived = dateReceived;
-		this.fileAttachments = fileAttachments;
-		this.embedAttachments = embedAttachments;
+		this.subjectField = new SimpleStringProperty(subjectField);
+		this.textMessageField = new SimpleStringProperty(textMessageField);
+		this.htmlMessageField = new SimpleStringProperty(htmlMessageField);
+		this.folder = new SimpleStringProperty(folder);
+		this.mailStatus = new SimpleIntegerProperty(mailStatus);
+		this.dateSent = new SimpleObjectProperty<LocalDateTime>(dateSent);
+		this.dateReceived = new SimpleObjectProperty<LocalDateTime>(dateReceived);
+		this.fileAttachments = new ArrayList<EmailAttachment>(fileAttachments);
+		this.embedAttachments = new ArrayList<EmailAttachment>(embedAttachments);
 	}
 	/** 
 	 * @return the fromField
 	 * 
 	 */
 	public final String getFromField() {
+		return fromField.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty fromFieldProperty() {
 		return fromField;
 	}
 	/**
-
 	 * @param fromField
 	 *            the fromField to set
 	 */
 	public final void setFromField(final String fromField) {
-		this.fromField = fromField;
+		this.fromField.set(fromField);
 	}
 	/**
 	 * @return the subjectField
 	 */
 	public final String getSubjectField() {
+		return subjectField.get();
+	}
+	
+	public StringProperty subjectFieldProperty(){
 		return subjectField;
 	}
 	/**
@@ -197,12 +221,20 @@ public class MailBean {
 	 *            the subjectField to set
 	 */
 	public final void setSubjectField(final String subjectField) {
-		this.subjectField = subjectField;
+		this.subjectField.set(subjectField);
 	}
 	/**
 	 * @return the textMessageField Plain Text for the message.
 	 */
 	public final String getTextMessageField() {
+		return textMessageField.get();
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public StringProperty textMessageFieldProperty(){
 		return textMessageField;
 	}
 	/**
@@ -210,12 +242,16 @@ public class MailBean {
 	 *            the textMessageField(plain text)to set
 	 */
 	public final void setTextMessageField(final String textMessageField) {
-		this.textMessageField = textMessageField;
+		this.textMessageField.set(textMessageField);
 	}
 	/**
 	 * @return the htmlMessageField HTML text for the message
 	 */
 	public String getHtmlMessageField() {
+		return htmlMessageField.get();
+	}
+	
+	public StringProperty htmlMessageFieldProperty(){
 		return htmlMessageField;
 	}
 	/**
@@ -223,12 +259,16 @@ public class MailBean {
 	 * 			the htmlMessageField(html message) to set
 	 */
 	public void setHtmlMessageField(final String htmlMessageField) {
-		this.htmlMessageField = htmlMessageField;
+		this.htmlMessageField.set(htmlMessageField);
 	}
 	/**
 	 * @return the folder used for user sorting and organizing
 	 */
 	public final String getFolder() {
+		return folder.get();
+	}
+	
+	public StringProperty folderProperty(){
 		return folder;
 	}
 	/**
@@ -236,12 +276,16 @@ public class MailBean {
 	 *            the folder to set used for user sorting and organizing
 	 */
 	public final void setFolder(final String folder) {
-		this.folder = folder;
+		this.folder.set(folder);
 	}
 	/**
 	 * @return the mailStatus
 	 */
 	public final int getMailStatus() {
+		return mailStatus.get();
+	}
+	
+	public IntegerProperty mailStatusProperty(){
 		return mailStatus;
 	}
 	/**
@@ -249,7 +293,7 @@ public class MailBean {
 	 *            the mailStatus to set
 	 */
 	public final void setMailStatus(final int mailStatus) {
-		this.mailStatus = mailStatus;
+		this.mailStatus.set(mailStatus);
 	}
 	/**
 	 * There is no set when working with collections. When you get the ArrayList
@@ -287,6 +331,10 @@ public class MailBean {
 	 * @return the dateSent
 	 */
 	public LocalDateTime getDateSent() {
+		return dateSent.get();
+	}
+	
+	public ObjectProperty<LocalDateTime> dateSentProperty() {
 		return dateSent;
 	}
 	/**
@@ -300,7 +348,7 @@ public class MailBean {
 		if (dateSent == null) //Avoid valueOf throwing nullPointerException
 			return null;
 		else
-			return Timestamp.valueOf(dateSent);
+			return Timestamp.valueOf(dateSent.get());
 	}
 
 	/**
@@ -308,7 +356,7 @@ public class MailBean {
 	 * 				the send date of the email as a LocalDateTime
 	 */
 	public void setDateSent(final LocalDateTime dateSent) {
-		this.dateSent = dateSent;
+		this.dateSent.set(dateSent);
 	}
 	/**
 	 * Overloaded setDateSent that takes a TimeStamp (for use with DB methods)
@@ -318,13 +366,13 @@ public class MailBean {
 	 * 				the send date of the email
 	 */
 	public void setDateSent(final Timestamp dateSent){
-		this.dateSent = dateSent.toLocalDateTime();
+		this.dateSent.set(dateSent.toLocalDateTime());
 	}
 	/**
 	 * @return the dateReceived
 	 */
 	public LocalDateTime getDateReceived() {
-		return dateReceived;
+		return dateReceived.get();
 	}
 	/**
 	 * Alternative getDateReceived method that returns a Timestamp(for ease of use with DB)
@@ -336,14 +384,18 @@ public class MailBean {
 		if (dateReceived == null)
 			return null;
 		else
-			return Timestamp.valueOf(dateReceived);
+			return Timestamp.valueOf(dateReceived.get());
+	}
+	
+	public ObjectProperty<LocalDateTime> dateReceivedProperty(){
+		return dateReceived;
 	}
 	/**
 	 * @param dateReceived 
 	 * 				the date the email was received, that will be set into bean.
 	 */
 	public void setDateReceived(final LocalDateTime dateReceived) {
-		this.dateReceived = dateReceived;
+		this.dateReceived.set(dateReceived);
 	}
 	/**
 	 * Overload of dateReceived that takes a TimeStamp (for use with DB methods)
@@ -353,7 +405,7 @@ public class MailBean {
 	 * 				the date the email was received, that will be set into bean.
 	 */
 	public void setDateReceived(final Timestamp dateReceived) {
-		this.dateReceived = dateReceived.toLocalDateTime();
+		this.dateReceived.set(dateReceived.toLocalDateTime());
 	}
 	/**
 	 * There is no set when working with collections. When you get the ArrayList
@@ -478,7 +530,7 @@ public class MailBean {
 				return false;
 			}
 		} 
-		else if (!fromField.trim().equals(other.fromField.trim())) 
+		else if (!fromField.get().trim().equals(other.fromField.get().trim())) 
 		{
 			log.debug("Inequality caused by: !fromField.trim().equals(other.fromField.trim(");	
 			log.trace("       From: " + this.getFromField() + " : " + other.getFromField());
@@ -513,7 +565,7 @@ public class MailBean {
 				log.trace("Subj length: " + this.getSubjectField() + " : " + other.getSubjectField());
 				return false;
 			}
-		} else if (!subjectField.trim().equals(other.subjectField.trim())) 
+		} else if (!subjectField.get().trim().equals(other.subjectField.get().trim())) 
 		{
 			log.debug("Inequality caused by: !subjectField.trim().equals(other.subjectField.trim()");
 			log.trace("    Subject: " + this.getSubjectField() + " : " + other.getSubjectField());
@@ -529,7 +581,7 @@ public class MailBean {
 			}
 		} 
 		else
-		if (!textMessageField.trim().equals(other.textMessageField.trim())) 
+		if (!textMessageField.get().trim().equals(other.textMessageField.get().trim())) 
 		{
 			log.debug("Inequality caused by: !textMessageField.trim().equals(other.textMessageField.trim()");			
 			log.trace(" Plain Text: " + this.getTextMessageField().trim() + " : " + other.getTextMessageField().trim());
@@ -548,7 +600,7 @@ public class MailBean {
 		else 
 		*/
 		if (htmlMessageField != null & other.htmlMessageField!=null) //SEE ABOVE
-		if (!htmlMessageField.trim().equals(other.htmlMessageField.trim())) 
+		if (!htmlMessageField.get().trim().equals(other.htmlMessageField.get().trim())) 
 		{
 			log.debug("Inequality caused by: !htmlMessageField.trim().equals(other.htmlMessageField.trim()");	
 			log.trace("  HTML Text: " + this.getHtmlMessageField().trim() + " : " + other.getHtmlMessageField().trim());
@@ -604,10 +656,14 @@ public class MailBean {
 	}
 
 	public int getId() {
+		return id.get();
+	}
+	
+	public IntegerProperty idProperty(){
 		return id;
 	}
 
 	public void setId(final int id) {
-		this.id = id;
+		this.id.set(id);
 	}
 }

@@ -36,8 +36,10 @@ import jodd.mail.SmtpSslServer;
  * (withoutHTML/attachments/embed). 2. Sending Multipart emails (with
  * HTML/attachments/embed). 3. Receiving of all email types.
  * 
+ * TODO test if this is working properly.
+ * 
  * @author Christopher Dufort
- * @version 0.2.1-SNAPSHOT , Phase 2 - last modified 09/23/15
+ * @version 0.3.2-SNAPSHOT , Phase 2 - last modified 10/21/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class BasicSendAndReceive {
@@ -60,14 +62,14 @@ public class BasicSendAndReceive {
 		// Create am SMTP server object which retrieves fields from
 		// send configuration bean.
 		// SSL = TLS Secure e-mail sending.
-		SmtpServer<?> smtpServer = SmtpSslServer.create(sendConfigBean.getHost())
-				.authenticateWith(sendConfigBean.getUserEmailAddress(), sendConfigBean.getPassword());
+		SmtpServer<?> smtpServer = SmtpSslServer.create(sendConfigBean.getSmtpUrl())
+				.authenticateWith(sendConfigBean.getEmailAddress(), sendConfigBean.getPassword());
 
 		// Creating a JODD Email object, email is built using common API.
 		Email email = Email.create();
 
 		// From field (author of email).
-		email.from(sendConfigBean.getUserEmailAddress());
+		email.from(sendConfigBean.getEmailAddress());
 
 		// Loop through all toField addresses and append them to email object.
 		for (String toAddress : mailBean.getToField()) {
@@ -160,14 +162,14 @@ public class BasicSendAndReceive {
 		// Create am SMTP server object which retrieves fields from
 		// send configuration bean.
 		// SSL = TLS Secure e-mail sending.
-		SmtpServer<?> smtpServer = SmtpSslServer.create(sendConfigBean.getHost())
-				.authenticateWith(sendConfigBean.getUserEmailAddress(), sendConfigBean.getPassword());
+		SmtpServer<?> smtpServer = SmtpSslServer.create(sendConfigBean.getSmtpUrl())
+				.authenticateWith(sendConfigBean.getEmailAddress(), sendConfigBean.getPassword());
 
 		// Creating a JODD Email object, email is built using common API.
 		Email email = Email.create();
 
 		// From field (author of email)
-		email.from(sendConfigBean.getUserEmailAddress());
+		email.from(sendConfigBean.getEmailAddress());
 
 		/// Loop through all toField addresses and append them to email object.
 		for (String toAddress : mailBean.getToField()) {
@@ -283,7 +285,7 @@ public class BasicSendAndReceive {
 		// Create am IMAP server object which retrieves fields from
 		// receive configuration bean.
 		// SSL = TLS Secure e-mail sending.
-		ImapServer imapServer = new ImapSslServer(receiveConfigBean.getHost(), receiveConfigBean.getUserEmailAddress(),
+		ImapServer imapServer = new ImapSslServer(receiveConfigBean.getImapUrl(), receiveConfigBean.getEmailAddress(),
 				receiveConfigBean.getPassword());
 
 		// Create a session: the the object responsible for communicating with
