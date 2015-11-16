@@ -32,8 +32,8 @@
           <Menu mnemonicParsing="false" text="%FILE">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleNewEmail" text="%NEWEMAIL" />
-                  <MenuItem mnemonicParsing="false" text="%SAVEEMAIL" />
-                  <MenuItem mnemonicParsing="false" text="%SAVEATTACHMENT" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveEmail" text="%SAVEEMAIL" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAttachment" text="%SAVEATTACHMENT" />
                   <MenuItem mnemonicParsing="false" onAction="#handleExit" text="%CLOSE" />
             </items>
           </Menu>
