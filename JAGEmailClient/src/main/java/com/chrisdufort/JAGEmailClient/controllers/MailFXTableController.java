@@ -71,6 +71,7 @@ public class MailFXTableController {
 		// Connects the property in the mailData object to the column in the table
 		//FIXME make this change based on viewed folder;
 		targetColumn.setCellValueFactory(cellData -> cellData.getValue().fromFieldProperty());
+		//targetColumn.setCellValueFactory(cellData -> cellData.getValue().getToField());
 		subjectColumn.setCellValueFactory(cellData -> cellData.getValue().subjectFieldProperty());
 		messageColumn.setCellValueFactory(cellData -> cellData.getValue().htmlMessageFieldProperty());
 		//FIXME do i even bother?

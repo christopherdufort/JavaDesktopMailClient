@@ -119,20 +119,8 @@ public class MailFXHTMLController {
 	    subjectTextField.setText(subject);
 	    
 	    htmlText = mailBean.getHtmlMessageField();
-	
-		//mailFXHTMLEditor.setHtmlText(htmlText);
 
 		mailFXWebView.getEngine().loadContent(htmlText);
 
 	}
-	
-	public void displayOtherHTML() {
-		/*String other = "<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">"
-				+ "<body><h1>Here is my photograph embedded in this email.</h1><img src=\"" 
-				+ getClass().getResource("/FreeFall.jpg") + "\"><h2>I'm flying!</h2></body></html>";
-		*/
-		//String other = "impliment me";
-		//mailFXHTMLEditor.setHtmlText(other);
-	}
-
 }

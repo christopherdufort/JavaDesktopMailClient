@@ -59,6 +59,7 @@ public class DemoTestCase {
 
 	// Instantiation of DAOImpl class used to call instance methods.
 	private MailDAOImpl myDBImplementation = new MailDAOImpl();
+	
 	@Ignore
 	@Test
 	public void testCreateEmail() throws SQLException {
@@ -89,7 +90,12 @@ public class DemoTestCase {
 		int insertedEmailID = -1;
 
 		myBean.setFromField("from@email.com");
+		
 		myBean.getToField().add("to@email.com");
+		myBean.getToField().add("to@domain.com");
+		myBean.getToField().add("to@gmail.com");
+		myBean.getToField().add("to@outlook.com");
+		
 		myBean.getCcField().add("cc@email.com");
 		myBean.getBccField().add("bcc@email.com");
 		myBean.setSubjectField("Full Insert Subject");
