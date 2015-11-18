@@ -18,6 +18,7 @@ import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.MenuItem;
@@ -31,7 +32,7 @@ import javafx.scene.layout.BorderPane;
  * Internationalization in the form of multiple languages added.
  * 
  * @author Christopher Dufort
- * @version 0.3.95-SNAPSHOT - phase 3, last modified 11/15/2015
+ * @version 0.4.00-SNAPSHOT - phase 3, last modified 11/18/2015
  * @since 0.3.4
  *
  */
@@ -270,5 +271,16 @@ public class RootLayoutController {
     @FXML
     void handleSaveEmail(ActionEvent event) {
     	log.debug("save email clicked - open a file explorer");
+    }
+    
+    @FXML
+    private void changeLocale(ActionEvent event) throws IOException{
+        Scene scene = root.getScene();
+            if(event.getSource().equals(lang_en)){
+                scene.setRoot(FXMLLoader.load(getClass().getResource("Layout.fxml"),ResourceBundle.getBundle("resources/Bundle", Locale.ENGLISH))); // = new Locale("en")
+            }else if(event.getSource().equals(lang_cs)){
+                scene.setRoot(FXMLLoader.load(getClass().getResource("Layout.fxml"),ResourceBundle.getBundle("resources/Bundle", new Locale("cs", "CZ"))));
+            }else{
+            }
     }
 }
