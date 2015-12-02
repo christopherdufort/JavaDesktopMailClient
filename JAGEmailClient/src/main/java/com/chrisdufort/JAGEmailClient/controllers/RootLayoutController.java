@@ -57,7 +57,6 @@ public class RootLayoutController {
     @FXML
     private MenuItem frenchItem;
 
-
 	private MailDAO mailDAO;
 	private MailFXTreeController mailFXTreeController;
 	private MailFXTableController mailFXTableController;
@@ -273,14 +272,15 @@ public class RootLayoutController {
     	log.debug("save email clicked - open a file explorer");
     }
     
-    @FXML
+    //FIXME I dont remember what to do.
+/*    @FXML
     private void changeLocale(ActionEvent event) throws IOException{
         Scene scene = root.getScene();
             if(event.getSource().equals(lang_en)){
                 scene.setRoot(FXMLLoader.load(getClass().getResource("Layout.fxml"),ResourceBundle.getBundle("resources/Bundle", Locale.ENGLISH))); // = new Locale("en")
-            }else if(event.getSource().equals(lang_cs)){
+            }else if(event.getSource().equals(lang_fr)){
                 scene.setRoot(FXMLLoader.load(getClass().getResource("Layout.fxml"),ResourceBundle.getBundle("resources/Bundle", new Locale("cs", "CZ"))));
             }else{
             }
-    }
+    }*/
 }

@@ -195,7 +195,7 @@ public class MainAppFX extends Application {
     	try{
     		// Load the fxml file and create a new stage for the popup dialog.
     		FXMLLoader loader = new FXMLLoader();
-    		loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
+    		loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale)); //TODO this need a messagebundle file locals not working?
     		loader.setLocation(MainAppFX.class.getResource("/fxml/ConfigScene.fxml"));
     		GridPane page = (GridPane) loader.load();
     		

@@ -4,7 +4,7 @@
   <groupId>com.chrisdufort</groupId>
   <artifactId>JAGEmailClient</artifactId>
   <name>JAGEmailClient</name>
-  <version>0.3.95-SNAPSHOT</version>
+  <version>0.4.1-SNAPSHOT</version>
   <description>3rd year java project, JAG Email Client.</description>
   <developers>
     <developer>
