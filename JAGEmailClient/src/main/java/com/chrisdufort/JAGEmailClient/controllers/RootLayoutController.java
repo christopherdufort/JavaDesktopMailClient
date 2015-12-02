@@ -13,6 +13,7 @@ import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAO;
 import com.chrisdufort.persistence.MailDAOImpl;
 import com.chrisdufort.properties.mailbean.MailConfigBean;
+import com.chrisdufort.properties.manager.PropertiesManager;
 
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -58,6 +59,8 @@ public class RootLayoutController {
     private MenuItem frenchItem;
 
 	private MailDAO mailDAO;
+	private MailConfigBean configBean;
+	private PropertiesManager loadConfig;
 	private MailFXTreeController mailFXTreeController;
 	private MailFXTableController mailFXTableController;
 	private MailFXHTMLController mailFXHTMLController;
@@ -66,11 +69,14 @@ public class RootLayoutController {
 	private FXMLLoader loader;
 
 	private MainAppFX mainApp;
-
-	public RootLayoutController() {
+	
+	//TODO Throws exception may be file not found display in gui
+	public RootLayoutController() throws IOException {
 		super();
 		log.debug("RootLayoutController is constructed");
-		mailDAO = new MailDAOImpl();
+		mailDAO = new MailDAOImpl();	
+		loadConfig= new PropertiesManager();
+		configBean = loadConfig.loadTextProperties("./", "TextConfigProperties");
 	}
 	
 	/**
@@ -124,7 +130,7 @@ public class RootLayoutController {
     @FXML
     private void handleNewEmail(ActionEvent event) {
     	MailBean newMail = new MailBean();
-    	boolean sendClicked = mainApp.showMailEditDialog(newMail);
+    	boolean sendClicked = mainApp.showMailEditDialog(newMail,configBean);
     	if (sendClicked) {
     		log.debug("A new email was created and sent");
     	}

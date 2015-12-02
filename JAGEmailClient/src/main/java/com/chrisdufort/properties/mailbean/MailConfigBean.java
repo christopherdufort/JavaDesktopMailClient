@@ -17,7 +17,7 @@ import javafx.beans.property.StringProperty;
  * Modified class to be in the form of JavaFX Beans (property) from version 0.3.1 onward.
  *
  * @author Christopher Dufort
- * @version 0.3.1-SNAPSHOT , Phase 3 last modified 10/20/15
+ * @version 0.4.3-SNAPSHOT , Phase 4 last modified 12/02/15
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailConfigBean {
@@ -37,11 +37,12 @@ public class MailConfigBean {
 	private StringProperty mysqlPassword;
 
 	/**
-	 * Default no parameter constructor. Calls constructor of super
-	 * class(Object). Instantiates values to empty strings.
+	 * Default no parameter constructor call other constructor sending in values.
+	 * Initial values are set to programs default (could also be empty instead).
+	 * These settings are changable at any time during the running of the program.
 	 */
 	public MailConfigBean() {
-		this("", "", "", "", "", "", 0, 0, 0, "", "", "", "");
+		this("", "", "", "", "imap.gmail.com", "smtp.gmail.com", 993, 465, 3306, "", "", "", "");
 		
 	}
 

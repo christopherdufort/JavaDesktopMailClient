@@ -20815,3 +20815,568 @@ The last packet sent successfully to the server was 0 milliseconds ago. The driv
 [TRACE] 2015-12-02 12:42:17.736 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
 [DEBUG] 2015-12-02 12:42:17.736 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
 [TRACE] 2015-12-02 12:42:17.736 [JavaFX Application Thread] MailBean -        From: second.from@email : first.from@email
+[INFO ] 2015-12-02 14:44:58.549 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 14:44:58.578 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 14:44:58.579 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 14:44:58.613 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 14:44:58.768 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 14:44:58.999 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 14:45:19.398 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 14:45:19.426 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 14:45:19.426 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 14:45:19.458 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 14:45:19.603 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 14:45:19.811 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 14:46:29.475 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 14:46:29.503 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 14:46:29.503 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 14:46:29.534 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 14:46:29.705 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 14:46:29.912 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[DEBUG] 2015-12-02 14:46:32.274 [JavaFX Application Thread] RootLayoutController - clicked on config menu item
+[INFO ] 2015-12-02 14:46:32.362 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-12-02 14:46:34.188 [JavaFX Application Thread] RootLayoutController - Config has been changed
+[INFO ] 2015-12-02 14:48:11.682 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 14:48:11.723 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 14:48:11.723 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 14:48:11.758 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 14:48:11.937 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 14:48:12.159 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 14:51:31.465 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 14:51:31.477 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 14:51:31.477 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 14:51:31.477 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 14:51:31.493 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:51:32.243 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 14:51:32.259 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 14:51:32.259 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 14:51:32.259 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 14:51:32.259 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 14:51:32.274 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 14:51:32.274 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 14:51:32.274 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:51:32.274 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:51:32.274 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 14:51:42.871 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 14:51:42.893 [JavaFX Application Thread] MainAppFX - Config does not exist - launching configuration dialog
+[INFO ] 2015-12-02 14:53:26.757 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 14:53:26.773 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 14:53:26.773 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 14:53:26.773 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 14:53:26.804 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:53:27.554 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 14:53:27.571 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 14:53:27.571 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 14:53:27.571 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 14:53:27.571 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 14:53:27.586 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 14:53:27.586 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 14:53:27.586 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:53:27.586 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:53:27.586 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 14:53:34.448 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 14:53:34.469 [JavaFX Application Thread] MainAppFX - Config does not exist - launching configuration dialog
+[INFO ] 2015-12-02 14:56:42.570 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 14:56:42.570 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 14:56:42.570 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 14:56:42.570 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 14:56:42.601 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:56:43.335 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 14:56:43.345 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 14:56:43.345 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 14:56:43.345 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 14:56:43.345 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 14:56:43.360 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 14:56:43.360 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 14:56:43.360 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:56:43.360 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 14:56:43.360 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 14:56:52.560 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 14:56:52.583 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 14:56:52.584 [JavaFX Application Thread] MainAppFX - Config does not exist - launching configuration dialog
+[INFO ] 2015-12-02 14:56:52.809 [JavaFX Application Thread] FXMLController - controlller initialize called
+[INFO ] 2015-12-02 15:01:51.339 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 15:01:51.339 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 15:01:51.339 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 15:01:51.339 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 15:01:51.370 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:01:52.120 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 15:01:52.134 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 15:01:52.134 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 15:01:52.134 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:01:52.134 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 15:01:52.150 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:01:52.150 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 15:01:52.150 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:01:52.150 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:01:52.150 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 15:02:00.343 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 15:02:00.364 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 15:02:00.364 [JavaFX Application Thread] MainAppFX - Config does not exist - launching configuration dialog
+[INFO ] 2015-12-02 15:02:00.560 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-12-02 15:09:25.434 [JavaFX Application Thread] MainAppFX - Config file created- starting root application
+[DEBUG] 2015-12-02 15:09:25.448 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 15:09:25.517 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 15:09:25.683 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 15:09:25.974 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 15:09:25.974 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[INFO ] 2015-12-02 15:09:30.360 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 15:09:30.360 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 1 emails
+[DEBUG] 2015-12-02 15:09:30.361 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:30.361 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:30.361 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[INFO ] 2015-12-02 15:09:31.131 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-12-02 15:09:31.132 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 2 emails
+[DEBUG] 2015-12-02 15:09:31.133 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.133 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.133 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.133 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.134 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.134 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 15:09:31.134 [JavaFX Application Thread] MailBean -        From: first.from@email : from@email.com
+[DEBUG] 2015-12-02 15:09:31.136 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.137 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.137 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 15:09:31.137 [JavaFX Application Thread] MailBean -        From: from@email.com : first.from@email
+[DEBUG] 2015-12-02 15:09:31.137 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.137 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.137 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 15:09:31.138 [JavaFX Application Thread] MailBean -        From: first.from@email : from@email.com
+[DEBUG] 2015-12-02 15:09:31.138 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.138 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.138 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 15:09:31.139 [JavaFX Application Thread] MailBean -        From: from@email.com : first.from@email
+[DEBUG] 2015-12-02 15:09:31.139 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.139 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.139 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.140 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.140 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.140 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.140 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.140 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.140 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.140 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.141 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.141 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.141 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.141 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.141 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.142 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.142 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.142 [JavaFX Application Thread] MailBean - Inequality caused by: obj == null
+[DEBUG] 2015-12-02 15:09:31.144 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.145 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.145 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.145 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.145 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.145 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.145 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.145 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.146 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.146 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.146 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.146 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.147 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.147 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.147 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.152 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.152 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.152 [JavaFX Application Thread] MailBean - Inequality caused by: obj == null
+[DEBUG] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.153 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.154 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.154 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.154 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.154 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.154 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.154 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.155 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.155 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - Inequality caused by: obj == null
+[DEBUG] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.156 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.157 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.157 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.157 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.157 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 15:09:31.157 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:09:31.157 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:09:31.157 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[INFO ] 2015-12-02 15:09:31.796 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 15:09:31.797 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[DEBUG] 2015-12-02 15:09:34.592 [JavaFX Application Thread] RootLayoutController - french clicked, need to refresh gui
+[INFO ] 2015-12-02 15:14:39.199 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 15:14:39.199 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 15:14:39.199 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 15:14:39.199 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 15:14:39.230 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:14:39.980 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 15:14:39.984 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 15:14:39.984 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 15:14:39.984 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:14:39.984 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 15:14:40.000 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:14:40.000 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 15:14:40.000 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:14:40.000 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:14:40.000 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 15:14:47.359 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 15:14:47.385 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 15:14:47.386 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 15:14:47.420 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 15:14:47.603 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 15:14:47.806 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 15:14:48.127 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 15:14:48.127 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[INFO ] 2015-12-02 15:16:20.284 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 15:16:20.300 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 15:16:20.300 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 15:16:20.300 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 15:16:20.331 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:16:21.284 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 15:16:21.288 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 15:16:21.288 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 15:16:21.288 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 15:16:21.288 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 15:16:21.288 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 15:16:21.288 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 15:16:21.304 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:16:21.304 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 15:16:21.304 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 15:16:28.584 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 15:16:28.604 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 15:16:28.605 [JavaFX Application Thread] MainAppFX - Config does not exist - launching configuration dialog
+[INFO ] 2015-12-02 15:16:28.827 [JavaFX Application Thread] FXMLController - controlller initialize called
+[DEBUG] 2015-12-02 15:17:06.969 [JavaFX Application Thread] MainAppFX - Config file created- starting root application
+[DEBUG] 2015-12-02 15:17:06.987 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 15:17:07.054 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 15:17:07.290 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 15:17:07.568 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 15:17:07.568 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[DEBUG] 2015-12-02 15:23:30.802 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[DEBUG] 2015-12-02 15:23:31.313 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[DEBUG] 2015-12-02 15:23:32.737 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[DEBUG] 2015-12-02 15:23:33.273 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[INFO ] 2015-12-02 16:23:23.377 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 16:23:23.377 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 16:23:23.377 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 16:23:23.377 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 16:23:23.408 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:23:24.137 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 16:23:24.146 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:23:24.146 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 16:23:24.146 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:23:24.146 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 16:23:24.161 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:23:24.161 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 16:23:24.161 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:23:24.161 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:23:24.161 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 16:24:14.892 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 16:24:14.892 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 16:24:14.908 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 16:24:14.908 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 16:24:14.924 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:24:15.736 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 16:24:15.738 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:24:15.738 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 16:24:15.738 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:24:15.738 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 16:24:15.754 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:24:15.754 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 16:24:15.754 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:24:15.754 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:24:15.754 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 16:24:25.436 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 16:24:25.471 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 16:24:25.472 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 16:24:25.505 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 16:24:25.672 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 16:24:25.863 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 16:24:26.152 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 16:24:26.152 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[DEBUG] 2015-12-02 16:24:51.738 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[INFO ] 2015-12-02 16:29:43.029 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 16:29:43.029 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 16:29:43.029 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 16:29:43.029 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 16:29:43.060 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:29:43.843 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 16:29:43.853 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:29:43.853 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 16:29:43.853 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:29:43.853 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 16:29:43.868 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:29:43.868 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 16:29:43.868 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:29:43.868 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:29:43.868 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 16:29:51.541 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 16:29:51.700 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 16:29:51.701 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 16:29:51.736 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 16:29:51.905 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 16:29:52.149 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 16:29:52.467 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 16:29:52.467 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[DEBUG] 2015-12-02 16:30:22.706 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[INFO ] 2015-12-02 16:32:14.150 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 16:32:14.150 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 16:32:14.150 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 16:32:14.150 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 16:32:14.182 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:32:14.952 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 16:32:14.961 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:32:14.961 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 16:32:14.961 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:32:14.961 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 16:32:14.976 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:32:14.976 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 16:32:14.976 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:32:14.976 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:32:14.976 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 16:32:22.126 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 16:32:22.325 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 16:32:22.326 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 16:32:22.358 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 16:32:22.510 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 16:32:22.731 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 16:32:23.054 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 16:32:23.054 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[DEBUG] 2015-12-02 16:32:35.745 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[INFO ] 2015-12-02 16:34:51.128 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 16:34:51.128 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 16:34:51.128 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 16:34:51.128 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 16:34:51.159 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:34:51.925 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 16:34:51.940 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:34:51.940 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 16:34:51.940 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:34:51.940 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 16:34:51.955 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:34:51.955 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 16:34:51.955 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:34:51.955 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:34:51.955 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 16:34:59.633 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 16:34:59.790 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 16:34:59.791 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 16:34:59.824 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 16:34:59.977 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 16:35:00.199 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 16:35:01.366 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 16:35:01.366 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[INFO ] 2015-12-02 16:41:24.672 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 16:41:24.672 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 16:41:24.672 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 16:41:24.672 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 16:41:24.703 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:41:25.527 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 16:41:25.542 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:41:25.543 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 16:41:25.543 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:41:25.543 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 16:41:25.548 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:41:25.548 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 16:41:25.548 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:41:25.548 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:41:25.548 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 16:41:33.712 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 16:41:33.738 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 16:41:33.739 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 16:41:33.772 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 16:41:33.937 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 16:41:34.115 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 16:41:34.438 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 16:41:34.439 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[DEBUG] 2015-12-02 16:42:06.049 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[DEBUG] 2015-12-02 16:42:48.009 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[DEBUG] 2015-12-02 16:43:21.657 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[DEBUG] 2015-12-02 16:43:52.075 [JavaFX Application Thread] MailFXEditController - sending email and storing in database
+[INFO ] 2015-12-02 16:47:14.010 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:47:14.011 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 1 emails
+[DEBUG] 2015-12-02 16:47:14.011 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:14.011 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:14.011 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[INFO ] 2015-12-02 16:47:22.388 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 2 complete email beans.
+[INFO ] 2015-12-02 16:47:22.389 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 2 emails
+[DEBUG] 2015-12-02 16:47:22.391 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.391 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.391 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.391 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.391 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.392 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 16:47:22.392 [JavaFX Application Thread] MailBean -        From: first.from@email : from@email.com
+[DEBUG] 2015-12-02 16:47:22.394 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.394 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.394 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 16:47:22.394 [JavaFX Application Thread] MailBean -        From: from@email.com : first.from@email
+[DEBUG] 2015-12-02 16:47:22.394 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.394 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.394 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 16:47:22.395 [JavaFX Application Thread] MailBean -        From: first.from@email : from@email.com
+[DEBUG] 2015-12-02 16:47:22.395 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.395 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.395 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 16:47:22.395 [JavaFX Application Thread] MailBean -        From: from@email.com : first.from@email
+[DEBUG] 2015-12-02 16:47:22.396 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.396 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.396 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.396 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.396 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.397 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.397 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.397 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.397 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.397 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.397 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.397 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.397 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.398 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.398 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.398 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.399 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.399 [JavaFX Application Thread] MailBean - Inequality caused by: obj == null
+[DEBUG] 2015-12-02 16:47:22.401 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.401 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.401 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.401 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.401 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.401 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.402 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.402 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.402 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.402 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.402 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.402 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.402 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.403 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.403 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.408 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.408 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.408 [JavaFX Application Thread] MailBean - Inequality caused by: obj == null
+[DEBUG] 2015-12-02 16:47:22.411 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.412 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.413 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.413 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.413 [JavaFX Application Thread] MailBean - Inequality caused by: obj == null
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.414 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.415 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.415 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[INFO ] 2015-12-02 16:47:22.763 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:47:22.764 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 1 emails
+[DEBUG] 2015-12-02 16:47:22.764 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.765 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.765 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.765 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.766 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.766 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 16:47:22.766 [JavaFX Application Thread] MailBean -        From: from@email.com : first.from@email
+[DEBUG] 2015-12-02 16:47:22.767 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.768 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.768 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 16:47:22.768 [JavaFX Application Thread] MailBean -        From: first.from@email : from@email.com
+[DEBUG] 2015-12-02 16:47:22.768 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.768 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.768 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 16:47:22.768 [JavaFX Application Thread] MailBean -        From: from@email.com : first.from@email
+[DEBUG] 2015-12-02 16:47:22.769 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.769 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.769 [JavaFX Application Thread] MailBean - Inequality caused by: !fromField.trim().equals(other.fromField.trim(
+[TRACE] 2015-12-02 16:47:22.769 [JavaFX Application Thread] MailBean -        From: first.from@email : from@email.com
+[DEBUG] 2015-12-02 16:47:22.770 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.770 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.770 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.770 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.771 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.776 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.777 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.777 [JavaFX Application Thread] MailBean - Inequality caused by: obj == null
+[DEBUG] 2015-12-02 16:47:22.777 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.777 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.777 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[DEBUG] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:47:22.778 [JavaFX Application Thread] MailBean - Inequality caused by: this == obj
+[INFO ] 2015-12-02 16:51:19.725 [main] ArchetypeJavaFXUnitTest - Starting test [samplePass]
+[INFO ] 2015-12-02 16:51:19.740 [main] ArchetypeJavaFXUnitTest - Succeeded test [samplePass]
+[INFO ] 2015-12-02 16:51:19.740 [main] ArchetypeJavaFXUnitTest - Finished test [samplePass]
+[INFO ] 2015-12-02 16:51:19.740 [main] ArchetypeJavaFXUnitTest - ***********************************************************************************************
+[INFO ] 2015-12-02 16:51:19.756 [main] DemoTestCase - Starting test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:51:20.537 [main] MailDAOImpl - createEmail() inserted an email with the id of 3
+[INFO ] 2015-12-02 16:51:20.543 [main] MailDAOImpl - createMailBeans() created 1 complete email beans.
+[INFO ] 2015-12-02 16:51:20.543 [main] MailDAOImpl - findByID() returned the email with an id of 3
+[DEBUG] 2015-12-02 16:51:20.543 [main] MailBean - EQUALS METHOD COMPARISON IN PROGRESS
+[TRACE] 2015-12-02 16:51:20.543 [main] MailBean - ----------------------------------------------------------------------------------------------
+[TRACE] 2015-12-02 16:51:20.559 [main] MailBean - ----------------------------------------------------------------------------------------------
+[DEBUG] 2015-12-02 16:51:20.559 [main] MailBean - EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES
+[INFO ] 2015-12-02 16:51:20.559 [main] DemoTestCase - Succeeded test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:51:20.559 [main] DemoTestCase - Finished test [testFullCreateEmail]
+[INFO ] 2015-12-02 16:51:20.559 [main] DemoTestCase - ***********************************************************************************************
+[INFO ] 2015-12-02 16:51:27.610 [JavaFX Application Thread] MainAppFX - Program Begins
+[DEBUG] 2015-12-02 16:51:27.634 [JavaFX Application Thread] MainAppFX - Local = en_US
+[DEBUG] 2015-12-02 16:51:27.635 [JavaFX Application Thread] MainAppFX - Config file exists - starting root application
+[DEBUG] 2015-12-02 16:51:27.754 [JavaFX Application Thread] RootLayoutController - RootLayoutController is constructed
+[DEBUG] 2015-12-02 16:51:27.903 [JavaFX Application Thread] RootLayoutController - RootLayoutController's initialize method is called
+[DEBUG] 2015-12-02 16:51:28.080 [JavaFX Application Thread] MailFXTreeController - MailFXTreeControllers displayTree method is called
+[INFO ] 2015-12-02 16:51:28.366 [JavaFX Application Thread] MailDAOImpl - createMailBeans() created 0 complete email beans.
+[INFO ] 2015-12-02 16:51:28.366 [JavaFX Application Thread] MailDAOImpl - findByFolder() returned 0 emails
+[DEBUG] 2015-12-02 16:51:52.377 [JavaFX Application Thread] MailFXEditController - sending email and storing in database

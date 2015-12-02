@@ -67,7 +67,8 @@ public class MainAppFX extends Application {
      */
     @Override
     public void start(Stage primaryStage) throws Exception {
-
+    	boolean submitClicked= false;
+    	
         log.info("Program Begins");
 
         // The Stage comes from the framework so make a copy to use elsewhere
@@ -84,9 +85,15 @@ public class MainAppFX extends Application {
 
      	File configFile = new File("./TextConfigProperties.properties");
      	
+    	Locale locale = Locale.getDefault();
+    	log.debug("Local = " + locale);
+    	
+    	//TODO remove this hardcode before production
+		currentLocale = new Locale("en","CA");
+		//currentLocale = new Locale("fr","CA");
+     	
      	//Optional to load XML properties instead.
      	
-     	//FIXME how to submit the config and and continue flow of logic into the rootlayout?
      	if (configFile.exists())
      	{
      		// Create the root scene and put it on the stage.
@@ -95,23 +102,22 @@ public class MainAppFX extends Application {
      	}
      	else
      	{
-     		// Create the configuration Scene and put it on the Stage
      		log.debug("Config does not exist - launching configuration dialog");
-     		configureStage();
-            // Set the window title
-            primaryStage.setTitle(ResourceBundle.getBundle("ConfigBundle").getString("TITLE"));
+     		//Keep showing config dialog until submit is pressed.
+     		do{
+         		//Create a Dialog with the MailConfigSettings in order to create setting for the program to use for connections.
+        		MailConfigBean testBean = new MailConfigBean();
+        		submitClicked = showConfigEditDialog(testBean);    		
+     		}while(!submitClicked);
+        		log.debug("Config file created- starting root application");
+    			initRootLayout();
+
      	}
         // Raise the curtain on the Stage
         primaryStage.show();
     }
 
-    public void initRootLayout() {
-    	Locale locale = Locale.getDefault();
-    	log.debug("Local = " + locale);
-    	
-		currentLocale = new Locale("en","CA");
-		//currentLocale = new Locale("fr","CA");
-		
+    public void initRootLayout() {	
 		try {
 			// Instantiate the FXMLLoader
 			FXMLLoader loader = new FXMLLoader();
@@ -148,44 +154,6 @@ public class MainAppFX extends Application {
 		}
 	}
 
-	/**
-     * Load the FXML and bundle, create a Scene and put the Scene on Stage.
-     *
-     * Using this approach allows you to use loader.getController() to get a
-     * reference to the fxml's controller should you need to pass data to it.
-     * Not used in this archetype.
-     */
-    private void configureStage() {
-        try {
-            // Instantiate the FXMLLoader
-            FXMLLoader loader = new FXMLLoader();
-
-            // Set the location of the fxml file in the FXMLLoader
-            loader.setLocation(MainAppFX.class.getResource("/fxml/ConfigScene.fxml"));
-
-            // Localize the loader with its bundle
-            // Uses the default locale and if a matching bundle is not found
-            // will then use ConfigBundle.properties
-            loader.setResources(ResourceBundle.getBundle("ConfigBundle"));
-
-            // Parent is the base class for all nodes that have children in the
-            // scene graph such as AnchorPane or GridPane and most other containers
-            Parent parent = (GridPane) loader.load();
-
-            // Load the parent into a Scene
-            Scene scene = new Scene(parent);
-
-            // Put the Scene on Stage
-            this.primaryStage.setScene(scene);
-            
-            log.debug("finished configuration");
-
-        } catch (IOException ex) { // getting resources or files could fail
-            log.error(null, ex);
-            System.exit(1);
-        }
-    }
-   
     /**
      * This method is responsible for displaying the configuration dialog
      * @param mailConfig
@@ -239,9 +207,10 @@ public class MainAppFX extends Application {
      * If the user clicks send, the fields provided are saved into the bean and returned.
      * 
      * @param newMail
+     * @param configBean 
      * @return
      */
-	public boolean showMailEditDialog(MailBean newMail) {
+	public boolean showMailEditDialog(MailBean newMail, MailConfigBean configBean) {
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
@@ -261,6 +230,7 @@ public class MainAppFX extends Application {
 			MailFXEditController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
 			controller.setMailBean(newMail);
+			controller.setConfigBean(configBean);
 
 			// Set the dialog icon.
 			dialogStage.getIcons().add(new Image(MainAppFX.class.getResourceAsStream("/images/edit.png")));

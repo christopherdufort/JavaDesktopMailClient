@@ -1,6 +1,7 @@
 package com.chrisdufort.JAGEmailClient.controllers;
 
 
+import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -12,25 +13,35 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
+import javafx.util.converter.NumberStringConverter;
+
+import java.util.ArrayList;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.chrisdufort.mailaction.BasicSendAndReceive;
 import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAO;
+import com.chrisdufort.properties.mailbean.MailConfigBean;
 
 
 /**
  * This is the controller for handling the editing of an FX Mail Bean.
  * 
  * @author Christopher Dufort
- * @version 0.3.95-SNAPSHOT - phase 3, last modified 11/15/2015
+ * @version 0.4.3-SNAPSHOT - phase 4, last modified 12/2/2015
  * @since 0.3.95
  */
 public class MailFXEditController {
 
 	private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
+	
+	private MailBean mailToSend;
+	private BasicSendAndReceive sending;
 
+    // The @FXML annotation on a class variable results in the matching
+    // reference being injected into the variable
     @FXML
     private BorderPane mailFXEditLayout;
 
@@ -67,6 +78,76 @@ public class MailFXEditController {
 
 	private MailBean meanBean;
 
+	private MailConfigBean configBean;
+
+	
+	
+	/**
+	 * Default constructor creates an instance of MailBean that will be bound to the form.
+	 */
+	public MailFXEditController(){
+		super();
+		mailToSend = new MailBean();
+	}
+	
+	/**
+	 * Initializes the controller class. This method is automatically called
+	 * after the fxml file has been loaded. Not much to do here.
+	 */
+	@FXML
+	private void initialize() {
+        //cant bind to
+		//cant bind cc
+		//cant bind bcc
+        Bindings.bindBidirectional(subjectTextField.textProperty(), mailToSend.subjectFieldProperty());
+        //cant bind editor
+
+	}
+	
+    /**
+     * This method is an event handler for adding embeded to email.
+     * @param event
+     */
+    @FXML
+    void handleSend(ActionEvent event) {
+    	log.debug("sending email and storing in database");
+    	
+    	buildEmailToSend(); //builds an email
+
+    	sending = new BasicSendAndReceive();    	
+    	sending.sendWithEmbeddedAndAttachment(mailToSend, configBean);
+    	
+    	//Store the email
+    	
+    	Stage stage = (Stage)sendButton.getScene().getWindow();
+    	stage.close();
+    	
+    	
+    }
+
+	private void buildEmailToSend() {
+    	ArrayList<String>toList = new ArrayList<>();
+    	ArrayList<String>ccList = new ArrayList<>();
+    	ArrayList<String>bccList = new ArrayList<>();
+    	String htmlText;
+    	String fromField = configBean.getEmailAddress();
+    	
+    	//TODO handle string builder with delimiters
+    	toList.add(toTextField.getText());
+    	ccList.add(ccTextField.getText());
+    	bccList.add(bccTextField.getText());
+    
+    	htmlText = mailFXEditorView.getHtmlText();
+    	
+    	mailToSend.setFromField(fromField);
+    	mailToSend.getToField().addAll(toList);
+    	mailToSend.getCcField().addAll(ccList);
+    	mailToSend.getBccField().addAll(bccList);
+    	//subject binded automatically
+    	mailToSend.setHtmlMessageField(htmlText);
+		
+	}
+
 	/**
 	 * This is the event handler for the about button being clicked.
 	 * @param event
@@ -80,6 +161,7 @@ public class MailFXEditController {
 
 		alert.showAndWait();
     }
+    
     
     /**
      * This is the event handler for adding a new attachment to an email.
@@ -97,8 +179,8 @@ public class MailFXEditController {
      * @param event
      */
     @FXML
-    void handleDelete(ActionEvent event) {
-    	//Close this dialog
+    void handleClose(ActionEvent event) {
+    	//Close this dialog //TODO user irinas example
         Node  source = (Node)event.getSource(); 
         Stage stage  = (Stage)source.getScene().getWindow();
         stage.close();
@@ -114,24 +196,6 @@ public class MailFXEditController {
     	log.debug("embedding attachment inside email");
     }
     
-    /**
-     * This method is an event handler for adding embeded to email.
-     * @param event
-     */
-    @FXML
-    void handleSend(ActionEvent event) {
-    	log.debug("sending email and storing in database");
-    }
-
-	/**
-	 * Initializes the controller class. This method is automatically called
-	 * after the fxml file has been loaded. Not much to do here.
-	 */
-	@FXML
-	private void initialize() {
-		// Nothing to initialize with HTMLEditor.
-	}
-
 	public void setDialogStage(Stage dialogStage) {
         this.dialogStage = dialogStage;
         
@@ -145,6 +209,13 @@ public class MailFXEditController {
 	public boolean isSendClicked() {
 		return sendClicked ;
 	}
+
+	public void setConfigBean(MailConfigBean configBean) {
+		this.configBean = configBean;
+		
+	}
+	
+
 
 
 }

@@ -67,7 +67,7 @@ public class FXMLController {
 
 
 	/**
-	 * Default constructor creates an instance of MailBean that can be bound to
+	 * Default constructor creates an instance of MailConfigBean that can be bound to
 	 * the form
 	 */
 	public FXMLController() {
