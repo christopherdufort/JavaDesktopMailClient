@@ -60,13 +60,13 @@
       </BorderPane>
    </center>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="fxEditMenuBar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="%FILE">
             <items>
                   <MenuItem mnemonicParsing="false" text="%SAVEEMAIL" />
                   <MenuItem mnemonicParsing="false" text="%OPENEMAIL" />
-              <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#closeWindow" text="%CLOSE" />
+              <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#handleClose" text="%CLOSE" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%HELP">

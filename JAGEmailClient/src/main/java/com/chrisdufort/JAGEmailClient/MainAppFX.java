@@ -35,7 +35,7 @@ import java.util.ResourceBundle;
  * This class will create the gui and initialize all of its sub parts.
  *
  * @author Christopher Dufort
- * @version 0.3.95-SNAPSHOT - phase 3, last modified 11/15/2015
+ * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
  * @since 0.3.0-SNAPSHOT
  */
 public class MainAppFX extends Application {
@@ -46,7 +46,7 @@ public class MainAppFX extends Application {
     // The primary window or frame of this application
     private Stage primaryStage;
     private BorderPane rootLayout;
-    private Locale currentLocale;
+    private Locale currentLocale = Locale.getDefault();
     private MailConfigBean mailConfigBean;
     private PropertiesManager propManager;
     
@@ -57,6 +57,7 @@ public class MainAppFX extends Application {
         super();
         mailConfigBean = new MailConfigBean();
         propManager = new PropertiesManager();
+        
     }
 
     /**
@@ -85,13 +86,8 @@ public class MainAppFX extends Application {
 
      	File configFile = new File("./TextConfigProperties.properties");
      	
-    	Locale locale = Locale.getDefault();
-    	log.debug("Local = " + locale);
     	
-    	//TODO remove this hardcode before production
-		currentLocale = new Locale("en","CA");
-		//currentLocale = new Locale("fr","CA");
-     	
+    	    	
      	//Optional to load XML properties instead.
      	
      	if (configFile.exists())
@@ -178,6 +174,7 @@ public class MainAppFX extends Application {
 			// Set the MailConfigBean into the controller.
 			FXMLController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
+			controller.setConfigBean(mailConfig);
 					
 			// Set the dialog icon.
 			dialogStage.getIcons().add(new Image(MainAppFX.class.getResourceAsStream("/images/edit.png")));
@@ -243,5 +240,15 @@ public class MainAppFX extends Application {
 			e.printStackTrace();
 			return false;
 		}
+	}
+	public void changeLanguage(String language){
+		if (language.equals("english")){
+			currentLocale = new Locale("en","CA");
+		}
+		else if (language.equals("french")){
+			currentLocale = new Locale("fr","CA");
+		}
+		initRootLayout();
+		primaryStage.show();
 	}
 }

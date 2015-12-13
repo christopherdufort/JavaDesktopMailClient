@@ -3,11 +3,20 @@ package com.chrisdufort.JAGEmailClient.controllers;
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TreeView;
+import javafx.scene.input.ClipboardContent;
+import javafx.scene.input.DataFormat;
+import javafx.scene.input.Dragboard;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 
 import org.slf4j.Logger;
@@ -19,7 +28,7 @@ import com.chrisdufort.persistence.MailDAO;
 /**
  * 
  * @author Christopher Dufort
- * @version 0.3.6-SNAPSHOT -phase 3 , last modified 10/29/2015
+ * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
  * @since 0.3.4
  */
 public class MailFXTableController {
@@ -35,7 +44,9 @@ public class MailFXTableController {
 	private TableView<MailBean> mailDataTable;
 
 	@FXML
-	private TableColumn<MailBean, String> targetColumn;
+	private TableColumn<MailBean, String> toColumn;
+	@FXML
+	private TableColumn<MailBean, String> fromColumn;
 
 	@FXML
 	private TableColumn<MailBean, String> subjectColumn;
@@ -47,10 +58,13 @@ public class MailFXTableController {
 	private TableColumn<MailBean, String> attachColumn;
 
 	@FXML
-	private TableColumn<MailBean, LocalDateTime> dateColumn;
-
+	private TableColumn<MailBean, LocalDateTime> dateSentColumn;
+	
+	@FXML
+	private TableColumn<MailBean, LocalDateTime> dateReceiveColumn;
 
 	private MailFXHTMLController mailFXHTMLController;
+
 
 
 	/**
@@ -68,17 +82,13 @@ public class MailFXTableController {
 	@FXML
 	private void initialize() {
 
-		// Connects the property in the mailData object to the column in the table
-		//FIXME make this change based on viewed folder;
-		targetColumn.setCellValueFactory(cellData -> cellData.getValue().fromFieldProperty());
-		//targetColumn.setCellValueFactory(cellData -> cellData.getValue().getToField());
+		// Connects the property in the mailData object to the column in the table	
+		//what to do for ToField
+		fromColumn.setCellValueFactory(cellData -> cellData.getValue().fromFieldProperty());
 		subjectColumn.setCellValueFactory(cellData -> cellData.getValue().subjectFieldProperty());
 		messageColumn.setCellValueFactory(cellData -> cellData.getValue().htmlMessageFieldProperty());
-		//FIXME do i even bother?
-		//attachColumn.setCellValueFactory(cellData -> cellData.getValue());
-		//FIXME make this change based on viewed folder;
-		dateColumn.setCellValueFactory(cellData -> cellData.getValue().dateReceivedProperty());
-
+		dateSentColumn.setCellValueFactory(cellData -> cellData.getValue().dateSentProperty());
+		dateReceiveColumn.setCellValueFactory(cellData -> cellData.getValue().dateReceivedProperty());
 
 		adjustColumnWidths();
 
@@ -103,6 +113,9 @@ public class MailFXTableController {
 		mailDataTable.setItems(this.mailDAO.findByFolder(folderName));
 		
 	}
+	public void displayTheTable(ObservableList<MailBean> searchBeans) throws SQLException{
+		mailDataTable.setItems(searchBeans);
+	}
  
 
 	/**
@@ -111,14 +124,7 @@ public class MailFXTableController {
 	private void adjustColumnWidths() {
 		// Get the current width of the table
 		double width = mailFXTable.getPrefWidth();
-		/*
-		// Set width of each column
-		targetColumn.setPrefWidth(width * .05);
-		subjectColumn.setPrefWidth(width * .15);
-		messageColumn.setPrefWidth(width * .15);
-		attachColumn.setPrefWidth(width * .05);
-		dateColumn.setPrefWidth(width * .05);
-		*/
+
 	}
 
 
@@ -141,6 +147,32 @@ public class MailFXTableController {
 
 	public TableView<MailBean> getMailDataTable() {
 		return mailDataTable;
+	}
+	
+	/**
+	 * When a drag is detected the control at the start of the drag is accessed
+	 * to determine what will be dragged.
+	 * 
+	 * SceneBuilder writes the event as ActionEvent that you must change to the
+	 * proper event type that in this case is DragEvent
+	 * 
+	 * @param event
+	 */
+	@FXML
+	private void dragDetected(MouseEvent event) {
+		/* drag was detected, start drag-and-drop gesture */
+		log.debug("onDragDetected");
+
+		/* allow any transfer mode */
+		Dragboard db = mailDataTable.startDragAndDrop(TransferMode.ANY);
+
+		/* put a string on dragboard */
+		ClipboardContent content = new ClipboardContent();
+		content.putString(String.valueOf(mailDataTable.getSelectionModel().getSelectedItem().getId()));
+		db.setContent(content);
+
+		event.consume();
+
 	}
 
 }

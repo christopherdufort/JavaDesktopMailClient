@@ -5,8 +5,10 @@ import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.MenuBar;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
@@ -15,6 +17,7 @@ import javafx.scene.web.HTMLEditor;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 import org.slf4j.Logger;
@@ -23,6 +26,7 @@ import org.slf4j.LoggerFactory;
 import com.chrisdufort.mailaction.BasicSendAndReceive;
 import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAO;
+import com.chrisdufort.persistence.MailDAOImpl;
 import com.chrisdufort.properties.mailbean.MailConfigBean;
 
 
@@ -30,7 +34,7 @@ import com.chrisdufort.properties.mailbean.MailConfigBean;
  * This is the controller for handling the editing of an FX Mail Bean.
  * 
  * @author Christopher Dufort
- * @version 0.4.3-SNAPSHOT - phase 4, last modified 12/2/2015
+ * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
  * @since 0.3.95
  */
 public class MailFXEditController {
@@ -53,9 +57,9 @@ public class MailFXEditController {
 
     @FXML
     private Button embedFileButton;
-
+  
     @FXML
-    private Button deleteButton;
+    private Button cancelButton;
 
     @FXML
     private TextField toTextField;
@@ -71,6 +75,9 @@ public class MailFXEditController {
 
     @FXML
     private HTMLEditor mailFXEditorView;
+    
+    @FXML
+    private MenuBar fxEditMenuBar;
 
 	private boolean sendClicked = false;
 
@@ -80,7 +87,7 @@ public class MailFXEditController {
 
 	private MailConfigBean configBean;
 
-	
+	private MailDAO myDAO = new MailDAOImpl();
 	
 	/**
 	 * Default constructor creates an instance of MailBean that will be bound to the form.
@@ -107,15 +114,18 @@ public class MailFXEditController {
     /**
      * This method is an event handler for adding embeded to email.
      * @param event
+     * @throws SQLException 
      */
     @FXML
-    void handleSend(ActionEvent event) {
+    void handleSend(ActionEvent event) throws SQLException {
     	log.debug("sending email and storing in database");
     	
     	buildEmailToSend(); //builds an email
 
     	sending = new BasicSendAndReceive();    	
     	sending.sendWithEmbeddedAndAttachment(mailToSend, configBean);
+    	
+    	myDAO.createEmail(mailToSend);
     	
     	//Store the email
     	
@@ -180,10 +190,10 @@ public class MailFXEditController {
      */
     @FXML
     void handleClose(ActionEvent event) {
-    	//Close this dialog //TODO user irinas example
-        Node  source = (Node)event.getSource(); 
-        Stage stage  = (Stage)source.getScene().getWindow();
-        stage.close();
+    	log.debug("Closing EditStage");     
+    	Stage stage = (Stage)cancelButton.getScene().getWindow();
+    	stage.close();
+
     }
     
     /**

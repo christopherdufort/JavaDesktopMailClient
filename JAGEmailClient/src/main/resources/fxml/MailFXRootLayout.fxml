@@ -41,12 +41,12 @@
          <center>
             <AnchorPane fx:id="rootAnchorPane" stylesheets="@../styles/DarkTheme.css" BorderPane.alignment="CENTER">
                <children>
-                  <SplitPane dividerPositions="0.29797979797979796" prefHeight="775.0" prefWidth="900.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <SplitPane dividerPositions="0.16777777777777778" prefHeight="775.0" prefWidth="1100.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                       <AnchorPane fx:id="treeSplit" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../styles/DarkTheme.css" />
                       <AnchorPane stylesheets="@../styles/DarkTheme.css">
                            <children>
-                              <SplitPane dividerPositions="0.5" layoutY="-8.0" orientation="VERTICAL" prefHeight="773.0" prefWidth="627.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-8.0">
+                              <SplitPane dividerPositions="0.35" layoutY="-8.0" orientation="VERTICAL" prefHeight="773.0" prefWidth="1000.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-8.0">
                                 <items>
                                   <AnchorPane fx:id="tableSplit" />
                                   <AnchorPane fx:id="htmlSplit" />
@@ -62,11 +62,13 @@
          <top>
             <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
               <items>
-                <Button mnemonicParsing="false" text="%ADDFOLDER" />
-                  <Button mnemonicParsing="false" text="%DELETEFOLDER" />
-                  <Button mnemonicParsing="false" text="%SEARCH" />
-                  <TextField promptText="Search Query" />
-                  <Spinner />
+                <Button fx:id="addFolderButton" mnemonicParsing="false" onAction="#handleAddFolder" text="%ADDFOLDER" />
+                  <Button fx:id="deleteFolderButton" mnemonicParsing="false" onAction="#handleDeleteFolder" text="%DELETEFOLDER" />
+                  <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" text="%REFRESH" />
+                  <Separator orientation="VERTICAL" />
+                  <TextField fx:id="searchTextField" prefWidth="206.0" promptText="Search Query" />
+                  <ComboBox fx:id="searchComboBox" prefHeight="37.0" prefWidth="150.0" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearch" text="%SEARCH" />
               </items>
             </ToolBar>
          </top>

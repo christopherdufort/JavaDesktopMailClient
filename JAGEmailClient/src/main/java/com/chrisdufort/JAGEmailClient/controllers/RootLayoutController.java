@@ -2,13 +2,17 @@ package com.chrisdufort.JAGEmailClient.controllers;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chrisdufort.JAGEmailClient.MainAppFX;
+import com.chrisdufort.mailaction.BasicSendAndReceive;
 import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAO;
 import com.chrisdufort.persistence.MailDAOImpl;
@@ -16,13 +20,21 @@ import com.chrisdufort.properties.mailbean.MailConfigBean;
 import com.chrisdufort.properties.manager.PropertiesManager;
 
 import javafx.application.Platform;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -33,7 +45,7 @@ import javafx.scene.layout.BorderPane;
  * Internationalization in the form of multiple languages added.
  * 
  * @author Christopher Dufort
- * @version 0.4.00-SNAPSHOT - phase 3, last modified 11/18/2015
+ * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
  * @since 0.3.4
  *
  */
@@ -57,6 +69,24 @@ public class RootLayoutController {
 
     @FXML
     private MenuItem frenchItem;
+    
+    @FXML
+    private Button addFolderButton;
+
+    @FXML
+    private Button deleteFolderButton;
+    
+    @FXML
+    private Button refreshButton;
+    
+    @FXML
+    private TextField searchTextField;
+    
+    @FXML
+    private ComboBox<String> searchComboBox;
+    
+    @FXML
+    private Button searchButton;
 
 	private MailDAO mailDAO;
 	private MailConfigBean configBean;
@@ -70,13 +100,20 @@ public class RootLayoutController {
 
 	private MainAppFX mainApp;
 	
+	private MailDAO myDAO = new MailDAOImpl();
+
+	private ObservableList<MailBean> searchBeans;
+	
+	private BasicSendAndReceive sendAndReceive = new BasicSendAndReceive();
+	
 	//TODO Throws exception may be file not found display in gui
-	public RootLayoutController() throws IOException {
+	public RootLayoutController() throws IOException, SQLException {
 		super();
 		log.debug("RootLayoutController is constructed");
 		mailDAO = new MailDAOImpl();	
 		loadConfig= new PropertiesManager();
 		configBean = loadConfig.loadTextProperties("./", "TextConfigProperties");
+		refreshEmails();
 	}
 	
 	/**
@@ -107,11 +144,21 @@ public class RootLayoutController {
 	@FXML
 	private void handleConfig(ActionEvent event) {
 		log.debug("clicked on config menu item");
-		MailConfigBean testBean = new MailConfigBean();
-		boolean submitClicked = mainApp.showConfigEditDialog(testBean);
+		
+		MailConfigBean configBean = new MailConfigBean();
+		
+		try {
+			configBean = loadConfig.loadTextProperties("./", "TextConfigProperties");
+		} catch (IOException e) {
+			log.debug("No config file found instead using default empty bean");
+		}
+
+		boolean submitClicked = mainApp.showConfigEditDialog(configBean);
 		if (submitClicked){
 			log.debug("Config has been changed");
 		}
+		else
+			log.debug("no changes to config made");
 	}
 	/**
 	 * Opens the how to user dialog.
@@ -135,6 +182,104 @@ public class RootLayoutController {
     		log.debug("A new email was created and sent");
     	}
     }
+    
+    @FXML
+    private void handleAddFolder(ActionEvent event) {
+    	log.debug("add folder clicked"); 	
+    	TextInputDialog dialog = new TextInputDialog("folder name");
+    	dialog.setTitle("Add folder Dialog");
+    	dialog.setHeaderText("Adding a new folder.");
+    	dialog.setContentText("Name of new folder:");
+    	
+    	Optional<String> folderName = dialog.showAndWait();
+    	if (folderName.isPresent()){
+    		try {
+				myDAO.createFolder(folderName.get());
+			} catch (SQLException e) {
+				//This exception should never occur.
+				log.error("No filename given");
+			}
+    	}
+    	try {
+			mailFXTreeController.displayTree();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    @FXML
+    private void handleDeleteFolder(ActionEvent event) {
+    	log.debug("delete folder clicked"); 	
+    	TextInputDialog dialog = new TextInputDialog("folder name");
+    	dialog.setTitle("Delete folder Dialog");
+    	dialog.setHeaderText("Please be sure you want to delete this folder!");
+    	dialog.setContentText("Enter the name of the folder you wish to delete:");
+    	
+    	Optional<String> folderName = dialog.showAndWait();
+    	if (folderName.isPresent()){
+    		try {
+				myDAO.deleteFolder(folderName.get());
+			} catch (SQLException e) {
+				//This exception should never occur.
+				log.error("No filename given");
+			}
+    	}
+    	try {
+			mailFXTreeController.displayTree();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+    
+    @FXML
+    private void handleSearch(ActionEvent event) throws SQLException {
+    	String searchText = searchTextField.getText();
+    	String category = searchComboBox.getValue();
+    	
+    	log.debug("user is searching for " + searchText + " in " + category);
+
+    	switch(category){
+    		case "To":
+    			searchBeans = myDAO.findByTo(searchText);
+    			break;
+    		case "From":
+    			searchBeans = myDAO.findByTo(searchText);
+    			break;
+    		case "CC":
+    			searchBeans = myDAO.findByTo(searchText);
+    			break;
+    		case "BCC":
+    			searchBeans = myDAO.findByTo(searchText);
+    			break;
+    		case "Subject":
+    			searchBeans = myDAO.findByTo(searchText);
+    			break;
+    		default:
+    			//should not happen  			
+    	}
+    	
+    	mailFXTableController.displayTheTable(searchBeans);
+    }
+    
+
+    @FXML
+    void handleRefresh(ActionEvent event) throws SQLException {
+    	refreshEmails();
+    }
+    
+    private void refreshEmails()throws SQLException {
+	    ArrayList<MailBean> beansToSync = sendAndReceive.receiveEmail(configBean);
+	    
+	    if (beansToSync != null){
+	    	for(MailBean mailbean : beansToSync){
+	    		mailbean.setFolder("inbox");
+	    		myDAO.createEmail(mailbean);
+	    	}  	
+	    }
+    }
+    
     /**
      * Is called by the main application to give a reference back to itself.
      * 
@@ -171,6 +316,17 @@ public class RootLayoutController {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		//Populate search combobox
+		List<String> list = new ArrayList<String>();
+        list.add("To");
+        list.add("From");
+        list.add("CC");
+        list.add("BCC");
+        list.add("Subject");
+        ObservableList obList = FXCollections.observableList(list);
+        searchComboBox.setItems(obList);
+        searchComboBox.setValue("To");
 	}
 
 	/**
@@ -259,6 +415,8 @@ public class RootLayoutController {
 		currentLocale = new Locale("en","CA");
 		loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
 		
+		mainApp.changeLanguage("english");
+		
     }
 
     @FXML
@@ -266,6 +424,8 @@ public class RootLayoutController {
     	log.debug("french clicked, need to refresh gui");
     	currentLocale = new Locale("fr","CA");
 		loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
+		
+		mainApp.changeLanguage("french");
     }
     
     @FXML

@@ -16,6 +16,8 @@ import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
 import javafx.scene.control.TreeCell;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.Dragboard;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -39,6 +41,8 @@ public class MailFXTreeController {
 	// Resource bundle is injected when controller is loaded
 	@FXML
 	private ResourceBundle resources;
+
+	private Object mailFXTreeController;
 
 	
 
@@ -101,6 +105,7 @@ public class MailFXTreeController {
 	 * @throws SQLException
 	 */
 	public void displayTree() throws SQLException {
+		mailFXTreeView.getRoot().getChildren().clear();
 		
 		log.debug("MailFXTreeControllers displayTree method is called");
 		
@@ -150,5 +155,36 @@ public class MailFXTreeController {
 		catch (SQLException e){
 			e.printStackTrace();
 		}
+	}
+	/**
+	 * When the mouse is released over the FXHTMLEditor the value is written to
+	 * the editor.
+	 * 
+	 * SceneBuilder writes the event as ActionEvent that you must change to the
+	 * proper event type that in this case is DragEvent
+	 * 
+	 * @param event
+	 * @throws SQLException 
+	 */
+	@FXML
+	private void dragDropped(DragEvent event) throws SQLException {
+		log.debug("onDragDropped");
+		Dragboard dragBoard = event.getDragboard();
+		boolean success = false;
+		if (dragBoard.hasString()) {
+	    	String folderName = mailFXTreeView.getSelectionModel().selectedItemProperty().get().getValue();
+			int emailId = Integer.parseInt(dragBoard.getString());
+			
+			log.debug("Moving email with id of " + emailId + " into folder " + folderName);
+			mailDAO.updateFolderInBean(emailId, folderName);
+	    	success = true;
+		}
+		/*
+		 * let the source know whether the string was successfully transferred
+		 * and used
+		 */
+		event.setDropCompleted(success);
+
+		event.consume();
 	}
 }

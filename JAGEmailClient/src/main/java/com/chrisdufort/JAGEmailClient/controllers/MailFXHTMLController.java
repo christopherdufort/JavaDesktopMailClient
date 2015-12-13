@@ -89,8 +89,7 @@ public class MailFXHTMLController {
 
 	public void displayMailAsHTML(MailBean mailBean) {
 		
-		
-		//TODOput the normal text in html if it does not exist in html?
+		//TODO put the normal text in html if it does not exist in html?
 		StringBuilder toField = new StringBuilder(), ccField = new StringBuilder(), bccField = new StringBuilder();
 		String subject, htmlText;
 
@@ -110,8 +109,9 @@ public class MailFXHTMLController {
 			bccField.append("; ");
 		}
 
+		toField.append(mailBean.getToField().get(0));
 		
-	    toTextField.setText(toField.toString());
+		toTextField.setText(toField.toString());
 	    ccTextField.setText(ccField.toString());
 	    bccTextField.setText(bccField.toString());
 	    

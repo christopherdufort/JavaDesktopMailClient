@@ -24,7 +24,7 @@ import com.chrisdufort.properties.manager.PropertiesManager;
  * TODO This class is currently missing validation for its fields.
  *
  * @author Christopher Dufort
- * @version 0.3.95-SNAPSHOT , last modified 11/15/2015
+ * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
  * @since 0.3.1
  */
 public class FXMLController {
@@ -90,7 +90,6 @@ public class FXMLController {
     @FXML
     private void initialize() {
         log.info("controlller initialize called");
-          
         Bindings.bindBidirectional(usernameTextField.textProperty() , mailConfigData.usernameProperty());
         Bindings.bindBidirectional(emailAddressTextField.textProperty(), mailConfigData.emailAddressProperty());
         Bindings.bindBidirectional(nameTextField.textProperty(), mailConfigData.nameProperty());
@@ -159,5 +158,12 @@ public class FXMLController {
 	 */
 	public boolean isSubmitClicked() {
 		return submitClicked;
+	}
+
+	public void setConfigBean(MailConfigBean mailConfig) {
+		log.debug("set config bean called");
+		mailConfigData = mailConfig;
+		initialize();
+		
 	}
 }
