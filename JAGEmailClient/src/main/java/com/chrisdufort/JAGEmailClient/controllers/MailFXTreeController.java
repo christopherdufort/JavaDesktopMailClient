@@ -6,10 +6,8 @@ import java.util.ResourceBundle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAO;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.control.TreeItem;
@@ -18,12 +16,13 @@ import javafx.scene.control.TreeCell;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.DragEvent;
 import javafx.scene.input.Dragboard;
+import javafx.scene.input.TransferMode;
 import javafx.scene.layout.AnchorPane;
 
 /**
  * 
  * @author Christopher Dufort
- * @version 0.3.6-SNAPSHOT phase 3 , last modified 10/29/2015
+ * @version 0.4.5-SNAPSHOT - phase 4, last modified 12/13/2015
  * @since 0.3.4
  */
 public class MailFXTreeController {
@@ -42,9 +41,6 @@ public class MailFXTreeController {
 	@FXML
 	private ResourceBundle resources;
 
-	private Object mailFXTreeController;
-
-	
 
 	/**
 	 * Initializes the controller class. This method is automatically called
@@ -168,7 +164,7 @@ public class MailFXTreeController {
 	 */
 	@FXML
 	private void dragDropped(DragEvent event) throws SQLException {
-		log.debug("onDragDropped");
+		log.debug("onDragDropped detected");
 		Dragboard dragBoard = event.getDragboard();
 		boolean success = false;
 		if (dragBoard.hasString()) {
@@ -184,6 +180,33 @@ public class MailFXTreeController {
 		 * and used
 		 */
 		event.setDropCompleted(success);
+
+		event.consume();
+	}
+	/**
+	 * This method prevents dropping the value on anything buts the
+	 * FXHTMLEditor,
+	 * 
+	 * SceneBuilder writes the event as ActionEvent that you must change to the
+	 * proper event type that in this case is DragEvent
+	 * 
+	 * @param event
+	 */
+	@FXML
+	private void dragOver(DragEvent event) {
+		/* data is dragged over the target */
+		log.debug("onDragOver detected");
+
+		/*
+		 * Accept it only if it is not dragged from the same control and if it
+		 * has a string data
+		 */
+		if (event.getGestureSource() != mailFXTreeView && event.getDragboard().hasString()) {
+			/*
+			 * allow for any transfer mode
+			 */
+			event.acceptTransferModes(TransferMode.ANY);
+		}
 
 		event.consume();
 	}

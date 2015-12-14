@@ -1,13 +1,9 @@
 package com.chrisdufort.JAGEmailClient;
 
-import static java.nio.file.Paths.get;
-import static javafx.application.Application.launch;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
@@ -19,13 +15,13 @@ import com.chrisdufort.JAGEmailClient.controllers.FXMLController;
 import com.chrisdufort.JAGEmailClient.controllers.MailFXEditController;
 import com.chrisdufort.JAGEmailClient.controllers.RootLayoutController;
 import com.chrisdufort.mailbean.MailBean;
-import com.chrisdufort.persistence.MailDAOImpl;
+import com.chrisdufort.persistence.MailDAO;
 import com.chrisdufort.properties.mailbean.MailConfigBean;
 import com.chrisdufort.properties.manager.PropertiesManager;
+import com.chrisdufort.timer.RefreshTimer;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -35,7 +31,7 @@ import java.util.ResourceBundle;
  * This class will create the gui and initialize all of its sub parts.
  *
  * @author Christopher Dufort
- * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
+ * @version 0.4.5-SNAPSHOT - phase 4, last modified 12/13/2015
  * @since 0.3.0-SNAPSHOT
  */
 public class MainAppFX extends Application {
@@ -49,6 +45,7 @@ public class MainAppFX extends Application {
     private Locale currentLocale = Locale.getDefault();
     private MailConfigBean mailConfigBean;
     private PropertiesManager propManager;
+    private RootLayoutController rootController;
     
     /**
      * Constructor
@@ -111,6 +108,9 @@ public class MainAppFX extends Application {
      	}
         // Raise the curtain on the Stage
         primaryStage.show();
+        
+        //Auto refresh emails on a timer
+        RefreshTimer timer = new RefreshTimer(rootController);
     }
 
     public void initRootLayout() {	
@@ -139,7 +139,7 @@ public class MainAppFX extends Application {
 	         // Raise the curtain on the Stage
 	         
 			 // Retrieve the controller if you must send it messages
-			RootLayoutController rootController = loader.getController();
+			rootController = loader.getController();
 			rootController.setMainApp(this);
 	         
 	         primaryStage.show();
@@ -205,9 +205,10 @@ public class MainAppFX extends Application {
      * 
      * @param newMail
      * @param configBean 
+     * @param myDAO 
      * @return
      */
-	public boolean showMailEditDialog(MailBean newMail, MailConfigBean configBean) {
+	public boolean showMailEditDialog(MailBean newMail, MailConfigBean configBean, MailDAO myDAO) {
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
@@ -228,6 +229,7 @@ public class MainAppFX extends Application {
 			controller.setDialogStage(dialogStage);
 			controller.setMailBean(newMail);
 			controller.setConfigBean(configBean);
+			controller.setMailDAO(myDAO);
 
 			// Set the dialog icon.
 			dialogStage.getIcons().add(new Image(MainAppFX.class.getResourceAsStream("/images/edit.png")));

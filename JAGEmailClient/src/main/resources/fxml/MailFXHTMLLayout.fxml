@@ -14,12 +14,12 @@
    <top>
       <ToolBar prefHeight="40.0" prefWidth="822.0" styleClass="menu-bar" BorderPane.alignment="CENTER">
         <items>
-          <Button mnemonicParsing="false" onAction="#handleSave" stylesheets="@../styles/DarkTheme.css" text="%REPLY" />
-            <Button mnemonicParsing="false" text="%REPLYALL" />
-            <Button mnemonicParsing="false" text="%SAVEEMAIL" />
-            <Button mnemonicParsing="false" text="%FORWARD" />
-            <Button mnemonicParsing="false" text="%DELETE" />
-            <Button mnemonicParsing="false" text="%SAVEATTACHMENT" />
+          <Button fx:id="replyButton" mnemonicParsing="false" onAction="#handleReply" stylesheets="@../styles/DarkTheme.css" text="%REPLY" />
+            <Button fx:id="replyAllButton" mnemonicParsing="false" onAction="#handleReplyAll" text="%REPLYALL" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" text="%SAVEEMAIL" />
+            <Button fx:id="forwardButton" mnemonicParsing="false" onAction="#handleForward" text="%FORWARD" />
+            <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDelete" text="%DELETE" />
+            <Button fx:id="saveAttachmentButton" mnemonicParsing="false" onAction="#handleSaveAttachment" text="%SAVEATTACHMENT" />
         </items>
       </ToolBar>
    </top>

@@ -34,7 +34,7 @@ import com.chrisdufort.properties.mailbean.MailConfigBean;
  * This is the controller for handling the editing of an FX Mail Bean.
  * 
  * @author Christopher Dufort
- * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
+ * @version 0.4.5-SNAPSHOT - phase 4, last modified 12/13/2015
  * @since 0.3.95
  */
 public class MailFXEditController {
@@ -87,7 +87,8 @@ public class MailFXEditController {
 
 	private MailConfigBean configBean;
 
-	private MailDAO myDAO = new MailDAOImpl();
+
+	private MailDAO mailDAO;
 	
 	/**
 	 * Default constructor creates an instance of MailBean that will be bound to the form.
@@ -125,7 +126,7 @@ public class MailFXEditController {
     	sending = new BasicSendAndReceive();    	
     	sending.sendWithEmbeddedAndAttachment(mailToSend, configBean);
     	
-    	myDAO.createEmail(mailToSend);
+    	mailDAO.createEmail(mailToSend);
     	
     	//Store the email
     	
@@ -213,6 +214,9 @@ public class MailFXEditController {
 
 	public void setMailBean(MailBean newMail) {
 		this.meanBean = newMail;
+		toTextField.setText(newMail.getToField().get(0));
+		subjectTextField.setText(newMail.getSubjectField());
+		mailFXEditorView.setAccessibleText(newMail.getHtmlMessageField());
 		
 	}
 
@@ -223,6 +227,18 @@ public class MailFXEditController {
 	public void setConfigBean(MailConfigBean configBean) {
 		this.configBean = configBean;
 		
+	}
+	
+	/**
+	 * Sets a reference to the mailDAO object that retrieves data from the
+	 * database. Convert the first three fields from the first three records
+	 * into HTML.
+	 * 
+	 * @param mailDAO
+	 * @throws SQLException
+	 */
+	public void setMailDAO(MailDAO mailDAO) {
+		this.mailDAO = mailDAO;
 	}
 	
 

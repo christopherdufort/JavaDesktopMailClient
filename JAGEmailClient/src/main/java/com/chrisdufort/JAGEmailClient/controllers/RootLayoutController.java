@@ -25,14 +25,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.MenuItem;
-import javafx.scene.control.Spinner;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextInputDialog;
 import javafx.scene.layout.AnchorPane;
@@ -45,7 +42,7 @@ import javafx.scene.layout.BorderPane;
  * Internationalization in the form of multiple languages added.
  * 
  * @author Christopher Dufort
- * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
+ * @version 0.4.5-SNAPSHOT - phase 4, last modified 12/13/2015
  * @since 0.3.4
  *
  */
@@ -100,7 +97,6 @@ public class RootLayoutController {
 
 	private MainAppFX mainApp;
 	
-	private MailDAO myDAO = new MailDAOImpl();
 
 	private ObservableList<MailBean> searchBeans;
 	
@@ -125,6 +121,17 @@ public class RootLayoutController {
 		alert.setTitle("Java Application for Java Project");
 		alert.setHeaderText("About");
 		alert.setContentText("Created By Christopher Dufort");
+
+		alert.showAndWait();
+	}
+	
+	@FXML
+	private void handleHelp(ActionEvent event) {
+		
+		Alert alert = new Alert(AlertType.INFORMATION);
+		alert.setTitle("Java Application for Java Project");
+		alert.setHeaderText("Help");
+		alert.setContentText("JavaHelpAPi is deprecated feature under construction");
 
 		alert.showAndWait();
 	}
@@ -176,8 +183,16 @@ public class RootLayoutController {
      */
     @FXML
     private void handleNewEmail(ActionEvent event) {
-    	MailBean newMail = new MailBean();
-    	boolean sendClicked = mainApp.showMailEditDialog(newMail,configBean);
+    	createNewEmail(new MailBean());
+    }
+    
+    /**
+     * Opens a HTML editor in a dialog to create a new email.
+     * @param mailBean
+     */
+    public void createNewEmail(MailBean mailBean){
+    	
+    	boolean sendClicked = mainApp.showMailEditDialog(mailBean,configBean,mailDAO );
     	if (sendClicked) {
     		log.debug("A new email was created and sent");
     	}
@@ -194,7 +209,7 @@ public class RootLayoutController {
     	Optional<String> folderName = dialog.showAndWait();
     	if (folderName.isPresent()){
     		try {
-				myDAO.createFolder(folderName.get());
+    			mailDAO.createFolder(folderName.get());
 			} catch (SQLException e) {
 				//This exception should never occur.
 				log.error("No filename given");
@@ -219,7 +234,7 @@ public class RootLayoutController {
     	Optional<String> folderName = dialog.showAndWait();
     	if (folderName.isPresent()){
     		try {
-				myDAO.deleteFolder(folderName.get());
+    			mailDAO.deleteFolder(folderName.get());
 			} catch (SQLException e) {
 				//This exception should never occur.
 				log.error("No filename given");
@@ -242,19 +257,19 @@ public class RootLayoutController {
 
     	switch(category){
     		case "To":
-    			searchBeans = myDAO.findByTo(searchText);
+    			searchBeans = mailDAO.findByTo(searchText);
     			break;
     		case "From":
-    			searchBeans = myDAO.findByTo(searchText);
+    			searchBeans = mailDAO.findByTo(searchText);
     			break;
     		case "CC":
-    			searchBeans = myDAO.findByTo(searchText);
+    			searchBeans = mailDAO.findByTo(searchText);
     			break;
     		case "BCC":
-    			searchBeans = myDAO.findByTo(searchText);
+    			searchBeans = mailDAO.findByTo(searchText);
     			break;
     		case "Subject":
-    			searchBeans = myDAO.findByTo(searchText);
+    			searchBeans = mailDAO.findByTo(searchText);
     			break;
     		default:
     			//should not happen  			
@@ -265,17 +280,17 @@ public class RootLayoutController {
     
 
     @FXML
-    void handleRefresh(ActionEvent event) throws SQLException {
+   private  void handleRefresh(ActionEvent event) throws SQLException {
     	refreshEmails();
     }
     
-    private void refreshEmails()throws SQLException {
+    public void refreshEmails()throws SQLException {
 	    ArrayList<MailBean> beansToSync = sendAndReceive.receiveEmail(configBean);
 	    
 	    if (beansToSync != null){
 	    	for(MailBean mailbean : beansToSync){
 	    		mailbean.setFolder("inbox");
-	    		myDAO.createEmail(mailbean);
+	    		mailDAO.createEmail(mailbean);
 	    	}  	
 	    }
     }
@@ -401,6 +416,7 @@ public class RootLayoutController {
 			// Give the controller the data object.
 			mailFXHTMLController = loader.getController();
 			mailFXHTMLController.setMailDAO(mailDAO);
+			mailFXHTMLController.setParentController(this);
 
 			htmlSplit.getChildren().add(htmlView);
 		} catch (IOException e) {
@@ -410,7 +426,7 @@ public class RootLayoutController {
 	
 
     @FXML
-    void englishClicked(ActionEvent event) {
+    private void englishClicked(ActionEvent event) {
     	log.debug("english clicked, need to refresh gui");
 		currentLocale = new Locale("en","CA");
 		loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
@@ -420,7 +436,7 @@ public class RootLayoutController {
     }
 
     @FXML
-    void frenchClicked(ActionEvent event) {
+    private void frenchClicked(ActionEvent event) {
     	log.debug("french clicked, need to refresh gui");
     	currentLocale = new Locale("fr","CA");
 		loader.setResources(ResourceBundle.getBundle("MessagesBundle", currentLocale));
@@ -429,12 +445,12 @@ public class RootLayoutController {
     }
     
     @FXML
-    void handleSaveAttachment(ActionEvent event) {
+    private void handleSaveAttachment(ActionEvent event) {
     	log.debug("save attachment clicked - open a file explorer");
     }
 
     @FXML
-    void handleSaveEmail(ActionEvent event) {
+    private void handleSaveEmail(ActionEvent event) {
     	log.debug("save email clicked - open a file explorer");
     }
     

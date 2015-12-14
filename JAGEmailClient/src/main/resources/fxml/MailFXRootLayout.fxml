@@ -27,7 +27,7 @@
               <MenuItem mnemonicParsing="false" onAction="#handleConfig" text="%MODIFYCONFIG" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="%HELP">
+            <Menu fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" text="%HELP">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handHowToUse" text="%HOWTOUSE" />
                   <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%ABOUT" />
