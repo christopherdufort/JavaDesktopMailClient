@@ -64,6 +64,7 @@
               <items>
                 <Button fx:id="addFolderButton" mnemonicParsing="false" onAction="#handleAddFolder" text="%ADDFOLDER" />
                   <Button fx:id="deleteFolderButton" mnemonicParsing="false" onAction="#handleDeleteFolder" text="%DELETEFOLDER" />
+                  <Button fx:id="renameFolderButton" mnemonicParsing="false" onAction="#handleRenameFolder" text="%RENAMEFOLDER" />
                   <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" text="%REFRESH" />
                   <Separator orientation="VERTICAL" />
                   <TextField fx:id="searchTextField" prefWidth="206.0" promptText="Search Query" />

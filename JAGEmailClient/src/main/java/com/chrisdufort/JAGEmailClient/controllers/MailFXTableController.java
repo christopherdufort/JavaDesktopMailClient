@@ -28,7 +28,7 @@ import com.chrisdufort.persistence.MailDAO;
 /**
  * 
  * @author Christopher Dufort
- * @version 0.4.4-SNAPSHOT - phase 4, last modified 12/12/2015
+ * @version 0.4.6-SNAPSHOT - phase 4, last modified 12/15/2015
  * @since 0.3.4
  */
 public class MailFXTableController {
@@ -127,7 +127,6 @@ public class MailFXTableController {
 
 	}
 
-
 	
 	public void setHTMLController(MailFXHTMLController mailFXHTMLController) {
 		this.mailFXHTMLController = mailFXHTMLController;
@@ -141,6 +140,7 @@ public class MailFXTableController {
 	 */
 	private void showMailDetails(MailBean mailBean) {
 		
+		System.out.println(mailBean.getToField().size());
 		mailFXHTMLController.displayMailAsHTML(mailBean);
 
 	}

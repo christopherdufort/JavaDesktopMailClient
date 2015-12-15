@@ -27,7 +27,7 @@ import com.chrisdufort.persistence.MailDAO;
 /**
  * 
  * @author Christopher
- * @version 0.4.5-SNAPSHOT - phase 4, last modified 12/13/2015
+ * @version 0.4.6-SNAPSHOT - phase 4, last modified 12/15/2015
  * @since 0.3.4
  */
 public class MailFXHTMLController {
@@ -123,7 +123,7 @@ public class MailFXHTMLController {
 	    	replyBean.getToField().add(visibleMailBean.getFromField());
 	    	replyBean.setSubjectField("re: " + subjectTextField.getText());
 	    	replyBean.setHtmlMessageField(mailFXWebView.getAccessibleText());
-	    	rootLayoutController.createNewEmail(replyBean);
+	    	rootLayoutController.createNewEmail(replyBean, false);
     	}
 
     }
@@ -162,28 +162,32 @@ public class MailFXHTMLController {
 		
 		//TODO put the normal text in html if it does not exist in html?
 		if (mailBean != null){
-			StringBuilder toField = new StringBuilder(), ccField = new StringBuilder(), bccField = new StringBuilder();
+			//String builder causes issues
+			String toField = "", ccField = "" , bccField = "";
 			String subject, htmlText;
 
 			for(String to : mailBean.getToField())
 			{
-				toField.append(to);
-				toField.append("; ");
+				
+				toField += to;
+				toField+= "; ";
 			}
 			for(String cc : mailBean.getCcField())
 			{
-				ccField.append(cc);
-				ccField.append("; ");
+				ccField += cc;
+				ccField +="; ";
 			}
 			for(String bcc : mailBean.getBccField())
 			{
-				bccField.append(bcc);
-				bccField.append("; ");
+				bccField += bcc;
+				bccField += "; ";
 			}
 			
 			toTextField.setText(toField.toString());
 		    ccTextField.setText(ccField.toString());
 		    bccTextField.setText(bccField.toString());
+		    
+		    log.debug("field: " + toTextField.getText());
 		    
 		    subject = mailBean.getSubjectField();
 		    subjectTextField.setText(subject);

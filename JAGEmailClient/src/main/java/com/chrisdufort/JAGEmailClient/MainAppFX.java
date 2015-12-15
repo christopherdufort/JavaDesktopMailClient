@@ -18,7 +18,6 @@ import com.chrisdufort.mailbean.MailBean;
 import com.chrisdufort.persistence.MailDAO;
 import com.chrisdufort.properties.mailbean.MailConfigBean;
 import com.chrisdufort.properties.manager.PropertiesManager;
-import com.chrisdufort.timer.RefreshTimer;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +30,7 @@ import java.util.ResourceBundle;
  * This class will create the gui and initialize all of its sub parts.
  *
  * @author Christopher Dufort
- * @version 0.4.5-SNAPSHOT - phase 4, last modified 12/13/2015
+ * @version 0.4.6-SNAPSHOT - phase 4, last modified 12/15/2015
  * @since 0.3.0-SNAPSHOT
  */
 public class MainAppFX extends Application {
@@ -109,8 +108,6 @@ public class MainAppFX extends Application {
         // Raise the curtain on the Stage
         primaryStage.show();
         
-        //Auto refresh emails on a timer
-        RefreshTimer timer = new RefreshTimer(rootController);
     }
 
     public void initRootLayout() {	
@@ -208,7 +205,7 @@ public class MainAppFX extends Application {
      * @param myDAO 
      * @return
      */
-	public boolean showMailEditDialog(MailBean newMail, MailConfigBean configBean, MailDAO myDAO) {
+	public boolean showMailEditDialog(MailBean newMail, MailConfigBean configBean, MailDAO myDAO, boolean brandNew) {
 		try {
 			// Load the fxml file and create a new stage for the popup dialog.
 			FXMLLoader loader = new FXMLLoader();
@@ -227,7 +224,10 @@ public class MainAppFX extends Application {
 			// Set the Bean into the controller.
 			MailFXEditController controller = loader.getController();
 			controller.setDialogStage(dialogStage);
-			controller.setMailBean(newMail);
+			if (brandNew)
+				controller.setNewMailBean(newMail);
+			else
+				controller.setMailBean(newMail);
 			controller.setConfigBean(configBean);
 			controller.setMailDAO(myDAO);
 

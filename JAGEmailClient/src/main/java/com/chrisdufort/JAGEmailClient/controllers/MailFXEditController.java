@@ -14,9 +14,13 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.web.HTMLEditor;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
+import jodd.mail.EmailAttachment;
+import jodd.mail.EmailAttachmentBuilder;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -34,7 +38,7 @@ import com.chrisdufort.properties.mailbean.MailConfigBean;
  * This is the controller for handling the editing of an FX Mail Bean.
  * 
  * @author Christopher Dufort
- * @version 0.4.5-SNAPSHOT - phase 4, last modified 12/13/2015
+ * @version 0.4.6-SNAPSHOT - phase 4, last modified 12/15/2015
  * @since 0.3.95
  */
 public class MailFXEditController {
@@ -86,6 +90,7 @@ public class MailFXEditController {
 	private MailBean meanBean;
 
 	private MailConfigBean configBean;
+
 
 
 	private MailDAO mailDAO;
@@ -182,6 +187,19 @@ public class MailFXEditController {
     @FXML
     void handleAttach(ActionEvent event) {
     	log.debug("Adding attachment to email");
+    	
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Open File");
+        File file = chooser.showOpenDialog(attachFileButton.getScene().getWindow());
+        
+        if (file != null) {
+        	
+    		EmailAttachmentBuilder fBuilder = EmailAttachment.attachment().file(file);
+    		EmailAttachment fileAttachment = fBuilder.create();
+    		  		
+            mailToSend.getFileAttachments().add(fileAttachment);
+            
+        }
     }
     
     /**
@@ -205,6 +223,18 @@ public class MailFXEditController {
     @FXML
     void handleEmbed(ActionEvent event) {
     	log.debug("embedding attachment inside email");
+        FileChooser chooser = new FileChooser();
+        chooser.setTitle("Open File");
+        File file = chooser.showOpenDialog(attachFileButton.getScene().getWindow());
+        
+        if (file != null) {
+        	
+    		EmailAttachmentBuilder fBuilder = EmailAttachment.attachment().file(file);
+    		EmailAttachment fileAttachment = fBuilder.create();
+    		  		
+            mailToSend.getEmbedAttachments().add(fileAttachment);
+            
+        }
     }
     
 	public void setDialogStage(Stage dialogStage) {
@@ -214,10 +244,19 @@ public class MailFXEditController {
 
 	public void setMailBean(MailBean newMail) {
 		this.meanBean = newMail;
-		toTextField.setText(newMail.getToField().get(0));
-		subjectTextField.setText(newMail.getSubjectField());
-		mailFXEditorView.setAccessibleText(newMail.getHtmlMessageField());
 		
+		//if this email has content (reply or forward fill it in)
+		if (newMail.getToField() != null)
+			toTextField.setText(newMail.getToField().get(0));
+		if (newMail.getSubjectField() != null)
+			subjectTextField.setText(newMail.getSubjectField());
+		if (newMail.getHtmlMessageField() != null)
+			mailFXEditorView.setAccessibleText(newMail.getHtmlMessageField());
+		
+	}
+	public void setNewMailBean(MailBean newMail){
+		//This should be a brand new empty bean
+		this.meanBean = newMail;
 	}
 
 	public boolean isSendClicked() {

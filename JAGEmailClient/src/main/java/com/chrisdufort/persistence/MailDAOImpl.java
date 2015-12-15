@@ -26,7 +26,7 @@ import jodd.mail.EmailAttachmentBuilder;
 
 /**
  * @author Christopher Dufort
- * @version 0.4.5-SNAPSHOT - phase 4, last modified 12/13/2015
+ * @version 0.4.6-SNAPSHOT - phase 4, last modified 12/15/2015
  * @since 0.2.0-SNAPSHOT
  * 
  *        This is the Implementation class of Data Access Object for Mail Beans.
@@ -168,13 +168,14 @@ public class MailDAOImpl implements MailDAO {
 	/**
 	 * This private method returns folder id when given a string folder name.
 	 * 
+	 * @since version 0.4.6 this is now a public method as its used outside this class.
 	 * @param folderName
 	 *            the folder name to search for an return the id of associated
 	 *            data.
 	 * @return id of folder
 	 * @throws SQLException
 	 */
-	private int retrieveFolderID(String folderName) throws SQLException {
+	public int retrieveFolderID(String folderName) throws SQLException {
 		int idOfFolder = -1;
 		String selectFolderIdQuery = "SELECT folder_id " + "FROM folder " + "WHERE folder_name = ? ";
 		try (Connection connection = DriverManager.getConnection(url, user, password);
