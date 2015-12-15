@@ -57,6 +57,7 @@ public class MailActionTest {
 	private MailConfigBean blindConfigBean;
 	private BasicSendAndReceive basicSendAndReceive;
 
+	//TODO Take these properties from the config file?
 	@Before
 	public void createEmailConfigBean(){
 		// The following fields are shared between all of the test cases.

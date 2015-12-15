@@ -5,35 +5,14 @@
 <?import javafx.scene.layout.*?>
 
 <BorderPane fx:id="rootBorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="900.0" styleClass="background" stylesheets="@../styles/DarkTheme.css" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.RootLayoutController">
-   <center>
-      <AnchorPane fx:id="rootAnchorPane" stylesheets="@../styles/DarkTheme.css" BorderPane.alignment="CENTER">
-         <children>
-            <SplitPane dividerPositions="0.29797979797979796" prefHeight="775.0" prefWidth="900.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-              <items>
-                <AnchorPane fx:id="treeSplit" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../styles/DarkTheme.css" />
-                <AnchorPane stylesheets="@../styles/DarkTheme.css">
-                     <children>
-                        <SplitPane dividerPositions="0.5" layoutY="-8.0" orientation="VERTICAL" prefHeight="773.0" prefWidth="627.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-8.0">
-                          <items>
-                            <AnchorPane fx:id="tableSplit" />
-                            <AnchorPane fx:id="htmlSplit" />
-                          </items>
-                        </SplitPane>
-                     </children>
-                  </AnchorPane>
-              </items>
-            </SplitPane>
-         </children>
-      </AnchorPane>
-   </center>
    <top>
       <MenuBar stylesheets="@../styles/DarkTheme.css" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="%FILE">
             <items>
                   <MenuItem mnemonicParsing="false" onAction="#handleNewEmail" text="%NEWEMAIL" />
-                  <MenuItem mnemonicParsing="false" text="%SAVEEMAIL" />
-                  <MenuItem mnemonicParsing="false" text="%SAVEATTACHMENT" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveEmail" text="%SAVEEMAIL" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleSaveAttachment" text="%SAVEATTACHMENT" />
                   <MenuItem mnemonicParsing="false" onAction="#handleExit" text="%CLOSE" />
             </items>
           </Menu>
@@ -48,7 +27,7 @@
               <MenuItem mnemonicParsing="false" onAction="#handleConfig" text="%MODIFYCONFIG" />
             </items>
           </Menu>
-            <Menu mnemonicParsing="false" text="%HELP">
+            <Menu fx:id="helpButton" mnemonicParsing="false" onAction="#handleHelp" text="%HELP">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#handHowToUse" text="%HOWTOUSE" />
                   <MenuItem mnemonicParsing="false" onAction="#handleAbout" text="%ABOUT" />
@@ -57,4 +36,43 @@
         </menus>
       </MenuBar>
    </top>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+         <center>
+            <AnchorPane fx:id="rootAnchorPane" stylesheets="@../styles/DarkTheme.css" BorderPane.alignment="CENTER">
+               <children>
+                  <SplitPane dividerPositions="0.16777777777777778" prefHeight="775.0" prefWidth="1100.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                      <AnchorPane fx:id="treeSplit" minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../styles/DarkTheme.css" />
+                      <AnchorPane stylesheets="@../styles/DarkTheme.css">
+                           <children>
+                              <SplitPane dividerPositions="0.35" layoutY="-8.0" orientation="VERTICAL" prefHeight="773.0" prefWidth="1000.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="-8.0">
+                                <items>
+                                  <AnchorPane fx:id="tableSplit" />
+                                  <AnchorPane fx:id="htmlSplit" />
+                                </items>
+                              </SplitPane>
+                           </children>
+                        </AnchorPane>
+                    </items>
+                  </SplitPane>
+               </children>
+            </AnchorPane>
+         </center>
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                <Button fx:id="addFolderButton" mnemonicParsing="false" onAction="#handleAddFolder" text="%ADDFOLDER" />
+                  <Button fx:id="deleteFolderButton" mnemonicParsing="false" onAction="#handleDeleteFolder" text="%DELETEFOLDER" />
+                  <Button fx:id="renameFolderButton" mnemonicParsing="false" onAction="#handleRenameFolder" text="%RENAMEFOLDER" />
+                  <Button fx:id="refreshButton" mnemonicParsing="false" onAction="#handleRefresh" text="%REFRESH" />
+                  <Separator orientation="VERTICAL" />
+                  <TextField fx:id="searchTextField" prefWidth="206.0" promptText="Search Query" />
+                  <ComboBox fx:id="searchComboBox" prefHeight="37.0" prefWidth="150.0" />
+                  <Button fx:id="searchButton" mnemonicParsing="false" onAction="#handleSearch" text="%SEARCH" />
+              </items>
+            </ToolBar>
+         </top>
+      </BorderPane>
+   </center>
 </BorderPane>

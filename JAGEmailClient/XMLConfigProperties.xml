@@ -8,7 +8,7 @@
 <entry key="emailAddress">jafg.send@gmail.com</entry>
 <entry key="username">jafg.send@gmail.com</entry>
 <entry key="mysqlUsername">christopher</entry>
-<entry key="mysqlUrl">jdbc:mysql://localhost:3306</entry>
+<entry key="mysqlUrl">jdbc:mysql://localhost:3306/</entry>
 <entry key="mysqlPort">3306</entry>
 <entry key="smtpPort">465</entry>
 <entry key="smtpUrl">smtp.gmail.com</entry>
@@ -16,3 +16,4 @@
 <entry key="imapPort">993</entry>
 <entry key="password">jafgsend514</entry>
 </properties>
+>

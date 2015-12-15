@@ -19,7 +19,7 @@
                 <Button fx:id="sendButton" mnemonicParsing="false" onAction="#handleSend" text="%SEND" />
                   <Button fx:id="attachFileButton" mnemonicParsing="false" onAction="#handleAttach" text="%ATTACHFILE" />
                   <Button fx:id="embedFileButton" mnemonicParsing="false" onAction="#handleEmbed" text="%EMBEDFILE" />
-                  <Button fx:id="deleteButton" mnemonicParsing="false" onAction="#handleDelete" text="%DELETE" />
+                  <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#handleClose" text="%CANCEL" />
               </items>
             </ToolBar>
          </top>
@@ -60,13 +60,13 @@
       </BorderPane>
    </center>
    <top>
-      <MenuBar BorderPane.alignment="CENTER">
+      <MenuBar fx:id="fxEditMenuBar" BorderPane.alignment="CENTER">
         <menus>
           <Menu mnemonicParsing="false" text="%FILE">
             <items>
                   <MenuItem mnemonicParsing="false" text="%SAVEEMAIL" />
                   <MenuItem mnemonicParsing="false" text="%OPENEMAIL" />
-              <MenuItem mnemonicParsing="false" text="%CLOSE" />
+              <MenuItem fx:id="closeMenuItem" mnemonicParsing="false" onAction="#handleClose" text="%CLOSE" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="%HELP">

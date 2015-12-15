@@ -1,5 +1,6 @@
 package com.chrisdufort.persistence;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -14,15 +15,18 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.chrisdufort.mailbean.MailBean;
+import com.chrisdufort.properties.mailbean.MailConfigBean;
+import com.chrisdufort.properties.manager.PropertiesManager;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import jodd.mail.EmailAttachment;
 import jodd.mail.EmailAttachmentBuilder;
 
+
 /**
  * @author Christopher Dufort
- * @version 0.2.9-SNAPSHOT , Phase 2 - last modified 10/09/15
+ * @version 0.4.6-SNAPSHOT - phase 4, last modified 12/15/2015
  * @since 0.2.0-SNAPSHOT
  * 
  *        This is the Implementation class of Data Access Object for Mail Beans.
@@ -32,18 +36,33 @@ import jodd.mail.EmailAttachmentBuilder;
  *        update the database of mail beans.
  */
 public class MailDAOImpl implements MailDAO {
-	// TODO Implement use of peroperties instead of hardcoded.
+
+	private MailConfigBean configBean;
 	// Database and user credentials used for Database acces.
+	
 	private final Logger log = LoggerFactory.getLogger(this.getClass().getName());
-	private final String url = "jdbc:mysql://localhost:3306/maildb";
-	private final String user = "christopher";
-	private final String password = "password";
+	private final String url;// = "jdbc:mysql://localhost:3306/maildb";
+	private final String user;
+	private final String password;
+	private PropertiesManager loadConfig;
 
 	/**
 	 * Constructor, always call to super.
+	 * @throws IOException 
 	 */
 	public MailDAOImpl() {
 		super();
+		loadConfig= new PropertiesManager();
+		try {
+			configBean = loadConfig.loadTextProperties("./", "TextConfigProperties");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		user = configBean.getMysqlUsername();
+		password = configBean.getMysqlPassword();
+		url = configBean.getMysqlUrl() + ":"+ configBean.getMysqlPort() +"/"+configBean.getMysqlDatabase();	
+		log.debug("ulr used for db = " +  url);
 	}
 
 	/**
@@ -149,13 +168,14 @@ public class MailDAOImpl implements MailDAO {
 	/**
 	 * This private method returns folder id when given a string folder name.
 	 * 
+	 * @since version 0.4.6 this is now a public method as its used outside this class.
 	 * @param folderName
 	 *            the folder name to search for an return the id of associated
 	 *            data.
 	 * @return id of folder
 	 * @throws SQLException
 	 */
-	private int retrieveFolderID(String folderName) throws SQLException {
+	public int retrieveFolderID(String folderName) throws SQLException {
 		int idOfFolder = -1;
 		String selectFolderIdQuery = "SELECT folder_id " + "FROM folder " + "WHERE folder_name = ? ";
 		try (Connection connection = DriverManager.getConnection(url, user, password);

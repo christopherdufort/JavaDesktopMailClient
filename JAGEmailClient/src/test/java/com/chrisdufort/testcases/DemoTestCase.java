@@ -15,11 +15,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Properties;
 import java.util.Scanner;
 
 import org.junit.Before;
@@ -102,7 +100,7 @@ public class DemoTestCase {
 		myBean.setTextMessageField("This is text");
 		myBean.setHtmlMessageField("<html><META http-equiv=Content-Type content=\"text/html; charset=utf-8\">"
 				+ "<body><h1>This is the HTML of testFullCreateEmail</h1><h2>Here is an image of a code dragon which is embedded in this email.</h2>"
-				+ "<img src='cid:code_dragon_error.jpg'><h2>Rawr! My program has an Error!!</h2></body></html>");
+				+ "<img src='code_dragon_error.jpg'><h2>Rawr! My program has an Error!!</h2></body></html>");
 
 		EmailAttachmentBuilder fBuilder = EmailAttachment.attachment().file("headshot.jpg");
 		EmailAttachment fileAttachment = fBuilder.create();

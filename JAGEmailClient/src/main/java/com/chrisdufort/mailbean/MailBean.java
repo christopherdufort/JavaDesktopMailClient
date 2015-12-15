@@ -40,7 +40,7 @@ import jodd.mail.EmailAttachment;
  * Using JavaFX (Property Beans) as of version 0.3.4 onward.
  * 
  * @author Christopher Dufort
- * @version 0.3.6-SNAPSHOT , Phase 3 - last modified 10/29/15
+ * @version 0.4.6-SNAPSHOT - phase 4, last modified 12/15/2015
  * @since 0.0.1-SNAPSHOT , Phase 1
  */
 public class MailBean {
@@ -483,8 +483,8 @@ public class MailBean {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-		log.debug("EQUALS METHOD COMPARISON IN PROGRESS");
-		log.trace("----------------------------------------------------------------------------------------------");
+		//log.debug("EQUALS METHOD COMPARISON IN PROGRESS");
+		//log.trace("----------------------------------------------------------------------------------------------");
 		if (this == obj) 
 		{
 			log.debug("Inequality caused by: this == obj");
@@ -649,8 +649,8 @@ public class MailBean {
 
 			}	
 		}
-		log.trace("----------------------------------------------------------------------------------------------");
-		log.debug("EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES");
+		//log.trace("----------------------------------------------------------------------------------------------");
+		//log.debug("EQUALS METHOD COMPLETED WITH NO INCONSISTENCIES");
 		// All Fields Match
 		return true;
 	}

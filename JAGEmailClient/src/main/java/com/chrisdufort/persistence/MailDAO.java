@@ -1,20 +1,12 @@
 package com.chrisdufort.persistence;
 
 import java.sql.ResultSet;
-/**
- * @author Christopher Dufort
- * @version 0.2.1-SNAPSHOT , Phase 2 - last modified 09/30/15
- * @since 0.2.0-SNAPSHOT
- */
+
 import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
-/**
- * Interface for CRUD methods used in populating/retrieving a database of MailBeans.
- * 
- * @author 1040570
- */
+
 import com.chrisdufort.mailbean.MailBean;
 
 import javafx.collections.ObservableList;
@@ -22,7 +14,7 @@ import jodd.mail.EmailAttachment;
 
 /**
  * @author Christopher Dufort
- * @version 0.3.6-SNAPSHOT , Phase 6 - last modified 10/29/15
+ * @version 0.4.6-SNAPSHOT , Phase 4 - last modified 12/15/15
  * @since 0.2.1-SNAPSHOT
  * 
  *        This is the Mail Data Access Object Interface, its an interface
@@ -82,5 +74,8 @@ public interface MailDAO {
 
 	public int deleteFolder(String folderName) throws SQLException; // TODO ALSO
 																	// by ID?
+
+	//Formerly private
+	public int retrieveFolderID(String folderName) throws SQLException;
 
 }

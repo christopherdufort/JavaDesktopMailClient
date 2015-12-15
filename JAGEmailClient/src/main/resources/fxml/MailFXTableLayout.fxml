@@ -4,15 +4,16 @@
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="mailFXTable" prefHeight="400.0" prefWidth="800.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.MailFXTableController">
+<AnchorPane fx:id="mailFXTable" prefHeight="400.0" prefWidth="1000.0" stylesheets="@../styles/DarkTheme.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" xmlns="http://javafx.com/javafx/8.0.40" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.chrisdufort.JAGEmailClient.controllers.MailFXTableController">
     <children>
-        <TableView fx:id="mailDataTable" layoutX="436.0" layoutY="212.0" prefHeight="400.0" prefWidth="800.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <TableView fx:id="mailDataTable" layoutX="436.0" layoutY="212.0" onDragDetected="#dragDetected" prefHeight="400.0" prefWidth="1000.0" tableMenuButtonVisible="true" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
             <columns>
-                <TableColumn fx:id="targetColumn" editable="false" prefWidth="159.0" text="%TARGET" />
-                <TableColumn fx:id="subjectColumn" editable="false" minWidth="0.0" prefWidth="216.0" text="%SUBJECT" />
-                <TableColumn fx:id="messageColumn" editable="false" minWidth="0.0" prefWidth="207.0" text="%MESSAGE" />
-                <TableColumn fx:id="attachColumn" editable="false" minWidth="0.0" prefWidth="106.0" text="%ATTACHMENT" />
-                <TableColumn fx:id="dateColumn" editable="false" minWidth="0.0" prefWidth="99.0" text="%DATE" />
+                <TableColumn fx:id="toColumn" editable="false" prefWidth="124.0" text="%TO" />
+                <TableColumn fx:id="fromColumn" editable="false" minWidth="0.0" prefWidth="141.0" text="%FROM" />
+                <TableColumn fx:id="subjectColumn" editable="false" minWidth="0.0" prefWidth="151.0" text="%SUBJECT" />
+                <TableColumn fx:id="messageColumn" editable="false" minWidth="0.0" prefWidth="209.0" text="%MESSAGE" />
+                <TableColumn fx:id="dateSentColumn" editable="false" minWidth="0.0" prefWidth="162.0" text="%DATESENT" />
+            <TableColumn fx:id="dateReceiveColumn" editable="false" minWidth="0.0" prefWidth="192.0" text="%DATERECEIVED" />
             </columns>
         </TableView>
     </children>
